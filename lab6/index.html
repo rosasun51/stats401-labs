@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 6 — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="lab-container">
+    <a href="../index.html" class="back-link">&larr; Back to Home</a>
+
+    <div class="lab-header">
+      <h1>Lab 6: Coming Soon</h1>
+      <p class="subtitle">This lab will be added later in the semester</p>
+    </div>
+
+    <nav class="lab-nav">
+      <a href="../lab1/index.html">Lab 1</a>
+      <a href="index.html" class="active">Lab 6</a>
+      <a href="../lab7/index.html">Lab 7</a>
+      <a href="../lab8/index.html">Lab 8</a>
+      <a href="../lab9/index.html">Lab 9</a>
+      <a href="../lab10/index.html">Lab 10</a>
+      <a href="../lab1/index.html">Lab 1</a>
+      <a href="../lab2/index.html">Lab 2</a>
+      <a href="../lab3/index.html">Lab 3</a>
+      <a href="../lab4/index.html">Lab 4</a>
+    </nav>
+
+    <div class="chart-card glass placeholder">
+      <div class="placeholder-icon">📊</div>
+      <h2 style="margin-bottom:12px;">Lab 6 is under construction</h2>
+      <p style="max-width:400px;margin:0 auto 24px;">
+        This page is a placeholder. The visualization and content for Lab 6 
+        will be added as the course progresses.
+      </p>
+      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
+      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>Ruisheng (Rosa) Sun</strong> &bull; rs689@duke.edu</p>
+    <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+    class Particle {
+      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
+      update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
+      draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
+    }
+    for(let i=0;i<60;i++) particles.push(new Particle());
+    function animateParticles() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach(p=>{p.update();p.draw();});
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<150){ ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(56,189,248,${0.1*(1-dist/150)})`; ctx.lineWidth=0.5; ctx.stroke(); }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+</html>

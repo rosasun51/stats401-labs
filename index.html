@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STATS 401 Labs — Ruisheng Sun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="container">
+    <header>
+      <h1>STATS 401: Data Acquisition and Visualization</h1>
+      <p class="subtitle">Lab portfolio of Ruisheng (Rosa) Sun</p>
+    </header>
+
+    <nav class="lab-nav">
+      <a href="lab1/index.html">Lab 1</a>
+      <a href="lab2/index.html">Lab 2</a>
+      <a href="lab3/index.html">Lab 3</a>
+      <a href="lab4/index.html">Lab 4</a>
+      <a href="lab5/index.html">Lab 5</a>
+      <a href="lab6/index.html">Lab 6</a>
+      <a href="lab7/index.html">Lab 7</a>
+      <a href="lab8/index.html">Lab 8</a>
+      <a href="lab9/index.html">Lab 9</a>
+      <a href="lab10/index.html">Lab 10</a>
+    </nav>
+
+    <main>
+      <section class="glass">
+        <h2><span class="icon">👋</span> Welcome!! </h2>
+        <p>
+          This website contains all 10 labs for <strong>STATS 401</strong>.
+        </p>
+        <p>
+          Process：<strong>Lab 1</strong> is complete with a D3.js bar chart. 
+          Upcoming: <strong></strong>Labs 2–10</strong> will be added throughout the session.
+        </p>
+      </section>
+
+      <section class="glass">
+        <h2><span class="icon">📊</span> Lab 1: Getting Started with D3.js</h2>
+        <p>
+          Introduction to HTML, CSS, JavaScript, D3.js, SVG, and loading 
+          external data. Features an animated, interactive bar chart of student scores.
+        </p>
+        <a href="lab1/index.html" class="btn">View Lab 1 &rarr;</a>
+      </section>
+
+      <section class="glass comments-section">
+        <h2><span class="icon">💬</span> Visitor Comments</h2>
+        <p style="font-size:0.85rem;color:var(--text-dim);">
+          Leave a note! Comments are stored locally in your browser.
+        </p>
+        <div class="comment-form">
+          <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+          <textarea id="comment-body" placeholder="Write something..." maxlength="500"></textarea>
+          <button class="btn" onclick="addComment()">Post Comment</button>
+        </div>
+        <div class="comment-list" id="comment-list">
+          <div class="comment-empty">No comments yet. Be the first!</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Ruisheng (Rosa) Sun</strong> &bull; rs689@duke.edu</p>
+      <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ===== Particle Background ===== */
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const PARTICLE_COUNT = 60;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.radius = Math.random() * 2 + 1;
+        this.alpha = Math.random() * 0.5 + 0.2;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(56,189,248,${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(56,189,248,${0.1 * (1 - dist/150)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    /* ===== Comments ===== */
+    const COMMENT_KEY = 'stats401-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet. Be the first!</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
+  </script>
+</body>
+</html>

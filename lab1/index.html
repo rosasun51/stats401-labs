@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 1 — Student Scores Bar Chart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="lab-container">
+    <a href="../index.html" class="back-link">&larr; Back to Home</a>
+
+    <div class="lab-header">
+      <h1>Lab 1: Getting Started with D3.js</h1>
+      <p class="subtitle">Student Score Bar Chart Visualization</p>
+    </div>
+
+    <nav class="lab-nav">
+      <a href="index.html" class="active">Lab 1</a>
+      <a href="../lab2/index.html">Lab 2</a>
+      <a href="../lab3/index.html">Lab 3</a>
+      <a href="../lab4/index.html">Lab 4</a>
+      <a href="../lab5/index.html">Lab 5</a>
+      <a href="../lab6/index.html">Lab 6</a>
+      <a href="../lab7/index.html">Lab 7</a>
+      <a href="../lab8/index.html">Lab 8</a>
+      <a href="../lab9/index.html">Lab 9</a>
+      <a href="../lab10/index.html">Lab 10</a>
+    </nav>
+
+    <div class="chart-card glass">
+      <h2 class="chart-title">Student Scores</h2>
+      <div id="chart"></div>
+      <div id="tooltip" class="tooltip"></div>
+    </div>
+
+    <section class="glass comments-section" style="margin-top:28px;">
+      <h2><span class="icon">💬</span> Comments</h2>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </div>
+      <div class="comment-list" id="comment-list">
+        <div class="comment-empty">No comments yet.</div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p><strong>Ruisheng (Rosa) Sun</strong> &bull; rs689@duke.edu</p>
+    <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
+  </footer>
+
+  <!-- D3.js v7 from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+  <script>
+    /* ===== Particle Background ===== */
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+    class Particle {
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
+      update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
+      draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
+    }
+    for(let i=0;i<60;i++) particles.push(new Particle());
+    function animateParticles() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach(p=>{p.update();p.draw();});
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<150){ ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(56,189,248,${0.1*(1-dist/150)})`; ctx.lineWidth=0.5; ctx.stroke(); }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    /* ===== D3 Bar Chart ===== */
+    const margin = { top: 20, right: 20, bottom: 70, left: 50 };
+    const width = 720 - margin.left - margin.right;
+    const height = 420 - margin.top - margin.bottom;
+
+    const svg = d3.select("#chart")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    async function loadAndRender() {
+      // Check if opened directly (file:// protocol) — browsers block local file loading
+      if (window.location.protocol === 'file:') {
+        d3.select("#chart").html(`
+          <div style="padding:40px;text-align:center;color:#f87171;">
+            <p style="font-size:1.2rem;margin-bottom:16px;font-weight:600;">⚠️ Cannot load data from file://</p>
+            <p style="color:var(--text-dim);line-height:1.8;max-width:500px;margin:0 auto;">
+              Browsers block loading CSV files when you open HTML directly.<br><br>
+              <strong>Please run a local server:</strong><br>
+              <code style="background:rgba(0,0,0,0.3);padding:6px 12px;border-radius:6px;display:inline-block;margin:8px 0;">python -m http.server 8000</code><br>
+              Then visit: 
+              <code style="background:rgba(0,0,0,0.3);padding:6px 12px;border-radius:6px;display:inline-block;margin:8px 0;">http://localhost:8000/lab1/</code>
+            </p>
+          </div>
+        `);
+        return;
+      }
+
+      try {
+        // Load CSV and convert score to number
+        const data = await d3.csv("../data/students.csv", d => ({
+          name: d.name,
+          score: +d.score
+        }));
+
+        console.log("Loaded data:", data);
+
+        // X scale: band scale for categorical names
+        const x = d3.scaleBand()
+          .domain(data.map(d => d.name))
+          .range([0, width])
+          .padding(0.3);
+
+        // Y scale: linear scale for scores 0-100
+        const y = d3.scaleLinear()
+          .domain([0, 100])
+          .nice()
+          .range([height, 0]);
+
+        // Color: darker blue for lower scores, bright cyan for higher
+        const colorScale = d3.scaleSequential()
+          .domain([60, 100])
+          .interpolator(d3.interpolate("#1e3a5f", "#38bdf8"));
+
+        // Horizontal grid lines
+        svg.selectAll(".grid-line")
+          .data(y.ticks(5))
+          .join("line")
+          .attr("class", "grid-line")
+          .attr("x1", 0)
+          .attr("x2", width)
+          .attr("y1", d => y(d))
+          .attr("y2", d => y(d));
+
+        // Y-axis labels (score values)
+        svg.selectAll(".axis-text")
+          .data(y.ticks(5))
+          .join("text")
+          .attr("class", "axis-text")
+          .attr("x", -12)
+          .attr("y", d => y(d))
+          .text(d => d);
+
+        // Create bars using D3 data binding
+        const bars = svg.selectAll(".bar")
+          .data(data)
+          .join("rect")
+          .attr("class", "bar")
+          .attr("x", d => x(d.name))
+          .attr("y", height)          // start at bottom
+          .attr("width", x.bandwidth())
+          .attr("height", 0)          // start with 0 height
+          .attr("fill", d => colorScale(d.score))
+          .attr("rx", 6)
+          .attr("ry", 6);
+
+        // Animate bars growing upward
+        bars.transition()
+          .duration(900)
+          .delay((d, i) => i * 120)
+          .ease(d3.easeCubicOut)
+          .attr("y", d => y(d.score))
+          .attr("height", d => height - y(d.score));
+
+        // Score labels on top of bars
+        svg.selectAll(".score-label")
+          .data(data)
+          .join("text")
+          .attr("class", "bar-label")
+          .attr("x", d => x(d.name) + x.bandwidth() / 2)
+          .attr("y", d => y(d.score) - 10)
+          .text(d => d.score)
+          .attr("opacity", 0)
+          .transition()
+          .duration(600)
+          .delay((d, i) => i * 120 + 500)
+          .attr("opacity", 1);
+
+        // Name labels below bars
+        svg.selectAll(".name-label")
+          .data(data)
+          .join("text")
+          .attr("class", "bar-value-label")
+          .attr("x", d => x(d.name) + x.bandwidth() / 2)
+          .attr("y", height + 22)
+          .text(d => d.name)
+          .attr("opacity", 0)
+          .transition()
+          .duration(600)
+          .delay((d, i) => i * 120 + 300)
+          .attr("opacity", 1);
+
+        // Tooltip on hover
+        const tooltip = d3.select("#tooltip");
+        bars.on("mouseover", function(event, d) {
+          d3.select(this).transition().duration(200).attr("fill", "#f472b6");
+          tooltip.style("opacity", 1)
+            .html(`<strong>${d.name}</strong>Score: ${d.score}`)
+            .style("left", (event.pageX + 12) + "px")
+            .style("top", (event.pageY - 40) + "px");
+        })
+        .on("mousemove", function(event) {
+          tooltip.style("left", (event.pageX + 12) + "px").style("top", (event.pageY - 40) + "px");
+        })
+        .on("mouseout", function(event, d) {
+          d3.select(this).transition().duration(200).attr("fill", colorScale(d.score));
+          tooltip.style("opacity", 0);
+        });
+
+      } catch (error) {
+        console.error("Error:", error);
+        d3.select("#chart").html(`
+          <div style="padding:40px;text-align:center;color:#f87171;">
+            <p style="font-size:1.1rem;margin-bottom:10px;">⚠️ Failed to load data</p>
+            <p style="color:var(--text-dim);">Check that <code>data/students.csv</code> exists and a server is running.</p>
+          </div>
+        `);
+      }
+    }
+
+    loadAndRender();
+
+    /* ===== Comments ===== */
+    const COMMENT_KEY = 'stats401-lab1-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
+  </script>
+</body>
+</html>
