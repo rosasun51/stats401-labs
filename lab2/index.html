@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 2 — Coming Soon</title>
+  <title>Lab 2 — Multivariate Visualization</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
@@ -16,8 +16,8 @@
     <a href="../index.html" class="back-link">&larr; Back to Home</a>
 
     <div class="lab-header">
-      <h1>Lab 2: Coming Soon</h1>
-      <p class="subtitle">This lab will be added later in the semester</p>
+      <h1>Lab 2: Multivariate Visualization with D3</h1>
+      <p class="subtitle">Exploring population, temperature, development level, and region</p>
     </div>
 
     <nav class="lab-nav">
@@ -33,16 +33,41 @@
       <a href="../lab10/index.html">Lab 10</a>
     </nav>
 
-    <div class="chart-card glass placeholder">
-      <div class="placeholder-icon">📊</div>
-      <h2 style="margin-bottom:12px;">Lab 2 is under construction</h2>
-      <p style="max-width:400px;margin:0 auto 24px;">
-        This page is a placeholder. The visualization and content for Lab 2 
-        will be added as the course progresses.
-      </p>
-      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
-      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
+    <!-- Visualization -->
+    <div class="chart-card glass">
+      <h2 class="chart-title">City Multivariate Analysis</h2>
+      <div id="chart"></div>
+      <div id="tooltip" class="tooltip"></div>
     </div>
+
+    <!-- Design Justification -->
+    <section class="glass" style="margin-top:28px;">
+      <h2><span class="icon">🎨</span> Design Justification</h2>
+      <p>
+        I designed a <strong>grouped bubble chart</strong> to represent all four required variables simultaneously.
+        <strong>Region</strong> (nominal) is mapped to the x-axis position, grouping cities by geographic area.
+        <strong>Temperature</strong> (interval) is mapped to the y-axis, allowing viewers to compare climate across regions.
+        <strong>Population</strong> (ratio) controls the bubble radius using a square-root scale so that circle area
+        is proportional to population, which is the perceptually correct way to encode magnitude.
+        <strong>Development level</strong> (ordinal) is mapped to color using an intuitive red-yellow-green gradient
+        from low to high. City names are labeled directly above each bubble, and tooltips reveal exact values
+        on hover. This design was chosen because grouping by region makes it easy to spot geographic climate patterns,
+        while bubble size and color together reveal how population and development relate to temperature within each region.
+      </p>
+    </section>
+
+    <!-- Comments -->
+    <section class="glass comments-section" style="margin-top:28px;">
+      <h2><span class="icon">💬</span> Comments</h2>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </div>
+      <div class="comment-list" id="comment-list">
+        <div class="comment-empty">No comments yet.</div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -50,14 +75,23 @@
     <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
   </footer>
 
+  <!-- D3.js v7 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="lab2.js"></script>
+
   <script>
+    /* ===== Particle Background ===== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resizeCanvas(); window.addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
       update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
       draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
     }
@@ -74,6 +108,41 @@
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    /* ===== Comments ===== */
+    const COMMENT_KEY = 'stats401-lab2-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
   </script>
 </body>
 </html>

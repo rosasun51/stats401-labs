@@ -61,7 +61,6 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
   <script>
-    /* ===== Particle Background ===== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -90,7 +89,6 @@
     }
     animateParticles();
 
-    /* ===== D3 Bar Chart ===== */
     const margin = { top: 20, right: 20, bottom: 70, left: 50 };
     const width = 720 - margin.left - margin.right;
     const height = 420 - margin.top - margin.bottom;
@@ -121,7 +119,6 @@
       }
 
       try {
-        // Load CSV and convert score to number
         const data = await d3.csv("../data/students.csv", d => ({
           name: d.name,
           score: +d.score
@@ -129,13 +126,11 @@
 
         console.log("Loaded data:", data);
 
-        // X scale: band scale for categorical names
         const x = d3.scaleBand()
           .domain(data.map(d => d.name))
           .range([0, width])
           .padding(0.3);
 
-        // Y scale: linear scale for scores 0-100
         const y = d3.scaleLinear()
           .domain([0, 100])
           .nice()
@@ -146,7 +141,6 @@
           .domain([60, 100])
           .interpolator(d3.interpolate("#1e3a5f", "#38bdf8"));
 
-        // Horizontal grid lines
         svg.selectAll(".grid-line")
           .data(y.ticks(5))
           .join("line")
@@ -156,7 +150,6 @@
           .attr("y1", d => y(d))
           .attr("y2", d => y(d));
 
-        // Y-axis labels (score values)
         svg.selectAll(".axis-text")
           .data(y.ticks(5))
           .join("text")
@@ -165,15 +158,14 @@
           .attr("y", d => y(d))
           .text(d => d);
 
-        // Create bars using D3 data binding
         const bars = svg.selectAll(".bar")
           .data(data)
           .join("rect")
           .attr("class", "bar")
           .attr("x", d => x(d.name))
-          .attr("y", height)          // start at bottom
+          .attr("y", height)       
           .attr("width", x.bandwidth())
-          .attr("height", 0)          // start with 0 height
+          .attr("height", 0)       
           .attr("fill", d => colorScale(d.score))
           .attr("rx", 6)
           .attr("ry", 6);
@@ -200,7 +192,6 @@
           .delay((d, i) => i * 120 + 500)
           .attr("opacity", 1);
 
-        // Name labels below bars
         svg.selectAll(".name-label")
           .data(data)
           .join("text")

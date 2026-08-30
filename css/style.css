@@ -1,4 +1,3 @@
-/* ===== CSS Reset & Design Tokens ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -31,7 +30,6 @@ body {
   position: relative;
 }
 
-/* ===== Animated Gradient Background ===== */
 #bg-canvas {
   position: fixed;
   top: 0; left: 0;
