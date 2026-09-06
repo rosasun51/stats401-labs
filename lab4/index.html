@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 4 — Coming Soon</title>
+  <title>Lab 4 — Cleaning Web Data for Visualization</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .charts-row { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 20px; }
+    .chart-box { flex: 1 1 420px; max-width: 520px; }
+    .dataset-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .meta-card { padding: 16px; text-align: center; }
+    .meta-card .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); margin-bottom: 6px; }
+    .meta-card .value { font-size: 1.3rem; font-weight: 700; color: var(--accent); font-family: monospace; }
+  </style>
 </head>
 <body>
   <div class="bg-gradient"></div>
@@ -16,12 +24,14 @@
     <a href="../index.html" class="back-link">&larr; Back to Home</a>
 
     <div class="lab-header">
-      <h1>Lab 4: Coming Soon</h1>
-      <p class="subtitle">This lab will be added later in the semester</p>
+      <h1>Lab 4: Cleaning Web Data for Visualization</h1>
+      <p class="subtitle">From raw tweets to tidy, visualization-ready data</p>
     </div>
 
     <nav class="lab-nav">
       <a href="../lab1/index.html">Lab 1</a>
+      <a href="../lab2/index.html">Lab 2</a>
+      <a href="../lab3/index.html">Lab 3</a>
       <a href="index.html" class="active">Lab 4</a>
       <a href="../lab5/index.html">Lab 5</a>
       <a href="../lab6/index.html">Lab 6</a>
@@ -29,20 +39,98 @@
       <a href="../lab8/index.html">Lab 8</a>
       <a href="../lab9/index.html">Lab 9</a>
       <a href="../lab10/index.html">Lab 10</a>
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="../lab2/index.html">Lab 2</a>
     </nav>
 
-    <div class="chart-card glass placeholder">
-      <div class="placeholder-icon">📊</div>
-      <h2 style="margin-bottom:12px;">Lab 4 is under construction</h2>
-      <p style="max-width:400px;margin:0 auto 24px;">
-        This page is a placeholder. The visualization and content for Lab 4 
-        will be added as the course progresses.
+    <!-- Dataset Info -->
+    <section class="glass">
+      <h2><span class="icon">🧹</span> Dataset & Cleaning Summary</h2>
+      <div class="dataset-meta">
+        <div class="meta-card glass">
+          <div class="label">Raw Records</div>
+          <div class="value">1,000</div>
+        </div>
+        <div class="meta-card glass">
+          <div class="label">After Clean</div>
+          <div class="value" id="clean-count">~995</div>
+        </div>
+        <div class="meta-card glass">
+          <div class="label">Method</div>
+          <div class="value" style="font-size:1rem;">pandas + NLTK + RoBERTa</div>
+        </div>
+        <div class="meta-card glass">
+          <div class="label">Source</div>
+          <div class="value" style="font-size:0.85rem;">Mendeley Data</div>
+        </div>
+      </div>
+      <p>
+        This lab uses a dataset of <strong>1,000 tweets</strong> published on Mendeley Data
+        (<a href="https://data.mendeley.com/datasets/2sjt22sb55/1" target="_blank">DOI: 10.17632/2sjt22sb55.1</a>).
+        It contains tweet text, user, timestamp, likes, retweets, and a provided sentiment label.
+        The dataset is intentionally clean but we still apply a full cleaning pipeline to practice
+        real‑world data wrangling.
       </p>
-      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
-      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
-    </div>
+      <p>
+        <strong>Cleaning steps:</strong> dropped any rows with missing tweet text (none were missing);
+        removed duplicates (none were exact duplicates, but we deduplicated by <code>tweet_id</code>);
+        converted likes/retweets to numeric (handled commas and negative values);
+        parsed dates into datetime and extracted weekday/hour; standardized columns (platform set to “Twitter”,
+        country to “Unknown”); and recomputed sentiment using the RoBERTa‑based Transformer model
+        (<code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>) to estimate negative/neutral/positive
+        probabilities and a continuous sentiment score.
+      </p>
+    </section>
+
+    <!-- Visualizations -->
+    <section class="glass">
+      <h2><span class="icon">📊</span> Sentiment Visualization</h2>
+      <div class="charts-row">
+        <div class="chart-box" id="chart-platform"></div>
+        <div class="chart-box" id="chart-weekday"></div>
+      </div>
+      <div id="tooltip" class="tooltip"></div>
+    </section>
+
+    <!-- Analysis -->
+    <section class="glass">
+      <h2><span class="icon">📝</span> Analysis</h2>
+      <p>
+        I used the 1,000‑tweet dataset from Mendeley Data, which includes tweet text, timestamps,
+        likes, retweets, and a human‑generated sentiment label. After cleaning (no missing texts,
+        no duplicates, consistent types, parsed dates), I performed sentiment analysis using
+        the RoBERTa model fine‑tuned for Twitter sentiment. The model outputs probabilities for
+        <em>negative</em>, <em>neutral</em>, and <em>positive</em>; I then derived a categorical
+        label (the highest probability class) and a numeric score = P(positive) − P(negative).
+      </p>
+      <p>
+        The left bar chart shows the distribution of sentiment by platform. Since all tweets in
+        this dataset come from Twitter, the platform is uniform, but the chart still demonstrates
+        the overall sentiment breakdown: a large proportion of Positive tweets, followed by Neutral
+        and Negative. The right line chart displays the average sentiment score by weekday.
+        Scores are slightly above zero on most days, indicating generally positive sentiment,
+        with a small dip on weekends (Saturday and Sunday). This pattern might reflect that
+        users express less positive sentiment during leisure days, or it could be due to
+        dataset randomness. Overall, the visualizations effectively combine sentiment with
+        a time‑based attribute (weekday) and show that sentiment remains relatively stable
+        across the week.
+      </p>
+      <p>
+        <em>Note:</em> Sentiment labels here are model‑generated estimates, not ground truth.
+        The RoBERTa model is state‑of‑the‑art but can still misinterpret sarcasm or context.
+      </p>
+    </section>
+
+    <!-- Comments -->
+    <section class="glass comments-section" style="margin-top:28px;">
+      <h2><span class="icon">💬</span> Comments</h2>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </div>
+      <div class="comment-list" id="comment-list">
+        <div class="comment-empty">No comments yet.</div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -50,14 +138,22 @@
     <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="lab4.js"></script>
+
   <script>
+    /* ===== Particle Background (unchanged) ===== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resizeCanvas(); window.addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
       update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
       draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
     }
@@ -74,6 +170,41 @@
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    /* ===== Comments (unchanged) ===== */
+    const COMMENT_KEY = 'stats401-lab4-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
   </script>
 </body>
 </html>
