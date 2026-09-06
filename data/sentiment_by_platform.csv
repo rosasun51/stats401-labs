@@ -1,0 +1,4 @@
+platform,sentiment,count
+Twitter,Negative,283
+Twitter,Neutral,487
+Twitter,Positive,230

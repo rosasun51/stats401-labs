@@ -1,0 +1,1001 @@
+tweet_id,created_at,date,hour,weekday,username,platform,country,tweet_text_raw,text_clean,likes,retweets,sentiment_score,sentiment
+449211727471646420,2023-01-13 00:35:08,2023-01-13,0,Friday,werickson,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,156.0,489.0,0.0,Neutral
+519036665081652813,2023-02-16 06:24:30,2023-02-16,6,Thursday,jennybutler,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,223.0,788.0,0.0,Neutral
+776023316169815671,2023-01-24 18:12:37,2023-01-24,18,Tuesday,william88,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,332.0,860.0,-0.5,Negative
+674750468135750054,2023-02-09 07:14:24,2023-02-09,7,Thursday,lawrencebauer,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,388.0,881.0,-0.5,Negative
+859726107390311299,2023-02-28 06:55:54,2023-02-28,6,Tuesday,gerald07,Twitter,Unknown,This is the best day ever!,this is the best day ever,255.0,567.0,0.5,Positive
+550892893360897328,2023-02-22 18:44:04,2023-02-22,18,Wednesday,cardenastaylor,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,66.0,665.0,0.0,Neutral
+699924169697555678,2023-04-05 19:12:52,2023-04-05,19,Wednesday,hmoore,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,426.0,973.0,0.0,Neutral
+588788854848195864,2023-04-27 03:14:54,2023-04-27,3,Thursday,nvillanueva,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,936.0,434.0,-0.5,Negative
+662452098664103309,2023-02-25 01:05:38,2023-02-25,1,Saturday,saracooper,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,362.0,332.0,0.0,Neutral
+684099235850150906,2023-02-02 19:19:53,2023-02-02,19,Thursday,alexander53,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,424.0,163.0,0.0,Neutral
+776765154260248110,2023-02-17 17:02:25,2023-02-17,17,Friday,honicholas,Twitter,Unknown,I'm so upset right now.,i m so upset right now,897.0,455.0,0.0,Neutral
+358643348910237407,2023-03-05 15:40:48,2023-03-05,15,Sunday,ywhite,Twitter,Unknown,I love my life!,i love my life,634.0,396.0,0.5,Positive
+117185747854291890,2023-02-13 16:20:18,2023-02-13,16,Monday,mark56,Twitter,Unknown,I'm so upset right now.,i m so upset right now,381.0,348.0,0.0,Neutral
+438247606942835271,2023-01-31 23:08:52,2023-01-31,23,Tuesday,nhale,Twitter,Unknown,This is the best day ever!,this is the best day ever,908.0,729.0,0.5,Positive
+901927716357804393,2023-03-19 03:42:02,2023-03-19,3,Sunday,rickysmith,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,243.0,397.0,0.0,Neutral
+299674329971381313,2023-04-03 14:02:20,2023-04-03,14,Monday,qcarrillo,Twitter,Unknown,I'm so upset right now.,i m so upset right now,864.0,580.0,0.0,Neutral
+445909472130320485,2023-02-06 13:15:46,2023-02-06,13,Monday,srasmussen,Twitter,Unknown,This is the best day ever!,this is the best day ever,534.0,448.0,0.5,Positive
+641460688824236393,2023-02-01 17:15:47,2023-02-01,17,Wednesday,schroederdonald,Twitter,Unknown,I'm so upset right now.,i m so upset right now,426.0,535.0,0.0,Neutral
+735195476422297653,2023-03-14 22:28:44,2023-03-14,22,Tuesday,ferrelljoseph,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,847.0,386.0,-0.5,Negative
+663322488762426526,2023-01-14 04:03:43,2023-01-14,4,Saturday,acortez,Twitter,Unknown,I'm so upset right now.,i m so upset right now,445.0,467.0,0.0,Neutral
+441066682092594552,2023-01-15 15:03:40,2023-01-15,15,Sunday,ohorton,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,846.0,606.0,-0.5,Negative
+768253902703230346,2023-04-10 04:18:10,2023-04-10,4,Monday,william02,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,155.0,622.0,0.0,Neutral
+941562807602482757,2023-01-08 21:44:22,2023-01-08,21,Sunday,thomasrodriguez,Twitter,Unknown,I'm so upset right now.,i m so upset right now,355.0,564.0,0.0,Neutral
+342589526754894351,2023-03-01 07:38:17,2023-03-01,7,Wednesday,bryanclark,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,399.0,900.0,-0.5,Negative
+526043740201558546,2023-03-31 15:49:29,2023-03-31,15,Friday,grantamy,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,164.0,817.0,0.0,Neutral
+689544404035305652,2023-01-27 15:50:43,2023-01-27,15,Friday,christopherjohnson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,126.0,713.0,-0.5,Negative
+460029211104675837,2023-04-27 05:33:21,2023-04-27,5,Thursday,clinecorey,Twitter,Unknown,I'm so upset right now.,i m so upset right now,424.0,345.0,0.0,Neutral
+420780432982244874,2023-04-15 02:15:31,2023-04-15,2,Saturday,bishopstacy,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,736.0,981.0,0.0,Neutral
+418629515447451105,2023-04-03 02:10:42,2023-04-03,2,Monday,robertjohnson,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,265.0,480.0,-0.5,Negative
+888360491501223330,2023-02-28 03:22:38,2023-02-28,3,Tuesday,cartermegan,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,827.0,824.0,0.0,Neutral
+765060963165933837,2023-02-04 18:52:08,2023-02-04,18,Saturday,brucevasquez,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,380.0,676.0,0.0,Neutral
+310832653837715605,2023-02-16 12:18:21,2023-02-16,12,Thursday,christineponce,Twitter,Unknown,I'm so upset right now.,i m so upset right now,781.0,438.0,0.0,Neutral
+344893730878964794,2023-04-26 02:44:29,2023-04-26,2,Wednesday,lindseywilkins,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,306.0,783.0,0.0,Neutral
+538001904280121421,2023-02-20 01:16:17,2023-02-20,1,Monday,gabriellepoole,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,431.0,891.0,0.0,Neutral
+837210186062502456,2023-01-16 11:42:52,2023-01-16,11,Monday,alexis31,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,733.0,101.0,0.0,Neutral
+342598024999502395,2023-04-03 14:17:14,2023-04-03,14,Monday,smithallen,Twitter,Unknown,I'm so upset right now.,i m so upset right now,551.0,253.0,0.0,Neutral
+730452581934875347,2023-01-11 05:52:47,2023-01-11,5,Wednesday,jareddelgado,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,110.0,23.0,0.0,Neutral
+837271956451995821,2023-03-18 09:16:24,2023-03-18,9,Saturday,richardrichards,Twitter,Unknown,This is the best day ever!,this is the best day ever,998.0,40.0,0.5,Positive
+510298709186823721,2023-01-01 06:00:27,2023-01-01,6,Sunday,diana08,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,599.0,381.0,0.0,Neutral
+402437031786647283,2023-03-22 01:10:14,2023-03-22,1,Wednesday,wpittman,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,837.0,233.0,-0.5,Negative
+255071824694535805,2023-03-27 12:24:44,2023-03-27,12,Monday,rachelthompson,Twitter,Unknown,I love my life!,i love my life,882.0,894.0,0.5,Positive
+681344387076627489,2023-04-22 22:47:17,2023-04-22,22,Saturday,martintiffany,Twitter,Unknown,I love my life!,i love my life,28.0,247.0,0.5,Positive
+246928935465042271,2023-04-26 04:11:52,2023-04-26,4,Wednesday,ashleylewis,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,486.0,43.0,0.0,Neutral
+456647252136744496,2023-01-25 14:48:11,2023-01-25,14,Wednesday,ryanwells,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,231.0,207.0,-0.5,Negative
+342320275426315207,2023-02-23 16:35:44,2023-02-23,16,Thursday,fgonzalez,Twitter,Unknown,I'm so upset right now.,i m so upset right now,164.0,522.0,0.0,Neutral
+594135232004769024,2023-01-27 04:28:39,2023-01-27,4,Friday,tonysherman,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,385.0,682.0,0.0,Neutral
+932187530302064484,2023-04-19 23:38:12,2023-04-19,23,Wednesday,james38,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,988.0,151.0,-0.5,Negative
+259185709836196079,2023-01-09 08:03:17,2023-01-09,8,Monday,paul02,Twitter,Unknown,I'm so upset right now.,i m so upset right now,735.0,877.0,0.0,Neutral
+999792445613138811,2023-03-31 11:20:25,2023-03-31,11,Friday,lindsaybenitez,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,485.0,989.0,-0.5,Negative
+495535683432996678,2023-03-25 12:52:09,2023-03-25,12,Saturday,vgonzalez,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,487.0,336.0,-0.5,Negative
+875324188495529294,2023-02-03 03:11:19,2023-02-03,3,Friday,mcmillanrebecca,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,887.0,27.0,-0.5,Negative
+598037187532963035,2023-01-21 15:58:45,2023-01-21,15,Saturday,dhansen,Twitter,Unknown,I love my life!,i love my life,614.0,241.0,0.5,Positive
+166436283039240862,2023-01-10 23:27:55,2023-01-10,23,Tuesday,thompsonmichelle,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,631.0,669.0,0.0,Neutral
+380330871181774192,2023-04-15 21:26:53,2023-04-15,21,Saturday,noneal,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,845.0,659.0,0.0,Neutral
+802310371224177810,2023-02-02 07:01:11,2023-02-02,7,Thursday,michael57,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,738.0,522.0,0.0,Neutral
+646814964069601869,2023-03-14 04:14:09,2023-03-14,4,Tuesday,morrisondaniel,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,339.0,308.0,0.0,Neutral
+118683292260619975,2023-01-02 08:44:42,2023-01-02,8,Monday,sherry99,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,128.0,810.0,-0.5,Negative
+811981425613284599,2023-02-19 15:00:29,2023-02-19,15,Sunday,jcurry,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,40.0,760.0,0.0,Neutral
+767544007751341052,2023-03-13 07:26:06,2023-03-13,7,Monday,wesley31,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,647.0,212.0,0.0,Neutral
+257666030890531623,2023-01-15 04:54:46,2023-01-15,4,Sunday,maryalvarado,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,1000.0,166.0,-0.5,Negative
+948745955244918061,2023-02-21 23:20:32,2023-02-21,23,Tuesday,evansrebecca,Twitter,Unknown,I'm so upset right now.,i m so upset right now,329.0,121.0,0.0,Neutral
+490913202978806053,2023-01-05 15:16:05,2023-01-05,15,Thursday,perryrobinson,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,109.0,605.0,0.0,Neutral
+477760657947044450,2023-01-03 18:40:26,2023-01-03,18,Tuesday,ubruce,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,339.0,836.0,-0.5,Negative
+616071787852318321,2023-01-08 03:02:04,2023-01-08,3,Sunday,cartergina,Twitter,Unknown,I love my life!,i love my life,34.0,377.0,0.5,Positive
+250027394013428022,2023-03-24 03:42:43,2023-03-24,3,Friday,ihurst,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,227.0,975.0,0.0,Neutral
+301478589960569722,2023-03-02 07:31:57,2023-03-02,7,Thursday,brittany01,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,352.0,974.0,-0.5,Negative
+734753801597689978,2023-02-28 17:18:38,2023-02-28,17,Tuesday,maryhopkins,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,353.0,6.0,0.0,Neutral
+333584292043086417,2023-01-02 09:45:10,2023-01-02,9,Monday,royburton,Twitter,Unknown,I'm so upset right now.,i m so upset right now,953.0,443.0,0.0,Neutral
+573460527024966767,2023-02-01 00:53:45,2023-02-01,0,Wednesday,cblackburn,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,624.0,419.0,-0.5,Negative
+283629059290868486,2023-04-06 10:52:16,2023-04-06,10,Thursday,donaldmoore,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,692.0,166.0,-0.5,Negative
+781557851732246004,2023-02-27 03:37:52,2023-02-27,3,Monday,qbarnes,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,885.0,29.0,0.0,Neutral
+936780257022633808,2023-03-26 23:16:00,2023-03-26,23,Sunday,gjones,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,426.0,5.0,-0.5,Negative
+370183269351518759,2023-01-24 09:42:58,2023-01-24,9,Tuesday,benjaminbrock,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,598.0,715.0,0.0,Neutral
+906687990447626563,2023-04-03 04:04:47,2023-04-03,4,Monday,drewramos,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,913.0,59.0,-0.5,Negative
+876946336860866826,2023-02-03 23:14:25,2023-02-03,23,Friday,bautistadaniel,Twitter,Unknown,I'm so upset right now.,i m so upset right now,702.0,285.0,0.0,Neutral
+710415511859897422,2023-02-01 05:47:05,2023-02-01,5,Wednesday,jessicawilkinson,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,81.0,305.0,0.0,Neutral
+907083196592371312,2023-01-31 22:51:49,2023-01-31,22,Tuesday,rcarson,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,602.0,503.0,0.0,Neutral
+211844628958605911,2023-01-03 14:19:18,2023-01-03,14,Tuesday,stevenhill,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,199.0,267.0,-0.5,Negative
+850072311581603171,2023-02-26 06:01:53,2023-02-26,6,Sunday,aliceramos,Twitter,Unknown,I'm so upset right now.,i m so upset right now,594.0,58.0,0.0,Neutral
+221210779789195828,2023-03-24 07:13:47,2023-03-24,7,Friday,dustin36,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,766.0,211.0,0.0,Neutral
+843382569442491928,2023-02-15 16:06:36,2023-02-15,16,Wednesday,danielspatricia,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,71.0,792.0,-0.5,Negative
+178989109430273418,2023-03-01 21:01:10,2023-03-01,21,Wednesday,audrey25,Twitter,Unknown,I love my life!,i love my life,287.0,287.0,0.5,Positive
+707922424705444110,2023-01-03 06:36:29,2023-01-03,6,Tuesday,patricia23,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,921.0,17.0,-0.5,Negative
+286103398553215103,2023-03-15 04:14:58,2023-03-15,4,Wednesday,christinemccarty,Twitter,Unknown,I'm so upset right now.,i m so upset right now,101.0,313.0,0.0,Neutral
+199163870256154822,2023-04-26 00:35:17,2023-04-26,0,Wednesday,roy94,Twitter,Unknown,I love my life!,i love my life,475.0,406.0,0.5,Positive
+686674213598177674,2023-01-16 18:21:25,2023-01-16,18,Monday,nancy85,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,469.0,956.0,0.0,Neutral
+799312604876806752,2023-01-13 15:48:22,2023-01-13,15,Friday,cjennings,Twitter,Unknown,This is the best day ever!,this is the best day ever,786.0,925.0,0.5,Positive
+203517964584013646,2023-01-20 03:33:00,2023-01-20,3,Friday,jamesbutler,Twitter,Unknown,I love my life!,i love my life,474.0,525.0,0.5,Positive
+387364781662473373,2023-01-21 19:15:38,2023-01-21,19,Saturday,kphillips,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,885.0,867.0,0.0,Neutral
+960785335942456853,2023-02-24 11:52:56,2023-02-24,11,Friday,jennifermadden,Twitter,Unknown,I'm so upset right now.,i m so upset right now,42.0,423.0,0.0,Neutral
+222809280741081430,2023-03-07 04:03:04,2023-03-07,4,Tuesday,catherineolson,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,421.0,994.0,0.0,Neutral
+789475807938916460,2023-01-16 11:56:36,2023-01-16,11,Monday,tylerrichard,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,611.0,218.0,0.0,Neutral
+462119551833060373,2023-01-17 15:27:32,2023-01-17,15,Tuesday,patriciahoffman,Twitter,Unknown,I love my life!,i love my life,335.0,876.0,0.5,Positive
+993889197108902052,2023-03-27 20:13:44,2023-03-27,20,Monday,schmidtwilliam,Twitter,Unknown,I love my life!,i love my life,863.0,708.0,0.5,Positive
+316657574784207696,2023-04-01 11:18:56,2023-04-01,11,Saturday,zunigajo,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,132.0,28.0,-0.5,Negative
+356512656600572906,2023-03-20 15:11:04,2023-03-20,15,Monday,jessica05,Twitter,Unknown,I'm so upset right now.,i m so upset right now,461.0,77.0,0.0,Neutral
+132878242479607554,2023-04-01 03:25:00,2023-04-01,3,Saturday,fernandowells,Twitter,Unknown,I love my life!,i love my life,146.0,444.0,0.5,Positive
+942460065575170844,2023-01-09 03:19:28,2023-01-09,3,Monday,schmittjames,Twitter,Unknown,This is the best day ever!,this is the best day ever,971.0,366.0,0.5,Positive
+652353605997454228,2023-02-13 10:57:17,2023-02-13,10,Monday,pglover,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,280.0,634.0,0.0,Neutral
+299024742835555361,2023-02-10 02:40:50,2023-02-10,2,Friday,clarkjessica,Twitter,Unknown,This is the best day ever!,this is the best day ever,328.0,885.0,0.5,Positive
+542336804858164500,2023-03-08 12:21:12,2023-03-08,12,Wednesday,brownmelissa,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,24.0,150.0,-0.5,Negative
+575166161011299751,2023-01-05 09:25:46,2023-01-05,9,Thursday,wilsonbernard,Twitter,Unknown,I love my life!,i love my life,9.0,368.0,0.5,Positive
+359697536066087918,2023-04-12 09:18:11,2023-04-12,9,Wednesday,pturner,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,152.0,375.0,0.0,Neutral
+467470922508273878,2023-01-27 07:47:00,2023-01-27,7,Friday,alvaradocindy,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,453.0,141.0,-0.5,Negative
+618121500500416667,2023-01-16 01:10:34,2023-01-16,1,Monday,shawnjenkins,Twitter,Unknown,I'm so upset right now.,i m so upset right now,351.0,409.0,0.0,Neutral
+533653436354902095,2023-02-08 23:02:39,2023-02-08,23,Wednesday,smithsarah,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,45.0,422.0,0.0,Neutral
+432298305337416568,2023-01-15 10:08:54,2023-01-15,10,Sunday,nichole30,Twitter,Unknown,This is the best day ever!,this is the best day ever,226.0,878.0,0.5,Positive
+637940162884972459,2023-01-04 22:04:26,2023-01-04,22,Wednesday,richardmurphy,Twitter,Unknown,I love my life!,i love my life,353.0,518.0,0.5,Positive
+753861713484567912,2023-02-21 14:03:53,2023-02-21,14,Tuesday,garciaashley,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,835.0,719.0,-0.5,Negative
+397582721674591533,2023-03-29 23:19:04,2023-03-29,23,Wednesday,xvillanueva,Twitter,Unknown,This is the best day ever!,this is the best day ever,565.0,447.0,0.5,Positive
+795281760498061643,2023-01-01 00:27:13,2023-01-01,0,Sunday,opowell,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,811.0,403.0,0.0,Neutral
+712575475779560710,2023-02-12 23:54:39,2023-02-12,23,Sunday,mary04,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,875.0,1.0,0.0,Neutral
+783586177838386616,2023-03-16 06:15:00,2023-03-16,6,Thursday,lindsay98,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,203.0,384.0,0.0,Neutral
+699515551817103014,2023-02-28 13:35:19,2023-02-28,13,Tuesday,deborahbryant,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,189.0,552.0,-0.5,Negative
+778380360832986550,2023-03-30 05:16:29,2023-03-30,5,Thursday,lewismary,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,411.0,758.0,0.0,Neutral
+498034772443616052,2023-02-11 00:40:08,2023-02-11,0,Saturday,jameswilson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,22.0,291.0,-0.5,Negative
+520624880300161716,2023-04-25 19:21:14,2023-04-25,19,Tuesday,tannerjoseph,Twitter,Unknown,This is the best day ever!,this is the best day ever,25.0,394.0,0.5,Positive
+242313136667378419,2023-03-24 01:56:42,2023-03-24,1,Friday,uanderson,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,833.0,850.0,-0.5,Negative
+366762542976109750,2023-04-16 21:38:48,2023-04-16,21,Sunday,robertchambers,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,974.0,395.0,-0.5,Negative
+585365876642849555,2023-03-03 04:25:55,2023-03-03,4,Friday,brittany75,Twitter,Unknown,I'm so upset right now.,i m so upset right now,94.0,725.0,0.0,Neutral
+523904356158847958,2023-04-15 03:06:10,2023-04-15,3,Saturday,nbrown,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,941.0,905.0,-0.5,Negative
+623474432954054250,2023-03-14 15:33:49,2023-03-14,15,Tuesday,frankholloway,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,363.0,402.0,0.0,Neutral
+169055784762548718,2023-04-16 23:36:29,2023-04-16,23,Sunday,williamseileen,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,824.0,335.0,0.0,Neutral
+154957093289553695,2023-02-08 08:10:48,2023-02-08,8,Wednesday,madison13,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,195.0,155.0,0.0,Neutral
+190400541347549854,2023-01-02 19:28:20,2023-01-02,19,Monday,gallegosnancy,Twitter,Unknown,I'm so upset right now.,i m so upset right now,364.0,481.0,0.0,Neutral
+158295440336708485,2023-02-16 19:43:54,2023-02-16,19,Thursday,jason43,Twitter,Unknown,I'm so upset right now.,i m so upset right now,260.0,376.0,0.0,Neutral
+238151290791082852,2023-02-18 06:28:41,2023-02-18,6,Saturday,romerowhitney,Twitter,Unknown,This is the best day ever!,this is the best day ever,978.0,462.0,0.5,Positive
+234487382258237079,2023-04-23 07:54:28,2023-04-23,7,Sunday,jon46,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,852.0,495.0,0.0,Neutral
+296455796845903467,2023-03-24 23:03:34,2023-03-24,23,Friday,millermatthew,Twitter,Unknown,I love my life!,i love my life,275.0,261.0,0.5,Positive
+807709600733345334,2023-01-08 12:38:52,2023-01-08,12,Sunday,rachel60,Twitter,Unknown,This is the best day ever!,this is the best day ever,785.0,66.0,0.5,Positive
+690502964971585094,2023-02-20 19:23:40,2023-02-20,19,Monday,ferrellgabriel,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,417.0,565.0,-0.5,Negative
+684119084779743737,2023-01-25 19:50:31,2023-01-25,19,Wednesday,jessicanguyen,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,989.0,810.0,0.0,Neutral
+430628045652496255,2023-03-06 07:12:58,2023-03-06,7,Monday,ehines,Twitter,Unknown,I'm so upset right now.,i m so upset right now,277.0,633.0,0.0,Neutral
+175758282676817115,2023-04-27 12:31:44,2023-04-27,12,Thursday,rosariodavid,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,89.0,336.0,-0.5,Negative
+461579962777810516,2023-03-04 07:08:42,2023-03-04,7,Saturday,huffedward,Twitter,Unknown,This is the best day ever!,this is the best day ever,805.0,453.0,0.5,Positive
+560107094812045926,2023-01-13 13:11:09,2023-01-13,13,Friday,kaylamorales,Twitter,Unknown,I love my life!,i love my life,39.0,798.0,0.5,Positive
+743305674344081440,2023-02-23 09:01:01,2023-02-23,9,Thursday,rmurphy,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,241.0,99.0,-0.5,Negative
+898770467067354872,2023-04-13 14:36:57,2023-04-13,14,Thursday,bhayes,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,700.0,321.0,-0.5,Negative
+690277067054231497,2023-01-30 04:12:55,2023-01-30,4,Monday,brownjill,Twitter,Unknown,I love my life!,i love my life,793.0,914.0,0.5,Positive
+849605130576938974,2023-03-07 17:03:40,2023-03-07,17,Tuesday,wilsonlaura,Twitter,Unknown,This is the best day ever!,this is the best day ever,861.0,562.0,0.5,Positive
+708606415322602671,2023-02-10 00:22:33,2023-02-10,0,Friday,youngangela,Twitter,Unknown,I'm so upset right now.,i m so upset right now,905.0,360.0,0.0,Neutral
+576986133446145274,2023-01-07 03:31:39,2023-01-07,3,Saturday,adam93,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,634.0,304.0,-0.5,Negative
+313669631093548046,2023-02-16 11:21:09,2023-02-16,11,Thursday,scook,Twitter,Unknown,This is the best day ever!,this is the best day ever,907.0,622.0,0.5,Positive
+188717049449503663,2023-02-13 23:01:30,2023-02-13,23,Monday,josephramos,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,838.0,803.0,0.0,Neutral
+662774413249505552,2023-04-06 13:59:55,2023-04-06,13,Thursday,vargasamber,Twitter,Unknown,This is the best day ever!,this is the best day ever,277.0,492.0,0.5,Positive
+147949549475915534,2023-03-12 14:42:19,2023-03-12,14,Sunday,orobinson,Twitter,Unknown,This is the best day ever!,this is the best day ever,303.0,943.0,0.5,Positive
+413247328930920581,2023-04-06 17:13:06,2023-04-06,17,Thursday,cunninghamgeorge,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,485.0,269.0,0.0,Neutral
+435514710725466372,2023-02-26 20:55:15,2023-02-26,20,Sunday,mckinneylauren,Twitter,Unknown,I love my life!,i love my life,341.0,119.0,0.5,Positive
+304312257906282666,2023-01-28 18:55:32,2023-01-28,18,Saturday,sotomonica,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,834.0,926.0,0.0,Neutral
+399331776684990075,2023-02-02 07:09:54,2023-02-02,7,Thursday,mccarthyregina,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,730.0,407.0,0.0,Neutral
+771398559815149823,2023-03-31 18:49:25,2023-03-31,18,Friday,nicolemorton,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,717.0,835.0,-0.5,Negative
+654515174416411427,2023-02-19 07:09:57,2023-02-19,7,Sunday,zlee,Twitter,Unknown,I'm so upset right now.,i m so upset right now,796.0,716.0,0.0,Neutral
+556490820518485155,2023-03-08 21:20:49,2023-03-08,21,Wednesday,hollandmelissa,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,719.0,72.0,0.0,Neutral
+828901303654097993,2023-02-19 22:46:21,2023-02-19,22,Sunday,miguelscott,Twitter,Unknown,I love my life!,i love my life,253.0,772.0,0.5,Positive
+727530724335213260,2023-02-25 17:27:03,2023-02-25,17,Saturday,josephjohnson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,749.0,276.0,-0.5,Negative
+435863255559748885,2023-02-19 20:09:43,2023-02-19,20,Sunday,mark02,Twitter,Unknown,I love my life!,i love my life,674.0,954.0,0.5,Positive
+957200953589972740,2023-04-14 09:09:37,2023-04-14,9,Friday,gwendolynsmith,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,372.0,786.0,0.0,Neutral
+749583570445211363,2023-04-05 04:08:35,2023-04-05,4,Wednesday,harriskelly,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,740.0,374.0,-0.5,Negative
+566566881736849725,2023-04-23 00:40:14,2023-04-23,0,Sunday,nicolehenderson,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,715.0,353.0,0.0,Neutral
+188235843346513894,2023-03-16 22:46:46,2023-03-16,22,Thursday,vturner,Twitter,Unknown,I love my life!,i love my life,647.0,286.0,0.5,Positive
+302655851820535737,2023-03-31 00:08:30,2023-03-31,0,Friday,jimflynn,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,167.0,566.0,0.0,Neutral
+600768717918287351,2023-04-01 08:28:17,2023-04-01,8,Saturday,dennis13,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,211.0,54.0,0.0,Neutral
+402576002588724223,2023-04-04 13:36:55,2023-04-04,13,Tuesday,wendy43,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,482.0,95.0,-0.5,Negative
+163208329249437256,2023-01-28 16:52:58,2023-01-28,16,Saturday,hancocktheresa,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,580.0,155.0,0.0,Neutral
+639451616633278148,2023-01-15 16:56:33,2023-01-15,16,Sunday,melissahernandez,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,399.0,854.0,-0.5,Negative
+819285813474514099,2023-02-14 14:29:38,2023-02-14,14,Tuesday,cwebb,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,461.0,415.0,0.0,Neutral
+410111075163838451,2023-01-23 23:27:57,2023-01-23,23,Monday,randywood,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,214.0,869.0,-0.5,Negative
+513572985601595230,2023-03-03 05:15:06,2023-03-03,5,Friday,slevy,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,418.0,812.0,0.0,Neutral
+650114627087487654,2023-02-06 08:21:45,2023-02-06,8,Monday,angela59,Twitter,Unknown,This is the best day ever!,this is the best day ever,307.0,761.0,0.5,Positive
+975263522043092170,2023-01-19 07:03:13,2023-01-19,7,Thursday,leslie70,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,842.0,605.0,-0.5,Negative
+667619818650949231,2023-03-02 09:30:26,2023-03-02,9,Thursday,jameshuang,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,616.0,652.0,-0.5,Negative
+852566658685725336,2023-01-07 23:48:17,2023-01-07,23,Saturday,lharris,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,539.0,961.0,0.0,Neutral
+569781813748514024,2023-02-24 16:14:19,2023-02-24,16,Friday,jennifertucker,Twitter,Unknown,I love my life!,i love my life,689.0,852.0,0.5,Positive
+820997178521035891,2023-01-06 01:18:19,2023-01-06,1,Friday,smithjustin,Twitter,Unknown,I'm so upset right now.,i m so upset right now,31.0,91.0,0.0,Neutral
+146131254286089830,2023-03-24 06:16:11,2023-03-24,6,Friday,fmcdaniel,Twitter,Unknown,This is the best day ever!,this is the best day ever,879.0,302.0,0.5,Positive
+697603487018383303,2023-02-05 19:57:01,2023-02-05,19,Sunday,ryan25,Twitter,Unknown,This is the best day ever!,this is the best day ever,182.0,854.0,0.5,Positive
+251157901289905364,2023-03-09 19:05:27,2023-03-09,19,Thursday,donna03,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,318.0,28.0,-0.5,Negative
+579791820260585815,2023-01-27 10:45:20,2023-01-27,10,Friday,frankspencer,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,174.0,104.0,0.0,Neutral
+335005802589270981,2023-03-18 07:05:51,2023-03-18,7,Saturday,bradfordjacqueline,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,917.0,584.0,0.0,Neutral
+371721855405932211,2023-03-03 01:35:06,2023-03-03,1,Friday,taylortravis,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,151.0,879.0,-0.5,Negative
+730928690451855620,2023-04-04 16:32:55,2023-04-04,16,Tuesday,maryjackson,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,102.0,421.0,0.0,Neutral
+644115138276373253,2023-01-28 03:36:25,2023-01-28,3,Saturday,wlee,Twitter,Unknown,I'm so upset right now.,i m so upset right now,850.0,756.0,0.0,Neutral
+188726999853960261,2023-04-09 05:20:12,2023-04-09,5,Sunday,mitchellbrown,Twitter,Unknown,This is the best day ever!,this is the best day ever,937.0,146.0,0.5,Positive
+293189750208222247,2023-03-04 03:31:13,2023-03-04,3,Saturday,jacksonjordan,Twitter,Unknown,I love my life!,i love my life,483.0,394.0,0.5,Positive
+499304853839914771,2023-02-06 04:04:03,2023-02-06,4,Monday,dneal,Twitter,Unknown,I'm so upset right now.,i m so upset right now,550.0,845.0,0.0,Neutral
+718185170101054435,2023-01-21 08:20:01,2023-01-21,8,Saturday,jasoncross,Twitter,Unknown,I'm so upset right now.,i m so upset right now,567.0,204.0,0.0,Neutral
+647422801476499002,2023-04-17 23:47:16,2023-04-17,23,Monday,cyoung,Twitter,Unknown,I'm so upset right now.,i m so upset right now,168.0,329.0,0.0,Neutral
+563497088116155017,2023-03-19 07:55:43,2023-03-19,7,Sunday,cathybutler,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,727.0,448.0,-0.5,Negative
+394494160402179560,2023-04-06 06:05:22,2023-04-06,6,Thursday,jared84,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,716.0,633.0,0.0,Neutral
+548326080802327733,2023-02-28 23:25:32,2023-02-28,23,Tuesday,williampeterson,Twitter,Unknown,I'm so upset right now.,i m so upset right now,978.0,705.0,0.0,Neutral
+878596199095863197,2023-03-16 12:49:55,2023-03-16,12,Thursday,gracemills,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,541.0,90.0,-0.5,Negative
+832786661542520277,2023-02-09 23:10:00,2023-02-09,23,Thursday,harold44,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,659.0,305.0,-0.5,Negative
+833531267995759114,2023-01-15 15:07:46,2023-01-15,15,Sunday,lcarrillo,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,98.0,764.0,0.0,Neutral
+154496829050685343,2023-02-27 03:10:05,2023-02-27,3,Monday,barronjill,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,675.0,811.0,-0.5,Negative
+460496113497785928,2023-03-07 22:32:44,2023-03-07,22,Tuesday,christy95,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,354.0,191.0,-0.5,Negative
+943583189927241074,2023-02-01 23:58:08,2023-02-01,23,Wednesday,porterrichard,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,972.0,550.0,0.0,Neutral
+676457545179315306,2023-01-31 22:58:25,2023-01-31,22,Tuesday,canderson,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,17.0,763.0,0.0,Neutral
+397420879648946766,2023-02-02 01:23:08,2023-02-02,1,Thursday,vickijenkins,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,803.0,726.0,-0.5,Negative
+520719963326330666,2023-01-20 13:25:13,2023-01-20,13,Friday,jlee,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,714.0,572.0,0.0,Neutral
+892031561601332732,2023-03-09 03:46:18,2023-03-09,3,Thursday,smithlinda,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,874.0,851.0,0.0,Neutral
+985893432457790795,2023-01-06 10:07:47,2023-01-06,10,Friday,joshuarojas,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,150.0,914.0,0.0,Neutral
+222114484310730755,2023-04-13 07:07:18,2023-04-13,7,Thursday,erica49,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,274.0,27.0,0.0,Neutral
+541966472944663981,2023-01-11 23:09:02,2023-01-11,23,Wednesday,watsonmichael,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,140.0,378.0,0.0,Neutral
+162924154811667406,2023-03-10 05:20:48,2023-03-10,5,Friday,eelliott,Twitter,Unknown,This is the best day ever!,this is the best day ever,535.0,928.0,0.5,Positive
+149081934583957810,2023-03-26 05:49:50,2023-03-26,5,Sunday,uwalsh,Twitter,Unknown,I'm so upset right now.,i m so upset right now,80.0,866.0,0.0,Neutral
+628624455528756626,2023-04-20 15:33:03,2023-04-20,15,Thursday,wallacejermaine,Twitter,Unknown,I love my life!,i love my life,636.0,453.0,0.5,Positive
+826986368025300217,2023-02-03 05:08:21,2023-02-03,5,Friday,horntasha,Twitter,Unknown,I love my life!,i love my life,192.0,538.0,0.5,Positive
+241623664987816930,2023-03-17 09:59:03,2023-03-17,9,Friday,joshuapowell,Twitter,Unknown,I'm so upset right now.,i m so upset right now,737.0,253.0,0.0,Neutral
+930426186311618410,2023-02-25 10:19:57,2023-02-25,10,Saturday,taylorgriffin,Twitter,Unknown,I love my life!,i love my life,493.0,933.0,0.5,Positive
+829523749847579498,2023-02-04 20:30:38,2023-02-04,20,Saturday,wmcclure,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,574.0,487.0,-0.5,Negative
+912423943468245250,2023-02-23 20:00:46,2023-02-23,20,Thursday,bonnielloyd,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,781.0,47.0,0.0,Neutral
+771502330577916700,2023-03-22 10:26:52,2023-03-22,10,Wednesday,camposjames,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,983.0,852.0,0.0,Neutral
+622066196195664064,2023-01-10 16:01:58,2023-01-10,16,Tuesday,brandon38,Twitter,Unknown,I'm so upset right now.,i m so upset right now,196.0,634.0,0.0,Neutral
+277346307806061080,2023-01-21 12:35:26,2023-01-21,12,Saturday,ijohnson,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,632.0,837.0,0.0,Neutral
+714675138503114591,2023-04-01 23:44:27,2023-04-01,23,Saturday,thomas23,Twitter,Unknown,This is the best day ever!,this is the best day ever,70.0,135.0,0.5,Positive
+520268789263532636,2023-04-12 06:01:21,2023-04-12,6,Wednesday,fmartin,Twitter,Unknown,I love my life!,i love my life,239.0,372.0,0.5,Positive
+529181142216998386,2023-02-25 14:57:35,2023-02-25,14,Saturday,sross,Twitter,Unknown,I'm so upset right now.,i m so upset right now,70.0,347.0,0.0,Neutral
+525609728337212470,2023-01-16 06:10:26,2023-01-16,6,Monday,xmiller,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,893.0,354.0,-0.5,Negative
+207549488605279082,2023-04-22 09:27:55,2023-04-22,9,Saturday,ugutierrez,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,859.0,937.0,0.0,Neutral
+615718643854193981,2023-04-11 00:49:32,2023-04-11,0,Tuesday,djohnson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,819.0,929.0,-0.5,Negative
+298019429103177898,2023-03-14 08:19:12,2023-03-14,8,Tuesday,qday,Twitter,Unknown,I love my life!,i love my life,219.0,262.0,0.5,Positive
+703172630403955703,2023-01-23 20:30:49,2023-01-23,20,Monday,timothy59,Twitter,Unknown,I love my life!,i love my life,264.0,774.0,0.5,Positive
+566110170870262350,2023-03-23 02:33:55,2023-03-23,2,Thursday,scottowen,Twitter,Unknown,I'm so upset right now.,i m so upset right now,35.0,586.0,0.0,Neutral
+781426818484998823,2023-04-06 19:00:17,2023-04-06,19,Thursday,millernicole,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,650.0,337.0,0.0,Neutral
+963989380817339835,2023-02-06 23:07:55,2023-02-06,23,Monday,alexa16,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,483.0,134.0,-0.5,Negative
+148495384413166683,2023-02-07 13:53:24,2023-02-07,13,Tuesday,annacruz,Twitter,Unknown,I love my life!,i love my life,263.0,132.0,0.5,Positive
+619993547937783809,2023-01-23 10:45:10,2023-01-23,10,Monday,rayrandy,Twitter,Unknown,I love my life!,i love my life,618.0,843.0,0.5,Positive
+741560023779361473,2023-01-07 14:28:11,2023-01-07,14,Saturday,bshea,Twitter,Unknown,I'm so upset right now.,i m so upset right now,609.0,768.0,0.0,Neutral
+862792531404259416,2023-01-23 02:01:37,2023-01-23,2,Monday,elizabethroberts,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,639.0,593.0,-0.5,Negative
+977000751224092258,2023-01-15 03:03:18,2023-01-15,3,Sunday,jamesgina,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,795.0,124.0,-0.5,Negative
+654450931708770796,2023-03-06 07:48:49,2023-03-06,7,Monday,gbradley,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,645.0,289.0,0.0,Neutral
+457907518163449020,2023-04-14 00:41:01,2023-04-14,0,Friday,stephaniejohnson,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,0.0,590.0,0.0,Neutral
+613668589078455278,2023-03-02 11:55:46,2023-03-02,11,Thursday,vbrown,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,898.0,498.0,-0.5,Negative
+648757443470510984,2023-02-10 23:45:49,2023-02-10,23,Friday,hdavis,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,45.0,76.0,0.0,Neutral
+374948036937218484,2023-02-17 04:21:57,2023-02-17,4,Friday,perezsamantha,Twitter,Unknown,I love my life!,i love my life,782.0,878.0,0.5,Positive
+244059475851547989,2023-03-07 19:14:14,2023-03-07,19,Tuesday,ujones,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,104.0,893.0,-0.5,Negative
+611760379353913316,2023-04-04 22:48:10,2023-04-04,22,Tuesday,ocarpenter,Twitter,Unknown,I love my life!,i love my life,76.0,904.0,0.5,Positive
+423216126406971334,2023-01-03 08:17:13,2023-01-03,8,Tuesday,yhernandez,Twitter,Unknown,This is the best day ever!,this is the best day ever,427.0,493.0,0.5,Positive
+570955932996900835,2023-02-26 04:20:15,2023-02-26,4,Sunday,lopezjames,Twitter,Unknown,I'm so upset right now.,i m so upset right now,143.0,551.0,0.0,Neutral
+858166642948905978,2023-01-14 23:47:35,2023-01-14,23,Saturday,michellesanders,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,622.0,798.0,-0.5,Negative
+572574834377392032,2023-04-27 11:32:24,2023-04-27,11,Thursday,mackenzie24,Twitter,Unknown,This is the best day ever!,this is the best day ever,136.0,756.0,0.5,Positive
+698825779839856994,2023-04-01 15:03:49,2023-04-01,15,Saturday,nwalker,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,820.0,968.0,0.0,Neutral
+435429622738373284,2023-04-20 14:25:25,2023-04-20,14,Thursday,gmejia,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,996.0,630.0,-0.5,Negative
+620663246681959888,2023-01-29 05:44:11,2023-01-29,5,Sunday,david47,Twitter,Unknown,I love my life!,i love my life,955.0,822.0,0.5,Positive
+876311852588612239,2023-02-02 20:45:24,2023-02-02,20,Thursday,sherryferguson,Twitter,Unknown,I'm so upset right now.,i m so upset right now,575.0,674.0,0.0,Neutral
+877711623977509643,2023-04-02 16:46:31,2023-04-02,16,Sunday,qhiggins,Twitter,Unknown,This is the best day ever!,this is the best day ever,13.0,879.0,0.5,Positive
+447145230421837922,2023-04-19 20:10:47,2023-04-19,20,Wednesday,maryharper,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,333.0,93.0,-0.5,Negative
+397725686948832494,2023-03-20 10:00:42,2023-03-20,10,Monday,crystalnelson,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,239.0,511.0,-0.5,Negative
+538231011401877904,2023-02-12 18:34:12,2023-02-12,18,Sunday,englishalbert,Twitter,Unknown,I love my life!,i love my life,661.0,329.0,0.5,Positive
+129881721112263008,2023-03-04 22:07:12,2023-03-04,22,Saturday,shannonchapman,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,401.0,635.0,-0.5,Negative
+120842832644129685,2023-02-23 20:17:02,2023-02-23,20,Thursday,mdavenport,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,709.0,959.0,0.0,Neutral
+891541608605382928,2023-04-02 02:46:40,2023-04-02,2,Sunday,shelly04,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,553.0,869.0,-0.5,Negative
+117615852385740214,2023-02-05 21:49:06,2023-02-05,21,Sunday,timothy83,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,106.0,824.0,-0.5,Negative
+208528614600926550,2023-01-30 22:36:27,2023-01-30,22,Monday,melissa89,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,140.0,119.0,0.0,Neutral
+444401490432076272,2023-02-18 07:57:29,2023-02-18,7,Saturday,milleramy,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,707.0,16.0,0.0,Neutral
+391667842602190808,2023-04-09 07:08:22,2023-04-09,7,Sunday,randymosley,Twitter,Unknown,I love my life!,i love my life,477.0,158.0,0.5,Positive
+703756046641971386,2023-03-11 17:25:10,2023-03-11,17,Saturday,josephcain,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,382.0,350.0,0.0,Neutral
+679294942457393877,2023-02-12 01:28:17,2023-02-12,1,Sunday,oholland,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,674.0,986.0,0.0,Neutral
+279729645994764120,2023-04-19 05:59:51,2023-04-19,5,Wednesday,jason88,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,531.0,556.0,-0.5,Negative
+165098213655018169,2023-02-12 06:12:01,2023-02-12,6,Sunday,johnsonstephen,Twitter,Unknown,I love my life!,i love my life,56.0,620.0,0.5,Positive
+360800915905267027,2023-01-03 04:03:53,2023-01-03,4,Tuesday,igiles,Twitter,Unknown,I love my life!,i love my life,188.0,905.0,0.5,Positive
+117779197172837004,2023-02-18 16:11:14,2023-02-18,16,Saturday,teresa81,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,442.0,380.0,-0.5,Negative
+485040742866101830,2023-04-13 19:31:06,2023-04-13,19,Thursday,randycollins,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,528.0,41.0,0.0,Neutral
+871991858186305037,2023-01-14 04:16:38,2023-01-14,4,Saturday,nicolemadden,Twitter,Unknown,I'm so upset right now.,i m so upset right now,256.0,380.0,0.0,Neutral
+224270986362230522,2023-03-14 11:55:29,2023-03-14,11,Tuesday,marilynjuarez,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,481.0,173.0,-0.5,Negative
+112266489287086156,2023-03-18 10:21:02,2023-03-18,10,Saturday,mferguson,Twitter,Unknown,This is the best day ever!,this is the best day ever,172.0,447.0,0.5,Positive
+108450916419759279,2023-01-21 17:12:55,2023-01-21,17,Saturday,novaksuzanne,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,305.0,225.0,-0.5,Negative
+943865605761153204,2023-02-07 19:03:53,2023-02-07,19,Tuesday,benjamin18,Twitter,Unknown,I love my life!,i love my life,331.0,2.0,0.5,Positive
+494075360045731479,2023-01-05 10:50:09,2023-01-05,10,Thursday,javier25,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,31.0,992.0,-0.5,Negative
+293210637834668867,2023-01-10 23:53:08,2023-01-10,23,Tuesday,htaylor,Twitter,Unknown,I'm so upset right now.,i m so upset right now,667.0,166.0,0.0,Neutral
+904175679551919551,2023-03-25 17:39:31,2023-03-25,17,Saturday,joy28,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,536.0,573.0,0.0,Neutral
+469026779726278067,2023-04-11 21:42:21,2023-04-11,21,Tuesday,shelby84,Twitter,Unknown,I'm so upset right now.,i m so upset right now,954.0,740.0,0.0,Neutral
+772059958909837107,2023-04-14 22:54:34,2023-04-14,22,Friday,mannkatie,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,10.0,989.0,0.0,Neutral
+501618473730015829,2023-02-06 14:41:34,2023-02-06,14,Monday,david69,Twitter,Unknown,I love my life!,i love my life,185.0,995.0,0.5,Positive
+756743885587669911,2023-04-03 11:55:37,2023-04-03,11,Monday,nicholas89,Twitter,Unknown,This is the best day ever!,this is the best day ever,289.0,963.0,0.5,Positive
+134004886804940755,2023-03-25 18:59:58,2023-03-25,18,Saturday,katelyndelacruz,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,1000.0,387.0,-0.5,Negative
+179069399120888546,2023-01-26 02:45:54,2023-01-26,2,Thursday,nicholeosborn,Twitter,Unknown,This is the best day ever!,this is the best day ever,701.0,60.0,0.5,Positive
+911267322723104717,2023-03-24 15:29:32,2023-03-24,15,Friday,raymondmitchell,Twitter,Unknown,This is the best day ever!,this is the best day ever,147.0,321.0,0.5,Positive
+553879041336675424,2023-03-12 14:35:32,2023-03-12,14,Sunday,wilsonrandall,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,956.0,136.0,-0.5,Negative
+922693932650879875,2023-02-28 09:19:01,2023-02-28,9,Tuesday,wareolivia,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,938.0,333.0,0.0,Neutral
+753548697363862850,2023-03-09 22:49:27,2023-03-09,22,Thursday,zrichardson,Twitter,Unknown,I love my life!,i love my life,935.0,332.0,0.5,Positive
+161313774314265334,2023-03-27 21:01:24,2023-03-27,21,Monday,anthony55,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,578.0,575.0,0.0,Neutral
+906732203952747893,2023-01-20 11:52:53,2023-01-20,11,Friday,mramirez,Twitter,Unknown,This is the best day ever!,this is the best day ever,922.0,811.0,0.5,Positive
+520875016597954937,2023-04-02 08:16:59,2023-04-02,8,Sunday,elliottkevin,Twitter,Unknown,I love my life!,i love my life,973.0,947.0,0.5,Positive
+582027305999201340,2023-03-09 12:32:54,2023-03-09,12,Thursday,marksandoval,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,84.0,263.0,0.0,Neutral
+592234640619931191,2023-01-17 04:08:01,2023-01-17,4,Tuesday,marilynlee,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,562.0,716.0,-0.5,Negative
+384301619673542677,2023-01-05 17:23:52,2023-01-05,17,Thursday,nathan48,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,188.0,149.0,-0.5,Negative
+475122491176540875,2023-01-12 09:06:38,2023-01-12,9,Thursday,jmarsh,Twitter,Unknown,I'm so upset right now.,i m so upset right now,127.0,456.0,0.0,Neutral
+338547762274659527,2023-03-17 16:56:49,2023-03-17,16,Friday,annegardner,Twitter,Unknown,This is the best day ever!,this is the best day ever,538.0,656.0,0.5,Positive
+965983995853498522,2023-02-19 13:37:53,2023-02-19,13,Sunday,brownalan,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,197.0,423.0,0.0,Neutral
+428427957298431773,2023-04-22 12:06:12,2023-04-22,12,Saturday,alyssaschmidt,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,789.0,241.0,-0.5,Negative
+685827615491412801,2023-01-04 13:38:05,2023-01-04,13,Wednesday,catherinegibbs,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,931.0,979.0,0.0,Neutral
+373040746562107411,2023-01-31 06:16:34,2023-01-31,6,Tuesday,kenneththomas,Twitter,Unknown,I love my life!,i love my life,974.0,586.0,0.5,Positive
+341509910899430761,2023-01-28 08:40:47,2023-01-28,8,Saturday,alexanderesparza,Twitter,Unknown,This is the best day ever!,this is the best day ever,856.0,400.0,0.5,Positive
+467196394435811897,2023-02-14 04:14:02,2023-02-14,4,Tuesday,fwilson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,354.0,914.0,-0.5,Negative
+762547362044552693,2023-02-11 04:49:18,2023-02-11,4,Saturday,qcooke,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,619.0,242.0,-0.5,Negative
+395603692070126132,2023-04-08 03:12:49,2023-04-08,3,Saturday,wilsonpatrick,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,356.0,399.0,0.0,Neutral
+148588413535805807,2023-02-13 18:38:23,2023-02-13,18,Monday,adam47,Twitter,Unknown,I love my life!,i love my life,447.0,685.0,0.5,Positive
+236034524920094386,2023-01-15 09:13:43,2023-01-15,9,Sunday,smithnicole,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,172.0,757.0,0.0,Neutral
+804648453402778473,2023-02-20 04:51:32,2023-02-20,4,Monday,angie66,Twitter,Unknown,I love my life!,i love my life,681.0,758.0,0.5,Positive
+435773810730569609,2023-03-20 10:44:34,2023-03-20,10,Monday,wigginsbernard,Twitter,Unknown,I love my life!,i love my life,617.0,817.0,0.5,Positive
+593573478843439114,2023-03-19 22:53:05,2023-03-19,22,Sunday,qrangel,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,64.0,378.0,0.0,Neutral
+320820925675716857,2023-04-11 12:56:14,2023-04-11,12,Tuesday,virginia06,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,687.0,668.0,-0.5,Negative
+427899161865222917,2023-01-06 14:08:37,2023-01-06,14,Friday,alexis77,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,363.0,532.0,-0.5,Negative
+700052543101154118,2023-03-01 23:27:22,2023-03-01,23,Wednesday,ccross,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,163.0,134.0,-0.5,Negative
+960721962000279687,2023-04-03 09:15:03,2023-04-03,9,Monday,bearddebra,Twitter,Unknown,I'm so upset right now.,i m so upset right now,554.0,714.0,0.0,Neutral
+321486652804208713,2023-04-15 04:50:17,2023-04-15,4,Saturday,ericrobertson,Twitter,Unknown,This is the best day ever!,this is the best day ever,85.0,299.0,0.5,Positive
+235549375049906547,2023-04-26 13:27:09,2023-04-26,13,Wednesday,brandonhill,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,678.0,539.0,-0.5,Negative
+299211694063558499,2023-03-07 07:22:49,2023-03-07,7,Tuesday,emorgan,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,871.0,790.0,0.0,Neutral
+233247012016137264,2023-04-03 05:37:05,2023-04-03,5,Monday,oobrien,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,468.0,471.0,0.0,Neutral
+662175716455468178,2023-01-18 05:24:44,2023-01-18,5,Wednesday,bobbywalker,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,742.0,961.0,0.0,Neutral
+917168487363843706,2023-04-16 06:27:19,2023-04-16,6,Sunday,helen11,Twitter,Unknown,This is the best day ever!,this is the best day ever,642.0,340.0,0.5,Positive
+661565311490734353,2023-01-17 08:40:33,2023-01-17,8,Tuesday,stephensjohn,Twitter,Unknown,I love my life!,i love my life,561.0,666.0,0.5,Positive
+246007533929854939,2023-04-05 10:19:25,2023-04-05,10,Wednesday,nguyentim,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,515.0,136.0,-0.5,Negative
+798470684575553268,2023-01-08 17:26:39,2023-01-08,17,Sunday,swalters,Twitter,Unknown,This is the best day ever!,this is the best day ever,992.0,780.0,0.5,Positive
+856734546098725952,2023-03-22 02:47:34,2023-03-22,2,Wednesday,whitemanuel,Twitter,Unknown,I'm so upset right now.,i m so upset right now,577.0,816.0,0.0,Neutral
+188255574898333847,2023-01-24 14:37:35,2023-01-24,14,Tuesday,thompsonmatthew,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,180.0,610.0,0.0,Neutral
+525608871867827547,2023-01-22 12:10:33,2023-01-22,12,Sunday,darryl29,Twitter,Unknown,I love my life!,i love my life,872.0,710.0,0.5,Positive
+942307479602980587,2023-01-01 00:24:35,2023-01-01,0,Sunday,fwebb,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,1.0,527.0,-0.5,Negative
+787245838115920053,2023-04-02 04:18:39,2023-04-02,4,Sunday,andrewlong,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,775.0,292.0,0.0,Neutral
+965984905323727377,2023-01-09 11:17:45,2023-01-09,11,Monday,pvega,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,0.0,35.0,-0.5,Negative
+473201772433328829,2023-01-31 02:53:31,2023-01-31,2,Tuesday,berrydavid,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,416.0,300.0,-0.5,Negative
+467476652680074097,2023-01-31 22:58:59,2023-01-31,22,Tuesday,stevenhernandez,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,432.0,555.0,-0.5,Negative
+917814750750314955,2023-03-29 11:12:15,2023-03-29,11,Wednesday,christina07,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,1.0,212.0,0.0,Neutral
+793270969586389836,2023-01-12 02:27:06,2023-01-12,2,Thursday,gregoryteresa,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,560.0,567.0,-0.5,Negative
+267424924325750761,2023-03-11 21:05:34,2023-03-11,21,Saturday,ruben11,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,922.0,223.0,0.0,Neutral
+876971645571338589,2023-04-06 01:33:42,2023-04-06,1,Thursday,lperry,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,238.0,135.0,-0.5,Negative
+202015911527516928,2023-04-03 09:11:29,2023-04-03,9,Monday,johnscharles,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,80.0,540.0,0.0,Neutral
+434767723376986218,2023-04-18 07:37:27,2023-04-18,7,Tuesday,elivingston,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,853.0,959.0,0.0,Neutral
+912752068677451630,2023-04-04 14:30:04,2023-04-04,14,Tuesday,rdurham,Twitter,Unknown,This is the best day ever!,this is the best day ever,166.0,74.0,0.5,Positive
+352305865978602139,2023-02-11 20:09:54,2023-02-11,20,Saturday,uwright,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,13.0,337.0,-0.5,Negative
+534061763777267335,2023-04-12 02:08:38,2023-04-12,2,Wednesday,perezmark,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,233.0,358.0,-0.5,Negative
+684043310668277416,2023-01-20 12:19:27,2023-01-20,12,Friday,jenniferjohnson,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,351.0,912.0,0.0,Neutral
+539121077017897047,2023-03-14 06:11:01,2023-03-14,6,Tuesday,williamsrobin,Twitter,Unknown,This is the best day ever!,this is the best day ever,235.0,598.0,0.5,Positive
+842534723502391386,2023-02-04 11:19:14,2023-02-04,11,Saturday,tlopez,Twitter,Unknown,This is the best day ever!,this is the best day ever,188.0,323.0,0.5,Positive
+454124335020896560,2023-01-03 21:53:21,2023-01-03,21,Tuesday,stephanieschmidt,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,596.0,751.0,-0.5,Negative
+489689888982266496,2023-03-31 20:10:44,2023-03-31,20,Friday,phillipsmelissa,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,16.0,879.0,0.0,Neutral
+607905996094810389,2023-04-01 04:59:38,2023-04-01,4,Saturday,jeffreyfarrell,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,561.0,659.0,0.0,Neutral
+579679913084217778,2023-02-08 10:23:30,2023-02-08,10,Wednesday,reesealejandro,Twitter,Unknown,I love my life!,i love my life,622.0,327.0,0.5,Positive
+288974160825209928,2023-01-22 06:31:49,2023-01-22,6,Sunday,gomezbryan,Twitter,Unknown,I'm so upset right now.,i m so upset right now,374.0,630.0,0.0,Neutral
+112896178149385247,2023-02-08 08:05:00,2023-02-08,8,Wednesday,russell89,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,114.0,667.0,0.0,Neutral
+841022975814276470,2023-04-16 11:06:31,2023-04-16,11,Sunday,serranomegan,Twitter,Unknown,I'm so upset right now.,i m so upset right now,489.0,959.0,0.0,Neutral
+319159033677188627,2023-03-03 10:30:59,2023-03-03,10,Friday,wallermichael,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,134.0,176.0,-0.5,Negative
+674634465278505036,2023-02-28 20:37:43,2023-02-28,20,Tuesday,murphytina,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,761.0,984.0,0.0,Neutral
+270785828092843475,2023-03-01 23:34:22,2023-03-01,23,Wednesday,victor70,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,105.0,208.0,0.0,Neutral
+315313443794942846,2023-01-20 06:06:02,2023-01-20,6,Friday,briangarcia,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,905.0,228.0,-0.5,Negative
+977840143468603362,2023-04-19 14:39:21,2023-04-19,14,Wednesday,delgadoandrea,Twitter,Unknown,This is the best day ever!,this is the best day ever,736.0,669.0,0.5,Positive
+414565603093732996,2023-02-02 08:10:35,2023-02-02,8,Thursday,debra09,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,982.0,654.0,0.0,Neutral
+667867729952438095,2023-02-28 11:13:56,2023-02-28,11,Tuesday,rebecca05,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,255.0,716.0,-0.5,Negative
+824799084759026897,2023-04-25 04:24:15,2023-04-25,4,Tuesday,kevinthompson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,255.0,812.0,-0.5,Negative
+309018167222604578,2023-01-02 07:59:17,2023-01-02,7,Monday,zacharybryant,Twitter,Unknown,This is the best day ever!,this is the best day ever,956.0,763.0,0.5,Positive
+262830474355148672,2023-02-20 02:13:12,2023-02-20,2,Monday,katiewells,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,973.0,1000.0,0.0,Neutral
+154448621988984642,2023-01-27 23:52:42,2023-01-27,23,Friday,uroth,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,764.0,830.0,0.0,Neutral
+568203622938462994,2023-03-22 22:35:21,2023-03-22,22,Wednesday,jenniferbailey,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,966.0,764.0,-0.5,Negative
+144801050270261786,2023-02-20 07:27:20,2023-02-20,7,Monday,brownpatrick,Twitter,Unknown,I'm so upset right now.,i m so upset right now,118.0,782.0,0.0,Neutral
+332306771741804499,2023-04-21 13:58:26,2023-04-21,13,Friday,christine54,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,210.0,107.0,-0.5,Negative
+201758390889180048,2023-01-06 03:34:54,2023-01-06,3,Friday,ecross,Twitter,Unknown,This is the best day ever!,this is the best day ever,30.0,775.0,0.5,Positive
+176110166275158605,2023-02-21 16:33:04,2023-02-21,16,Tuesday,ewhite,Twitter,Unknown,I'm so upset right now.,i m so upset right now,80.0,53.0,0.0,Neutral
+587930497657202931,2023-01-12 18:03:51,2023-01-12,18,Thursday,amanda68,Twitter,Unknown,I'm so upset right now.,i m so upset right now,151.0,841.0,0.0,Neutral
+428773068082494519,2023-04-06 08:52:23,2023-04-06,8,Thursday,stonekatherine,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,904.0,251.0,0.0,Neutral
+950688399334108248,2023-03-03 20:56:33,2023-03-03,20,Friday,olsonmolly,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,660.0,848.0,-0.5,Negative
+628930176599979922,2023-01-06 13:41:48,2023-01-06,13,Friday,mjohnson,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,951.0,268.0,-0.5,Negative
+496462971671766119,2023-03-23 15:09:15,2023-03-23,15,Thursday,joseph21,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,568.0,282.0,0.0,Neutral
+895807233587085132,2023-01-10 21:40:36,2023-01-10,21,Tuesday,cramirez,Twitter,Unknown,This is the best day ever!,this is the best day ever,440.0,159.0,0.5,Positive
+753283063549409045,2023-03-22 02:04:39,2023-03-22,2,Wednesday,campbellmichael,Twitter,Unknown,I'm so upset right now.,i m so upset right now,201.0,492.0,0.0,Neutral
+505994129528089220,2023-03-09 04:01:30,2023-03-09,4,Thursday,brian63,Twitter,Unknown,I'm so upset right now.,i m so upset right now,727.0,771.0,0.0,Neutral
+535459719304495228,2023-01-07 09:15:48,2023-01-07,9,Saturday,kimberlysantiago,Twitter,Unknown,I'm so upset right now.,i m so upset right now,499.0,497.0,0.0,Neutral
+309342510079600410,2023-04-16 15:18:05,2023-04-16,15,Sunday,llopez,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,107.0,109.0,0.0,Neutral
+972867687416271051,2023-03-22 22:30:38,2023-03-22,22,Wednesday,brucegreene,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,800.0,828.0,-0.5,Negative
+387794412340347267,2023-02-20 03:42:40,2023-02-20,3,Monday,ualexander,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,840.0,286.0,-0.5,Negative
+483780517542538092,2023-03-12 12:10:05,2023-03-12,12,Sunday,katelynsimmons,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,946.0,443.0,0.0,Neutral
+586625216861600601,2023-03-05 00:26:27,2023-03-05,0,Sunday,michael71,Twitter,Unknown,I love my life!,i love my life,659.0,616.0,0.5,Positive
+726085754966485493,2023-03-27 21:09:11,2023-03-27,21,Monday,jacobbecker,Twitter,Unknown,I love my life!,i love my life,403.0,598.0,0.5,Positive
+283617462363647042,2023-03-23 05:00:37,2023-03-23,5,Thursday,jacobsrachel,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,987.0,823.0,-0.5,Negative
+690334642954779021,2023-04-11 01:56:45,2023-04-11,1,Tuesday,kschmidt,Twitter,Unknown,I'm so upset right now.,i m so upset right now,317.0,425.0,0.0,Neutral
+996180961746399043,2023-03-12 00:36:27,2023-03-12,0,Sunday,gcollins,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,309.0,625.0,0.0,Neutral
+577404189145835897,2023-04-09 23:09:36,2023-04-09,23,Sunday,teresa10,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,687.0,40.0,-0.5,Negative
+225531922522163368,2023-01-04 23:28:35,2023-01-04,23,Wednesday,kellerdaniel,Twitter,Unknown,I'm so upset right now.,i m so upset right now,886.0,464.0,0.0,Neutral
+345015054176317383,2023-02-14 20:07:00,2023-02-14,20,Tuesday,alexandraallen,Twitter,Unknown,I love my life!,i love my life,263.0,230.0,0.5,Positive
+974798840041746394,2023-02-06 02:37:01,2023-02-06,2,Monday,wmartin,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,79.0,33.0,0.0,Neutral
+532539542265082558,2023-03-31 02:06:40,2023-03-31,2,Friday,nmartin,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,257.0,555.0,-0.5,Negative
+796289410422513300,2023-02-10 20:41:34,2023-02-10,20,Friday,bschaefer,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,712.0,48.0,-0.5,Negative
+182640300799169115,2023-01-23 19:49:49,2023-01-23,19,Monday,bruce65,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,119.0,951.0,0.0,Neutral
+760513107144471690,2023-02-23 09:52:15,2023-02-23,9,Thursday,tiffany49,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,441.0,795.0,-0.5,Negative
+626035981653023468,2023-03-15 16:17:06,2023-03-15,16,Wednesday,jacquelinekirby,Twitter,Unknown,I'm so upset right now.,i m so upset right now,631.0,648.0,0.0,Neutral
+752866106761370471,2023-02-26 13:58:42,2023-02-26,13,Sunday,amy09,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,142.0,844.0,0.0,Neutral
+750343468824216412,2023-01-17 01:36:55,2023-01-17,1,Tuesday,imiranda,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,555.0,847.0,0.0,Neutral
+472554736574834719,2023-03-02 21:43:13,2023-03-02,21,Thursday,steven77,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,940.0,226.0,0.0,Neutral
+646154904061032910,2023-01-07 13:56:17,2023-01-07,13,Saturday,dillonwendy,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,277.0,620.0,0.0,Neutral
+618445937125068998,2023-03-08 15:09:27,2023-03-08,15,Wednesday,larsontaylor,Twitter,Unknown,I'm so upset right now.,i m so upset right now,776.0,666.0,0.0,Neutral
+699080702108679409,2023-02-14 19:21:52,2023-02-14,19,Tuesday,rclark,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,328.0,33.0,0.0,Neutral
+139259858103677472,2023-03-16 06:51:33,2023-03-16,6,Thursday,cannonnancy,Twitter,Unknown,This is the best day ever!,this is the best day ever,845.0,183.0,0.5,Positive
+868849599349339567,2023-01-09 15:16:40,2023-01-09,15,Monday,rayjessica,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,749.0,114.0,0.0,Neutral
+925027607760945678,2023-02-08 22:13:40,2023-02-08,22,Wednesday,rmartin,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,745.0,108.0,0.0,Neutral
+484343155130004588,2023-02-05 14:53:38,2023-02-05,14,Sunday,corey56,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,199.0,438.0,-0.5,Negative
+176820862543438388,2023-03-11 19:05:34,2023-03-11,19,Saturday,coletheodore,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,876.0,436.0,-0.5,Negative
+187759702141580309,2023-03-20 22:54:11,2023-03-20,22,Monday,gloria55,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,50.0,622.0,0.0,Neutral
+698209798030019347,2023-04-02 12:27:16,2023-04-02,12,Sunday,patrick63,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,512.0,415.0,-0.5,Negative
+429322366264023221,2023-02-23 09:47:39,2023-02-23,9,Thursday,lwright,Twitter,Unknown,I love my life!,i love my life,820.0,821.0,0.5,Positive
+502411915108967283,2023-01-12 20:01:26,2023-01-12,20,Thursday,holtkenneth,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,831.0,931.0,-0.5,Negative
+748815694815216461,2023-02-03 00:32:24,2023-02-03,0,Friday,cmitchell,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,984.0,828.0,-0.5,Negative
+314934540306627546,2023-02-25 12:54:05,2023-02-25,12,Saturday,nlivingston,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,953.0,331.0,-0.5,Negative
+670071393562500243,2023-03-07 18:01:26,2023-03-07,18,Tuesday,nathanmartin,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,474.0,303.0,0.0,Neutral
+409245141820784223,2023-04-07 23:30:51,2023-04-07,23,Friday,hinesnina,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,724.0,573.0,0.0,Neutral
+701625737656915227,2023-01-03 23:51:50,2023-01-03,23,Tuesday,ngregory,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,770.0,836.0,0.0,Neutral
+755185641038243639,2023-01-19 03:26:56,2023-01-19,3,Thursday,mark99,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,111.0,978.0,-0.5,Negative
+239829419466974782,2023-04-14 15:17:33,2023-04-14,15,Friday,yzimmerman,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,641.0,395.0,0.0,Neutral
+848841545434071271,2023-04-03 12:50:08,2023-04-03,12,Monday,jennifer73,Twitter,Unknown,I'm so upset right now.,i m so upset right now,259.0,793.0,0.0,Neutral
+106137695623551952,2023-04-05 04:27:17,2023-04-05,4,Wednesday,wendy91,Twitter,Unknown,This is the best day ever!,this is the best day ever,852.0,714.0,0.5,Positive
+822827979401882819,2023-01-17 11:03:25,2023-01-17,11,Tuesday,angelawalker,Twitter,Unknown,This is the best day ever!,this is the best day ever,313.0,985.0,0.5,Positive
+990204643991764480,2023-04-25 05:15:35,2023-04-25,5,Tuesday,boothjoseph,Twitter,Unknown,I love my life!,i love my life,206.0,166.0,0.5,Positive
+923530997478880228,2023-04-15 05:49:38,2023-04-15,5,Saturday,kguzman,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,876.0,838.0,-0.5,Negative
+328173610233239477,2023-03-31 22:23:33,2023-03-31,22,Friday,yjones,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,25.0,298.0,-0.5,Negative
+693005055374214411,2023-04-07 10:41:28,2023-04-07,10,Friday,erinlucero,Twitter,Unknown,I love my life!,i love my life,527.0,628.0,0.5,Positive
+784406900981173154,2023-04-21 11:10:45,2023-04-21,11,Friday,jonesdustin,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,516.0,83.0,0.0,Neutral
+123983310240909513,2023-04-20 22:48:43,2023-04-20,22,Thursday,dcox,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,352.0,523.0,-0.5,Negative
+989055622962847779,2023-03-28 08:17:35,2023-03-28,8,Tuesday,kristopherhale,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,96.0,587.0,0.0,Neutral
+292166194843035990,2023-01-13 13:16:05,2023-01-13,13,Friday,david65,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,518.0,258.0,0.0,Neutral
+344223370400056206,2023-01-19 09:03:12,2023-01-19,9,Thursday,bpacheco,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,545.0,269.0,0.0,Neutral
+380626539476913910,2023-04-02 23:40:41,2023-04-02,23,Sunday,megan15,Twitter,Unknown,I love my life!,i love my life,577.0,286.0,0.5,Positive
+236443952796234610,2023-04-23 09:40:38,2023-04-23,9,Sunday,lorirojas,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,75.0,690.0,-0.5,Negative
+630416516762351021,2023-03-03 14:32:45,2023-03-03,14,Friday,robert26,Twitter,Unknown,I'm so upset right now.,i m so upset right now,54.0,629.0,0.0,Neutral
+540743707073993900,2023-03-19 14:34:29,2023-03-19,14,Sunday,williamsjohn,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,982.0,591.0,-0.5,Negative
+332471519592421652,2023-03-31 14:53:56,2023-03-31,14,Friday,iallen,Twitter,Unknown,This is the best day ever!,this is the best day ever,172.0,226.0,0.5,Positive
+971889272655848064,2023-03-08 16:04:38,2023-03-08,16,Wednesday,johnfischer,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,649.0,349.0,0.0,Neutral
+332426921643068349,2023-02-02 15:51:32,2023-02-02,15,Thursday,charles88,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,209.0,671.0,-0.5,Negative
+314053731347928564,2023-01-27 10:48:04,2023-01-27,10,Friday,christopher95,Twitter,Unknown,I love my life!,i love my life,427.0,397.0,0.5,Positive
+307978569182437947,2023-01-04 22:23:38,2023-01-04,22,Wednesday,valencialisa,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,516.0,197.0,-0.5,Negative
+207730700047629972,2023-03-28 12:43:35,2023-03-28,12,Tuesday,anabauer,Twitter,Unknown,I love my life!,i love my life,314.0,871.0,0.5,Positive
+576473114065004728,2023-01-09 22:26:52,2023-01-09,22,Monday,kmontoya,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,124.0,434.0,0.0,Neutral
+526336696376245881,2023-01-25 12:04:02,2023-01-25,12,Wednesday,danieltran,Twitter,Unknown,I'm so upset right now.,i m so upset right now,7.0,397.0,0.0,Neutral
+524487420764980602,2023-04-01 19:48:24,2023-04-01,19,Saturday,leelauren,Twitter,Unknown,This is the best day ever!,this is the best day ever,786.0,223.0,0.5,Positive
+288861510483391227,2023-01-09 00:15:27,2023-01-09,0,Monday,keithhorn,Twitter,Unknown,This is the best day ever!,this is the best day ever,39.0,375.0,0.5,Positive
+397349677622256014,2023-02-03 13:55:21,2023-02-03,13,Friday,christopherfrench,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,836.0,373.0,0.0,Neutral
+298797976800628026,2023-01-05 00:20:03,2023-01-05,0,Thursday,gsingleton,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,722.0,74.0,-0.5,Negative
+983324148152971747,2023-03-29 16:12:58,2023-03-29,16,Wednesday,richard28,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,988.0,482.0,-0.5,Negative
+298441177244182485,2023-03-02 00:34:12,2023-03-02,0,Thursday,maureen30,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,748.0,22.0,0.0,Neutral
+917729578557385699,2023-02-07 22:13:37,2023-02-07,22,Tuesday,timothyduncan,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,21.0,310.0,-0.5,Negative
+564225126833741178,2023-02-25 13:36:46,2023-02-25,13,Saturday,brianmartinez,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,423.0,757.0,-0.5,Negative
+818590365574452602,2023-02-26 13:44:11,2023-02-26,13,Sunday,pstephens,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,410.0,489.0,-0.5,Negative
+569957695729104938,2023-02-10 19:06:11,2023-02-10,19,Friday,tramos,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,218.0,52.0,0.0,Neutral
+727972566019680158,2023-02-12 20:19:22,2023-02-12,20,Sunday,tiffany79,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,781.0,884.0,-0.5,Negative
+256404341775050069,2023-02-19 00:15:59,2023-02-19,0,Sunday,marcus44,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,214.0,342.0,-0.5,Negative
+937328069515669676,2023-02-12 07:38:28,2023-02-12,7,Sunday,tscott,Twitter,Unknown,I love my life!,i love my life,460.0,247.0,0.5,Positive
+936427445912848063,2023-02-19 12:32:27,2023-02-19,12,Sunday,tcarr,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,200.0,351.0,0.0,Neutral
+881347120315160728,2023-04-04 16:57:07,2023-04-04,16,Tuesday,fbrown,Twitter,Unknown,I love my life!,i love my life,170.0,483.0,0.5,Positive
+412439660473780854,2023-01-09 01:39:38,2023-01-09,1,Monday,qphillips,Twitter,Unknown,I'm so upset right now.,i m so upset right now,466.0,24.0,0.0,Neutral
+178730150172977699,2023-04-18 19:38:45,2023-04-18,19,Tuesday,grosssandra,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,982.0,621.0,-0.5,Negative
+979814024517060413,2023-04-21 16:53:04,2023-04-21,16,Friday,walkerjimmy,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,706.0,997.0,0.0,Neutral
+859836797515922281,2023-01-23 15:43:53,2023-01-23,15,Monday,sgraham,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,547.0,946.0,-0.5,Negative
+439753231648605732,2023-01-13 02:06:13,2023-01-13,2,Friday,april08,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,895.0,865.0,-0.5,Negative
+105706424522462120,2023-03-16 05:39:01,2023-03-16,5,Thursday,cheryljones,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,933.0,925.0,0.0,Neutral
+376059509814677292,2023-03-05 04:23:08,2023-03-05,4,Sunday,mollypoole,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,121.0,727.0,-0.5,Negative
+940369853472354753,2023-01-29 12:40:30,2023-01-29,12,Sunday,ddavidson,Twitter,Unknown,I love my life!,i love my life,838.0,128.0,0.5,Positive
+767830148067710875,2023-01-17 14:00:41,2023-01-17,14,Tuesday,butlershannon,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,700.0,530.0,-0.5,Negative
+525500584467451301,2023-01-09 02:40:33,2023-01-09,2,Monday,turnerjohn,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,661.0,401.0,0.0,Neutral
+710515626246667138,2023-01-04 09:14:43,2023-01-04,9,Wednesday,floressamuel,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,361.0,317.0,0.0,Neutral
+870845059826241078,2023-01-13 03:09:46,2023-01-13,3,Friday,laurabarnes,Twitter,Unknown,This is the best day ever!,this is the best day ever,635.0,164.0,0.5,Positive
+813795311327027634,2023-02-19 07:11:18,2023-02-19,7,Sunday,jpalmer,Twitter,Unknown,I'm so upset right now.,i m so upset right now,672.0,534.0,0.0,Neutral
+328458397604928881,2023-02-09 14:38:56,2023-02-09,14,Thursday,abigail59,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,389.0,675.0,0.0,Neutral
+367727195958508873,2023-01-24 13:53:08,2023-01-24,13,Tuesday,michaeloliver,Twitter,Unknown,This is the best day ever!,this is the best day ever,471.0,890.0,0.5,Positive
+834346003868035234,2023-01-21 09:44:29,2023-01-21,9,Saturday,qvaughan,Twitter,Unknown,This is the best day ever!,this is the best day ever,419.0,507.0,0.5,Positive
+889365033266556086,2023-01-10 09:48:38,2023-01-10,9,Tuesday,kbaker,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,253.0,404.0,0.0,Neutral
+150771989040668291,2023-04-14 02:52:19,2023-04-14,2,Friday,lisa55,Twitter,Unknown,I love my life!,i love my life,753.0,519.0,0.5,Positive
+527892533335121486,2023-01-06 01:58:51,2023-01-06,1,Friday,wilsonderrick,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,635.0,598.0,0.0,Neutral
+132844067235691391,2023-04-05 18:31:30,2023-04-05,18,Wednesday,pcooper,Twitter,Unknown,I'm so upset right now.,i m so upset right now,169.0,483.0,0.0,Neutral
+112447009279801798,2023-04-01 06:01:42,2023-04-01,6,Saturday,chelsea00,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,759.0,114.0,-0.5,Negative
+587612823275706397,2023-02-09 09:39:16,2023-02-09,9,Thursday,lelliott,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,738.0,485.0,-0.5,Negative
+339150946117194772,2023-04-23 01:20:37,2023-04-23,1,Sunday,edward35,Twitter,Unknown,This is the best day ever!,this is the best day ever,910.0,246.0,0.5,Positive
+922268312101299416,2023-04-24 16:38:05,2023-04-24,16,Monday,davidgonzalez,Twitter,Unknown,I'm so upset right now.,i m so upset right now,300.0,324.0,0.0,Neutral
+734287670105256131,2023-01-06 05:10:54,2023-01-06,5,Friday,ilindsey,Twitter,Unknown,I'm so upset right now.,i m so upset right now,207.0,498.0,0.0,Neutral
+905316403774240396,2023-04-17 09:02:24,2023-04-17,9,Monday,omyers,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,945.0,637.0,0.0,Neutral
+856354043592470762,2023-01-12 20:55:46,2023-01-12,20,Thursday,whitesamantha,Twitter,Unknown,This is the best day ever!,this is the best day ever,583.0,829.0,0.5,Positive
+239105780524138461,2023-01-23 23:44:19,2023-01-23,23,Monday,christopher04,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,926.0,462.0,0.0,Neutral
+771284773318902907,2023-04-06 16:55:17,2023-04-06,16,Thursday,franklinaudrey,Twitter,Unknown,I'm so upset right now.,i m so upset right now,17.0,46.0,0.0,Neutral
+524674899603307999,2023-04-27 11:23:17,2023-04-27,11,Thursday,lisaleonard,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,175.0,284.0,-0.5,Negative
+677449678423090954,2023-02-21 07:01:27,2023-02-21,7,Tuesday,sara77,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,422.0,832.0,0.0,Neutral
+300674398079720833,2023-03-24 03:44:42,2023-03-24,3,Friday,rfaulkner,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,783.0,829.0,-0.5,Negative
+597114901522595631,2023-04-13 23:04:27,2023-04-13,23,Thursday,stevenandrade,Twitter,Unknown,I'm so upset right now.,i m so upset right now,743.0,908.0,0.0,Neutral
+940397558986424207,2023-01-02 16:59:42,2023-01-02,16,Monday,sweeneynichole,Twitter,Unknown,I love my life!,i love my life,420.0,271.0,0.5,Positive
+540465644702381657,2023-01-09 04:42:43,2023-01-09,4,Monday,evan13,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,285.0,677.0,0.0,Neutral
+431879483456142361,2023-03-04 14:45:22,2023-03-04,14,Saturday,wallacejennifer,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,935.0,151.0,-0.5,Negative
+523053034587470490,2023-01-19 11:00:04,2023-01-19,11,Thursday,igomez,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,211.0,676.0,-0.5,Negative
+944012229672537432,2023-03-26 18:45:54,2023-03-26,18,Sunday,evanskevin,Twitter,Unknown,I love my life!,i love my life,966.0,439.0,0.5,Positive
+643185209935966398,2023-04-05 01:42:39,2023-04-05,1,Wednesday,jluna,Twitter,Unknown,I'm so upset right now.,i m so upset right now,256.0,256.0,0.0,Neutral
+589769566700004337,2023-01-19 11:45:51,2023-01-19,11,Thursday,xbrock,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,47.0,52.0,-0.5,Negative
+634500157584066129,2023-03-06 20:30:32,2023-03-06,20,Monday,eparker,Twitter,Unknown,I love my life!,i love my life,825.0,617.0,0.5,Positive
+484470022591234923,2023-01-03 10:09:16,2023-01-03,10,Tuesday,fishermartha,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,392.0,507.0,-0.5,Negative
+297417058714305126,2023-04-14 15:45:13,2023-04-14,15,Friday,hortondennis,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,855.0,600.0,0.0,Neutral
+710993217167262940,2023-02-14 13:21:21,2023-02-14,13,Tuesday,lewismathew,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,420.0,470.0,0.0,Neutral
+197169792249866745,2023-03-17 06:01:10,2023-03-17,6,Friday,rpetersen,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,664.0,970.0,0.0,Neutral
+648530549569049725,2023-04-07 09:54:05,2023-04-07,9,Friday,francis69,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,13.0,744.0,-0.5,Negative
+401666725459552483,2023-02-22 15:57:38,2023-02-22,15,Wednesday,annette01,Twitter,Unknown,I love my life!,i love my life,298.0,136.0,0.5,Positive
+164529100956850927,2023-04-26 11:10:58,2023-04-26,11,Wednesday,michael25,Twitter,Unknown,This is the best day ever!,this is the best day ever,628.0,610.0,0.5,Positive
+645225588744806046,2023-02-11 16:33:38,2023-02-11,16,Saturday,jennifer36,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,356.0,576.0,-0.5,Negative
+865965894650020185,2023-04-04 06:04:28,2023-04-04,6,Tuesday,brian58,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,308.0,906.0,-0.5,Negative
+289341747956637913,2023-04-24 23:05:02,2023-04-24,23,Monday,halejared,Twitter,Unknown,I love my life!,i love my life,583.0,364.0,0.5,Positive
+188071974384350246,2023-01-14 20:32:23,2023-01-14,20,Saturday,boothstephen,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,665.0,764.0,-0.5,Negative
+402887322474482152,2023-04-10 22:29:02,2023-04-10,22,Monday,sroach,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,23.0,449.0,0.0,Neutral
+829558023087799813,2023-01-10 03:30:53,2023-01-10,3,Tuesday,millerevelyn,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,39.0,261.0,0.0,Neutral
+622538584112480616,2023-02-14 16:09:54,2023-02-14,16,Tuesday,mhernandez,Twitter,Unknown,I love my life!,i love my life,839.0,713.0,0.5,Positive
+954102272260898017,2023-03-23 02:06:18,2023-03-23,2,Thursday,whitneyharris,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,272.0,469.0,-0.5,Negative
+104883201438304969,2023-04-09 02:22:20,2023-04-09,2,Sunday,fclay,Twitter,Unknown,I'm so upset right now.,i m so upset right now,862.0,262.0,0.0,Neutral
+108193764685672856,2023-03-30 23:11:16,2023-03-30,23,Thursday,kristin09,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,837.0,875.0,-0.5,Negative
+325127386915441790,2023-02-21 16:57:51,2023-02-21,16,Tuesday,elliskristy,Twitter,Unknown,I love my life!,i love my life,573.0,855.0,0.5,Positive
+234304136098576254,2023-03-31 22:23:27,2023-03-31,22,Friday,joshua06,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,229.0,643.0,-0.5,Negative
+424107476706088131,2023-02-24 10:24:10,2023-02-24,10,Friday,ebullock,Twitter,Unknown,I love my life!,i love my life,725.0,823.0,0.5,Positive
+649628927754697057,2023-03-30 14:54:29,2023-03-30,14,Thursday,brian47,Twitter,Unknown,This is the best day ever!,this is the best day ever,316.0,243.0,0.5,Positive
+420941609964495619,2023-01-21 04:10:54,2023-01-21,4,Saturday,virginiajohnson,Twitter,Unknown,I'm so upset right now.,i m so upset right now,774.0,353.0,0.0,Neutral
+867936850796828962,2023-04-16 07:32:39,2023-04-16,7,Sunday,bryanjones,Twitter,Unknown,I'm so upset right now.,i m so upset right now,250.0,587.0,0.0,Neutral
+635324963312825363,2023-02-19 18:43:58,2023-02-19,18,Sunday,espinozaemily,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,624.0,839.0,0.0,Neutral
+561544329077196109,2023-01-01 23:32:33,2023-01-01,23,Sunday,powerspatricia,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,301.0,798.0,-0.5,Negative
+584572431197595060,2023-01-07 10:25:00,2023-01-07,10,Saturday,robertjordan,Twitter,Unknown,This is the best day ever!,this is the best day ever,824.0,641.0,0.5,Positive
+433812342440304676,2023-02-10 02:26:28,2023-02-10,2,Friday,donnayoung,Twitter,Unknown,This is the best day ever!,this is the best day ever,327.0,339.0,0.5,Positive
+341213461548361361,2023-02-03 02:03:50,2023-02-03,2,Friday,michaelirwin,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,448.0,400.0,-0.5,Negative
+185395635166253938,2023-02-23 08:47:15,2023-02-23,8,Thursday,christina24,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,508.0,875.0,-0.5,Negative
+978653383853528582,2023-01-28 13:54:31,2023-01-28,13,Saturday,brownjoseph,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,849.0,61.0,0.0,Neutral
+906706029755799403,2023-03-05 01:44:15,2023-03-05,1,Sunday,angela42,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,407.0,508.0,0.0,Neutral
+454866038653439238,2023-01-13 23:52:20,2023-01-13,23,Friday,hamptonjenna,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,317.0,555.0,0.0,Neutral
+892181229373356641,2023-03-23 14:41:58,2023-03-23,14,Thursday,pamelacarpenter,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,464.0,612.0,0.0,Neutral
+890648314582361195,2023-02-13 03:39:33,2023-02-13,3,Monday,coryarnold,Twitter,Unknown,This is the best day ever!,this is the best day ever,221.0,693.0,0.5,Positive
+102099316576635328,2023-02-12 15:33:34,2023-02-12,15,Sunday,dianesmith,Twitter,Unknown,This is the best day ever!,this is the best day ever,749.0,426.0,0.5,Positive
+971487018868293791,2023-01-17 10:30:43,2023-01-17,10,Tuesday,holmesmichelle,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,184.0,632.0,-0.5,Negative
+860847345557646821,2023-04-25 00:13:04,2023-04-25,0,Tuesday,christiangriffin,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,440.0,978.0,0.0,Neutral
+112467055455565070,2023-03-26 00:32:35,2023-03-26,0,Sunday,knovak,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,761.0,511.0,0.0,Neutral
+589360630658954294,2023-04-16 13:59:39,2023-04-16,13,Sunday,michelle51,Twitter,Unknown,I love my life!,i love my life,579.0,149.0,0.5,Positive
+867835312278166258,2023-03-29 22:39:08,2023-03-29,22,Wednesday,zpowell,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,892.0,412.0,0.0,Neutral
+374410706535285742,2023-04-06 08:14:12,2023-04-06,8,Thursday,carolferguson,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,341.0,909.0,-0.5,Negative
+235741944065588734,2023-03-01 19:16:22,2023-03-01,19,Wednesday,flemingmariah,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,816.0,49.0,-0.5,Negative
+742520610643570314,2023-01-23 12:01:41,2023-01-23,12,Monday,williamsjulie,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,160.0,91.0,0.0,Neutral
+499149767755254260,2023-01-20 07:14:09,2023-01-20,7,Friday,dburke,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,982.0,812.0,0.0,Neutral
+373091356465647978,2023-02-08 00:19:25,2023-02-08,0,Wednesday,agarcia,Twitter,Unknown,I'm so upset right now.,i m so upset right now,665.0,688.0,0.0,Neutral
+535021688607360396,2023-04-02 07:57:21,2023-04-02,7,Sunday,mercadoamy,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,501.0,980.0,0.0,Neutral
+325502861244407954,2023-03-31 14:35:48,2023-03-31,14,Friday,gibsonwilliam,Twitter,Unknown,I love my life!,i love my life,981.0,266.0,0.5,Positive
+971881723351119886,2023-04-20 23:53:05,2023-04-20,23,Thursday,tnelson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,367.0,414.0,-0.5,Negative
+800336524921420888,2023-03-30 02:09:44,2023-03-30,2,Thursday,cmorrow,Twitter,Unknown,I'm so upset right now.,i m so upset right now,265.0,499.0,0.0,Neutral
+561233455811868497,2023-03-21 11:19:39,2023-03-21,11,Tuesday,wongryan,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,24.0,352.0,-0.5,Negative
+587079081377006667,2023-03-09 16:02:44,2023-03-09,16,Thursday,watsonshannon,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,80.0,2.0,0.0,Neutral
+247513679780898639,2023-04-23 09:07:59,2023-04-23,9,Sunday,samanthaking,Twitter,Unknown,I love my life!,i love my life,696.0,292.0,0.5,Positive
+230638499715365325,2023-03-23 04:48:44,2023-03-23,4,Thursday,johnsonheather,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,558.0,189.0,0.0,Neutral
+104278677113008329,2023-03-10 05:00:06,2023-03-10,5,Friday,anthony54,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,103.0,346.0,0.0,Neutral
+829669440004728078,2023-01-19 01:34:14,2023-01-19,1,Thursday,gblack,Twitter,Unknown,This is the best day ever!,this is the best day ever,107.0,754.0,0.5,Positive
+822190004940324071,2023-03-21 14:57:21,2023-03-21,14,Tuesday,denisebaker,Twitter,Unknown,I'm so upset right now.,i m so upset right now,427.0,893.0,0.0,Neutral
+190486724280763010,2023-02-24 20:28:00,2023-02-24,20,Friday,dianawalker,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,83.0,475.0,-0.5,Negative
+288924837913976345,2023-03-04 01:10:22,2023-03-04,1,Saturday,chambersmichelle,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,699.0,643.0,0.0,Neutral
+352714354283961298,2023-03-26 03:32:27,2023-03-26,3,Sunday,katherine47,Twitter,Unknown,I love my life!,i love my life,130.0,778.0,0.5,Positive
+770872882130682475,2023-03-16 13:02:44,2023-03-16,13,Thursday,tiffany07,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,421.0,378.0,0.0,Neutral
+695846187994499721,2023-02-26 22:32:16,2023-02-26,22,Sunday,christineorozco,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,988.0,875.0,0.0,Neutral
+100778367528201001,2023-02-02 21:17:51,2023-02-02,21,Thursday,lwhitney,Twitter,Unknown,I love my life!,i love my life,927.0,204.0,0.5,Positive
+804606119074566797,2023-01-22 10:58:19,2023-01-22,10,Sunday,lmurray,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,655.0,481.0,-0.5,Negative
+263718438562872833,2023-02-07 20:02:47,2023-02-07,20,Tuesday,snyderedward,Twitter,Unknown,I'm so upset right now.,i m so upset right now,513.0,325.0,0.0,Neutral
+896715108284846135,2023-03-12 19:52:08,2023-03-12,19,Sunday,johnsonbilly,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,217.0,967.0,0.0,Neutral
+846111465838929222,2023-02-01 08:02:00,2023-02-01,8,Wednesday,turnerelizabeth,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,399.0,606.0,-0.5,Negative
+946006976269599417,2023-02-24 01:25:54,2023-02-24,1,Friday,nicolethornton,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,121.0,626.0,0.0,Neutral
+595745146767040551,2023-02-20 23:25:28,2023-02-20,23,Monday,cartercharles,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,81.0,109.0,-0.5,Negative
+412977016299986359,2023-04-07 12:33:01,2023-04-07,12,Friday,victoria88,Twitter,Unknown,I'm so upset right now.,i m so upset right now,146.0,19.0,0.0,Neutral
+670002100822893078,2023-01-24 21:53:57,2023-01-24,21,Tuesday,xbrown,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,679.0,796.0,-0.5,Negative
+209427353197726178,2023-04-23 07:56:06,2023-04-23,7,Sunday,garciathomas,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,878.0,131.0,0.0,Neutral
+502182317846187282,2023-01-30 12:09:51,2023-01-30,12,Monday,ofuentes,Twitter,Unknown,This is the best day ever!,this is the best day ever,962.0,4.0,0.5,Positive
+405987177791912777,2023-01-19 12:11:53,2023-01-19,12,Thursday,ryan87,Twitter,Unknown,I'm so upset right now.,i m so upset right now,512.0,885.0,0.0,Neutral
+847453140739591532,2023-03-30 09:56:01,2023-03-30,9,Thursday,kristen97,Twitter,Unknown,I'm so upset right now.,i m so upset right now,346.0,553.0,0.0,Neutral
+840186659265556094,2023-02-05 22:20:23,2023-02-05,22,Sunday,travisstone,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,916.0,834.0,0.0,Neutral
+762109056393736724,2023-04-16 06:12:59,2023-04-16,6,Sunday,swansonbecky,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,603.0,964.0,-0.5,Negative
+935518872493141350,2023-03-28 12:29:13,2023-03-28,12,Tuesday,lucerojennifer,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,638.0,936.0,0.0,Neutral
+157288775259711493,2023-03-18 21:30:34,2023-03-18,21,Saturday,umoran,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,140.0,582.0,-0.5,Negative
+289704890880911681,2023-02-21 10:32:25,2023-02-21,10,Tuesday,jfields,Twitter,Unknown,This is the best day ever!,this is the best day ever,619.0,435.0,0.5,Positive
+303396889619802139,2023-04-04 01:33:19,2023-04-04,1,Tuesday,cannonbrittany,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,422.0,963.0,-0.5,Negative
+933922370943620924,2023-04-22 15:50:47,2023-04-22,15,Saturday,tpugh,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,157.0,429.0,-0.5,Negative
+842478012193833722,2023-02-13 17:26:24,2023-02-13,17,Monday,andrewmiller,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,365.0,358.0,0.0,Neutral
+132493925783720739,2023-03-16 05:32:28,2023-03-16,5,Thursday,katherine00,Twitter,Unknown,I'm so upset right now.,i m so upset right now,548.0,358.0,0.0,Neutral
+749888886510050252,2023-01-07 09:48:23,2023-01-07,9,Saturday,mhenry,Twitter,Unknown,This is the best day ever!,this is the best day ever,786.0,471.0,0.5,Positive
+577670607012334792,2023-02-25 12:08:57,2023-02-25,12,Saturday,gibsonmichael,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,405.0,810.0,0.0,Neutral
+168248628398218522,2023-01-10 20:03:01,2023-01-10,20,Tuesday,sbell,Twitter,Unknown,This is the best day ever!,this is the best day ever,509.0,711.0,0.5,Positive
+728582147135909983,2023-02-19 22:27:01,2023-02-19,22,Sunday,reillytanner,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,61.0,467.0,-0.5,Negative
+462020101644116552,2023-01-09 11:53:58,2023-01-09,11,Monday,jonathancarter,Twitter,Unknown,I'm so upset right now.,i m so upset right now,4.0,294.0,0.0,Neutral
+914741095053339533,2023-04-20 07:57:53,2023-04-20,7,Thursday,lindsay14,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,279.0,836.0,0.0,Neutral
+129273686087916917,2023-01-29 04:21:52,2023-01-29,4,Sunday,ndorsey,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,481.0,540.0,0.0,Neutral
+854548628318299167,2023-02-12 14:42:33,2023-02-12,14,Sunday,johnsonallen,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,490.0,585.0,0.0,Neutral
+286304842485531986,2023-03-19 15:54:56,2023-03-19,15,Sunday,nlee,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,588.0,845.0,0.0,Neutral
+665338279491959688,2023-04-12 05:23:01,2023-04-12,5,Wednesday,amyleonard,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,737.0,800.0,-0.5,Negative
+817612449910609391,2023-04-12 19:31:45,2023-04-12,19,Wednesday,rallen,Twitter,Unknown,I love my life!,i love my life,538.0,330.0,0.5,Positive
+478074098387731505,2023-01-24 19:14:37,2023-01-24,19,Tuesday,adam71,Twitter,Unknown,I love my life!,i love my life,327.0,228.0,0.5,Positive
+473710635762978623,2023-03-10 06:07:06,2023-03-10,6,Friday,cholmes,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,130.0,273.0,0.0,Neutral
+569789795663953573,2023-03-05 11:31:46,2023-03-05,11,Sunday,mooretheresa,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,278.0,831.0,-0.5,Negative
+786377126065788283,2023-02-18 19:45:24,2023-02-18,19,Saturday,tiffany76,Twitter,Unknown,I'm so upset right now.,i m so upset right now,694.0,987.0,0.0,Neutral
+981738892582673233,2023-01-14 15:29:57,2023-01-14,15,Saturday,fbrown,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,884.0,643.0,0.0,Neutral
+374900617182862794,2023-01-31 20:35:38,2023-01-31,20,Tuesday,derek74,Twitter,Unknown,This is the best day ever!,this is the best day ever,198.0,130.0,0.5,Positive
+173371230409626534,2023-03-08 16:07:12,2023-03-08,16,Wednesday,brian97,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,516.0,162.0,0.0,Neutral
+369213000579635239,2023-04-26 04:44:45,2023-04-26,4,Wednesday,cbond,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,483.0,162.0,-0.5,Negative
+493003888109579139,2023-04-15 09:19:49,2023-04-15,9,Saturday,gross,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,123.0,365.0,0.0,Neutral
+921246086519059275,2023-02-27 17:59:24,2023-02-27,17,Monday,keith96,Twitter,Unknown,I'm so upset right now.,i m so upset right now,33.0,777.0,0.0,Neutral
+661302400980671227,2023-02-03 06:10:02,2023-02-03,6,Friday,payneheather,Twitter,Unknown,I'm so upset right now.,i m so upset right now,173.0,982.0,0.0,Neutral
+341519302495939942,2023-01-19 22:40:48,2023-01-19,22,Thursday,prestonchristopher,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,388.0,182.0,0.0,Neutral
+389107149301015436,2023-04-01 04:59:59,2023-04-01,4,Saturday,nmurphy,Twitter,Unknown,I'm so upset right now.,i m so upset right now,80.0,263.0,0.0,Neutral
+160464951077403697,2023-01-31 00:08:55,2023-01-31,0,Tuesday,justinmcdonald,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,869.0,986.0,-0.5,Negative
+467115074820034203,2023-02-11 18:34:23,2023-02-11,18,Saturday,matthewswhitney,Twitter,Unknown,I'm so upset right now.,i m so upset right now,830.0,114.0,0.0,Neutral
+752480873637484936,2023-03-07 16:34:49,2023-03-07,16,Tuesday,jenniferkeller,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,360.0,959.0,-0.5,Negative
+546777502581828233,2023-03-19 00:28:34,2023-03-19,0,Sunday,mitchellrodney,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,505.0,902.0,0.0,Neutral
+241488076372345849,2023-01-09 04:46:44,2023-01-09,4,Monday,ericapalmer,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,652.0,750.0,-0.5,Negative
+242289945708296390,2023-01-16 01:24:39,2023-01-16,1,Monday,timothyrose,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,757.0,147.0,0.0,Neutral
+586642222619249122,2023-01-28 13:38:05,2023-01-28,13,Saturday,marisa46,Twitter,Unknown,This is the best day ever!,this is the best day ever,690.0,32.0,0.5,Positive
+835285742498517241,2023-02-06 14:46:38,2023-02-06,14,Monday,anthonyglass,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,464.0,630.0,0.0,Neutral
+872305240735398568,2023-04-16 05:27:44,2023-04-16,5,Sunday,tcarlson,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,770.0,150.0,0.0,Neutral
+834405555322719016,2023-04-23 06:05:38,2023-04-23,6,Sunday,victoriakennedy,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,198.0,107.0,-0.5,Negative
+337248811979196432,2023-01-20 01:49:38,2023-01-20,1,Friday,johnvasquez,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,890.0,299.0,-0.5,Negative
+804388428081451844,2023-03-24 22:30:12,2023-03-24,22,Friday,lmercer,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,140.0,476.0,-0.5,Negative
+884573039114871812,2023-01-19 18:38:20,2023-01-19,18,Thursday,hramirez,Twitter,Unknown,I'm so upset right now.,i m so upset right now,503.0,984.0,0.0,Neutral
+133157943524320710,2023-04-08 06:40:01,2023-04-08,6,Saturday,wellsstephen,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,392.0,357.0,0.0,Neutral
+908897123924818479,2023-02-15 13:37:35,2023-02-15,13,Wednesday,amckinney,Twitter,Unknown,This is the best day ever!,this is the best day ever,379.0,422.0,0.5,Positive
+843899965839994607,2023-01-31 12:19:04,2023-01-31,12,Tuesday,alicia89,Twitter,Unknown,I love my life!,i love my life,920.0,88.0,0.5,Positive
+457142600928128984,2023-03-25 15:50:49,2023-03-25,15,Saturday,nicolejimenez,Twitter,Unknown,This is the best day ever!,this is the best day ever,399.0,436.0,0.5,Positive
+759045854527892526,2023-02-16 23:02:15,2023-02-16,23,Thursday,xadkins,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,640.0,649.0,0.0,Neutral
+232464488635375040,2023-01-12 10:08:15,2023-01-12,10,Thursday,dbranch,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,440.0,5.0,0.0,Neutral
+953245467993912593,2023-04-07 13:41:32,2023-04-07,13,Friday,tracy39,Twitter,Unknown,I'm so upset right now.,i m so upset right now,253.0,266.0,0.0,Neutral
+233136508070266257,2023-02-28 04:36:24,2023-02-28,4,Tuesday,smithashley,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,32.0,133.0,-0.5,Negative
+311955157582361639,2023-02-12 18:55:54,2023-02-12,18,Sunday,vstark,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,891.0,854.0,-0.5,Negative
+771350938071812499,2023-03-05 19:01:21,2023-03-05,19,Sunday,mmorris,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,15.0,345.0,0.0,Neutral
+142689285461439261,2023-01-21 18:03:41,2023-01-21,18,Saturday,jennifer28,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,250.0,149.0,-0.5,Negative
+569957302498241102,2023-04-02 18:57:27,2023-04-02,18,Sunday,yking,Twitter,Unknown,This is the best day ever!,this is the best day ever,244.0,81.0,0.5,Positive
+372326482005119284,2023-01-04 02:35:22,2023-01-04,2,Wednesday,tracymurray,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,433.0,582.0,0.0,Neutral
+886047620415212570,2023-01-01 21:25:52,2023-01-01,21,Sunday,kristine17,Twitter,Unknown,I'm so upset right now.,i m so upset right now,227.0,11.0,0.0,Neutral
+231367280559424137,2023-01-13 09:09:46,2023-01-13,9,Friday,ooneal,Twitter,Unknown,This is the best day ever!,this is the best day ever,86.0,301.0,0.5,Positive
+715180048127979975,2023-01-29 11:04:23,2023-01-29,11,Sunday,dcochran,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,250.0,517.0,0.0,Neutral
+293027413540822709,2023-02-01 08:19:05,2023-02-01,8,Wednesday,drobinson,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,790.0,727.0,-0.5,Negative
+353998691335741408,2023-03-20 05:05:40,2023-03-20,5,Monday,marymorris,Twitter,Unknown,I love my life!,i love my life,522.0,775.0,0.5,Positive
+988228692647136801,2023-02-13 23:46:57,2023-02-13,23,Monday,williamssherri,Twitter,Unknown,I'm so upset right now.,i m so upset right now,516.0,975.0,0.0,Neutral
+429382279345014854,2023-02-16 17:33:01,2023-02-16,17,Thursday,thomasmckee,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,279.0,41.0,0.0,Neutral
+767544400756902943,2023-01-06 15:22:54,2023-01-06,15,Friday,timothywalsh,Twitter,Unknown,I'm so upset right now.,i m so upset right now,884.0,167.0,0.0,Neutral
+353549212323519685,2023-04-13 07:03:15,2023-04-13,7,Thursday,vjennings,Twitter,Unknown,I love my life!,i love my life,127.0,200.0,0.5,Positive
+243365792559846473,2023-04-12 18:49:15,2023-04-12,18,Wednesday,umahoney,Twitter,Unknown,I'm so upset right now.,i m so upset right now,927.0,210.0,0.0,Neutral
+982676124038359627,2023-01-11 12:02:29,2023-01-11,12,Wednesday,juanmichael,Twitter,Unknown,I'm so upset right now.,i m so upset right now,886.0,579.0,0.0,Neutral
+537525680217540742,2023-01-16 06:26:59,2023-01-16,6,Monday,sheri14,Twitter,Unknown,I'm so upset right now.,i m so upset right now,113.0,402.0,0.0,Neutral
+971297637699702879,2023-01-21 09:49:02,2023-01-21,9,Saturday,mariathomas,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,775.0,18.0,0.0,Neutral
+770882469189479909,2023-04-07 15:09:48,2023-04-07,15,Friday,jasonmiller,Twitter,Unknown,This is the best day ever!,this is the best day ever,382.0,39.0,0.5,Positive
+883409223712100581,2023-04-26 21:15:56,2023-04-26,21,Wednesday,wsmith,Twitter,Unknown,I'm so upset right now.,i m so upset right now,649.0,537.0,0.0,Neutral
+354384998128287522,2023-02-02 23:14:44,2023-02-02,23,Thursday,ernest66,Twitter,Unknown,I'm so upset right now.,i m so upset right now,310.0,482.0,0.0,Neutral
+982476864689359517,2023-04-26 08:52:36,2023-04-26,8,Wednesday,boltonalexander,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,985.0,171.0,-0.5,Negative
+795419532012231491,2023-04-09 15:56:39,2023-04-09,15,Sunday,amber12,Twitter,Unknown,I'm so upset right now.,i m so upset right now,31.0,534.0,0.0,Neutral
+160675133752952371,2023-01-03 09:40:47,2023-01-03,9,Tuesday,odavis,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,710.0,708.0,-0.5,Negative
+865623429066802371,2023-04-05 04:39:39,2023-04-05,4,Wednesday,castanedaangela,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,842.0,929.0,0.0,Neutral
+539745501309840378,2023-03-13 15:09:52,2023-03-13,15,Monday,xdaniels,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,176.0,668.0,-0.5,Negative
+493191763544455367,2023-03-05 21:53:08,2023-03-05,21,Sunday,sethallen,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,695.0,22.0,0.0,Neutral
+537313315561120321,2023-01-17 06:09:02,2023-01-17,6,Tuesday,tina22,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,181.0,385.0,0.0,Neutral
+537660097372647657,2023-03-07 23:12:37,2023-03-07,23,Tuesday,dwaynemorris,Twitter,Unknown,This is the best day ever!,this is the best day ever,707.0,891.0,0.5,Positive
+981180012663193599,2023-03-06 10:09:47,2023-03-06,10,Monday,thomasjessica,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,655.0,144.0,0.0,Neutral
+695041136932698719,2023-01-26 06:55:33,2023-01-26,6,Thursday,jfernandez,Twitter,Unknown,I'm so upset right now.,i m so upset right now,166.0,792.0,0.0,Neutral
+956096840136506024,2023-02-15 12:10:20,2023-02-15,12,Wednesday,portermark,Twitter,Unknown,I'm so upset right now.,i m so upset right now,382.0,298.0,0.0,Neutral
+534341964552253854,2023-04-15 00:43:47,2023-04-15,0,Saturday,janefox,Twitter,Unknown,I'm so upset right now.,i m so upset right now,951.0,913.0,0.0,Neutral
+782879142073428975,2023-02-07 11:07:43,2023-02-07,11,Tuesday,jaclynhenry,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,976.0,491.0,-0.5,Negative
+148088968590913765,2023-03-25 18:31:23,2023-03-25,18,Saturday,rhernandez,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,96.0,554.0,-0.5,Negative
+833647474894073303,2023-04-18 04:57:55,2023-04-18,4,Tuesday,mallorywhite,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,392.0,870.0,0.0,Neutral
+256056498145219528,2023-04-03 08:24:48,2023-04-03,8,Monday,kingtheresa,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,209.0,811.0,0.0,Neutral
+664560565317883757,2023-02-28 01:57:21,2023-02-28,1,Tuesday,diana13,Twitter,Unknown,This is the best day ever!,this is the best day ever,919.0,95.0,0.5,Positive
+141581679753103763,2023-01-23 02:09:51,2023-01-23,2,Monday,jameshiggins,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,737.0,891.0,0.0,Neutral
+476860215690782703,2023-04-10 19:28:40,2023-04-10,19,Monday,hannah46,Twitter,Unknown,I love my life!,i love my life,980.0,536.0,0.5,Positive
+509800883381112600,2023-03-22 18:54:01,2023-03-22,18,Wednesday,kathleen37,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,932.0,488.0,0.0,Neutral
+513977214697348086,2023-01-02 00:40:03,2023-01-02,0,Monday,watsonloretta,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,656.0,297.0,-0.5,Negative
+729946582306109651,2023-03-31 10:02:23,2023-03-31,10,Friday,meyeraudrey,Twitter,Unknown,This is the best day ever!,this is the best day ever,717.0,825.0,0.5,Positive
+881889665527534459,2023-02-09 02:15:35,2023-02-09,2,Thursday,donwebb,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,272.0,895.0,-0.5,Negative
+238172762798934700,2023-01-10 12:45:29,2023-01-10,12,Tuesday,bwhite,Twitter,Unknown,I'm so upset right now.,i m so upset right now,609.0,587.0,0.0,Neutral
+278126826450395012,2023-03-07 19:14:51,2023-03-07,19,Tuesday,baileyrhonda,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,370.0,398.0,0.0,Neutral
+450796892333994900,2023-04-20 05:22:40,2023-04-20,5,Thursday,williamsnicole,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,373.0,539.0,-0.5,Negative
+754219991030595441,2023-03-15 04:09:58,2023-03-15,4,Wednesday,kayleerodgers,Twitter,Unknown,This is the best day ever!,this is the best day ever,822.0,93.0,0.5,Positive
+760977925986215710,2023-04-14 12:39:03,2023-04-14,12,Friday,jessicamaxwell,Twitter,Unknown,I love my life!,i love my life,158.0,819.0,0.5,Positive
+698526257254328276,2023-03-19 08:36:13,2023-03-19,8,Sunday,albert15,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,286.0,323.0,-0.5,Negative
+854084722866251643,2023-02-24 16:11:51,2023-02-24,16,Friday,sosawhitney,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,724.0,815.0,-0.5,Negative
+293529876531176783,2023-02-12 01:55:56,2023-02-12,1,Sunday,townsendrhonda,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,289.0,17.0,0.0,Neutral
+134067851330124888,2023-02-10 01:10:55,2023-02-10,1,Friday,robertwashington,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,267.0,610.0,-0.5,Negative
+221939648102498657,2023-01-25 08:54:47,2023-01-25,8,Wednesday,crystal88,Twitter,Unknown,I love my life!,i love my life,843.0,50.0,0.5,Positive
+417025389091994441,2023-01-17 04:47:53,2023-01-17,4,Tuesday,ronald31,Twitter,Unknown,This is the best day ever!,this is the best day ever,482.0,11.0,0.5,Positive
+591055497955107337,2023-04-16 21:28:02,2023-04-16,21,Sunday,tjones,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,264.0,149.0,-0.5,Negative
+299915931031160172,2023-01-25 02:18:01,2023-01-25,2,Wednesday,tthomas,Twitter,Unknown,I'm so upset right now.,i m so upset right now,881.0,602.0,0.0,Neutral
+795449668890308076,2023-02-18 16:19:49,2023-02-18,16,Saturday,amyfisher,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,331.0,233.0,-0.5,Negative
+932822281262415869,2023-03-09 09:44:12,2023-03-09,9,Thursday,youngfrancisco,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,946.0,142.0,-0.5,Negative
+333848082968125905,2023-03-21 10:36:39,2023-03-21,10,Tuesday,millermichael,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,369.0,125.0,-0.5,Negative
+398361726924686676,2023-01-24 14:00:16,2023-01-24,14,Tuesday,chandlershannon,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,459.0,534.0,0.0,Neutral
+473762721254360295,2023-04-18 04:16:23,2023-04-18,4,Tuesday,stephanieblair,Twitter,Unknown,I love my life!,i love my life,442.0,381.0,0.5,Positive
+599623519358407300,2023-03-06 03:56:50,2023-03-06,3,Monday,mkeller,Twitter,Unknown,I love my life!,i love my life,162.0,432.0,0.5,Positive
+402394923227477063,2023-01-17 12:03:52,2023-01-17,12,Tuesday,amandaweiss,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,870.0,940.0,-0.5,Negative
+853116615251166076,2023-03-08 05:51:50,2023-03-08,5,Wednesday,tsims,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,717.0,559.0,0.0,Neutral
+648572606172524469,2023-02-26 07:37:22,2023-02-26,7,Sunday,jbest,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,979.0,354.0,-0.5,Negative
+260609741965869557,2023-01-22 11:01:14,2023-01-22,11,Sunday,wsimmons,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,705.0,278.0,-0.5,Negative
+605310121150571580,2023-03-03 23:44:43,2023-03-03,23,Friday,wilkersoncarlos,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,704.0,222.0,0.0,Neutral
+560661582954878310,2023-02-01 07:09:01,2023-02-01,7,Wednesday,chambersderrick,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,518.0,282.0,0.0,Neutral
+230070445605983635,2023-04-15 18:43:02,2023-04-15,18,Saturday,susanherman,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,884.0,890.0,-0.5,Negative
+485744418541588083,2023-04-18 23:26:45,2023-04-18,23,Tuesday,afrazier,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,972.0,416.0,-0.5,Negative
+339223565257910084,2023-04-25 12:04:22,2023-04-25,12,Tuesday,debra35,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,22.0,547.0,0.0,Neutral
+782963852618723813,2023-03-08 00:19:01,2023-03-08,0,Wednesday,deborahmclaughlin,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,780.0,833.0,-0.5,Negative
+765026523916044985,2023-04-26 02:36:14,2023-04-26,2,Wednesday,armstrongmary,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,947.0,577.0,-0.5,Negative
+893832524666723327,2023-02-04 12:21:09,2023-02-04,12,Saturday,cjones,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,313.0,649.0,-0.5,Negative
+865622444622639564,2023-02-19 15:36:19,2023-02-19,15,Sunday,diane55,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,580.0,15.0,-0.5,Negative
+193978493959940246,2023-04-22 06:07:45,2023-04-22,6,Saturday,rileymatthew,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,678.0,972.0,0.0,Neutral
+622894459076549003,2023-01-03 06:39:09,2023-01-03,6,Tuesday,kenneth33,Twitter,Unknown,This is the best day ever!,this is the best day ever,678.0,492.0,0.5,Positive
+437941278257296363,2023-03-28 07:48:14,2023-03-28,7,Tuesday,vhayes,Twitter,Unknown,I love my life!,i love my life,807.0,515.0,0.5,Positive
+326742501798557182,2023-02-03 03:55:02,2023-02-03,3,Friday,hannahmorrow,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,792.0,818.0,-0.5,Negative
+293284859620840681,2023-03-11 10:04:43,2023-03-11,10,Saturday,jeremy16,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,666.0,311.0,0.0,Neutral
+753395839126698857,2023-01-12 23:44:27,2023-01-12,23,Thursday,howardjessica,Twitter,Unknown,This is the best day ever!,this is the best day ever,607.0,904.0,0.5,Positive
+531766474146621687,2023-01-21 23:14:24,2023-01-21,23,Saturday,ksimmons,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,322.0,488.0,-0.5,Negative
+789721911850506324,2023-01-23 03:54:54,2023-01-23,3,Monday,alvaradomatthew,Twitter,Unknown,I love my life!,i love my life,510.0,867.0,0.5,Positive
+761989638152652101,2023-04-07 19:12:28,2023-04-07,19,Friday,dramirez,Twitter,Unknown,This is the best day ever!,this is the best day ever,466.0,988.0,0.5,Positive
+803194103591879704,2023-04-21 19:28:42,2023-04-21,19,Friday,brandibarron,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,48.0,794.0,0.0,Neutral
+123466654533418146,2023-02-04 09:21:02,2023-02-04,9,Saturday,epearson,Twitter,Unknown,I'm so upset right now.,i m so upset right now,302.0,570.0,0.0,Neutral
+463902436288234121,2023-01-27 17:26:25,2023-01-27,17,Friday,kendra01,Twitter,Unknown,I love my life!,i love my life,733.0,760.0,0.5,Positive
+842696324045198174,2023-03-14 09:32:18,2023-03-14,9,Tuesday,amandahernandez,Twitter,Unknown,This is the best day ever!,this is the best day ever,725.0,223.0,0.5,Positive
+995072731700784652,2023-02-20 12:32:33,2023-02-20,12,Monday,alexandersimpson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,931.0,687.0,-0.5,Negative
+677536429689167393,2023-02-09 06:23:00,2023-02-09,6,Thursday,peterbowers,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,264.0,494.0,0.0,Neutral
+651804212598221671,2023-01-08 18:09:43,2023-01-08,18,Sunday,marktodd,Twitter,Unknown,I'm so upset right now.,i m so upset right now,298.0,31.0,0.0,Neutral
+966680659231628755,2023-04-01 22:58:27,2023-04-01,22,Saturday,elizabeth55,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,328.0,237.0,0.0,Neutral
+822109567481939514,2023-03-21 02:23:37,2023-03-21,2,Tuesday,rebeccarice,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,246.0,836.0,-0.5,Negative
+175452861823059460,2023-04-05 06:43:01,2023-04-05,6,Wednesday,elizabethrush,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,598.0,588.0,-0.5,Negative
+288230313641412458,2023-02-03 17:55:59,2023-02-03,17,Friday,meganchang,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,720.0,87.0,0.0,Neutral
+391840790878502292,2023-02-13 17:38:35,2023-02-13,17,Monday,briggspatrick,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,52.0,492.0,0.0,Neutral
+837847929962656926,2023-01-10 02:55:33,2023-01-10,2,Tuesday,fpayne,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,752.0,926.0,0.0,Neutral
+871164373001569464,2023-04-05 23:01:24,2023-04-05,23,Wednesday,debraphillips,Twitter,Unknown,This is the best day ever!,this is the best day ever,277.0,888.0,0.5,Positive
+400245931141670343,2023-04-05 01:05:25,2023-04-05,1,Wednesday,iballard,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,792.0,463.0,-0.5,Negative
+112208789422049311,2023-01-01 06:47:27,2023-01-01,6,Sunday,lori63,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,572.0,528.0,0.0,Neutral
+895161080336694710,2023-03-05 10:03:40,2023-03-05,10,Sunday,browntrevor,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,197.0,986.0,0.0,Neutral
+105854515603054393,2023-04-26 02:30:15,2023-04-26,2,Wednesday,connerkylie,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,968.0,422.0,0.0,Neutral
+630588279728813170,2023-03-10 14:20:17,2023-03-10,14,Friday,robinperry,Twitter,Unknown,I'm so upset right now.,i m so upset right now,886.0,878.0,0.0,Neutral
+977777367247061190,2023-02-01 11:04:12,2023-02-01,11,Wednesday,gordonbrandon,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,780.0,433.0,-0.5,Negative
+278085311183427866,2023-04-02 13:50:36,2023-04-02,13,Sunday,sschmidt,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,181.0,683.0,0.0,Neutral
+135979122537044133,2023-04-15 09:10:32,2023-04-15,9,Saturday,cristian67,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,228.0,453.0,0.0,Neutral
+691549078276103895,2023-02-18 13:00:46,2023-02-18,13,Saturday,dunlapronald,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,516.0,909.0,0.0,Neutral
+539607290474980302,2023-03-16 11:01:07,2023-03-16,11,Thursday,shannon79,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,512.0,325.0,-0.5,Negative
+470439620728657840,2023-03-29 01:28:42,2023-03-29,1,Wednesday,kochandrew,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,535.0,914.0,0.0,Neutral
+949300088094652054,2023-02-10 05:00:07,2023-02-10,5,Friday,andrew43,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,597.0,148.0,-0.5,Negative
+270017633100577807,2023-04-21 15:21:53,2023-04-21,15,Friday,jennifer51,Twitter,Unknown,I'm so upset right now.,i m so upset right now,61.0,259.0,0.0,Neutral
+752294960706139878,2023-04-03 03:35:17,2023-04-03,3,Monday,bburton,Twitter,Unknown,I'm so upset right now.,i m so upset right now,355.0,406.0,0.0,Neutral
+443947562487159999,2023-03-19 05:30:31,2023-03-19,5,Sunday,ffitzpatrick,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,675.0,759.0,-0.5,Negative
+878166405796086273,2023-02-23 02:59:59,2023-02-23,2,Thursday,murphytimothy,Twitter,Unknown,I'm so upset right now.,i m so upset right now,682.0,728.0,0.0,Neutral
+877877773821508058,2023-04-10 09:36:11,2023-04-10,9,Monday,acampbell,Twitter,Unknown,I love my life!,i love my life,99.0,441.0,0.5,Positive
+249479543487776714,2023-01-07 20:54:12,2023-01-07,20,Saturday,grahamrachael,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,500.0,899.0,0.0,Neutral
+757285806804886074,2023-03-14 21:22:04,2023-03-14,21,Tuesday,tkeller,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,683.0,534.0,-0.5,Negative
+150810022636319969,2023-01-09 23:09:52,2023-01-09,23,Monday,anthonyliu,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,204.0,10.0,-0.5,Negative
+925744075521526751,2023-04-24 05:16:40,2023-04-24,5,Monday,timothyholloway,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,812.0,577.0,-0.5,Negative
+138415862983487977,2023-02-19 18:54:43,2023-02-19,18,Sunday,murphydarrell,Twitter,Unknown,I love my life!,i love my life,884.0,898.0,0.5,Positive
+210334929367654862,2023-02-20 03:27:20,2023-02-20,3,Monday,mcintoshmatthew,Twitter,Unknown,This is the best day ever!,this is the best day ever,108.0,229.0,0.5,Positive
+646354893593387891,2023-03-23 14:05:49,2023-03-23,14,Thursday,jacob03,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,378.0,65.0,0.0,Neutral
+372954927561811488,2023-01-14 01:45:55,2023-01-14,1,Saturday,bentleyallison,Twitter,Unknown,This is the best day ever!,this is the best day ever,987.0,143.0,0.5,Positive
+849747391476964418,2023-04-11 04:23:24,2023-04-11,4,Tuesday,jennajohnson,Twitter,Unknown,I'm so upset right now.,i m so upset right now,508.0,840.0,0.0,Neutral
+718859411182149778,2023-02-22 04:35:19,2023-02-22,4,Wednesday,james10,Twitter,Unknown,I'm so upset right now.,i m so upset right now,926.0,441.0,0.0,Neutral
+594352757330510775,2023-02-20 19:37:42,2023-02-20,19,Monday,amiller,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,609.0,337.0,-0.5,Negative
+244166097657626071,2023-03-25 00:25:55,2023-03-25,0,Saturday,patriciacollins,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,47.0,632.0,0.0,Neutral
+472011500255631869,2023-02-20 14:12:33,2023-02-20,14,Monday,hernandezelizabeth,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,840.0,307.0,-0.5,Negative
+400103951886441072,2023-03-24 09:08:49,2023-03-24,9,Friday,nkelly,Twitter,Unknown,This is the best day ever!,this is the best day ever,994.0,636.0,0.5,Positive
+962032187458364570,2023-03-27 18:54:10,2023-03-27,18,Monday,hesterjennifer,Twitter,Unknown,I'm so upset right now.,i m so upset right now,158.0,589.0,0.0,Neutral
+926484684261704834,2023-04-05 17:16:25,2023-04-05,17,Wednesday,asimpson,Twitter,Unknown,I'm so upset right now.,i m so upset right now,48.0,542.0,0.0,Neutral
+435713152940717054,2023-03-29 09:45:29,2023-03-29,9,Wednesday,christopher48,Twitter,Unknown,I'm so upset right now.,i m so upset right now,846.0,665.0,0.0,Neutral
+743112162190916057,2023-01-15 16:30:21,2023-01-15,16,Sunday,rodriguezdaniel,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,855.0,636.0,-0.5,Negative
+927282469905062452,2023-01-05 02:57:42,2023-01-05,2,Thursday,baldwinholly,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,742.0,616.0,0.0,Neutral
+996195685116621923,2023-02-02 22:49:13,2023-02-02,22,Thursday,jennifer25,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,269.0,625.0,0.0,Neutral
+511638272337582190,2023-03-18 20:32:55,2023-03-18,20,Saturday,uanderson,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,12.0,362.0,0.0,Neutral
+757593201004450331,2023-02-26 16:11:56,2023-02-26,16,Sunday,laura06,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,684.0,737.0,-0.5,Negative
+529343572712669399,2023-03-22 01:37:45,2023-03-22,1,Wednesday,alyssa70,Twitter,Unknown,I love my life!,i love my life,895.0,995.0,0.5,Positive
+348630299406540964,2023-04-02 06:15:59,2023-04-02,6,Sunday,masseykevin,Twitter,Unknown,This is the best day ever!,this is the best day ever,239.0,160.0,0.5,Positive
+358872643494616492,2023-04-01 23:57:00,2023-04-01,23,Saturday,michellebrown,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,404.0,969.0,0.0,Neutral
+617820682191793743,2023-04-17 08:37:46,2023-04-17,8,Monday,marcushoward,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,209.0,524.0,-0.5,Negative
+870208977094855910,2023-03-11 08:54:26,2023-03-11,8,Saturday,ibradshaw,Twitter,Unknown,I'm so upset right now.,i m so upset right now,792.0,693.0,0.0,Neutral
+948438961851630532,2023-03-23 08:59:03,2023-03-23,8,Thursday,michaelwhite,Twitter,Unknown,I love my life!,i love my life,100.0,210.0,0.5,Positive
+404792268460052213,2023-04-22 13:20:37,2023-04-22,13,Saturday,brian83,Twitter,Unknown,I love my life!,i love my life,168.0,379.0,0.5,Positive
+407838476213078805,2023-01-18 16:56:07,2023-01-18,16,Wednesday,harriskyle,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,813.0,459.0,0.0,Neutral
+520662279730278609,2023-04-17 07:07:41,2023-04-17,7,Monday,mariemorse,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,764.0,869.0,0.0,Neutral
+120449542266782204,2023-04-11 11:23:22,2023-04-11,11,Tuesday,qjames,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,336.0,1000.0,0.0,Neutral
+302190816575566415,2023-03-12 14:36:25,2023-03-12,14,Sunday,harrisrobert,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,527.0,720.0,-0.5,Negative
+962037515917269483,2023-02-08 18:55:38,2023-02-08,18,Wednesday,jeanettesingleton,Twitter,Unknown,I love my life!,i love my life,814.0,558.0,0.5,Positive
+445596465422096676,2023-04-03 12:27:58,2023-04-03,12,Monday,chanelizabeth,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,740.0,17.0,0.0,Neutral
+676210144162167559,2023-03-28 07:44:58,2023-03-28,7,Tuesday,john60,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,656.0,595.0,-0.5,Negative
+613940658134156465,2023-04-26 01:23:57,2023-04-26,1,Wednesday,lydiacruz,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,218.0,826.0,0.0,Neutral
+942395760333755780,2023-03-18 11:08:32,2023-03-18,11,Saturday,andreaharris,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,180.0,90.0,-0.5,Negative
+901276124978596498,2023-03-24 20:22:04,2023-03-24,20,Friday,joshuahogan,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,71.0,247.0,-0.5,Negative
+931451991891528546,2023-02-13 12:30:02,2023-02-13,12,Monday,timothy36,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,888.0,810.0,0.0,Neutral
+744794394028112163,2023-01-24 23:09:59,2023-01-24,23,Tuesday,uestrada,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,106.0,604.0,-0.5,Negative
+991704373758803647,2023-03-26 00:11:59,2023-03-26,0,Sunday,michaelwilliams,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,775.0,919.0,-0.5,Negative
+483156771584589279,2023-03-09 21:30:00,2023-03-09,21,Thursday,vroberts,Twitter,Unknown,This is the best day ever!,this is the best day ever,946.0,933.0,0.5,Positive
+741382056841422104,2023-03-28 09:54:51,2023-03-28,9,Tuesday,heathersmith,Twitter,Unknown,This is the best day ever!,this is the best day ever,59.0,781.0,0.5,Positive
+243041668138585435,2023-03-21 23:04:10,2023-03-21,23,Tuesday,whardy,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,869.0,603.0,0.0,Neutral
+356427378486332698,2023-01-06 18:31:16,2023-01-06,18,Friday,gary26,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,323.0,387.0,0.0,Neutral
+502242451728952175,2023-03-10 06:42:48,2023-03-10,6,Friday,webbkerri,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,624.0,647.0,0.0,Neutral
+247357199518009402,2023-01-11 05:22:39,2023-01-11,5,Wednesday,ryanpeter,Twitter,Unknown,I love my life!,i love my life,334.0,266.0,0.5,Positive
+189836067653882064,2023-04-14 00:07:43,2023-04-14,0,Friday,brianvillarreal,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,779.0,605.0,0.0,Neutral
+321562985031526311,2023-04-04 09:36:59,2023-04-04,9,Tuesday,amandavillanueva,Twitter,Unknown,This is the best day ever!,this is the best day ever,996.0,796.0,0.5,Positive
+342281837853146024,2023-02-21 18:53:16,2023-02-21,18,Tuesday,tammy32,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,270.0,242.0,0.0,Neutral
+124915119173346945,2023-04-21 01:27:17,2023-04-21,1,Friday,jeremyanderson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,232.0,635.0,-0.5,Negative
+699832107598799017,2023-04-01 12:41:59,2023-04-01,12,Saturday,longdylan,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,47.0,970.0,-0.5,Negative
+761951264372780144,2023-04-16 13:52:10,2023-04-16,13,Sunday,varias,Twitter,Unknown,I love my life!,i love my life,785.0,273.0,0.5,Positive
+869087891531079618,2023-01-17 18:40:06,2023-01-17,18,Tuesday,guerrasara,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,730.0,641.0,0.0,Neutral
+889051837333847567,2023-03-03 02:07:02,2023-03-03,2,Friday,swang,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,53.0,268.0,0.0,Neutral
+648936564683061993,2023-04-18 12:28:58,2023-04-18,12,Tuesday,uwoods,Twitter,Unknown,I'm so upset right now.,i m so upset right now,794.0,79.0,0.0,Neutral
+679329968230346219,2023-02-02 20:27:42,2023-02-02,20,Thursday,austin65,Twitter,Unknown,I love my life!,i love my life,341.0,622.0,0.5,Positive
+756817903273434252,2023-03-22 08:05:12,2023-03-22,8,Wednesday,fieldslauren,Twitter,Unknown,I love my life!,i love my life,790.0,219.0,0.5,Positive
+224952440603216869,2023-01-16 09:43:13,2023-01-16,9,Monday,andreavasquez,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,416.0,736.0,0.0,Neutral
+808708114423813188,2023-04-03 03:11:06,2023-04-03,3,Monday,imercer,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,391.0,975.0,-0.5,Negative
+216460991911196783,2023-03-16 10:10:55,2023-03-16,10,Thursday,sharon32,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,904.0,35.0,0.0,Neutral
+227474907661741451,2023-01-13 10:40:50,2023-01-13,10,Friday,aliciamyers,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,278.0,832.0,0.0,Neutral
+419498952753073114,2023-01-16 20:56:10,2023-01-16,20,Monday,rfisher,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,546.0,353.0,0.0,Neutral
+347152975985833725,2023-04-10 14:49:36,2023-04-10,14,Monday,susanjones,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,854.0,605.0,0.0,Neutral
+961961658474192276,2023-04-13 20:49:39,2023-04-13,20,Thursday,steven29,Twitter,Unknown,This is the best day ever!,this is the best day ever,136.0,114.0,0.5,Positive
+163775670157421991,2023-01-28 22:58:54,2023-01-28,22,Saturday,rcoleman,Twitter,Unknown,This is the best day ever!,this is the best day ever,774.0,502.0,0.5,Positive
+725652602543882505,2023-01-25 07:44:59,2023-01-25,7,Wednesday,fjacobs,Twitter,Unknown,I'm so upset right now.,i m so upset right now,202.0,732.0,0.0,Neutral
+847016106816652754,2023-02-08 06:23:51,2023-02-08,6,Wednesday,gracebuckley,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,372.0,789.0,0.0,Neutral
+514520127849290329,2023-02-10 20:59:20,2023-02-10,20,Friday,breannaspencer,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,258.0,610.0,-0.5,Negative
+852088830190506412,2023-04-10 21:00:04,2023-04-10,21,Monday,daniel44,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,223.0,682.0,0.0,Neutral
+555977276340891028,2023-01-14 01:51:20,2023-01-14,1,Saturday,ekeller,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,913.0,14.0,-0.5,Negative
+606375854395746858,2023-02-20 18:52:30,2023-02-20,18,Monday,ugolden,Twitter,Unknown,I love my life!,i love my life,209.0,584.0,0.5,Positive
+445060312931431901,2023-04-22 12:33:12,2023-04-22,12,Saturday,jacksonmichael,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,682.0,951.0,0.0,Neutral
+606602822162386876,2023-02-09 07:32:16,2023-02-09,7,Thursday,ngreen,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,762.0,580.0,-0.5,Negative
+454091486591548348,2023-01-28 02:27:15,2023-01-28,2,Saturday,vicki30,Twitter,Unknown,I'm so upset right now.,i m so upset right now,766.0,856.0,0.0,Neutral
+631471275563224670,2023-02-06 18:56:46,2023-02-06,18,Monday,oflynn,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,418.0,962.0,0.0,Neutral
+997234755622603864,2023-04-22 22:21:26,2023-04-22,22,Saturday,sarahlara,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,227.0,176.0,0.0,Neutral
+778415943203718436,2023-02-18 07:54:22,2023-02-18,7,Saturday,yhubbard,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,833.0,768.0,-0.5,Negative
+507277002732933414,2023-04-05 10:41:54,2023-04-05,10,Wednesday,jonathan85,Twitter,Unknown,I love my life!,i love my life,865.0,240.0,0.5,Positive
+406793395068610934,2023-04-09 06:13:41,2023-04-09,6,Sunday,amythomas,Twitter,Unknown,This is the best day ever!,this is the best day ever,542.0,327.0,0.5,Positive
+989471988951291957,2023-01-13 15:25:17,2023-01-13,15,Friday,kalvarado,Twitter,Unknown,I love my life!,i love my life,330.0,396.0,0.5,Positive
+996749403492759851,2023-04-01 10:12:32,2023-04-01,10,Saturday,garzaglen,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,165.0,660.0,0.0,Neutral
+634998735145723856,2023-01-28 17:11:52,2023-01-28,17,Saturday,marc41,Twitter,Unknown,I love my life!,i love my life,884.0,626.0,0.5,Positive
+147687619392014535,2023-02-01 18:14:26,2023-02-01,18,Wednesday,martinapril,Twitter,Unknown,I love my life!,i love my life,112.0,180.0,0.5,Positive
+298196813850953423,2023-03-10 23:20:06,2023-03-10,23,Friday,omontoya,Twitter,Unknown,This is the best day ever!,this is the best day ever,665.0,283.0,0.5,Positive
+220835207988860741,2023-01-16 17:50:50,2023-01-16,17,Monday,ubarker,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,341.0,460.0,0.0,Neutral
+349080531910968021,2023-03-23 19:56:38,2023-03-23,19,Thursday,wdalton,Twitter,Unknown,I'm so upset right now.,i m so upset right now,725.0,220.0,0.0,Neutral
+906987113707483489,2023-04-20 13:34:00,2023-04-20,13,Thursday,timothy93,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,633.0,464.0,-0.5,Negative
+595375363171839123,2023-04-24 14:57:35,2023-04-24,14,Monday,whitneysharp,Twitter,Unknown,I love my life!,i love my life,975.0,448.0,0.5,Positive
+920215654745590207,2023-02-24 09:26:01,2023-02-24,9,Friday,peggy44,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,668.0,282.0,-0.5,Negative
+898681519508805134,2023-02-09 17:40:15,2023-02-09,17,Thursday,christian80,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,965.0,129.0,0.0,Neutral
+927963619015520825,2023-04-23 13:15:03,2023-04-23,13,Sunday,james48,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,959.0,938.0,-0.5,Negative
+446982002645964326,2023-03-27 09:46:05,2023-03-27,9,Monday,andrew60,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,892.0,776.0,0.0,Neutral
+225173791786222354,2023-01-10 20:23:03,2023-01-10,20,Tuesday,allisonfreeman,Twitter,Unknown,I love my life!,i love my life,200.0,965.0,0.5,Positive
+219687369055133592,2023-03-04 03:00:55,2023-03-04,3,Saturday,yanderson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,955.0,26.0,-0.5,Negative
+881445838752923794,2023-02-02 18:17:30,2023-02-02,18,Thursday,omcgee,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,187.0,86.0,0.0,Neutral
+570469750337209975,2023-04-06 02:39:26,2023-04-06,2,Thursday,clarkbilly,Twitter,Unknown,I love my life!,i love my life,683.0,491.0,0.5,Positive
+959737496788138714,2023-02-10 02:27:42,2023-02-10,2,Friday,joy51,Twitter,Unknown,I love my life!,i love my life,379.0,746.0,0.5,Positive
+111905637278694002,2023-04-12 23:06:24,2023-04-12,23,Wednesday,adkinsbrent,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,952.0,611.0,-0.5,Negative
+369818625047329691,2023-04-11 17:27:48,2023-04-11,17,Tuesday,zshaffer,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,412.0,434.0,-0.5,Negative
+277275321672461316,2023-04-13 07:46:32,2023-04-13,7,Thursday,hornerichard,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,18.0,824.0,0.0,Neutral
+993310673122799905,2023-01-08 08:04:11,2023-01-08,8,Sunday,nicoleanderson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,990.0,32.0,-0.5,Negative
+305572535975963352,2023-02-12 23:49:40,2023-02-12,23,Sunday,natalie12,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,415.0,476.0,0.0,Neutral
+759471486030896749,2023-04-19 08:21:21,2023-04-19,8,Wednesday,phillipblevins,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,825.0,747.0,0.0,Neutral
+916867827212095634,2023-01-22 12:09:39,2023-01-22,12,Sunday,davidbenson,Twitter,Unknown,I love my life!,i love my life,251.0,752.0,0.5,Positive
+540622758705923173,2023-04-02 19:48:08,2023-04-02,19,Sunday,douglasholly,Twitter,Unknown,This is the best day ever!,this is the best day ever,769.0,23.0,0.5,Positive
+960893334260490224,2023-02-02 01:30:20,2023-02-02,1,Thursday,acampbell,Twitter,Unknown,I love my life!,i love my life,679.0,703.0,0.5,Positive
+388985183731641951,2023-01-19 03:29:40,2023-01-19,3,Thursday,sgreen,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,104.0,34.0,0.0,Neutral
+536073288806666586,2023-03-29 01:21:13,2023-03-29,1,Wednesday,nicole19,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,185.0,774.0,0.0,Neutral
+162688159100167851,2023-01-20 10:50:25,2023-01-20,10,Friday,gloriaramirez,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,382.0,677.0,0.0,Neutral
+888276486193254717,2023-04-07 20:44:37,2023-04-07,20,Friday,tracylyons,Twitter,Unknown,I love my life!,i love my life,356.0,269.0,0.5,Positive
+263799927343822198,2023-01-10 01:05:40,2023-01-10,1,Tuesday,sbrown,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,655.0,877.0,-0.5,Negative
+326906007443906453,2023-04-10 12:44:47,2023-04-10,12,Monday,fpineda,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,251.0,838.0,0.0,Neutral
+714265709067383568,2023-02-09 06:02:51,2023-02-09,6,Thursday,igarcia,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,899.0,332.0,-0.5,Negative
+224674464839622959,2023-03-01 16:00:49,2023-03-01,16,Wednesday,codyriley,Twitter,Unknown,I'm so upset right now.,i m so upset right now,127.0,820.0,0.0,Neutral
+550745328521541240,2023-01-11 04:09:07,2023-01-11,4,Wednesday,qfisher,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,782.0,378.0,0.0,Neutral
+440628187248632761,2023-02-08 10:35:19,2023-02-08,10,Wednesday,tpeterson,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,376.0,229.0,0.0,Neutral
+354663957809253947,2023-02-03 02:52:22,2023-02-03,2,Friday,allisonhopkins,Twitter,Unknown,I'm so upset right now.,i m so upset right now,853.0,14.0,0.0,Neutral
+914120441463976817,2023-02-04 00:39:58,2023-02-04,0,Saturday,jamesgregory,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,792.0,556.0,0.0,Neutral
+143929880290919776,2023-02-17 06:40:29,2023-02-17,6,Friday,daviddean,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,59.0,355.0,0.0,Neutral
+627646066381040376,2023-04-13 11:06:52,2023-04-13,11,Thursday,melissa54,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,225.0,339.0,-0.5,Negative
+475622739409688274,2023-02-10 17:28:05,2023-02-10,17,Friday,ramireztiffany,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,476.0,451.0,-0.5,Negative
+748332615148144064,2023-04-26 19:32:51,2023-04-26,19,Wednesday,phardin,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,336.0,490.0,0.0,Neutral
+758509114266690286,2023-03-17 10:20:20,2023-03-17,10,Friday,patrick30,Twitter,Unknown,This is the best day ever!,this is the best day ever,390.0,217.0,0.5,Positive
+657818515314231000,2023-04-07 13:55:26,2023-04-07,13,Friday,iayala,Twitter,Unknown,I'm so upset right now.,i m so upset right now,847.0,771.0,0.0,Neutral
+735804721548310832,2023-02-06 13:39:30,2023-02-06,13,Monday,jack38,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,928.0,489.0,0.0,Neutral
+131397033448458142,2023-04-21 21:32:16,2023-04-21,21,Friday,andrewgriffith,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,840.0,99.0,-0.5,Negative
+868565423506542489,2023-04-12 13:07:48,2023-04-12,13,Wednesday,david23,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,975.0,810.0,-0.5,Negative
+966754835565370078,2023-04-09 11:18:05,2023-04-09,11,Sunday,egonzalez,Twitter,Unknown,This is the best day ever!,this is the best day ever,699.0,150.0,0.5,Positive
+972930617855619713,2023-02-28 10:01:49,2023-02-28,10,Tuesday,ronnie36,Twitter,Unknown,This is the best day ever!,this is the best day ever,640.0,322.0,0.5,Positive
+810064771651779956,2023-03-19 22:44:49,2023-03-19,22,Sunday,nathan35,Twitter,Unknown,I love my life!,i love my life,324.0,882.0,0.5,Positive
+929236965978571410,2023-03-08 04:12:09,2023-03-08,4,Wednesday,bmatthews,Twitter,Unknown,This is the best day ever!,this is the best day ever,344.0,24.0,0.5,Positive
+625892994894682982,2023-02-23 13:48:01,2023-02-23,13,Thursday,danielwatson,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,830.0,413.0,0.0,Neutral
+766655633864312410,2023-02-22 12:12:51,2023-02-22,12,Wednesday,jeremywilson,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,132.0,508.0,-0.5,Negative
+886226378470131989,2023-04-25 18:33:11,2023-04-25,18,Tuesday,maria94,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,370.0,556.0,0.0,Neutral
+482987958508333130,2023-02-28 14:06:33,2023-02-28,14,Tuesday,angela46,Twitter,Unknown,I'm so upset right now.,i m so upset right now,163.0,307.0,0.0,Neutral
+889531042004382851,2023-02-09 06:08:14,2023-02-09,6,Thursday,amber56,Twitter,Unknown,I'm so upset right now.,i m so upset right now,973.0,179.0,0.0,Neutral
+385433209133448906,2023-04-02 19:46:53,2023-04-02,19,Sunday,wberger,Twitter,Unknown,This is the best day ever!,this is the best day ever,921.0,359.0,0.5,Positive
+910742649361712284,2023-02-25 00:18:39,2023-02-25,0,Saturday,karenthompson,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,778.0,994.0,0.0,Neutral
+579357190385940911,2023-04-09 16:41:04,2023-04-09,16,Sunday,cruzregina,Twitter,Unknown,I love my life!,i love my life,605.0,499.0,0.5,Positive
+809900053051190623,2023-01-11 02:26:51,2023-01-11,2,Wednesday,andrewfoster,Twitter,Unknown,I'm so upset right now.,i m so upset right now,625.0,948.0,0.0,Neutral
+259914470135242792,2023-04-13 13:15:10,2023-04-13,13,Thursday,clarkallison,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,185.0,881.0,-0.5,Negative
+650849340920841539,2023-04-22 11:04:14,2023-04-22,11,Saturday,kjones,Twitter,Unknown,I'm so upset right now.,i m so upset right now,520.0,508.0,0.0,Neutral
+782806922074234484,2023-01-30 01:42:05,2023-01-30,1,Monday,charleswilson,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,890.0,833.0,-0.5,Negative
+865029379224642253,2023-02-24 00:19:38,2023-02-24,0,Friday,nathanbrown,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,148.0,899.0,0.0,Neutral
+643192012267209915,2023-01-17 17:21:01,2023-01-17,17,Tuesday,meganlopez,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,563.0,36.0,0.0,Neutral
+689682750793565798,2023-02-16 08:30:27,2023-02-16,8,Thursday,patrickpatel,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,808.0,949.0,-0.5,Negative
+894141616900772039,2023-02-12 03:49:38,2023-02-12,3,Sunday,wrightdominique,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,818.0,326.0,-0.5,Negative
+706346416824266853,2023-02-09 07:54:27,2023-02-09,7,Thursday,wwilliamson,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,57.0,92.0,0.0,Neutral
+153807289191388287,2023-03-26 01:14:17,2023-03-26,1,Sunday,michelehill,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,198.0,26.0,0.0,Neutral
+424973828472032300,2023-04-18 09:35:17,2023-04-18,9,Tuesday,sarahmarquez,Twitter,Unknown,I'm so upset right now.,i m so upset right now,524.0,683.0,0.0,Neutral
+288464763029330119,2023-03-22 16:39:14,2023-03-22,16,Wednesday,jacob86,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,493.0,545.0,-0.5,Negative
+432472927951432714,2023-03-19 06:44:16,2023-03-19,6,Sunday,david87,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,243.0,875.0,-0.5,Negative
+517818637149522474,2023-04-23 03:07:34,2023-04-23,3,Sunday,williamsjessica,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,230.0,781.0,-0.5,Negative
+454870384027583965,2023-01-28 06:28:56,2023-01-28,6,Saturday,vincentedward,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,262.0,621.0,-0.5,Negative
+636530882603202285,2023-02-12 11:41:51,2023-02-12,11,Sunday,greenjohn,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,743.0,934.0,0.0,Neutral
+133048667720805742,2023-02-16 07:44:31,2023-02-16,7,Thursday,jward,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,769.0,269.0,0.0,Neutral
+539331140028889620,2023-04-09 07:22:35,2023-04-09,7,Sunday,gardnerlinda,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,551.0,72.0,0.0,Neutral
+434450265006014667,2023-01-05 18:30:37,2023-01-05,18,Thursday,cgarza,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,622.0,827.0,0.0,Neutral
+426011569160028741,2023-02-05 18:25:19,2023-02-05,18,Sunday,calvin13,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,745.0,971.0,-0.5,Negative
+836478588512874419,2023-03-12 16:34:24,2023-03-12,16,Sunday,maryjohnson,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,27.0,650.0,0.0,Neutral
+361294003528044707,2023-03-18 06:39:43,2023-03-18,6,Saturday,johnsonandrew,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,672.0,791.0,0.0,Neutral
+592451747860166643,2023-01-28 18:17:14,2023-01-28,18,Saturday,matthew13,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,976.0,35.0,0.0,Neutral
+470988206187373667,2023-02-17 22:23:25,2023-02-17,22,Friday,jcrawford,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,219.0,99.0,0.0,Neutral
+285243815338265018,2023-02-06 05:14:31,2023-02-06,5,Monday,tmorales,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,175.0,249.0,0.0,Neutral
+453817947262680741,2023-02-05 20:39:10,2023-02-05,20,Sunday,andrea84,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,591.0,302.0,0.0,Neutral
+552849015735944649,2023-03-05 15:49:08,2023-03-05,15,Sunday,patrickphillips,Twitter,Unknown,This is the best day ever!,this is the best day ever,64.0,427.0,0.5,Positive
+228128568592250419,2023-04-04 05:32:10,2023-04-04,5,Tuesday,danabaker,Twitter,Unknown,I'm so upset right now.,i m so upset right now,315.0,81.0,0.0,Neutral
+589012271958626179,2023-04-25 15:08:25,2023-04-25,15,Tuesday,hector32,Twitter,Unknown,I'm so upset right now.,i m so upset right now,662.0,139.0,0.0,Neutral
+674144432728819347,2023-01-14 16:14:23,2023-01-14,16,Saturday,liubrenda,Twitter,Unknown,This is the best day ever!,this is the best day ever,64.0,278.0,0.5,Positive
+855311568024269245,2023-03-19 22:47:54,2023-03-19,22,Sunday,wilcoxtonya,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,284.0,851.0,0.0,Neutral
+323551589908378067,2023-01-20 11:45:28,2023-01-20,11,Friday,jennifer50,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,262.0,15.0,0.0,Neutral
+316332585749570949,2023-04-13 02:03:26,2023-04-13,2,Thursday,bramirez,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,19.0,263.0,0.0,Neutral
+266511600995915805,2023-01-11 00:48:32,2023-01-11,0,Wednesday,michaelgraves,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,489.0,725.0,0.0,Neutral
+979954157500028846,2023-04-24 14:13:28,2023-04-24,14,Monday,emily82,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,69.0,521.0,0.0,Neutral
+705203522590867196,2023-04-10 01:59:40,2023-04-10,1,Monday,kathrynmarshall,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,679.0,426.0,-0.5,Negative
+366356539942094605,2023-03-10 16:18:10,2023-03-10,16,Friday,ggeorge,Twitter,Unknown,I love my life!,i love my life,42.0,51.0,0.5,Positive
+633641877152748514,2023-01-11 09:26:00,2023-01-11,9,Wednesday,amyedwards,Twitter,Unknown,I love my life!,i love my life,87.0,342.0,0.5,Positive
+420287883370769023,2023-02-19 10:27:33,2023-02-19,10,Sunday,gutierrezkathryn,Twitter,Unknown,This is the best day ever!,this is the best day ever,151.0,212.0,0.5,Positive
+899454685680835719,2023-03-17 10:43:06,2023-03-17,10,Friday,mary89,Twitter,Unknown,I'm so upset right now.,i m so upset right now,824.0,837.0,0.0,Neutral
+395101047440336807,2023-04-06 16:59:45,2023-04-06,16,Thursday,jennifernguyen,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,606.0,376.0,0.0,Neutral
+395685997833933175,2023-03-19 00:09:24,2023-03-19,0,Sunday,shawn67,Twitter,Unknown,This is the best day ever!,this is the best day ever,180.0,9.0,0.5,Positive
+742161122958194341,2023-03-21 00:50:30,2023-03-21,0,Tuesday,vaughnsteven,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,53.0,240.0,-0.5,Negative
+711099251824336817,2023-04-27 05:18:34,2023-04-27,5,Thursday,johnsonashley,Twitter,Unknown,This is the best day ever!,this is the best day ever,586.0,729.0,0.5,Positive
+952453705258869867,2023-02-24 10:06:19,2023-02-24,10,Friday,haroldwebb,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,352.0,823.0,0.0,Neutral
+277659028938788322,2023-03-01 22:38:09,2023-03-01,22,Wednesday,tblankenship,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,958.0,112.0,-0.5,Negative
+950499813971365108,2023-02-20 07:53:29,2023-02-20,7,Monday,dwayne02,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,936.0,849.0,0.0,Neutral
+966630252882031896,2023-01-18 14:25:37,2023-01-18,14,Wednesday,walshashley,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,960.0,126.0,-0.5,Negative
+469554905040329828,2023-03-09 18:48:33,2023-03-09,18,Thursday,skinnerelizabeth,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,474.0,971.0,0.0,Neutral
+460404822383686430,2023-02-11 00:15:14,2023-02-11,0,Saturday,tracy69,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,919.0,18.0,0.0,Neutral
+420105475933321035,2023-02-22 02:25:22,2023-02-22,2,Wednesday,burkepaul,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,514.0,313.0,0.0,Neutral
+504383004431223051,2023-03-04 22:06:11,2023-03-04,22,Saturday,lewischad,Twitter,Unknown,I'm so upset right now.,i m so upset right now,754.0,152.0,0.0,Neutral
+253610251867148911,2023-03-31 18:52:33,2023-03-31,18,Friday,carrjames,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,320.0,837.0,0.0,Neutral
+501087324067055423,2023-03-16 01:08:10,2023-03-16,1,Thursday,sextondavid,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,198.0,544.0,-0.5,Negative
+637177002228199327,2023-02-01 09:34:02,2023-02-01,9,Wednesday,allenfisher,Twitter,Unknown,I'm so upset right now.,i m so upset right now,447.0,456.0,0.0,Neutral
+736090294861657394,2023-03-24 03:16:33,2023-03-24,3,Friday,amber91,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,824.0,689.0,0.0,Neutral
+143595799803652736,2023-01-13 21:52:12,2023-01-13,21,Friday,schneiderrachel,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,949.0,556.0,0.0,Neutral
+768345577432441933,2023-02-02 12:49:34,2023-02-02,12,Thursday,joshua61,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,515.0,998.0,-0.5,Negative
+545957987873242153,2023-01-20 18:58:34,2023-01-20,18,Friday,arodriguez,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,165.0,34.0,0.0,Neutral
+254660412081941492,2023-03-31 09:58:28,2023-03-31,9,Friday,nicolehoffman,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,98.0,309.0,0.0,Neutral
+946382507867183847,2023-04-01 08:09:10,2023-04-01,8,Saturday,jonesscott,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,843.0,99.0,0.0,Neutral
+939797754177438344,2023-03-27 08:18:51,2023-03-27,8,Monday,tmills,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,53.0,793.0,0.0,Neutral
+920634383852989250,2023-01-08 15:54:20,2023-01-08,15,Sunday,henry36,Twitter,Unknown,I love my life!,i love my life,40.0,612.0,0.5,Positive
+889086058347992753,2023-04-16 01:57:21,2023-04-16,1,Sunday,grahameric,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,105.0,621.0,0.0,Neutral
+526977589288090258,2023-03-02 00:35:24,2023-03-02,0,Thursday,bguerra,Twitter,Unknown,I'm so upset right now.,i m so upset right now,540.0,364.0,0.0,Neutral
+960912944066260651,2023-02-12 21:56:31,2023-02-12,21,Sunday,mary25,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,515.0,413.0,-0.5,Negative
+206424871629447469,2023-03-31 15:29:53,2023-03-31,15,Friday,yolanda33,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,877.0,177.0,-0.5,Negative
+838890375431613146,2023-02-23 09:29:03,2023-02-23,9,Thursday,qnewton,Twitter,Unknown,I love my life!,i love my life,194.0,850.0,0.5,Positive
+249544837609526688,2023-03-26 18:58:02,2023-03-26,18,Sunday,zmiller,Twitter,Unknown,This is the best day ever!,this is the best day ever,35.0,590.0,0.5,Positive
+503356421031684109,2023-03-02 19:57:22,2023-03-02,19,Thursday,barneskathleen,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,941.0,387.0,-0.5,Negative
+994562271783014841,2023-04-21 09:19:01,2023-04-21,9,Friday,powellallen,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,528.0,230.0,0.0,Neutral
+770562778540675629,2023-01-25 23:02:07,2023-01-25,23,Wednesday,chall,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,432.0,122.0,0.0,Neutral
+264451780925255009,2023-02-26 01:52:34,2023-02-26,1,Sunday,jcole,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,311.0,498.0,0.0,Neutral
+545713134359897355,2023-04-08 16:13:55,2023-04-08,16,Saturday,sean13,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,718.0,685.0,-0.5,Negative
+863318282706760636,2023-04-03 17:03:22,2023-04-03,17,Monday,petersoncarrie,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,161.0,51.0,0.0,Neutral
+486157662628819679,2023-03-12 22:24:01,2023-03-12,22,Sunday,qabbott,Twitter,Unknown,I'm so upset right now.,i m so upset right now,975.0,741.0,0.0,Neutral
+680447046689676214,2023-04-01 20:53:29,2023-04-01,20,Saturday,carterrenee,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,335.0,561.0,0.0,Neutral
+970163402429359326,2023-02-10 23:20:39,2023-02-10,23,Friday,christopher96,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,181.0,687.0,-0.5,Negative
+523647413602342437,2023-01-16 14:24:12,2023-01-16,14,Monday,egilmore,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,832.0,977.0,-0.5,Negative
+721854821893021568,2023-03-06 09:17:30,2023-03-06,9,Monday,christopher11,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,89.0,122.0,-0.5,Negative
+197162158688857940,2023-02-19 15:50:39,2023-02-19,15,Sunday,sandra67,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,353.0,911.0,0.0,Neutral
+196981059243047091,2023-03-24 10:56:07,2023-03-24,10,Friday,clarksusan,Twitter,Unknown,This is the best day ever!,this is the best day ever,630.0,946.0,0.5,Positive
+641743119817320903,2023-03-28 23:36:58,2023-03-28,23,Tuesday,wgreer,Twitter,Unknown,I love my life!,i love my life,18.0,382.0,0.5,Positive
+563280269374923700,2023-04-20 03:53:21,2023-04-20,3,Thursday,diane59,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,856.0,203.0,-0.5,Negative
+841903635126372828,2023-04-12 05:50:29,2023-04-12,5,Wednesday,griffithdavid,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,690.0,696.0,0.0,Neutral
+258490948344159442,2023-04-05 19:24:10,2023-04-05,19,Wednesday,brownjordan,Twitter,Unknown,I'm so upset right now.,i m so upset right now,94.0,881.0,0.0,Neutral
+996473106514782707,2023-01-15 18:51:17,2023-01-15,18,Sunday,diazaaron,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,636.0,868.0,0.0,Neutral
+993988953960735897,2023-04-04 02:48:59,2023-04-04,2,Tuesday,manuel50,Twitter,Unknown,I'm so upset right now.,i m so upset right now,237.0,824.0,0.0,Neutral
+124848990724589691,2023-01-13 01:02:50,2023-01-13,1,Friday,qjarvis,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,363.0,557.0,0.0,Neutral
+941634907830702317,2023-01-17 13:29:47,2023-01-17,13,Tuesday,stefanietaylor,Twitter,Unknown,Feeling disappointed in myself.,feeling disappointed in myself,31.0,263.0,-0.5,Negative
+192595056406080936,2023-04-05 19:11:23,2023-04-05,19,Wednesday,tyler63,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,7.0,819.0,0.0,Neutral
+304511446752044204,2023-01-01 13:10:40,2023-01-01,13,Sunday,jessica50,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,756.0,1.0,-0.5,Negative
+673869658495739836,2023-01-06 02:52:10,2023-01-06,2,Friday,david79,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,373.0,24.0,0.0,Neutral
+847440810487838385,2023-03-01 10:05:22,2023-03-01,10,Wednesday,howardalexis,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,896.0,982.0,0.0,Neutral
+161237778467765136,2023-03-08 06:21:27,2023-03-08,6,Wednesday,gary99,Twitter,Unknown,I'm so upset right now.,i m so upset right now,144.0,344.0,0.0,Neutral
+820689670731600553,2023-01-20 16:50:04,2023-01-20,16,Friday,lromero,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,339.0,773.0,0.0,Neutral
+660304153833599309,2023-04-04 04:58:59,2023-04-04,4,Tuesday,jeffreyandrews,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,585.0,366.0,-0.5,Negative
+757787118879592899,2023-01-19 00:17:37,2023-01-19,0,Thursday,marthajones,Twitter,Unknown,I love my life!,i love my life,365.0,815.0,0.5,Positive
+679737287791302586,2023-02-15 11:39:25,2023-02-15,11,Wednesday,rhodges,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,562.0,409.0,-0.5,Negative
+286270745706609806,2023-03-15 21:44:29,2023-03-15,21,Wednesday,deanshelly,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,179.0,177.0,-0.5,Negative
+729039580157835839,2023-01-07 15:38:18,2023-01-07,15,Saturday,xward,Twitter,Unknown,I'm so upset right now.,i m so upset right now,850.0,31.0,0.0,Neutral
+832793789740842389,2023-02-07 19:19:09,2023-02-07,19,Tuesday,qjennings,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,746.0,996.0,0.0,Neutral
+224639430061407490,2023-02-02 06:19:10,2023-02-02,6,Thursday,badams,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,782.0,793.0,0.0,Neutral
+267071993913850176,2023-01-04 05:18:29,2023-01-04,5,Wednesday,stevensadrian,Twitter,Unknown,I love my life!,i love my life,477.0,328.0,0.5,Positive
+269758564372433217,2023-02-25 03:03:03,2023-02-25,3,Saturday,xgomez,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,418.0,958.0,0.0,Neutral
+501542064572262931,2023-02-09 22:50:01,2023-02-09,22,Thursday,diana11,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,571.0,441.0,0.0,Neutral
+236330277690960761,2023-02-18 13:22:58,2023-02-18,13,Saturday,tracy83,Twitter,Unknown,This is the best day ever!,this is the best day ever,678.0,284.0,0.5,Positive
+615016690945297083,2023-02-01 08:45:40,2023-02-01,8,Wednesday,landerson,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,595.0,344.0,0.0,Neutral
+242972600651600626,2023-03-04 22:53:28,2023-03-04,22,Saturday,mannjames,Twitter,Unknown,Watching a movie tonight.,watching a movie tonight,85.0,893.0,0.0,Neutral
+974719328645765106,2023-01-28 20:15:08,2023-01-28,20,Saturday,awhite,Twitter,Unknown,This is the best day ever!,this is the best day ever,195.0,183.0,0.5,Positive
+835044144827429159,2023-03-17 16:05:19,2023-03-17,16,Friday,pagemisty,Twitter,Unknown,Going for a walk in the park.,going for a walk in the park,138.0,716.0,0.0,Neutral
+850980892995551076,2023-01-04 01:55:33,2023-01-04,1,Wednesday,barbercourtney,Twitter,Unknown,I'm so upset right now.,i m so upset right now,816.0,478.0,0.0,Neutral
+464922686946227670,2023-03-14 07:49:34,2023-03-14,7,Tuesday,caguirre,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,303.0,407.0,-0.5,Negative
+637725817728049977,2023-01-27 22:08:05,2023-01-27,22,Friday,donald37,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,913.0,55.0,0.0,Neutral
+594472789464313662,2023-03-02 04:28:01,2023-03-02,4,Thursday,dakota58,Twitter,Unknown,This is the best day ever!,this is the best day ever,29.0,968.0,0.5,Positive
+364239738972074732,2023-03-10 14:30:52,2023-03-10,14,Friday,steven80,Twitter,Unknown,I love my life!,i love my life,154.0,546.0,0.5,Positive
+658838393881589109,2023-02-13 13:30:40,2023-02-13,13,Monday,christopherporter,Twitter,Unknown,This is the best day ever!,this is the best day ever,449.0,536.0,0.5,Positive
+980407771035757600,2023-02-27 13:50:59,2023-02-27,13,Monday,dustinhernandez,Twitter,Unknown,I'm so upset right now.,i m so upset right now,130.0,748.0,0.0,Neutral
+180837257134630224,2023-03-17 06:03:37,2023-03-17,6,Friday,dperez,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,554.0,89.0,0.0,Neutral
+326407128173329233,2023-04-15 01:56:08,2023-04-15,1,Saturday,abigail44,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,625.0,430.0,0.0,Neutral
+786669157877502296,2023-02-09 09:53:29,2023-02-09,9,Thursday,scottpeterson,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,123.0,177.0,0.0,Neutral
+623677276988101131,2023-04-23 09:44:30,2023-04-23,9,Sunday,robinsonmelissa,Twitter,Unknown,Feeling grateful for my friends and family.,feeling grateful for my friends and family,356.0,827.0,0.0,Neutral
+833163538323208228,2023-01-24 07:49:28,2023-01-24,7,Tuesday,lross,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,334.0,492.0,0.0,Neutral
+250464848751217010,2023-01-28 05:03:18,2023-01-28,5,Saturday,nhayes,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,986.0,932.0,-0.5,Negative
+600819966000157055,2023-04-21 13:27:44,2023-04-21,13,Friday,marknixon,Twitter,Unknown,I hate it when things don't go my way.,i hate it when things don t go my way,458.0,61.0,-0.5,Negative
+966366146192109165,2023-03-08 11:29:25,2023-03-08,11,Wednesday,hollyflores,Twitter,Unknown,I'm so upset right now.,i m so upset right now,317.0,179.0,0.0,Neutral
+936627265507507170,2023-04-09 18:32:54,2023-04-09,18,Sunday,odickerson,Twitter,Unknown,Just had lunch with a friend.,just had lunch with a friend,584.0,706.0,0.0,Neutral
+770065794014758334,2023-04-14 22:11:34,2023-04-14,22,Friday,rosedonald,Twitter,Unknown,I love my life!,i love my life,206.0,976.0,0.5,Positive

@@ -10,6 +10,8 @@ import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+
 # ========== 0. OPTION: USE ROBERTA ==========
 USE_ROBERTA = True   # Set to False to use lexicon fallback (faster)
 
@@ -75,51 +77,27 @@ print("\n=== Structured Cleaning Done ===")
 
 # ========== PART A: TF-IDF ==========
 print("\n=== Text Preprocessing for TF-IDF ===")
-try:
-    import nltk
-    nltk.download("punkt", quiet=True)
-    nltk.download("punkt_tab", quiet=True)
-    nltk.download("stopwords", quiet=True)
-    nltk.download("wordnet", quiet=True)
-    nltk.download("omw-1.4", quiet=True)
-    from nltk.tokenize import word_tokenize
-    from nltk.corpus import stopwords
-    from nltk.stem import WordNetLemmatizer
-    NLTK_AVAILABLE = True
-except Exception as e:
-    print(f"Warning: NLTK not fully available ({e}). Using fallback tokenization.")
-    NLTK_AVAILABLE = False
 
-if NLTK_AVAILABLE:
-    lemmatizer = WordNetLemmatizer()
-    stop_words = set(stopwords.words("english"))
-    def normalize_tweet(text):
-        text = str(text).lower()
-        text = re.sub(r"https?://\S+|www\.\S+", " URL ", text)
-        text = re.sub(r"@\w+", " USER ", text)
-        text = re.sub(r"\b\d+(?:\.\d+)?\b", " NUMBER ", text)
-        text = re.sub(r"\s+", " ", text)
-        return text.strip()
-    def preprocess_tokens(text):
-        tokens = word_tokenize(normalize_tweet(text))
-        tokens = [t for t in tokens if t not in stop_words]
-        tokens = [lemmatizer.lemmatize(t) for t in tokens if t.isalpha()]
-        return tokens
-else:
-    # Fallback: simple split + lowercase
-    def preprocess_tokens(text):
-        return [w for w in str(text).lower().split() if w.isalpha()]
+def clean_text_for_tfidf(text):
+    """Clean text: lower, remove URLs, mentions, numbers, punctuation, extra spaces."""
+    text = str(text).lower()
+    text = re.sub(r"https?://\S+|www\.\S+", " ", text)
+    text = re.sub(r"@\w+", " ", text)
+    text = re.sub(r"\b\d+(?:\.\d+)?\b", " ", text)
+    text = re.sub(r"[^a-z\s]", " ", text)   # keep only letters and spaces
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
-df["tokens_clean"] = df["tweet_text"].apply(preprocess_tokens)
-df["text_clean"] = df["tokens_clean"].apply(" ".join)
+df["text_clean"] = df["tweet_text"].apply(clean_text_for_tfidf)
 
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-
-vectorizer = CountVectorizer(min_df=2, max_df=0.90, lowercase=True)
+# Create DTM and TF-IDF using sklearn
+vectorizer = CountVectorizer(min_df=2, max_df=0.90, lowercase=True, stop_words='english',
+                             token_pattern=r"(?u)\b[a-z][a-z]+\b")  # at least 2 letters
 dtm = vectorizer.fit_transform(df["text_clean"])
 print(f"DTM shape: {dtm.shape}")
 
-tfidf_vec = TfidfVectorizer(min_df=2, max_df=0.90)
+tfidf_vec = TfidfVectorizer(min_df=2, max_df=0.90, stop_words='english',
+                            token_pattern=r"(?u)\b[a-z][a-z]+\b")
 tfidf = tfidf_vec.fit_transform(df["text_clean"])
 print(f"TF-IDF shape: {tfidf.shape}")
 
@@ -134,7 +112,7 @@ if USE_ROBERTA:
             "sentiment-analysis",
             model="cardiffnlp/twitter-roberta-base-sentiment-latest",
             top_k=None,
-            device=-1  # -1 for CPU
+            device=-1  # -1 for CPU, 0 for GPU if available
         )
         def prepare_for_roberta(text):
             text = re.sub(r"@\w+", "@user", str(text))

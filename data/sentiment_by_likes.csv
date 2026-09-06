@@ -1,0 +1,10 @@
+likes_bin,sentiment,count
+0-50,Negative,13
+0-50,Neutral,28
+0-50,Positive,13
+51-200,Negative,38
+51-200,Neutral,86
+51-200,Positive,39
+201-1K,Negative,231
+201-1K,Neutral,372
+201-1K,Positive,178
