@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 5 — Coming Soon</title>
+  <title>Lab 5 — Interactive Network Visualization</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .chart-wrap { display: flex; justify-content: center; margin-top: 16px; }
+    .legend-row { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 16px; }
+    .legend-group { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); }
+    .legend-swatch { width: 14px; height: 14px; border-radius: 3px; }
+    .legend-line { width: 20px; height: 3px; border-radius: 2px; }
+    .q-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    .q-table th { text-align: left; padding: 12px 14px; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); border-bottom: 2px solid var(--border); }
+    .q-table td { padding: 14px; font-size: .9rem; color: var(--dim); border-bottom: 1px solid var(--border); vertical-align: top; }
+    .q-table td strong { color: var(--text); }
+    .q-num { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; background: var(--accent); color: #fff; border-radius: 50%; font-size: 12px; font-weight: 700; margin-right: 8px; }
+  </style>
 </head>
 <body>
   <div class="bg-gradient"></div>
@@ -16,33 +28,161 @@
     <a href="../index.html" class="back-link">&larr; Back to Home</a>
 
     <div class="lab-header">
-      <h1>Lab 5: Coming Soon</h1>
-      <p class="subtitle">This lab will be added later in the semester</p>
+      <h1>Lab 5: Interactive Network Visualization</h1>
+      <p class="subtitle">Force-directed graph and adjacency matrix of an urban transit network</p>
     </div>
 
     <nav class="lab-nav">
       <a href="../lab1/index.html">Lab 1</a>
+      <a href="../lab2/index.html">Lab 2</a>
+      <a href="../lab3/index.html">Lab 3</a>
+      <a href="../lab4/index.html">Lab 4</a>
       <a href="index.html" class="active">Lab 5</a>
       <a href="../lab6/index.html">Lab 6</a>
       <a href="../lab7/index.html">Lab 7</a>
       <a href="../lab8/index.html">Lab 8</a>
       <a href="../lab9/index.html">Lab 9</a>
       <a href="../lab10/index.html">Lab 10</a>
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="../lab2/index.html">Lab 2</a>
-      <a href="../lab3/index.html">Lab 3</a>
     </nav>
 
-    <div class="chart-card glass placeholder">
-      <div class="placeholder-icon">📊</div>
-      <h2 style="margin-bottom:12px;">Lab 5 is under construction</h2>
-      <p style="max-width:400px;margin:0 auto 24px;">
-        This page is a placeholder. The visualization and content for Lab 5 
-        will be added as the course progresses.
+    <!-- Dataset Description -->
+    <section class="glass">
+      <h2><span class="icon">🚇</span> Dataset: Urban Transit Network</h2>
+      <p>
+        This synthetic dataset models a medium-sized city with <strong>50 stations</strong> across five districts
+        (Central, North, South, East, West) and <strong>50 direct transit connections</strong>. Each station has
+        a daily passenger volume and a functional type (Local, Transfer, Terminal). Each route has a travel time
+        and a service type (Metro, Express, Shuttle).
       </p>
-      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
-      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
-    </div>
+    </section>
+
+    <!-- Node-Link -->
+    <section class="glass">
+      <h2><span class="icon">🕸️</span> Node-Link Visualization</h2>
+      <p style="font-size:.85rem;color:var(--dim);">Drag nodes to rearrange. Hover to highlight neighbors and see details.</p>
+      <div class="chart-wrap" id="chart-network"></div>
+      <div id="tooltip" class="tooltip"></div>
+
+      <!-- Legends -->
+      <div class="legend-row">
+        <div class="legend-group"><strong style="color:var(--text);margin-right:6px;">District:</strong></div>
+        <div class="legend-group"><span class="legend-swatch" style="background:#ef4444;"></span>Central</div>
+        <div class="legend-group"><span class="legend-swatch" style="background:#3b82f6;"></span>North</div>
+        <div class="legend-group"><span class="legend-swatch" style="background:#22c55e;"></span>South</div>
+        <div class="legend-group"><span class="legend-swatch" style="background:#f59e0b;"></span>East</div>
+        <div class="legend-group"><span class="legend-swatch" style="background:#a855f7;"></span>West</div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-group"><strong style="color:var(--text);margin-right:6px;">Station Type:</strong></div>
+        <div class="legend-group"><span class="legend-swatch" style="background:var(--dim);border-radius:50%;"></span>Local (circle)</div>
+        <div class="legend-group"><span class="legend-swatch" style="background:var(--dim);border-radius:3px;"></span>Transfer (square)</div>
+        <div class="legend-group"><span class="legend-swatch" style="background:var(--dim);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);"></span>Terminal (diamond)</div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-group"><strong style="color:var(--text);margin-right:6px;">Route Type:</strong></div>
+        <div class="legend-group"><span class="legend-line" style="background:#38bdf8;"></span>Metro</div>
+        <div class="legend-group"><span class="legend-line" style="background:#f472b6;"></span>Express</div>
+        <div class="legend-group"><span class="legend-line" style="background:#94a3b8;"></span>Shuttle</div>
+        <div class="legend-group"><strong style="color:var(--text);margin-right:6px;">Link Width:</strong></div>
+        <div class="legend-group">Travel time (min)</div>
+      </div>
+    </section>
+
+    <!-- Node-Link Design -->
+    <section class="glass">
+      <h2><span class="icon">🎨</span> Node-Link Design Description</h2>
+      <p>
+        I encoded <strong>district</strong> with node color using a distinct hue per district (red=Central, blue=North, etc.), 
+        making geographic grouping immediately visible. <strong>Daily passengers</strong> controls node size via a square-root 
+        scale so that area is proportional to volume—larger stations literally stand out. <strong>Station type</strong> is 
+        encoded as shape: circles for Local, squares for Transfer, and diamonds for Terminal, allowing viewers to spot 
+        functional roles without relying solely on color. For links, <strong>travel time</strong> maps to stroke width 
+        (longer routes are thicker) and <strong>route type</strong> maps to color (cyan=Metro, pink=Express, gray=Shuttle). 
+        Interaction includes draggable nodes, neighbor highlighting on hover, and tooltips showing station metadata.
+      </p>
+    </section>
+
+    <!-- Adjacency Matrix -->
+    <section class="glass">
+      <h2><span class="icon">🔲</span> Adjacency Matrix</h2>
+      <p style="font-size:.85rem;color:var(--dim);">Stations are ordered by district. White grid lines separate districts. Hover cells for route details.</p>
+      <div class="chart-wrap" id="chart-matrix"></div>
+    </section>
+
+    <!-- Matrix Design -->
+    <section class="glass">
+      <h2><span class="icon">🎨</span> Matrix Design Description</h2>
+      <p>
+        The adjacency matrix uses the same node ordering as the node-link diagram: stations are sorted by district 
+        (Central → North → South → East → West), creating visible block structures along the diagonal. Each row and 
+        column represents one station; labels are colored by district. A filled cell indicates a direct connection. 
+        Cell <strong>color</strong> encodes route type (Metro/Express/Shuttle) and cell <strong>opacity</strong> encodes 
+        travel time (darker = longer). Empty cells use a near-transparent fill. White separator lines between districts 
+        make it easy to see intra-district vs. cross-district connections. This ordering reveals that most connections 
+        cluster within districts, with sparser off-diagonal blocks representing cross-district routes.
+      </p>
+    </section>
+
+    <!-- Network Questions -->
+    <section class="glass">
+      <h2><span class="icon">❓</span> Network Questions & Findings</h2>
+      <table class="q-table">
+        <thead>
+          <tr><th style="width:28%;">Question</th><th style="width:18%;">Best View</th><th style="width:18%;">Encoding Used</th><th>Observation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="q-num">1</span><strong>Which stations appear central?</strong></td>
+            <td>Node-link</td>
+            <td>Node size + degree (tooltip)</td>
+            <td>Central district stations and large Transfer squares tend to have the most connections. In the force layout, they are pulled toward the center by multiple links, and tooltips confirm higher connection counts.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">2</span><strong>Which districts are strongly connected?</strong></td>
+            <td>Both</td>
+            <td>Matrix blocks + link colors</td>
+            <td>The matrix shows dense diagonal blocks, meaning each district is strongly connected internally. Off-diagonal blocks are sparser. The node-link view confirms this: same-color clusters are tightly knit, with occasional cross-color bridges.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">3</span><strong>Where are Transfer/Terminal stations?</strong></td>
+            <td>Node-link</td>
+            <td>Node shape</td>
+            <td>Transfer squares and Terminal diamonds are scattered across all districts but tend to sit at the boundaries between color clusters in the force layout, suggesting they bridge sub-communities. Terminal diamonds are the rarest and often have high passenger counts.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">4</span><strong>Which stations have high passenger volume?</strong></td>
+            <td>Node-link</td>
+            <td>Node size</td>
+            <td>The largest circles/squares/diamonds are immediately visible. Central district contains several of the largest nodes, and Terminal stations (diamonds) are consistently among the top passenger volumes.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">5</span><strong>Where are the longest travel-time connections?</strong></td>
+            <td>Both</td>
+            <td>Link width / cell opacity</td>
+            <td>In the node-link view, the thickest strokes often stretch between districts. In the matrix, the darkest cells appear in off-diagonal blocks, confirming that cross-district routes tend to have longer travel times.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">6</span><strong>Are route types concentrated in particular areas?</strong></td>
+            <td>Both</td>
+            <td>Link color / cell color</td>
+            <td>Metro (cyan) links are distributed fairly evenly. Express (pink) routes appear more frequently in the Central and North districts and as cross-district connections. Shuttle (gray) routes are more common within peripheral districts (East/West), suggesting shorter local coverage.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Comments -->
+    <section class="glass comments-section" style="margin-top:28px;">
+      <h2><span class="icon">💬</span> Comments</h2>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </div>
+      <div class="comment-list" id="comment-list">
+        <div class="comment-empty">No comments yet.</div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -50,14 +190,22 @@
     <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="lab5.js"></script>
+
   <script>
+    /* ===== Particle Background ===== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resizeCanvas(); window.addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
       update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
       draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
     }
@@ -74,6 +222,41 @@
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    /* ===== Comments ===== */
+    const COMMENT_KEY = 'stats401-lab5-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
   </script>
 </body>
 </html>
