@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 6 — Coming Soon</title>
+  <title>Lab 6 — Hierarchical Data Visualization</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .treemap-row { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 16px; }
+    .treemap-box { flex: 1 1 420px; max-width: 540px; }
+    .treemap-box svg { display: block; margin: 0 auto; border-radius: 8px; border: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+    .legend-row { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 16px; }
+    .legend-group { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--dim); }
+    .legend-swatch { width: 16px; height: 16px; border-radius: 4px; }
+  </style>
 </head>
 <body>
   <div class="bg-gradient"></div>
@@ -16,33 +24,89 @@
     <a href="../index.html" class="back-link">&larr; Back to Home</a>
 
     <div class="lab-header">
-      <h1>Lab 6: Coming Soon</h1>
-      <p class="subtitle">This lab will be added later in the semester</p>
+      <h1>Lab 6: Hierarchical Data Visualization</h1>
+      <p class="subtitle">Trees and treemaps of global GDP data</p>
     </div>
 
     <nav class="lab-nav">
       <a href="../lab1/index.html">Lab 1</a>
+      <a href="../lab2/index.html">Lab 2</a>
+      <a href="../lab3/index.html">Lab 3</a>
+      <a href="../lab4/index.html">Lab 4</a>
+      <a href="../lab5/index.html">Lab 5</a>
       <a href="index.html" class="active">Lab 6</a>
       <a href="../lab7/index.html">Lab 7</a>
       <a href="../lab8/index.html">Lab 8</a>
       <a href="../lab9/index.html">Lab 9</a>
       <a href="../lab10/index.html">Lab 10</a>
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="../lab2/index.html">Lab 2</a>
-      <a href="../lab3/index.html">Lab 3</a>
-      <a href="../lab4/index.html">Lab 4</a>
     </nav>
 
-    <div class="chart-card glass placeholder">
-      <div class="placeholder-icon">📊</div>
-      <h2 style="margin-bottom:12px;">Lab 6 is under construction</h2>
-      <p style="max-width:400px;margin:0 auto 24px;">
-        This page is a placeholder. The visualization and content for Lab 6 
-        will be added as the course progresses.
+    <!-- Dataset Description -->
+    <section class="glass">
+      <h2><span class="icon">🌍</span> Dataset: Global GDP Hierarchy</h2>
+      <p>
+        This dataset contains <strong>46 countries</strong> across 6 continents and 14 subregions (areas).
+        Each leaf node records GDP in billions of USD and a status label (Increase, Unchanged, or Decrease).
+        A Python script (<code>convert_gdp.py</code>) groups the flat CSV by continent → area → country
+        into a nested JSON file for D3 hierarchical layouts.
       </p>
-      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
-      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
-    </div>
+      <p>
+        <strong>Hierarchy:</strong> World → Continent → Area → Country<br>
+        <strong>Quantitative value:</strong> GDP (billions USD)<br>
+        <strong>Categorical value:</strong> GDP status (Increase / Unchanged / Decrease)
+      </p>
+    </section>
+
+    <!-- Two Treemaps -->
+    <section class="glass">
+      <h2><span class="icon">📊</span> Two Treemaps with Different Segmentation</h2>
+      <p style="font-size:.85rem;color:var(--dim);">Rectangle area = GDP. Color = GDP status. Hover for details.</p>
+      <div class="treemap-row">
+        <div class="treemap-box" id="treemap-squarify"></div>
+        <div class="treemap-box" id="treemap-binary"></div>
+      </div>
+      <div id="tooltip" class="tooltip"></div>
+
+      <!-- Legend -->
+      <div class="legend-row">
+        <div class="legend-group"><strong style="color:var(--text);margin-right:6px;">GDP Status:</strong></div>
+        <div class="legend-group"><span class="legend-swatch" style="background:#22c55e;"></span>Increase</div>
+        <div class="legend-group"><span class="legend-swatch" style="background:#f59e0b;"></span>Unchanged</div>
+        <div class="legend-group"><span class="legend-swatch" style="background:#ef4444;"></span>Decrease</div>
+      </div>
+    </section>
+
+    <!-- Design Description -->
+    <section class="glass">
+      <h2><span class="icon">🎨</span> Design Description</h2>
+      <p>
+        I chose <strong>area</strong> to encode GDP amount because treemaps naturally represent part-to-whole 
+        relationships through rectangle size—larger economies literally occupy more space. <strong>GDP status</strong> 
+        is encoded with color using an intuitive traffic-light scheme: green for Increase, amber for Unchanged, 
+        and red for Decrease. This makes it easy to spot economic trends at a glance.
+      </p>
+      <p>
+        The two treemaps use different tiling strategies. <strong>Squarify</strong> produces rectangles with 
+        aspect ratios closer to squares, making individual countries easier to compare and label. 
+        <strong>Binary</strong> recursively splits the available space into two groups, creating a more 
+        structured, sliced appearance that emphasizes the hierarchical grouping at each level. Squarify 
+        is better for readability of individual items, while Binary more clearly reveals the recursive 
+        subdivision logic of the hierarchy.
+      </p>
+    </section>
+
+    <!-- Comments -->
+    <section class="glass comments-section" style="margin-top:28px;">
+      <h2><span class="icon">💬</span> Comments</h2>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </div>
+      <div class="comment-list" id="comment-list">
+        <div class="comment-empty">No comments yet.</div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -50,14 +114,22 @@
     <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="lab6.js"></script>
+
   <script>
+    /* ===== Particle Background ===== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resizeCanvas(); window.addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
       update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
       draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
     }
@@ -74,6 +146,41 @@
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    /* ===== Comments ===== */
+    const COMMENT_KEY = 'stats401-lab6-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
   </script>
 </body>
 </html>

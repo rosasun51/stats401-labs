@@ -1,0 +1,47 @@
+continent,area,country,gdp_billion_usd,gdp_status
+Asia,East Asia,China,17963,Increase
+Asia,East Asia,Japan,4213,Decrease
+Asia,East Asia,South Korea,1713,Increase
+Asia,East Asia,Mongolia,17,Unchanged
+Asia,Southeast Asia,Indonesia,1371,Increase
+Asia,Southeast Asia,Thailand,536,Increase
+Asia,Southeast Asia,Vietnam,450,Increase
+Asia,Southeast Asia,Philippines,440,Increase
+Asia,Southeast Asia,Malaysia,430,Increase
+Asia,South Asia,India,3549,Increase
+Asia,South Asia,Pakistan,338,Decrease
+Asia,South Asia,Bangladesh,460,Increase
+Asia,West Asia,Saudi Arabia,1069,Decrease
+Asia,West Asia,Turkey,1029,Increase
+Asia,West Asia,Israel,564,Increase
+Europe,Western Europe,Germany,4456,Decrease
+Europe,Western Europe,United Kingdom,3332,Decrease
+Europe,Western Europe,France,3031,Increase
+Europe,Western Europe,Italy,2254,Increase
+Europe,Western Europe,Netherlands,1092,Increase
+Europe,Western Europe,Switzerland,905,Increase
+Europe,Western Europe,Belgium,624,Increase
+Europe,Northern Europe,Sweden,623,Increase
+Europe,Northern Europe,Norway,579,Increase
+Europe,Northern Europe,Denmark,405,Increase
+Europe,Southern Europe,Spain,1582,Increase
+Europe,Southern Europe,Poland,811,Increase
+Europe,Eastern Europe,Russia,1990,Decrease
+Europe,Eastern Europe,Ukraine,160,Decrease
+North America,North America,United States,26954,Increase
+North America,North America,Canada,2140,Increase
+North America,North America,Mexico,1818,Increase
+South America,South America,Brazil,2173,Increase
+South America,South America,Argentina,621,Decrease
+South America,South America,Chile,358,Decrease
+South America,South America,Colombia,363,Increase
+South America,South America,Peru,267,Increase
+Africa,Africa,Nigeria,390,Increase
+Africa,Africa,South Africa,380,Decrease
+Africa,Africa,Egypt,398,Increase
+Africa,Africa,Algeria,239,Decrease
+Africa,Africa,Morocco,141,Increase
+Africa,Africa,Ethiopia,163,Increase
+Oceania,Oceania,Australia,1693,Increase
+Oceania,Oceania,New Zealand,253,Decrease
+Oceania,Oceania,Papua New Guinea,31,Increase
