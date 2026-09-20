@@ -1,10 +1,6 @@
 # 🌌 STATS 401 Labs — A Data Visualization Odyssey
 
-> *"In data we trust, in D3 we delight."*  
-> — Ruisheng (Rosa) Sun, probably at 2 AM debugging a force simulation
-
-Welcome to my **STATS 401: Data Acquisition and Visualization** portfolio. This is not just a collection of homework assignments. It is a journey from "what is HTML?" to "let me animate a temporal network at 60fps." Built with blood, sweat, and an unreasonable amount of `console.log()` statements.
-
+Welcome to my **STATS 401: Data Acquisition and Visualization** portfolio. This is not just a collection of homework assignments. It is a journey from "what is HTML?" to "let me animate a temporal network." 
 ---
 
 ## 🚀 What's Inside?
@@ -67,7 +63,6 @@ Every lab shares a unified dark-mode aesthetic because:
 - 🪟 **Glassmorphism cards** (`backdrop-filter: blur(20px)`)
 - 🌈 **Gradient accents** (cyan → pink)
 - 💬 **Visitor comment system** (localStorage-powered, because why not)
-- 📱 **Responsive layout** (works on your phone, surprisingly)
 
 ---
 
@@ -164,22 +159,15 @@ pip install transformers torch
 
 ---
 
-## 👤 About the Author
-
-**Ruisheng (Rosa) Sun**  
-📧 rs689@duke.edu  
-🎓 Duke University — STATS 401: Data Acquisition and Visualization
-
-> "I came for the statistics. I stayed for the CSS animations."
-
----
 
 ## 📜 License
 
 This is a coursework portfolio. Data sources:
+- **Lab requirements** * (Labs 1-10) - From a wonderful DKU course, STATS401, instructed by Professor Yucheng Jin (yj232@duke.edu)
 - **Books to Scrape** (Lab 3) — scraping practice site
 - **Synthetic data** (Labs 4–7) — generated for educational purposes
-- All code is original unless otherwise noted.
+- All code is original unless otherwise noted, from Ruisheng (Rosa) Sun (rs689@duke.edu)
+- 🎓 Duke University — STATS 401: Data Acquisition and Visualization
 
 ---
 
