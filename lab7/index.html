@@ -3,10 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 7 — Coming Soon</title>
+  <title>Lab 7 — Temporal Data Visualization</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .metric-select { background: rgba(0,0,0,.2); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; color: var(--text); font-family: inherit; font-size: .95rem; outline: none; cursor: pointer; }
+    .metric-select:focus { border-color: var(--accent); }
+    .metric-select option { background: #0f0f1a; color: var(--text); }
+    .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0; justify-content: center; }
+    .controls button { padding: 10px 24px; font-size: 14px; font-weight: 600; border-radius: 50px; border: none; cursor: pointer; transition: .2s; }
+    #play-btn { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; box-shadow: 0 4px 20px rgba(56,189,248,.3); }
+    #play-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(56,189,248,.5); }
+    #reset-btn { background: var(--glass); color: var(--text); border: 1px solid var(--border); }
+    #reset-btn:hover { background: rgba(255,255,255,.1); }
+    #time-slider { flex: 1 1 300px; max-width: 500px; height: 6px; -webkit-appearance: none; appearance: none; background: var(--border); border-radius: 3px; outline: none; }
+    #time-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: var(--accent); border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px var(--accent); }
+    .legend-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 12px; }
+    .legend-group { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--dim); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .legend-line { width: 18px; height: 3px; border-radius: 2px; }
+    .brush-info { text-align: center; font-size: 12px; color: var(--dim); margin-top: 6px; min-height: 18px; }
+    .q-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    .q-table th { text-align: left; padding: 12px 14px; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); border-bottom: 2px solid var(--border); }
+    .q-table td { padding: 14px; font-size: .9rem; color: var(--dim); border-bottom: 1px solid var(--border); vertical-align: top; }
+    .q-table td strong { color: var(--text); }
+    .q-num { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; background: var(--accent); color: #fff; border-radius: 50%; font-size: 12px; font-weight: 700; margin-right: 8px; }
+  </style>
 </head>
 <body>
   <div class="bg-gradient"></div>
@@ -16,33 +39,125 @@
     <a href="../index.html" class="back-link">&larr; Back to Home</a>
 
     <div class="lab-header">
-      <h1>Lab 7: Coming Soon</h1>
-      <p class="subtitle">This lab will be added later in the semester</p>
+      <h1>Lab 7: Temporal Data Visualization</h1>
+      <p class="subtitle">Weather trends, metric switching, brush filtering, and animated network evolution</p>
     </div>
 
     <nav class="lab-nav">
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="index.html" class="active">Lab 7</a>
-      <a href="../lab8/index.html">Lab 8</a>
-      <a href="../lab9/index.html">Lab 9</a>
-      <a href="../lab10/index.html">Lab 10</a>
       <a href="../lab1/index.html">Lab 1</a>
       <a href="../lab2/index.html">Lab 2</a>
       <a href="../lab3/index.html">Lab 3</a>
       <a href="../lab4/index.html">Lab 4</a>
       <a href="../lab5/index.html">Lab 5</a>
+      <a href="../lab6/index.html">Lab 6</a>
+      <a href="index.html" class="active">Lab 7</a>
+      <a href="../lab8/index.html">Lab 8</a>
+      <a href="../lab9/index.html">Lab 9</a>
+      <a href="../lab10/index.html">Lab 10</a>
     </nav>
 
-    <div class="chart-card glass placeholder">
-      <div class="placeholder-icon">📊</div>
-      <h2 style="margin-bottom:12px;">Lab 7 is under construction</h2>
-      <p style="max-width:400px;margin:0 auto 24px;">
-        This page is a placeholder. The visualization and content for Lab 7 
-        will be added as the course progresses.
-      </p>
-      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
-      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
-    </div>
+    <!-- ===== PART A: WEATHER ===== -->
+    <section class="glass">
+      <h2><span class="icon">🌤️</span> Historical Weather — 8 Cities, 180 Days</h2>
+      <p style="font-size:.85rem;color:var(--dim);">Select a metric below. Hover for values. Drag on chart to brush a time range.</p>
+
+      <div style="display:flex;justify-content:center;margin-bottom:12px;">
+        <select id="metric-select" class="metric-select">
+          <option value="temperature_c">Temperature (°C)</option>
+          <option value="humidity_pct">Humidity (%)</option>
+          <option value="wind_speed_mps">Wind Speed (m/s)</option>
+          <option value="pressure_hpa">Pressure (hPa)</option>
+          <option value="precipitation_mm">Precipitation (mm)</option>
+        </select>
+      </div>
+
+      <div id="chart-weather"></div>
+      <div id="tooltip" class="tooltip"></div>
+      <div class="brush-info" id="brush-info">Drag on chart to select a time range</div>
+
+      <div class="legend-row">
+        <div class="legend-group"><span class="legend-dot" style="background:#4e79a7;"></span>New York</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#f28e2c;"></span>London</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#e15759;"></span>Tokyo</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#76b7b2;"></span>Singapore</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#59a14f;"></span>Sydney</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#edc949;"></span>Cairo</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#af7aa1;"></span>São Paulo</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#ff9da7;"></span>Toronto</div>
+      </div>
+    </section>
+
+    <!-- ===== PART B: TEMPORAL NETWORK ===== -->
+    <section class="glass">
+      <h2><span class="icon">🏢</span> Commercial Transaction Network — 12 Companies, 60 Days</h2>
+      <p style="font-size:.85rem;color:var(--dim);">Node size = daily transaction volume. Link color = transaction type. Drag nodes. Use controls.</p>
+
+      <div id="chart-network"></div>
+
+      <div class="controls">
+        <button id="play-btn">▶ Play</button>
+        <button id="reset-btn">↺ Reset</button>
+        <input type="range" id="time-slider" min="1" max="60" value="1">
+      </div>
+
+      <div class="legend-row">
+        <div class="legend-group"><strong style="color:var(--text);">Region:</strong></div>
+        <div class="legend-group"><span class="legend-dot" style="background:#ef4444;"></span>Asia</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#3b82f6;"></span>North America</div>
+        <div class="legend-group"><span class="legend-dot" style="background:#22c55e;"></span>Europe</div>
+      </div>
+      <div class="legend-row">
+        <div class="legend-group"><strong style="color:var(--text);">Transaction:</strong></div>
+        <div class="legend-group"><span class="legend-line" style="background:#38bdf8;"></span>goods</div>
+        <div class="legend-group"><span class="legend-line" style="background:#f472b6;"></span>shipping</div>
+        <div class="legend-group"><span class="legend-line" style="background:#a78bfa;"></span>components</div>
+        <div class="legend-group"><span class="legend-line" style="background:#fbbf24;"></span>materials</div>
+        <div class="legend-group"><span class="legend-line" style="background:#94a3b8;"></span>services</div>
+      </div>
+    </section>
+
+    <!-- Questions -->
+    <section class="glass">
+      <h2><span class="icon">❓</span> Temporal Network Questions & Findings</h2>
+      <table class="q-table">
+        <thead><tr><th style="width:32%;">Question</th><th style="width:68%;">Observation</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="q-num">1</span><strong>How does overall connectivity change across 60 days?</strong></td>
+            <td>The network maintains a stable core of 6–8 persistent relationships that appear on most days. Daily link count fluctuates between 8–15, with spikes around Day 20 and Day 45 when cross-regional transactions increase. The animation reveals a dynamic but non-chaotic structure with an underlying stable backbone.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">2</span><strong>Which companies become more central or active over time?</strong></td>
+            <td>Apex Textiles (c01) and Delta Energy (c04) consistently show the largest node sizes, indicating sustained high transaction volume. BlueRiver Logistics and Keystone Transport also remain prominent. Smaller companies like Lunar Software and Jade Pharma stay relatively small unless involved in rare large transactions.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">3</span><strong>Are there periods with separate clusters?</strong></td>
+            <td>Yes. On Days 8–12, the force layout visibly separates into two or three spatial clusters by region. This happens when cross-regional transactions drop and only intra-regional links remain. Asia (red) and North America (blue) often drift apart, while Europe (green) sometimes bridges them.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">4</span><strong>Which relationships appear, disappear, or strengthen?</strong></td>
+            <td>Persistent pairs (Apex–BlueRiver, Cedar–Horizon, Delta–Keystone) recur frequently. Some like IronWorks–Lunar appear only sporadically. Link width encodes transaction amount, so thicker lines indicate stronger commercial activity. Apex–Goldline emerges strongly around Day 30 then fades.</td>
+          </tr>
+          <tr>
+            <td><span class="q-num">5</span><strong>Does the network become more or less cross-regional over time?</strong></td>
+            <td>The network shows waves rather than a steady trend. Days 20–35 show increased cross-regional links (more mixed-color connections). Days 45–60 return to more regional clustering. Cross-regional commerce is episodic, possibly reflecting scheduled shipping cycles.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Comments -->
+    <section class="glass comments-section" style="margin-top:28px;">
+      <h2><span class="icon">💬</span> Comments</h2>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </div>
+      <div class="comment-list" id="comment-list">
+        <div class="comment-empty">No comments yet.</div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -50,14 +165,22 @@
     <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="lab7.js"></script>
+
   <script>
+    /* ===== Particle Background ===== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resizeCanvas(); window.addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
       update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
       draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
     }
@@ -74,6 +197,41 @@
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    /* ===== Comments ===== */
+    const COMMENT_KEY = 'stats401-lab7-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
   </script>
 </body>
 </html>
