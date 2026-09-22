@@ -1,0 +1,108 @@
+passage_id,chapter,section,subsection,page,text,word_count,cluster,cluster_name,x,y
+p001,Academic Policies,Registration,,107,Students must register for courses during the designated registration period each semester.,12,3,Registration,-0.027867989273818693,-0.10859118636629814
+p002,Academic Policies,Registration,,104,Late registration requires approval from the academic dean and may incur additional fees.,13,5,Majors,-0.0026469980962449463,-0.11779618475864362
+p003,Academic Policies,Registration,,279,Course registration is finalized once payment of tuition and fees is confirmed by the bursar.,15,5,Majors,0.0707737685770653,-0.0046894657811727605
+p004,Academic Policies,Registration,,14,Students are responsible for verifying their course schedule accuracy before the add-drop deadline.,13,3,Registration,0.08987126949169244,-0.010931322561283482
+p005,Academic Policies,Registration,,361,Web registration is available to all students with no outstanding financial or academic holds.,14,0,Support,-0.015608357249991656,-0.0276318011043936
+p006,Academic Policies,Registration,,124,First-year students must meet with their academic advisor before registering for courses.,12,3,Registration,-0.06765228693985724,-0.06508116268768079
+p007,Academic Policies,Registration,,72,Registration priority is determined by class standing and cumulative grade point average.,12,7,Grading,0.2815289097860854,-0.09800916339107557
+p008,Academic Policies,Registration,,318,Students may not register for more than 20 credit hours in a single semester without special permission.,17,3,Registration,0.029057298137419675,-0.07041895006487507
+p009,Academic Policies,Registration,,175,Waitlisted courses will be automatically added if space becomes available during registration. Additional details are available in the student handbook.,20,6,Graduation,0.010891769930681874,-0.12486139841635449
+p010,Academic Policies,Registration,,81,Cross-registration with partner institutions requires prior approval from both registrars.,10,5,Majors,-0.06745531711212747,-0.05486162633993179
+p011,Academic Policies,Add and Drop,,71,The add-drop period extends through the second week of the semester for standard courses.,14,3,Registration,0.04575694752902198,-0.08371663032272868
+p012,Academic Policies,Add and Drop,,182,Students may add courses without penalty during the first week of the semester.,13,3,Registration,0.009024114361950095,-0.05823896939799344
+p013,Academic Policies,Add and Drop,,236,Dropping a course after the add-drop deadline results in a withdrawal notation on the transcript. Policies are subject to change by faculty vote.,23,4,Campus Life,0.44033938651898863,-0.13129749869488164
+p014,Academic Policies,Add and Drop,,122,Courses dropped during the add-drop period do not appear on the official academic transcript.,14,3,Registration,0.05054083037801307,-0.08887140173327324
+p015,Academic Policies,Add and Drop,,130,Students must maintain a minimum of 12 credit hours after the add-drop period to remain full-time. Questions should be directed to the appropriate administrative office.,25,0,Support,0.06191979362151982,-0.080379480757262
+p016,Academic Policies,Add and Drop,,341,Laboratory and studio courses may have earlier add-drop deadlines than lecture courses.,12,3,Registration,0.042287036459466826,0.06009986050695968
+p017,Academic Policies,Grading,,242,The university employs a four-point grading scale with plus and minus designations.,12,7,Grading,0.09534753598984659,-0.019983987711100413
+p018,Academic Policies,Grading,,22,A grade of incomplete may be assigned when a student has satisfactorily completed most coursework.,15,6,Graduation,0.16185550199125362,-0.1019738339087633
+p019,Academic Policies,Grading,,371,Incomplete grades must be resolved within six weeks of the following semester.,12,3,Registration,0.020883802278167978,-0.0029406346916584355
+p020,Academic Policies,Grading,,207,Pass-fail grading is available for elective courses outside the student's major department.,12,2,Curriculum,0.0843898246788802,-0.09695633954589498
+p021,Academic Policies,Grading,,44,Grade appeals must be submitted in writing to the department chair within thirty days.,14,7,Grading,0.08251569863467853,-0.031058094748252087
+p022,Academic Policies,Grading,,205,The grade point average is calculated by dividing quality points by attempted credit hours.,14,7,Grading,0.2278322154510974,-0.1107879513575506
+p023,Academic Policies,Grading,,229,Repeated courses replace the previous grade in the cumulative grade point average calculation. Policies are subject to change by faculty vote.,21,7,Grading,0.6091432195612395,-0.14656656023913392
+p024,Degree Requirements,General Education,,377,All students must complete the general education curriculum regardless of major.,11,2,Curriculum,-0.060543520291621605,-0.0947144927961857
+p025,Degree Requirements,General Education,,20,"The general education program includes coursework in arts, humanities, natural sciences, and social sciences.",14,2,Curriculum,-0.0002034398488381401,-0.016831251101101806
+p026,Degree Requirements,General Education,,63,Students must demonstrate quantitative reasoning competency through approved mathematics courses.,10,3,Registration,-0.10796036788810287,-0.03959023536499087
+p027,Degree Requirements,General Education,,53,Global citizenship requirements may be satisfied through study away or designated domestic programs.,13,1,Study Away,-0.498934170515154,-0.18424046085078588
+p028,Degree Requirements,General Education,,182,First-year seminars introduce students to academic inquiry and university resources.,10,3,Registration,-0.03873795960255632,-0.008174475326016221
+p029,Degree Requirements,General Education,,232,Writing and communication requirements ensure proficiency in academic and professional discourse.,11,3,Registration,-0.05342192038285391,-0.015092522128342556
+p030,Degree Requirements,General Education,,22,General education courses may not be taken pass-fail except under extraordinary circumstances.,12,2,Curriculum,-0.059157798599392894,-0.059790003117495244
+p031,Degree Requirements,Major Requirements,,371,Each major requires a minimum of ten courses at the 200-level or above.,13,5,Majors,0.04626982427254194,-0.061840712047138105
+p032,Degree Requirements,Major Requirements,,177,Major declarations are due by the end of the fourth semester of enrollment.,13,2,Curriculum,0.02657024342278571,-0.05359338202559014
+p033,Degree Requirements,Major Requirements,,320,Students must maintain a minimum grade point average of 2.0 in major coursework.,13,7,Grading,0.22370755916168475,-0.12303490273453946
+p034,Degree Requirements,Major Requirements,,187,Capstone projects integrate knowledge and skills acquired throughout the major curriculum.,11,2,Curriculum,-0.02612893769829509,-0.016981747218186252
+p035,Degree Requirements,Major Requirements,,229,Independent study courses may count toward the major with departmental approval.,11,5,Majors,-0.05584255619051089,-0.10195847098560372
+p036,Degree Requirements,Major Requirements,,302,Double majors require completion of all requirements for both programs without course overlap.,13,5,Majors,-0.12239519331470783,-0.07996069484472618
+p037,Degree Requirements,Major Requirements,,221,Interdisciplinary majors combine coursework from multiple departments under a unified theme.,11,5,Majors,0.007578374347869589,-0.027708405069892375
+p038,Degree Requirements,Graduation,,332,Candidates for graduation must file a degree application by the deadline published by the registrar.,15,1,Study Away,-0.0025608584557365137,0.1568523085885084
+p039,Degree Requirements,Graduation,,124,All degree requirements must be completed by the date of commencement exercises. Additional details are available in the student handbook.,20,6,Graduation,-0.036821340610728434,-0.11957049446029072
+p040,Degree Requirements,Graduation,,189,Students with outstanding incomplete grades are not eligible to graduate.,10,3,Registration,0.002041280681896015,0.0062466873943352735
+p041,Degree Requirements,Graduation,,133,Diplomas are mailed to the permanent address on file approximately eight weeks after graduation. See the registrar website for current deadlines and forms.,23,1,Study Away,0.029310742238242163,0.7161454001147725
+p042,Degree Requirements,Graduation,,366,Latin honors are awarded based on the cumulative grade point average at the time of graduation.,16,7,Grading,0.2923440013496066,-0.04397956075646628
+p043,Degree Requirements,Graduation,,372,Commencement participation is permitted for students completing requirements in the subsequent summer term.,13,6,Graduation,-0.12045940630401382,-0.05659766467532871
+p044,Academic Integrity,Honor Code,,168,All students are bound by the university honor code from matriculation through graduation. Questions should be directed to the appropriate administrative office.,22,0,Support,-0.056284668479406705,0.07097644799499643
+p045,Academic Integrity,Honor Code,,296,"The honor code prohibits plagiarism, cheating, fabrication, and unauthorized collaboration. See the registrar website for current deadlines and forms.",19,1,Study Away,-0.015090586547153345,0.8112749365459503
+p046,Academic Integrity,Honor Code,,349,Students must sign the honor pledge on all examinations and major assignments.,12,2,Curriculum,0.01261586239844286,0.06134423591875939
+p047,Academic Integrity,Honor Code,,233,Violations of the honor code are reported to the student judicial board for review. Questions should be directed to the appropriate administrative office.,23,0,Support,-0.02835508815305992,0.03625747863595008
+p048,Academic Integrity,Honor Code,,79,The honor code applies to all academic work including laboratory reports and creative projects.,14,5,Majors,-0.07218477512259065,0.07321832479895939
+p049,Academic Integrity,Honor Code,,33,Ignorance of citation standards does not excuse plagiarism under the honor code.,12,5,Majors,0.004026607179069962,0.17220452675685943
+p050,Academic Integrity,Sanctions,,273,Academic integrity violations may result in sanctions ranging from warning to expulsion.,12,5,Majors,0.04218628024784224,0.0016073615187746151
+p051,Academic Integrity,Sanctions,,79,First-time offenders in minor cases may receive a reduced grade and mandatory ethics workshop.,14,7,Grading,0.1410592048200876,-0.065062269984421
+p052,Academic Integrity,Sanctions,,257,Repeated violations or egregious misconduct may result in suspension or permanent dismissal.,12,3,Registration,0.06709062781850213,0.021217817995612502
+p053,Academic Integrity,Sanctions,,324,"The student judicial board considers intent, severity, and prior record when determining sanctions.",13,3,Registration,0.052132734053704714,0.006377612795188477
+p054,Academic Integrity,Sanctions,,56,Appeals of academic integrity sanctions must be filed within ten business days of notification.,14,5,Majors,0.013875127464833058,-0.007948479333969062
+p055,Study Away,Programs,,154,Study away programs are available at partner institutions on six continents.,11,1,Study Away,-0.37244106767800844,-0.16801508573396054
+p056,Study Away,Programs,,298,Students may study away for one semester or a full academic year.,12,1,Study Away,-0.35287855293766407,-0.16419201698583036
+p057,Study Away,Programs,,107,All study away coursework must be pre-approved by the academic advisor and registrar.,13,1,Study Away,-0.29003560529118705,-0.06736605312367677
+p058,Study Away,Programs,,31,Credits earned through approved study away programs transfer as graded credit toward the degree. Questions should be directed to the appropriate administrative office.,23,0,Support,-0.31988573780300156,-0.1488017883222157
+p059,Study Away,Programs,,95,Financial aid may be applied to approved study away programs with prior authorization.,13,1,Study Away,-0.4571513713780124,-0.10426708464788764
+p060,Study Away,Programs,,319,Students must be in good academic standing to be eligible for study away opportunities. Additional details are available in the student handbook.,22,6,Graduation,-0.18977645450511582,-0.12263704202121475
+p061,Study Away,Programs,,253,Application deadlines for study away programs are typically one year before departure.,12,1,Study Away,-0.43679648523704273,-0.03652466289463412
+p062,Study Away,Transfer Credits,,214,Transfer credits from study away programs require official transcripts from the host institution.,13,1,Study Away,-0.44049531012308796,-0.20964814471820653
+p063,Study Away,Transfer Credits,,368,A maximum of sixteen transfer credits may be applied toward degree requirements.,12,6,Graduation,-0.2130218365936237,-0.08222293056238875
+p064,Study Away,Transfer Credits,,360,Transfer credits must be earned at accredited institutions with comparable academic standards.,12,3,Registration,-0.15818684734016317,-0.023565604380192957
+p065,Study Away,Transfer Credits,,28,Courses taken pass-fail at other institutions generally do not transfer for degree credit.,13,3,Registration,-0.09336605762015762,-0.0899992935176166
+p066,Study Away,Transfer Credits,,197,The registrar evaluates transfer credits for equivalency to university courses.,10,3,Registration,-0.12902242925241908,0.03047343918877396
+p067,Student Support,Advising,,214,Each student is assigned a faculty advisor upon declaration of major.,11,4,Campus Life,0.20722230554116255,-0.038222002309349
+p068,Student Support,Advising,,236,"Academic advisors assist with course selection, degree planning, and career preparation.",11,3,Registration,0.011812856929983498,-0.036224680301351606
+p069,Student Support,Advising,,335,Students may request a change of advisor by submitting a petition to the dean.,14,5,Majors,0.10624511519789281,-0.008017498350915715
+p070,Student Support,Advising,,289,Pre-professional advisors provide guidance for students pursuing graduate or professional school.,11,0,Support,-0.00943921539862381,-0.025710826511589915
+p071,Student Support,Advising,,211,Peer advisors are available during orientation and registration periods.,9,0,Support,0.03858832639503823,-0.10129962523887141
+p072,Student Support,Wellness,,200,The university provides comprehensive mental health counseling services to all enrolled students. Policies are subject to change by faculty vote.,20,4,Campus Life,0.49248596519189625,-0.1546254635348933
+p073,Student Support,Wellness,,365,"Wellness workshops address stress management, sleep hygiene, and mindfulness practices.",10,3,Registration,-0.0015013909364125812,0.051737526595131623
+p074,Student Support,Wellness,,176,Disability support services ensure equitable access to academic programs and facilities.,11,3,Registration,-0.034487225361357524,-0.037057854409859856
+p075,Student Support,Wellness,,275,Students may request accommodations by registering with the disability services office.,11,0,Support,0.017220767922701267,0.023970103032787987
+p076,Student Support,Wellness,,306,Emergency mental health support is available twenty-four hours through the counseling hotline.,12,4,Campus Life,0.11600020264052105,-0.05138985913289619
+p077,Student Support,Career Services,,115,"The career center offers resume review, interview preparation, and job search strategy sessions.",13,3,Registration,0.02353572435989636,-0.018139357904327625
+p078,Student Support,Career Services,,75,On-campus recruiting events connect students with employers from diverse industries. See the registrar website for current deadlines and forms.,19,1,Study Away,0.006766011643714027,0.7981961750461185
+p079,Student Support,Career Services,,361,Internship funding is available for students pursuing unpaid summer experiences. Questions should be directed to the appropriate administrative office.,19,0,Support,0.009330775553345567,-0.01473540385397412
+p080,Student Support,Career Services,,356,Alumni mentorship programs pair current students with graduates in related fields.,11,3,Registration,-0.11898477741928466,0.14483441972472777
+p081,Student Support,Career Services,,174,Career assessment tools help students identify strengths and potential career pathways.,11,3,Registration,0.02563561887228467,0.0926031239469555
+p082,Financial Information,Tuition,,77,Annual tuition is set by the board of trustees and published on the bursar website.,15,3,Registration,0.058468251068643354,0.1259682333037263
+p083,Financial Information,Tuition,,133,Tuition payments are due in full before the start of each semester.,12,3,Registration,0.022592897535776025,0.013152904004567118
+p084,Financial Information,Tuition,,355,Payment plans are available for families preferring to spread costs across monthly installments. Policies are subject to change by faculty vote.,21,4,Campus Life,0.5263795215844228,-0.18491674749688278
+p085,Financial Information,Tuition,,181,Late payment penalties accrue at a rate specified in the student financial agreement.,13,5,Majors,0.0641118099945733,0.054753839847308146
+p086,Financial Information,Tuition,,278,Tuition refunds follow a sliding scale based on the date of official withdrawal.,13,6,Graduation,0.016780322816591572,0.01072096284808015
+p087,Financial Information,Financial Aid,,97,Need-based financial aid is determined by the institutional methodology assessment. See the registrar website for current deadlines and forms.,19,1,Study Away,0.011452877606307428,0.7030270467843719
+p088,Financial Information,Financial Aid,,182,Merit scholarships are awarded at admission and renewed based on academic performance. Policies are subject to change by faculty vote.,20,4,Campus Life,0.4778654494728038,-0.14920687747510064
+p089,Financial Information,Financial Aid,,327,Students receiving financial aid must maintain satisfactory academic progress.,9,3,Registration,-0.13159931178935952,0.09719463199734522
+p090,Financial Information,Financial Aid,,139,"Financial aid packages may include grants, loans, and work-study employment.",10,1,Study Away,-0.22440256701941136,0.04906535923149237
+p091,Financial Information,Financial Aid,,117,Appeals for additional aid require documentation of changed financial circumstances.,10,5,Majors,-0.11628804296299078,0.035030348516649504
+p092,Financial Information,Financial Aid,,207,International students are eligible for merit-based and select need-based aid programs.,11,3,Registration,-0.03931644503454058,0.07532160239614147
+p093,Campus Life,Housing,,12,All first-year and second-year students are required to live in university housing.,12,3,Registration,-0.08079754362589285,-0.015462744202682692
+p094,Campus Life,Housing,,137,Residential life staff provide programming and support for campus communities.,10,3,Registration,0.0874549746313957,0.022312803422172567
+p095,Campus Life,Housing,,46,Housing assignments are made by the housing office based on preference forms and availability.,14,0,Support,0.04908687201339926,0.14297912108586827
+p096,Campus Life,Housing,,349,Room changes are permitted during designated periods with approval from residential life.,12,5,Majors,-0.010996231980006509,-0.03889120295316207
+p097,Campus Life,Student Organizations,,171,Recognized student organizations receive funding and administrative support from student affairs. Policies are subject to change by faculty vote.,19,4,Campus Life,0.5098253819927597,-0.11841931394891365
+p098,Campus Life,Student Organizations,,223,New organizations may apply for recognition by submitting a constitution and faculty sponsor. See the registrar website for current deadlines and forms.,22,1,Study Away,0.0866515986199843,0.7328247960223461
+p099,Campus Life,Student Organizations,,355,Student government represents undergraduate interests to the administration and faculty.,10,4,Campus Life,0.25859727411108857,-0.05752656076439695
+p100,Academic Policies,Registration,,42,Registration holds related to academic integrity violations must be cleared before course enrollment is permitted.,15,5,Majors,0.013618696651105898,-0.010620240207577424
+p101,Degree Requirements,Graduation,,88,Students completing study away requirements in their final semester must submit transcripts before graduation clearance.,15,1,Study Away,-0.32262472267328685,-0.15140857213715972
+p102,Student Support,Advising,,156,Academic advisors work closely with the financial aid office to ensure students understand aid implications of course load changes.,19,0,Support,-0.09998410026016172,0.06309054985604605
+p103,Study Away,Transfer Credits,,201,Transfer credits from study away may satisfy general education requirements with approval from the curriculum committee.,16,2,Curriculum,-0.3583906223245301,-0.1748294327239578
+p104,Academic Integrity,Honor Code,,55,"The honor code applies to all academic work completed at the university, including courses taken during study away programs.",19,1,Study Away,-0.2991807414808668,-0.035044657274515105
+p105,Financial Information,Financial Aid,,245,Merit scholarship recipients who violate the honor code may face review of their financial aid standing by the scholarship committee.,20,5,Majors,-0.04847316278863257,0.1298736989130735
+p106,Campus Life,Housing,,310,Residential life staff coordinate with student support services to provide wellness programming in campus housing.,15,3,Registration,0.05920955515642489,0.025746995730372136
+p107,Degree Requirements,Major Requirements,,95,"Capstone courses may involve collaboration with community partners, subject to the same academic integrity standards as traditional coursework.",18,5,Majors,0.07939274740140513,-0.04320096883296855

@@ -15,18 +15,6 @@ stats401-labs/
 ├── js/
 │   └── main.js             # Console logs & sample data
 ├── data/                   # CSVs, JSONs, and the tears of malformed strings
-│   ├── students.csv
-│   ├── cities_multivariate.csv
-│   ├── books_scraped.csv
-│   ├── lab4_dirty_tweets.csv
-│   ├── lab4_clean_tweets.csv
-│   ├── lab5_assignment_stations.csv
-│   ├── lab5_assignment_routes.csv
-│   ├── lab6_assignment_gdp.csv
-│   ├── lab6_gdp_hierarchy.json
-│   ├── lab7_historical_weather.csv
-│   ├── lab7_assignment_companies.csv
-│   └── lab7_assignment_transactions_60days.csv
 ├── lab1/  →  lab10/        # One folder per lab
 │   ├── index.html
 │   └── *.js / *.py         # D3 code, Python scrapers, cleaning scripts
@@ -45,7 +33,7 @@ stats401-labs/
 | **Lab 5** | Network Visualization | ✅ Complete | Force-directed graph + adjacency matrix, 50 nodes |
 | **Lab 6** | Hierarchical Data | ✅ Complete | Two treemaps (Squarify vs Binary), GDP hierarchy |
 | **Lab 7** | Temporal Visualization | ✅ Complete | Weather line chart + animated temporal network |
-| **Lab 8** | *Coming soon* | 🚧 Placeholder | TBD |
+| **Lab 8** | Web Text Data and Visualization | ✅ Complete | Topic × Bulletin Section matrix, interactive semantic embedding map with D3 |
 | **Lab 9** | *Coming soon* | 🚧 Placeholder | TBD |
 | **Lab 10** | *Coming soon* | 🚧 Placeholder | TBD |
 

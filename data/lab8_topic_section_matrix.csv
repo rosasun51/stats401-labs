@@ -1,0 +1,60 @@
+section,cluster_name,count
+Add and Drop,Campus Life,1
+Add and Drop,Registration,4
+Add and Drop,Support,1
+Advising,Campus Life,1
+Advising,Majors,1
+Advising,Registration,1
+Advising,Support,3
+Career Services,Registration,3
+Career Services,Study Away,1
+Career Services,Support,1
+Financial Aid,Campus Life,1
+Financial Aid,Majors,2
+Financial Aid,Registration,2
+Financial Aid,Study Away,2
+General Education,Curriculum,3
+General Education,Registration,3
+General Education,Study Away,1
+Grading,Curriculum,1
+Grading,Grading,4
+Grading,Graduation,1
+Grading,Registration,1
+Graduation,Grading,1
+Graduation,Graduation,2
+Graduation,Registration,1
+Graduation,Study Away,3
+Honor Code,Curriculum,1
+Honor Code,Majors,2
+Honor Code,Study Away,2
+Honor Code,Support,2
+Housing,Majors,1
+Housing,Registration,3
+Housing,Support,1
+Major Requirements,Curriculum,2
+Major Requirements,Grading,1
+Major Requirements,Majors,5
+Programs,Graduation,1
+Programs,Study Away,5
+Programs,Support,1
+Registration,Grading,1
+Registration,Graduation,1
+Registration,Majors,4
+Registration,Registration,4
+Registration,Support,1
+Sanctions,Grading,1
+Sanctions,Majors,2
+Sanctions,Registration,2
+Student Organizations,Campus Life,2
+Student Organizations,Study Away,1
+Transfer Credits,Curriculum,1
+Transfer Credits,Graduation,1
+Transfer Credits,Registration,3
+Transfer Credits,Study Away,1
+Tuition,Campus Life,1
+Tuition,Graduation,1
+Tuition,Majors,1
+Tuition,Registration,2
+Wellness,Campus Life,2
+Wellness,Registration,2
+Wellness,Support,1

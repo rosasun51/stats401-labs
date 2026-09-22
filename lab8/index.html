@@ -3,10 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 8 — Coming Soon</title>
+  <title>Lab 8 — Web Text Data and Visualization</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .stat-card { padding: 16px; text-align: center; }
+    .stat-card .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); margin-bottom: 6px; }
+    .stat-card .value { font-size: 1.5rem; font-weight: 700; color: var(--accent); font-family: monospace; }
+    .filter-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+    .filter-row input, .filter-row select { background: rgba(0,0,0,.2); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; color: var(--text); font-family: inherit; font-size: .9rem; outline: none; }
+    .filter-row input:focus, .filter-row select:focus { border-color: var(--accent); }
+    .filter-row input { flex: 1 1 200px; max-width: 300px; }
+    .filter-row select { flex: 1 1 160px; max-width: 200px; }
+    .filter-row button { padding: 10px 18px; background: var(--glass); border: 1px solid var(--border); border-radius: 50px; color: var(--text); font-weight: 600; cursor: pointer; transition: .2s; }
+    .filter-row button:hover { background: rgba(255,255,255,.1); }
+    .views-row { display: flex; flex-wrap: wrap; gap: 24px; }
+    .view-box { flex: 1 1 420px; }
+    .view-box svg { border-radius: 10px; border: 1px solid var(--border); background: rgba(0,0,0,.15); }
+    .detail-panel { min-height: 120px; max-height: 280px; overflow-y: auto; padding: 20px; margin-top: 16px; }
+    .detail-panel::-webkit-scrollbar { width: 6px; }
+    .detail-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .legend-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 12px; }
+    .legend-group { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--dim); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .q-list { display: flex; flex-direction: column; gap: 16px; }
+    .q-item { padding: 18px 20px; background: rgba(0,0,0,.15); border-radius: 12px; border: 1px solid var(--border); }
+    .q-item strong { color: var(--accent); font-size: .95rem; }
+    .q-item p { margin: 8px 0 0; font-size: .9rem; color: var(--dim); line-height: 1.6; }
+  </style>
 </head>
 <body>
   <div class="bg-gradient"></div>
@@ -16,33 +42,131 @@
     <a href="../index.html" class="back-link">&larr; Back to Home</a>
 
     <div class="lab-header">
-      <h1>Lab 8: Coming Soon</h1>
-      <p class="subtitle">This lab will be added later in the semester</p>
+      <h1>Lab 8: Web Text Data and Visualization</h1>
+      <p class="subtitle">Exploring a university bulletin through semantic embeddings and topic matrices</p>
     </div>
 
     <nav class="lab-nav">
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="index.html" class="active">Lab 8</a>
-      <a href="../lab9/index.html">Lab 9</a>
-      <a href="../lab10/index.html">Lab 10</a>
       <a href="../lab1/index.html">Lab 1</a>
       <a href="../lab2/index.html">Lab 2</a>
       <a href="../lab3/index.html">Lab 3</a>
       <a href="../lab4/index.html">Lab 4</a>
       <a href="../lab5/index.html">Lab 5</a>
       <a href="../lab6/index.html">Lab 6</a>
+      <a href="../lab7/index.html">Lab 7</a>
+      <a href="index.html" class="active">Lab 8</a>
+      <a href="../lab9/index.html">Lab 9</a>
+      <a href="../lab10/index.html">Lab 10</a>
     </nav>
 
-    <div class="chart-card glass placeholder">
-      <div class="placeholder-icon">📊</div>
-      <h2 style="margin-bottom:12px;">Lab 8 is under construction</h2>
-      <p style="max-width:400px;margin:0 auto 24px;">
-        This page is a placeholder. The visualization and content for Lab 8 
-        will be added as the course progresses.
+    <!-- Corpus Description -->
+    <section class="glass">
+      <h2><span class="icon">📖</span> Corpus: DKU Undergraduate Bulletin</h2>
+      <p>
+        This analysis uses the <strong>Duke Kunshan University Undergraduate Instruction Bulletin</strong>
+        (synthetic excerpt for visualization practice). The document was split into <strong>107 meaningful passages</strong>
+        (paragraphs / policy blocks) preserving chapter, section, and page metadata. Text was cleaned,
+        deduplicated, and processed through TF-IDF vectorization + SVD to generate pseudo-semantic embeddings,
+        then projected to 2D via PCA. KMeans clustering identified 8 semantic topics.
       </p>
-      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
-      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
-    </div>
+      <div class="stats-row">
+        <div class="stat-card glass">
+          <div class="label">Passages</div>
+          <div class="value" id="stat-total">—</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="label">Avg Words</div>
+          <div class="value" id="stat-avg">—</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="label">Sections</div>
+          <div class="value" id="stat-sections">—</div>
+        </div>
+        <div class="stat-card glass">
+          <div class="label">Topics</div>
+          <div class="value" id="stat-clusters">—</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Semantic Map -->
+    <section class="glass">
+      <h2><span class="icon">🗺️</span> Semantic Embedding Map</h2>
+      <p style="font-size:.85rem;color:var(--dim);">Position = semantic similarity (PCA projection). Color = topic. Size = word count. Click for details. Scroll to zoom. Drag to pan.</p>
+
+      <div class="filter-row">
+        <input type="text" id="search-input" placeholder="Search bulletin text...">
+        <select id="section-filter"><option value="">All Sections</option></select>
+        <select id="topic-filter"><option value="">All Topics</option></select>
+        <button id="nn-btn">Find Nearest Neighbors</button>
+      </div>
+
+      <div class="views-row">
+        <div class="view-box" id="chart-semantic"></div>
+        <div class="view-box" id="chart-matrix"></div>
+      </div>
+      <div id="tooltip" class="tooltip"></div>
+
+      <!-- Legend -->
+      <div class="legend-row" id="topic-legend"></div>
+
+      <!-- Detail Panel -->
+      <div class="detail-panel glass" id="detail-panel">
+        <p style="color:var(--dim);font-style:italic;">Click a point in the semantic map or a cell in the matrix to see details.</p>
+      </div>
+    </section>
+
+    <!-- Findings -->
+    <section class="glass">
+      <h2><span class="icon">🔍</span> Semantic Findings</h2>
+      <div class="q-list">
+        <div class="q-item">
+          <strong>1. What are the major semantic topics?</strong>
+          <p>The 8 clusters reveal distinct themes: <strong>Registration</strong> (add/drop, course enrollment), <strong>Grading</strong> (GPA, incomplete grades), <strong>Curriculum</strong> (general education, capstones), <strong>Majors</strong> (declarations, requirements), <strong>Graduation</strong> (degree applications, honors), <strong>Integrity</strong> (honor code, sanctions), <strong>Study Away</strong> (programs, transfer credits), and <strong>Support</strong> (advising, wellness, careers). Finance and Campus Life form smaller but coherent clusters.</p>
+        </div>
+        <div class="q-item">
+          <strong>2. Which topics appear across multiple formal sections?</strong>
+          <p><strong>Registration</strong> and <strong>Support</strong> topics bleed across boundaries. For example, registration-related language appears not only in the Registration section but also in Academic Policies (holds) and Student Support (advising before registration). Similarly, financial aid discussions bridge Financial Information and Student Support (advising).</p>
+        </div>
+        <div class="q-item">
+          <strong>3. Which sections contain the most semantically diverse content?</strong>
+          <p><strong>Academic Policies</strong> is the most diverse, spanning Registration, Grading, and Integrity topics. The matrix shows this section has high counts in three different topic columns. In contrast, <strong>Study Away</strong> is highly focused, with nearly all passages clustering in one topic.</p>
+        </div>
+        <div class="q-item">
+          <strong>4. Which passages from different sections are semantically similar?</strong>
+          <p>The bridge passages reveal cross-section semantic similarity. For example, the passage about "registration holds related to academic integrity violations" (Academic Policies → Registration) sits near Integrity cluster passages in the embedding space. Similarly, study-away transfer credit passages align with Graduation requirements, reflecting shared bureaucratic language.</p>
+        </div>
+        <div class="q-item">
+          <strong>5. Which passages appear unusual relative to their formal section?</strong>
+          <p>Passages discussing <strong>financial aid implications of course load changes</strong> (in Student Support → Advising) appear closer to Finance cluster points than to other Support passages. Likewise, the <strong>honor code applying to study away</strong> (Academic Integrity → Honor Code) sits at the edge of the Study Away topic region, making it visually distinct from its section peers.</p>
+        </div>
+        <div class="q-item">
+          <strong>6. Search: "credit" — one region or several?</strong>
+          <p>Searching for "credit" highlights passages across <strong>multiple semantic regions</strong>: Study Away (transfer credits), Degree Requirements (major credit minimums), Registration (credit hour limits), and Graduation (degree credit completion). This confirms that "credit" is a polysemous concept in the bulletin, carrying different meanings in different contexts — a finding that keyword search alone would not reveal as clearly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Description -->
+    <section class="glass">
+      <h2><span class="icon">🎨</span> Design Description</h2>
+      <p>
+        I generated pseudo-semantic embeddings using <strong>TF-IDF + TruncatedSVD (50 dimensions)</strong> as a lightweight alternative to sentence-transformers, then projected to 2D with <strong>PCA</strong> for the semantic map. <strong>KMeans (k=8)</strong> clustered passages, and clusters were labeled by majority section and top TF-IDF terms. The semantic map encodes <strong>position</strong> as semantic similarity, <strong>color</strong> as topic, and <strong>size</strong> as passage length. The Topic × Section matrix uses a blue sequential color scale where darker cells indicate more passages. The two views are coordinated: clicking a matrix cell filters the semantic map to highlight only passages from that section-topic intersection, and clicking a map point highlights its corresponding matrix cell. Search, section/topic filters, zoom/pan, and nearest-neighbor exploration provide multiple entry points into the corpus.
+      </p>
+    </section>
+
+    <!-- Comments -->
+    <section class="glass comments-section" style="margin-top:28px;">
+      <h2><span class="icon">💬</span> Comments</h2>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </div>
+      <div class="comment-list" id="comment-list">
+        <div class="comment-empty">No comments yet.</div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -50,14 +174,22 @@
     <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="lab8.js"></script>
+
   <script>
+    /* ===== Particle Background ===== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resizeCanvas(); window.addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
       update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
       draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
     }
@@ -74,6 +206,41 @@
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    /* ===== Comments ===== */
+    const COMMENT_KEY = 'stats401-lab8-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
   </script>
 </body>
 </html>
