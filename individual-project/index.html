@@ -57,30 +57,31 @@ li{margin:3px 0;font-size:14.5px}
 
   <section class="card">
     <h2>1 &middot; The Original Visualization</h2>
-    <p><b>Source:</b> <a href="https://ourworldindata.org/grapher/life-expectancy">Our World in Data — "Life expectancy"</a> (line chart; country data 1950&ndash;2023, selected long-run estimates from 1543).</p>
+    <p><b>Source:</b> <a href="https://ourworldindata.org/grapher/life-expectancy">Our World in Data — "Life expectancy"</a>, shown in <b>Bar</b> mode for 2023 (the grapher also offers Line/Map/Table and a 1770&ndash;2023 time slider; country data 1950&ndash;2023, selected long-run estimates from 1543).</p>
     <p><b>Data:</b> period life expectancy at birth (years) for World, continents, and ~200 countries, compiled from Riley (2005), Zijdeman et&nbsp;al. (2015), Human Mortality Database (2024) and UN World Population Prospects (2024).</p>
-    <img class="orig" src="original-chart.png" alt="Original line chart of life expectancy for World and continents">
-    <p><b>Intended message:</b> life expectancy has roughly doubled worldwide since 1900, with persistent gaps between regions. <b>Audience:</b> general public and students. <b>Tasks:</b> compare places, see trends and convergence, find outliers.</p>
+    <img class="orig" src="original-chart.png" alt="Original bar chart: Life expectancy 2023 (World and continents)"
+         onerror="this.outerHTML='<p style=&quot;color:#f472b6&quot;>Screenshot not found &mdash; please copy <code>original-chart.png</code> into this folder, or <a href=&quot;https://ourworldindata.org/grapher/life-expectancy&quot;>view the original chart here</a>.</p>'">
+    <p><b>Intended message:</b> where the world&rsquo;s regions stand on life expectancy today &mdash; Oceania and Europe near 79 years, Africa near 64 &mdash; and, via the play slider, how the ranking evolved since 1770. <b>Audience:</b> general public and students. <b>Tasks:</b> compare regions, read the ranking, and (if they press play) watch the evolution.</p>
     <h3>Strengths</h3>
     <ul>
-      <li>Exceptional long-run data (estimates back to 1543) on honest, zero-based axes — rare and valuable.</li>
-      <li>Clean default view: World + five continents, distinct colors, direct end labels — the headline story is readable at a glance.</li>
-      <li>Hovering on the source site pops up exact values for any point.</li>
+      <li>Honest, readable bars: zero baseline, direct value labels (Oceania 79.1 yrs, Africa 63.8 yrs), descending order — the 2023 ranking is visible at a glance.</li>
+      <li>Distinct colors per entity, clean minimal design, sources stated clearly.</li>
+      <li>On the source site, hovering gives exact values and the 1770&ndash;2023 slider can play the evolution year by year.</li>
     </ul>
     <h3>Weaknesses</h3>
     <ul>
-      <li>The default view <b>aggregates away country inequality</b>: the "Asia" line averages Japan (&asymp;84 yrs) and Afghanistan (&asymp;62) — the most interesting stories (country gaps, catch-up) are invisible.</li>
-      <li>The path to countries is broken: adding them means picking from a 200+ entry flat list, one at a time; past a handful of lines, overplotting starts and the 20-color cycle repeats hues, so lines become untrackable.</li>
-      <li>No focus or grouping aids: every entity has equal visual weight, there are no end labels once you add countries, and deltas ("how much did X gain since 1950?") must be estimated by eye.</li>
+      <li><b>Only continental averages:</b> each bar is a population-weighted mean &mdash; Asia&rsquo;s 74.6 merges Japan (&asymp;84 yrs) and Afghanistan (&asymp;66); the country-level stories the data supports are invisible.</li>
+      <li><b>A single-year snapshot discards time by default:</b> convergence, catch-up (China), and shocks (wars, COVID-19) only appear if you press play &mdash; and comparing two specific years from an animation relies on memory (animation &ne; comparison).</li>
+      <li><b>Flat entity list, no hierarchy:</b> the World average sits in the same list as continents; adding countries means searching a 200+ entry list one at a time &mdash; after which you leave the clean bar world and land in line-chart overplotting with repeating hues.</li>
     </ul>
   </section>
 
   <section class="card">
-    <h2>2 &middot; My Redesign — A Focusable Country Explorer (D3.js v7)</h2>
-    <p>Same chart type, same data — but organized for the country-level story: lines are <b>colored by continent</b>;
+    <h2>2 &middot; My Redesign — From One-Year Bars to a Focusable Country Explorer (D3.js v7)</h2>
+    <p>Same dataset, rebuilt for the country-level story: lines are <b>colored by continent</b>;
     <b>hover a line</b> to keep it bright while everything else fades, with a tooltip showing its exact value and gain since 1950;
     <b>hover/click a continent chip</b> to spotlight a whole region; <b>Top-N and search</b> manage the 200-country overplotting problem.
-    The World line stays as a dashed reference.</p>
+    Full 1950&ndash;2023 trajectories replace the single-year snapshot; the World line stays as a dashed reference.</p>
     <div id="controls"></div>
     <div id="chart"></div>
     <div id="tooltip"></div>
@@ -150,12 +151,12 @@ function loadCSV(i){
 
 /* in-page ISO-3 -> continent mapping (OWID CSVs carry no Continent column) */
 const CONT = {};
-[["North America","USA MEX CAN GTM HND CUB DOM HTI SLV NIC CRI PAN BLZ JAM TTO BHS BRB ATG DMA GRD LCA VCT KNA PRI BMU ABW CYM VIR CUW SXM MAF MSR AIA GLP MTQ"],
- ["South America","BRA COL ARG PER VEN CHL ECU BOL PRY URY GUY SUR"],
- ["Europe","GBR FRA DEU ITA ESP PRT NLD BEL CHE AUT SWE NOR DNK FIN POL CZE GRC HUN UKR ROU BLR BGR SRB HRV BIH SVN SVK MKD ALB MLT EST LVA LTU ISL IRL LUX MCO SMR AND LIE MDA RUS"],
- ["Africa","NGA ETH EGY DRC ZAF TZA KEN DZA UGA SDN SSD MAR AGO MOZ GHA MDG CMR CIV NER BFA MLI MWI ZMB SEN SOM TCD ZWE GIN RWA BEN BDI TUN LBY SLE LBR MRT GAB COG GNB GMB SWZ NAM BWA LSO GNQ ERI DJI CAF STP COM MUS SYC CPV"],
- ["Asia","CHN JPN IND IDN PAK BGD PHL VNM THA MYS MMR KHM LAO SGP KOR PRK TWN HKG AFG NPL BTN LKA MDV ARM AZE GEO TUR IRN IRQ SAU YEM OMN ARE QAT KWT BHR ISR JOR LBN SYR PSE CYP KAZ UZB TKM KGZ TJK MNG TLS"],
- ["Oceania","AUS NZL PNG FJI SLB VUT WSM TON KIR TUV FSM MHL PLW NRU"]]
+[["North America","USA MEX CAN GTM HND CUB DOM HTI SLV NIC CRI PAN BLZ JAM TTO BHS BRB ATG DMA GRD LCA VCT KNA PRI BMU ABW CYM VIR CUW SXM MAF MSR AIA GLP MTQ BES BLM GRL SPM"],
+ ["South America","BRA COL ARG PER VEN CHL ECU BOL PRY URY GUY SUR FLK GUF"],
+ ["Europe","GBR FRA DEU ITA ESP PRT NLD BEL CHE AUT SWE NOR DNK FIN POL CZE GRC HUN UKR ROU BLR BGR SRB HRV BIH SVN SVK MKD ALB MLT EST LVA LTU ISL IRL LUX MCO SMR AND LIE MDA RUS MNE GGY JEY IMN FRO VAT"],
+ ["Africa","NGA ETH EGY DRC ZAF TZA KEN DZA UGA SDN SSD MAR AGO MOZ GHA MDG CMR CIV NER BFA MLI MWI ZMB SEN SOM TCD ZWE GIN RWA BEN BDI TUN LBY SLE LBR MRT GAB COG GNB GMB SWZ NAM BWA LSO GNQ ERI DJI CAF STP COM MUS SYC CPV TGO MYT REU ESH SHN"],
+ ["Asia","CHN JPN IND IDN PAK BGD PHL VNM THA MYS MMR KHM LAO SGP KOR PRK TWN HKG AFG NPL BTN LKA MDV ARM AZE GEO TUR IRN IRQ SAU YEM OMN ARE QAT KWT BHR ISR JOR LBN SYR PSE CYP KAZ UZB TKM KGZ TJK MNG TLS BRN MAC"],
+ ["Oceania","AUS NZL PNG FJI SLB VUT WSM TON KIR TUV FSM MHL PLW NRU ASM COK PYF NCL GUM WLF TKL"]]
 .forEach(([c, codes]) => codes.split(" ").forEach(cd => { if (cd) CONT[cd] = c; }));
 const CONT_COLORS = {"North America":"#1f77b4","South America":"#2ca02c","Europe":"#9467bd",
                      "Africa":"#d62728","Asia":"#ff7f0e","Oceania":"#17becf","Other":"#6b7280"};
