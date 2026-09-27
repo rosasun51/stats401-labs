@@ -84,7 +84,7 @@ li{margin:3px 0;font-size:14.5px}
     <div id="controls"></div>
     <div id="chart"></div>
     <div id="tooltip"></div>
-    <p class="note">Note: end labels are drawn when at most 25 countries are shown (otherwise they collide); use hover or search for any country.</p>
+    <p class="note">Note: end labels appear when &le;25 countries are shown (otherwise they collide); use hover/search for any country. Continent colors are mapped in-page from ISO country codes (OWID CSVs carry no Continent column); unrecognized economies land in gray &ldquo;Other&rdquo;.</p>
   </section>
 
   <section class="card">
@@ -141,28 +141,38 @@ function showCSVError(){
   document.getElementById("chart").innerHTML =
     "<p id='err'>Could not load the CSV from any known path. Run <code>python -m http.server 8000</code> " +
     "from the repo ROOT (stats401-labs), not from individual-project/, and keep the CSV in data/. " +
-    "Do not double-click index.html (file:// cannot read CSVs).</p>";
+    "Do not double-click index.html (file:// cannot read CSVs). The page needs the FULL data CSV (all ~200 countries), not the filtered 6-entity download.</p>";
 }
 function loadCSV(i){
   if (i >= CSV_CANDIDATES.length) { showCSVError(); return; }
   d3.csv(CSV_CANDIDATES[i]).then(main).catch(() => loadCSV(i + 1));
 }
 
+/* in-page ISO-3 -> continent mapping (OWID CSVs carry no Continent column) */
+const CONT = {};
+[["North America","USA MEX CAN GTM HND CUB DOM HTI SLV NIC CRI PAN BLZ JAM TTO BHS BRB ATG DMA GRD LCA VCT KNA PRI BMU ABW CYM VIR CUW SXM MAF MSR AIA GLP MTQ"],
+ ["South America","BRA COL ARG PER VEN CHL ECU BOL PRY URY GUY SUR"],
+ ["Europe","GBR FRA DEU ITA ESP PRT NLD BEL CHE AUT SWE NOR DNK FIN POL CZE GRC HUN UKR ROU BLR BGR SRB HRV BIH SVN SVK MKD ALB MLT EST LVA LTU ISL IRL LUX MCO SMR AND LIE MDA RUS"],
+ ["Africa","NGA ETH EGY DRC ZAF TZA KEN DZA UGA SDN SSD MAR AGO MOZ GHA MDG CMR CIV NER BFA MLI MWI ZMB SEN SOM TCD ZWE GIN RWA BEN BDI TUN LBY SLE LBR MRT GAB COG GNB GMB SWZ NAM BWA LSO GNQ ERI DJI CAF STP COM MUS SYC CPV"],
+ ["Asia","CHN JPN IND IDN PAK BGD PHL VNM THA MYS MMR KHM LAO SGP KOR PRK TWN HKG AFG NPL BTN LKA MDV ARM AZE GEO TUR IRN IRQ SAU YEM OMN ARE QAT KWT BHR ISR JOR LBN SYR PSE CYP KAZ UZB TKM KGZ TJK MNG TLS"],
+ ["Oceania","AUS NZL PNG FJI SLB VUT WSM TON KIR TUV FSM MHL PLW NRU"]]
+.forEach(([c, codes]) => codes.split(" ").forEach(cd => { if (cd) CONT[cd] = c; }));
 const CONT_COLORS = {"North America":"#1f77b4","South America":"#2ca02c","Europe":"#9467bd",
-                     "Africa":"#d62728","Asia":"#ff7f0e","Oceania":"#17becf"};
+                     "Africa":"#d62728","Asia":"#ff7f0e","Oceania":"#17becf","Other":"#6b7280"};
 const CONTINENTS = Object.keys(CONT_COLORS);
 
 function main(raw){
-  const valCol  = raw.columns[raw.columns.length - 1];  // "Period life expectancy ... - Age: 0"
-  const contCol = raw.columns.includes("Continent") ? "Continent" : null;
+  const valCol  = raw.columns[raw.columns.length - 1];  // "Life expectancy"
 
-  /* countries: rows that carry a Continent label (World/continents have none) */
+  /* countries: entities with a real ISO-3 country code; World/continents/income groups use OWID_* or empty codes */
   const countries = new Map();
   raw.forEach(d => {
-    if (!contCol || !d[contCol] || !d.Entity) return;
+    const code = (d.Code || "").trim();
+    if (!code || code.indexOf("OWID") === 0 || !d.Entity) return;
+    const cont = CONT[code] || "Other";
     const v = +d[valCol];
     if (!isFinite(v) || v <= 0) return;
-    if (!countries.has(d.Entity)) countries.set(d.Entity, { name: d.Entity, continent: d[contCol], pts: [] });
+    if (!countries.has(d.Entity)) countries.set(d.Entity, { name: d.Entity, continent: cont, pts: [] });
     countries.get(d.Entity).pts.push({ year: +d.Year, value: v });
   });
   countries.forEach(c => c.pts.sort((a, b) => a.year - b.year));
