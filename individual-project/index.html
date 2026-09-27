@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individual Project — Visualization Critique & Redesign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .two-col { display: flex; flex-wrap: wrap; gap: 24px; }
+    .two-col > div { flex: 1 1 45%; }
+    .original-img { width: 100%; border-radius: 10px; border: 1px solid var(--border); }
+    .metric-btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; justify-content: center; }
+    .metric-btn { padding: 8px 18px; background: var(--glass); border: 1px solid var(--border); border-radius: 50px; color: var(--dim); font-weight: 600; font-size: .85rem; cursor: pointer; transition: .2s; }
+    .metric-btn:hover, .metric-btn.active { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border-color: transparent; }
+    .legend-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 10px; }
+    .legend-group { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--dim); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .report-text { font-size: .95rem; line-height: 1.7; color: var(--dim); }
+    .report-text h3 { color: var(--text); margin-top: 20px; margin-bottom: 10px; font-size: 1.1rem; }
+    .report-text strong { color: var(--text); }
+    .report-text ul { margin-left: 20px; }
+    .report-text li { margin-bottom: 8px; }
+    .highlight-box { background: rgba(56,189,248,.08); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 14px 0; }
+  </style>
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="lab-container">
+    <a href="../index.html" class="back-link">&larr; Back to Home</a>
+
+    <div class="lab-header">
+      <h1>Individual Project: Visualization Critique & Redesign</h1>
+      <p class="subtitle">From choropleth map to interactive multi-variable bubble chart</p>
+    </div>
+
+    <!-- PART 1: Original + Context -->
+    <section class="glass">
+      <h2><span class="icon">📰</span> Original Visualization</h2>
+      <div class="two-col">
+        <div>
+          <p class="report-text">
+            <strong>Source:</strong> Our World in Data — "Happiness and Life Satisfaction"<br>
+            <strong>Link:</strong> <a href="https://ourworldindata.org/happiness-and-life-satisfaction" target="_blank" style="color:var(--accent);">ourworldindata.org/happiness-and-life-satisfaction</a><br>
+            <strong>Data:</strong> World Happiness Report 2024 (synthetic excerpt for this project)
+          </p>
+          <p class="report-text">
+            The original visualization is a <strong>choropleth world map</strong> showing the share of people who report being "happy" in each country. Countries are colored with a sequential green gradient where darker shades indicate higher reported happiness.
+          </p>
+          <div class="highlight-box">
+            <strong>Intended Message:</strong> Geographic distribution of self-reported happiness across the globe.<br>
+            <strong>Audience:</strong> General public, policymakers, researchers.<br>
+            <strong>Tasks:</strong> Identify which countries/regions are happiest; spot global patterns.
+          </div>
+        </div>
+        <div>
+          <img src="https://ourworldindata.org/images/published/happiness-and-life-satisfaction_4000.png" alt="Original choropleth map" class="original-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+          <div style="display:none;padding:40px;text-align:center;color:var(--dim);background:rgba(0,0,0,.2);border-radius:10px;">
+            <p>🗺️ Original: Choropleth world map from Our World in Data</p>
+            <p style="font-size:.8rem;margin-top:8px;">See live version at the link above</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 2: Critique -->
+    <section class="glass">
+      <h2><span class="icon">🔍</span> Critique</h2>
+      <div class="report-text">
+        <h3>Strengths</h3>
+        <ul>
+          <li><strong>Intuitive geographic pattern recognition:</strong> The map format leverages viewers' existing mental models of world geography. It is immediately obvious that Northern Europe, Australia, and New Zealand are happiness "hotspots," while Sub-Saharan Africa shows lower values. This regional gestalt is the map's greatest strength.</li>
+          <li><strong>Effective color scale:</strong> The sequential green gradient is perceptually appropriate — darker = more happiness is a natural mapping. The colorblind-friendly palette ensures accessibility for a broad audience.</li>
+        </ul>
+
+        <h3>Weaknesses</h3>
+        <ul>
+          <li><strong>Size distortion (the "Russia problem"):</strong> Large countries like Russia, Canada, and Australia visually dominate the map despite having relatively sparse populations, while small but important countries (Singapore, Luxembourg, Estonia) are barely visible. This is a fundamental weakness of area-based geographic encodings for country-level data.</li>
+          <li><strong>Single-variable limitation:</strong> The map only encodes happiness score. It cannot reveal <em>why</em> a country is happy or unhappy. The relationship between happiness and GDP, health, social support, or freedom — the core explanatory variables in the World Happiness Report — is entirely absent. Viewers cannot perform multivariate exploration.</li>
+          <li><strong>Precise comparison is difficult:</strong> Judging subtle color differences between adjacent countries (e.g., Finland vs. Denmark) is cognitively demanding. The lack of exact values or a sorted list makes rank-based comparison nearly impossible. Viewers must rely on rough ordinal judgments rather than precise metric comparisons.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PART 3: Redesign -->
+    <section class="glass">
+      <h2><span class="icon">✨</span> Redesigned Visualization</h2>
+      <p style="font-size:.85rem;color:var(--dim);text-align:center;margin-bottom:10px;">Click buttons to switch the X-axis variable. Hover bubbles for details. Use region filter to isolate continents.</p>
+
+      <div class="metric-btns">
+        <button class="metric-btn active" data-metric="GDP">GDP per capita</button>
+        <button class="metric-btn" data-metric="SocialSupport">Social Support</button>
+        <button class="metric-btn" data-metric="LifeExpectancy">Life Expectancy</button>
+        <button class="metric-btn" data-metric="Freedom">Freedom</button>
+      </div>
+
+      <div style="display:flex;justify-content:center;margin-bottom:10px;">
+        <select id="region-filter" style="background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:10px;padding:8px 14px;color:var(--text);font-family:inherit;">
+          <option value="">All Regions</option>
+        </select>
+      </div>
+
+      <div id="chart-redesign"></div>
+      <div id="tooltip" class="tooltip"></div>
+
+      <div class="legend-row" id="bubble-legend"></div>
+    </section>
+
+    <!-- PART 4: Design Justification -->
+    <section class="glass">
+      <h2><span class="icon">🎨</span> Design Justification</h2>
+      <div class="report-text">
+        <h3>Decision 1: Scatter plot (bubble chart) instead of choropleth map</h3>
+        <p><strong>What changed:</strong> Replaced the geographic map with a Cartesian scatter plot where each country is a bubble.</p>
+        <p><strong>Why:</strong> The map's area encoding distorts importance by physical size rather than population or relevance. A scatter plot gives every country equal visual presence regardless of land mass. This directly addresses the "Russia problem" and makes small countries like Singapore and Luxembourg as visible as large ones.</p>
+
+        <h3>Decision 2: Multi-variable encoding (position × size × color)</h3>
+        <p><strong>What changed:</strong> The X-axis is switchable among GDP, Social Support, Life Expectancy, and Freedom. Bubble size encodes population. Color encodes geographic region.</p>
+        <p><strong>Why:</strong> The original map showed only one variable. By encoding four dimensions simultaneously, viewers can explore <em>relationships</em> rather than just <em>distribution</em>. For example, switching to "Freedom" reveals that some high-GDP countries (e.g., Gulf states) have lower happiness, suggesting that income alone is insufficient — a key finding from the World Happiness Report that the original map cannot communicate.</p>
+
+        <h3>Decision 3: Interactive metric switching with animated transitions</h3>
+        <p><strong>What changed:</strong> Added buttons to smoothly transition the X-axis between four well-being predictors, with 600ms D3 transitions.</p>
+        <p><strong>Why:</strong> Static visualizations force designers to choose one comparison. Interactivity lets viewers ask multiple questions with the same chart. The animation preserves object constancy (bubbles move but remain identifiable), which supports mental map preservation and makes the relationship changes easier to perceive than abrupt jumps.</p>
+
+        <h3>Original vs. Redesign</h3>
+        <p>The redesign makes <strong>three tasks significantly easier</strong>: (1) comparing precise happiness scores between specific countries (via aligned Y-axis positions), (2) understanding which factors correlate with happiness in different regions (via color-grouped patterns across metrics), and (3) identifying outliers — countries that are happier or less happy than their economic indicators would predict. The trade-off is losing immediate geographic orientation; viewers must read region labels rather than recognizing shapes on a map. However, the region color encoding partially compensates for this.</p>
+      </div>
+    </section>
+
+    <!-- PART 5: Full Report Text (for copy-paste) -->
+    <section class="glass">
+      <h2><span class="icon">📝</span> Full Report (500–800 words)</h2>
+      <div class="report-text" style="background:rgba(0,0,0,.15);padding:24px;border-radius:12px;">
+        <p><strong>Original Visualization and Context.</strong> I selected the choropleth world map titled "Happiness and Life Satisfaction" from Our World in Data (ourworldindata.org/happiness-and-life-satisfaction). The map uses a sequential green color scale to represent the share of people who report being happy in each country, based on data from the World Happiness Report. The intended message is to show geographic patterns of well-being. The audience is broad — general readers, students, and policymakers. The intended tasks are to identify happy/unhappy regions and spot global trends.</p>
+
+        <p><strong>Critique.</strong> The map has two notable strengths. First, it leverages viewers' existing geographic knowledge to create immediate regional gestalts — it is obvious at a glance that Northern Europe and Oceania are happiness hotspots. Second, the sequential green color scale is perceptually sound and colorblind-friendly. However, three weaknesses limit its analytical value. First, area-based encoding creates size distortion: large countries like Russia and Canada dominate visually while small but important nations (Singapore, Estonia) are nearly invisible. Second, the map is strictly single-variable — it shows happiness but not its drivers (GDP, health, social support, freedom), preventing viewers from exploring causal relationships. Third, precise comparison is difficult because judging subtle color differences between adjacent countries is cognitively demanding, and no exact values or rankings are provided.</p>
+
+        <p><strong>Redesign Rationale.</strong> I redesigned the visualization as an interactive bubble chart using D3.js. First, I replaced the map with a Cartesian scatter plot to eliminate area distortion and give every country equal visual weight. Second, I encoded four variables simultaneously: X-position (switchable among GDP, Social Support, Life Expectancy, or Freedom), Y-position (Happiness Score), bubble size (Population), and color (Region). This transforms the visualization from a single-variable display into a multi-variable exploration tool. Third, I added animated metric switching with smooth D3 transitions, allowing viewers to ask "What happens if I compare happiness against freedom instead of GDP?" without losing track of individual countries.</p>
+
+        <p><strong>Original vs. Redesign.</strong> The redesign improves three key tasks: precise country-to-country comparison (via aligned axes), understanding regional factor relationships (via color-grouped patterns), and outlier detection (countries that deviate from the expected trend line). The main trade-off is the loss of immediate geographic shape recognition, though region color encoding partially compensates. Overall, the redesign shifts the visualization from passive geographic browsing to active hypothesis testing about what makes societies happy.</p>
+
+        <p style="font-size:.8rem;color:var(--dim);margin-top:16px;"><strong>References:</strong> Our World in Data. "Happiness and Life Satisfaction." https://ourworldindata.org/happiness-and-life-satisfaction. World Happiness Report 2024 data (synthetic excerpt for educational use).</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p><strong>Ruisheng (Rosa) Sun</strong> &bull; rs689@duke.edu</p>
+    <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="redesign.js"></script>
+
+  <script>
+    /* ===== Particle Background ===== */
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+    class Particle {
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
+      update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
+      draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
+    }
+    for(let i=0;i<60;i++) particles.push(new Particle());
+    function animateParticles() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach(p=>{p.update();p.draw();});
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<150){ ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(56,189,248,${0.1*(1-dist/150)})`; ctx.lineWidth=0.5; ctx.stroke(); }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+</html>

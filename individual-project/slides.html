@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation — Rosa Sun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a12;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      padding: 48px 56px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #38bdf8, #f472b6);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+    .title-block h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #38bdf8, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .title-block p {
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+    .author {
+      text-align: right;
+      color: #94a3b8;
+      font-size: .9rem;
+    }
+    .author strong {
+      color: #e2e8f0;
+      font-size: 1.05rem;
+    }
+    .content {
+      display: flex;
+      gap: 36px;
+      flex: 1;
+    }
+    .left-col {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .right-col {
+      flex: 0.9;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .card h3 {
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #38bdf8;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .card p, .card li {
+      font-size: .82rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .card ul { margin-left: 16px; }
+    .card li { margin-bottom: 5px; }
+    .before-after {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .ba-box {
+      flex: 1;
+      background: rgba(0,0,0,0.25);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+    .ba-box .label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 6px;
+      letter-spacing: .05em;
+    }
+    .ba-box .icon {
+      font-size: 2.2rem;
+      margin-bottom: 4px;
+    }
+    .ba-box .desc {
+      font-size: .75rem;
+      color: #94a3b8;
+    }
+    .improvement-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .imp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .imp-num {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, #38bdf8, #f472b6);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .8rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .imp-text {
+      font-size: .82rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+    .imp-text strong {
+      color: #e2e8f0;
+    }
+    .footer-bar {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .75rem;
+      color: #64748b;
+    }
+    .tag {
+      background: rgba(56,189,248,0.12);
+      color: #38bdf8;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: .7rem;
+      font-weight: 600;
+    }
+    @media print {
+      body { background: #fff; }
+      .slide { box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <div class="header">
+      <div class="title-block">
+        <h1>Visualization Critique & Redesign</h1>
+        <p>From choropleth map to interactive multi-variable bubble chart</p>
+      </div>
+      <div class="author">
+        <strong>Ruisheng (Rosa) Sun</strong><br>
+        rs689@duke.edu<br>
+        STATS 401 — Data Acquisition and Visualization
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="left-col">
+        <div class="card">
+          <h3>📰 Original Visualization</h3>
+          <p><strong>Source:</strong> Our World in Data — "Happiness and Life Satisfaction"<br>
+          <strong>Type:</strong> Choropleth world map (green sequential scale)<br>
+          <strong>Data:</strong> World Happiness Report 2024</p>
+          <div class="before-after">
+            <div class="ba-box">
+              <div class="label">Before</div>
+              <div class="icon">🗺️</div>
+              <div class="desc">Choropleth map<br>Single variable<br>Area distortion</div>
+            </div>
+            <div class="ba-box">
+              <div class="label">After</div>
+              <div class="icon">📊</div>
+              <div class="desc">Bubble scatter plot<br>4 variables<br>Equal visibility</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🔍 Key Weaknesses</h3>
+          <ul>
+            <li><strong>Size distortion:</strong> Russia/Canada dominate; Singapore/Luxembourg invisible</li>
+            <li><strong>Single variable:</strong> Cannot explore why countries are happy (GDP, health, freedom)</li>
+            <li><strong>Weak comparison:</strong> Color differences between adjacent countries are hard to judge</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <div class="card">
+          <h3>✨ Three Redesign Decisions</h3>
+          <div class="improvement-list">
+            <div class="imp-item">
+              <div class="imp-num">1</div>
+              <div class="imp-text"><strong>Scatter plot over map</strong> — Eliminates area distortion; every country gets equal visual weight regardless of land mass.</div>
+            </div>
+            <div class="imp-item">
+              <div class="imp-num">2</div>
+              <div class="imp-text"><strong>Multi-variable encoding</strong> — X = switchable predictor (GDP/Social/LifeExp/Freedom), Y = Happiness, Size = Population, Color = Region.</div>
+            </div>
+            <div class="imp-item">
+              <div class="imp-num">3</div>
+              <div class="imp-text"><strong>Animated metric switching</strong> — Smooth D3 transitions let viewers ask "What if I compare happiness against freedom instead of GDP?"</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📈 What Improved</h3>
+          <ul>
+            <li><strong>Precise comparison:</strong> Aligned axes make Finland vs. Denmark easy to compare</li>
+            <li><strong>Relationship discovery:</strong> Color reveals that Western Europe clusters high on both GDP and happiness, while some high-GDP Gulf states do not</li>
+            <li><strong>Outlier detection:</strong> Countries above/below the trend line are immediately visible</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>
+        <span class="tag">D3.js</span>
+        <span class="tag">Interactive</span>
+        <span class="tag">Multi-variable</span>
+      </div>
+      <div>Source: ourworldindata.org/happiness-and-life-satisfaction</div>
+    </div>
+  </div>
+</body>
+</html>
