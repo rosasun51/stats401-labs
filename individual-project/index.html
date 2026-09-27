@@ -31,14 +31,18 @@ li{margin:3px 0;font-size:14.5px}
 .chip{display:inline-block;padding:3px 12px;margin:2px;border-radius:14px;border:1px solid var(--border);
   cursor:pointer;font-size:13px;user-select:none;background:rgba(255,255,255,.06)}
 .chip.off{opacity:.35;text-decoration:line-through}
+.chip.on{border-color:#fff;box-shadow:0 0 8px rgba(255,255,255,.35)}
 #controls{margin:6px 0 14px;color:var(--muted);font-size:13px}
-.panel{display:inline-block;margin:6px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px}
-.panel-title{font-size:12.5px;font-weight:600;fill:var(--text)}
+#controls b{color:var(--text)}
+#controls input{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:10px;
+  color:var(--text);padding:4px 10px;font-family:inherit;font-size:12.5px;width:150px;outline:none}
+#controls input:focus{border-color:var(--cyan)}
 .axis text{font-size:10px;fill:var(--muted)}
 .axis line,.axis path{stroke:rgba(255,255,255,.18)}
-.line{fill:none;stroke-width:1.8}
+.cline{fill:none;stroke-width:1.3}
+.hitline{fill:none;stroke:transparent;stroke-width:12;cursor:pointer}
 #tooltip{position:absolute;pointer-events:none;background:rgba(15,15,26,.95);border:1px solid var(--border);
-  color:var(--text);padding:6px 10px;border-radius:6px;font-size:12px;display:none;z-index:5}
+  color:var(--text);padding:7px 11px;border-radius:8px;font-size:12.5px;display:none;z-index:5;line-height:1.6}
 .note{font-size:12.5px;color:var(--muted)}
 .src{font-size:12.5px;color:var(--muted);margin-top:16px;border-top:1px solid var(--border);padding-top:10px}
 #err{color:var(--pink);font-size:14px;padding:10px}
@@ -49,50 +53,52 @@ li{margin:3px 0;font-size:14.5px}
 <canvas id="bg"></canvas>
 <main>
   <h1>Visualization Critique <span class="grad">&amp;</span> Redesign</h1>
-  <p class="sub">STATS 401 Individual Project &middot; <b>Coffee production by world region, 1961&ndash;2024</b> &middot; Our World in Data (FAO, CC BY 4.0)</p>
+  <p class="sub">STATS 401 Individual Project &middot; <b>Life expectancy, 1543&ndash;2023</b> &middot; Our World in Data (UN WPP / HMD / Riley, CC BY 4.0)</p>
 
   <section class="card">
     <h2>1 &middot; The Original Visualization</h2>
-    <p><b>Source:</b> <a href="https://ourworldindata.org/grapher/coffee-production-by-region">Our World in Data — "Coffee production by world region"</a> (stacked area chart, data: FAO 2025).</p>
-    <p><b>Data:</b> annual production of green (unroasted) coffee beans in tonnes, 1961&ndash;2024, for six world regions — Africa, Asia, Europe, North America, Oceania, South America.</p>
-    <img class="orig" src="original-chart.png" alt="Original stacked area chart of coffee production by world region">
-    <p><b>Intended message:</b> world coffee output has roughly tripled; South America dominates; production has shifted from Africa toward Asia (Vietnam&rsquo;s rise).
-    <b>Audience:</b> general public and students. <b>Tasks:</b> compare regions over time, spot trends, turning points, and weather shocks such as frost dips.</p>
+    <p><b>Source:</b> <a href="https://ourworldindata.org/grapher/life-expectancy">Our World in Data — "Life expectancy"</a> (line chart; country data 1950&ndash;2023, selected long-run estimates from 1543).</p>
+    <p><b>Data:</b> period life expectancy at birth (years) for World, continents, and ~200 countries, compiled from Riley (2005), Zijdeman et&nbsp;al. (2015), Human Mortality Database (2024) and UN World Population Prospects (2024).</p>
+    <img class="orig" src="original-chart.png" alt="Original line chart of life expectancy for World and continents">
+    <p><b>Intended message:</b> life expectancy has roughly doubled worldwide since 1900, with persistent gaps between regions. <b>Audience:</b> general public and students. <b>Tasks:</b> compare places, see trends and convergence, find outliers.</p>
     <h3>Strengths</h3>
     <ul>
-      <li>Stacking makes the <i>total</i> easy to read — the top edge sits on a common baseline, so overall growth (4M &rarr; 11M t) is unmistakable.</li>
-      <li>Honest, clean design: y-axis starts at zero, light gridlines, distinguishable colors, clear source and unit.</li>
-      <li>Interactive on the source site: hover shows exact values; clicking a region highlights its area (with everything underneath) and pops up a value box; a play slider animates 1961&rarr;2024.</li>
+      <li>Exceptional long-run data (estimates back to 1543) on honest, zero-based axes — rare and valuable.</li>
+      <li>Clean default view: World + five continents, distinct colors, direct end labels — the headline story is readable at a glance.</li>
+      <li>Hovering on the source site pops up exact values for any point.</li>
     </ul>
     <h3>Weaknesses</h3>
     <ul>
-      <li>Only the bottom layer (South America) has a flat baseline — comparing Asia vs. Africa means judging floating band thickness, a perceptually inaccurate task.</li>
-      <li>In the default view, six colors must be decoded through the side legend (click-to-highlight helps only if you know what to click, and is lost in static screenshots); thin top layers (Oceania, Europe) are nearly indistinguishable.</li>
-      <li>Stacked jaggedness hides which region caused each dip; small regions are squashed at the top; playing the animation makes cross-time comparison harder (viewers must remember previous frames).</li>
+      <li>The default view <b>aggregates away country inequality</b>: the "Asia" line averages Japan (&asymp;84 yrs) and Afghanistan (&asymp;62) — the most interesting stories (country gaps, catch-up) are invisible.</li>
+      <li>The path to countries is broken: adding them means picking from a 200+ entry flat list, one at a time; past a handful of lines, overplotting starts and the 20-color cycle repeats hues, so lines become untrackable.</li>
+      <li>No focus or grouping aids: every entity has equal visual weight, there are no end labels once you add countries, and deltas ("how much did X gain since 1950?") must be estimated by eye.</li>
     </ul>
   </section>
 
   <section class="card">
-    <h2>2 &middot; My Redesign — Small Multiples (D3.js v7)</h2>
-    <p>One line panel per region on a shared y-axis: every region gets a flat baseline, every comparison uses position on a common scale, and panels are directly labeled — no legend lookup. Hover for exact values, click chips to filter, switch the y-scale to reveal small regions.</p>
+    <h2>2 &middot; My Redesign — A Focusable Country Explorer (D3.js v7)</h2>
+    <p>Same chart type, same data — but organized for the country-level story: lines are <b>colored by continent</b>;
+    <b>hover a line</b> to keep it bright while everything else fades, with a tooltip showing its exact value and gain since 1950;
+    <b>hover/click a continent chip</b> to spotlight a whole region; <b>Top-N and search</b> manage the 200-country overplotting problem.
+    The World line stays as a dashed reference.</p>
     <div id="controls"></div>
     <div id="chart"></div>
     <div id="tooltip"></div>
-    <p class="note">Note: years with zero reported production (Europe, 1972&ndash;1986) are omitted. Log scale floors at 1 t.</p>
+    <p class="note">Note: end labels are drawn when at most 25 countries are shown (otherwise they collide); use hover or search for any country.</p>
   </section>
 
   <section class="card">
     <h2>3 &middot; What Improved</h2>
     <ul>
-      <li><b>Asia vs. Africa crossover (~2000)</b> — invisible in floating bands, obvious as two separate baselined lines.</li>
-      <li><b>Shocks</b> — South America&rsquo;s frost-year dips now visible in its own panel instead of blurred into the stack.</li>
-      <li><b>Small regions</b> — Oceania and Europe readable via the log toggle; exact values one hover away.</li>
+      <li><b>Continent color + group dimming</b> — hovering "Africa" keeps only African countries bright; regional gaps (e.g. Nigeria vs. South Africa) become visible without adding lines one by one.</li>
+      <li><b>Focus &amp; fade</b> — hovering China leaves it crisp and dims 200 lines to a ghost layer; the tooltip adds the number at the hovered year and its change since 1950.</li>
+      <li><b>Overplotting under control</b> — Top-10/20/50/All ranking plus instant search replace the flat 200-entry list.</li>
     </ul>
-    <p class="note">Trade-offs: the total is no longer shown (the original remains linked above); small multiples take more vertical space.</p>
+    <p class="note">Trade-offs: the Top-N cutoff is a choice, not a fact (switch to All anytime); with many lines shown, reading still relies on focus mode; continent aggregates are dropped in favor of countries plus a World reference.</p>
   </section>
 
-  <p class="src"><b>Data &amp; references:</b> FAO (2025) via Our World in Data, CC BY 4.0 &middot;
-  CSV: <a href="https://ourworldindata.org/grapher/coffee-production-by-region.csv">coffee-production-by-region.csv</a> (local copy in <code>../data/</code>) &middot;
+  <p class="src"><b>Data &amp; references:</b> Riley (2005); Zijdeman et al. (2015); HMD (2024); UN WPP (2024), via Our World in Data, CC BY 4.0 &middot;
+  CSV: <a href="https://ourworldindata.org/grapher/life-expectancy.csv">life-expectancy.csv</a> (local copy in <code>../data/</code>) &middot;
   Full critique: <a href="report.md">report.md</a></p>
 </main>
 
@@ -123,107 +129,169 @@ for (let i = 0; i < 50; i++) P.push({x:Math.random()*innerWidth, y:Math.random()
 if (typeof d3 === "undefined") {
   document.getElementById("chart").innerHTML =
     "<p id='err'>D3.js failed to load from all CDNs (network blocked?). " +
-    "Check your connection/VPN, or save d3.v7.min.js next to this file and add " +
-    "&lt;script src=\"d3.v7.min.js\"&gt;&lt;/script&gt; above the other D3 script tags.</p>";
+    "Save d3.v7.min.js next to this file and add &lt;script src=\"d3.v7.min.js\"&gt;&lt;/script&gt; above the other D3 script tags.</p>";
 } else {
 
 /* ---------- 1. Try CSV paths in order until one loads ---------- */
 const CSV_CANDIDATES = [
-  "../data/coffee-production-by-region.csv",   // server run from repo root
-  "coffee-production-by-region.csv"            // CSV copied next to this file
+  "../data/life-expectancy.csv",   // server run from repo root
+  "life-expectancy.csv"            // CSV copied next to this file
 ];
-
 function showCSVError(){
   document.getElementById("chart").innerHTML =
-    "<p id='err'>Could not load the CSV from any known path. Make sure you are running " +
-    "<code>python -m http.server 8000</code> from the repo ROOT (stats401-labs), not from " +
-    "individual-project/, and that coffee-production-by-region.csv is in the data/ folder. " +
+    "<p id='err'>Could not load the CSV from any known path. Run <code>python -m http.server 8000</code> " +
+    "from the repo ROOT (stats401-labs), not from individual-project/, and keep the CSV in data/. " +
     "Do not double-click index.html (file:// cannot read CSVs).</p>";
 }
-
 function loadCSV(i){
   if (i >= CSV_CANDIDATES.length) { showCSVError(); return; }
   d3.csv(CSV_CANDIDATES[i]).then(main).catch(() => loadCSV(i + 1));
 }
 
-const REGIONS = ["South America", "Asia", "Africa", "North America", "Oceania", "Europe"];
-const color = d3.scaleOrdinal().domain(REGIONS)
-  .range(["#8c564b", "#1b9e77", "#9c6fb5", "#d95f02", "#7570b3", "#e7298a"]);
+const CONT_COLORS = {"North America":"#1f77b4","South America":"#2ca02c","Europe":"#9467bd",
+                     "Africa":"#d62728","Asia":"#ff7f0e","Oceania":"#17becf"};
+const CONTINENTS = Object.keys(CONT_COLORS);
 
 function main(raw){
-  const valCol = raw.columns[raw.columns.length - 1];   // "Green coffee - Production (tonnes)"
-  const data = raw
-    .filter(d => REGIONS.includes(d.Entity) && +d.Year >= 1961 && +d[valCol] > 0)
-    .map(d => ({ region: d.Entity, year: +d.Year, value: +d[valCol] }));
-  const byRegion = d3.group(data, d => d.region);
+  const valCol  = raw.columns[raw.columns.length - 1];  // "Period life expectancy ... - Age: 0"
+  const contCol = raw.columns.includes("Continent") ? "Continent" : null;
 
-  /* ---------- 2. Small multiples ---------- */
-  const panelW = 330, panelH = 190, padL = 52, padB = 24, padT = 20;
-  let yScaleType = "linear", hidden = new Set();
+  /* countries: rows that carry a Continent label (World/continents have none) */
+  const countries = new Map();
+  raw.forEach(d => {
+    if (!contCol || !d[contCol] || !d.Entity) return;
+    const v = +d[valCol];
+    if (!isFinite(v) || v <= 0) return;
+    if (!countries.has(d.Entity)) countries.set(d.Entity, { name: d.Entity, continent: d[contCol], pts: [] });
+    countries.get(d.Entity).pts.push({ year: +d.Year, value: v });
+  });
+  countries.forEach(c => c.pts.sort((a, b) => a.year - b.year));
+  const list = [...countries.values()].filter(c => c.pts.length > 2);
+  const world = raw.find(d => d.Entity === "World");
+  const worldPts = [];
+  if (world) raw.filter(d => d.Entity === "World").forEach(d => worldPts.push({ year: +d.Year, value: +d[valCol] }));
+  worldPts.sort((a, b) => a.year - b.year);
+  const latestYear = d3.max(list, c => c.pts[c.pts.length - 1].year);
 
-  const chart = d3.select("#chart");
-  const x  = d3.scaleLinear().domain([1961, 2024]).range([0, panelW - padL - 8]);
-  const y  = d3.scaleLinear().range([panelH - padT - padB, 0]);
-  const yL = d3.scaleLog().range([panelH - padT - padB, 0]);
-  const line = d3.line().x(d => x(d.year))
-    .y(d => (yScaleType === "log" ? yL : y)(d.value));
+  let topN = 10, contFilter = null, focus = null, pinned = null;
 
+  function displayed(){
+    let L = list;
+    if (contFilter) L = L.filter(c => c.continent === contFilter);
+    L = [...L].sort((a, b) => latestOf(b) - latestOf(a));
+    if (topN !== "all") L = L.slice(0, topN);
+    return L;
+  }
+  function latestOf(c){ const p = c.pts[c.pts.length - 1]; return p.year >= latestYear - 2 ? p.value : -1; }
+
+  /* ---------- 2. Scaffolding ---------- */
+  const W = 980, H = 480, M = { t: 24, r: 150, b: 38, l: 56 };
+  const svg = d3.select("#chart").append("svg")
+    .attr("width", W).attr("height", H).attr("viewBox", `0 0 ${W} ${H}`);
+  const x = d3.scaleLinear().domain([1950, latestYear]).range([M.l, W - M.r]);
+  const y = d3.scaleLinear().range([H - M.b, M.t]);
+  const line = d3.line().x(d => x(d.year)).y(d => y(d.value));
+
+  svg.append("g").attr("class", "axis x")
+    .attr("transform", `translate(0,${H - M.b})`)
+    .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(8));
+  const gY = svg.append("g").attr("class", "axis y").attr("transform", `translate(${M.l},0)`);
+  const gLines = svg.append("g");
+  const gWorld = svg.append("g");
+  const gLabels = svg.append("g");
+  const tip = d3.select("#tooltip");
+
+  function applyFocus(){
+    const f = pinned || focus;
+    gLines.selectAll("path.cline").transition().duration(160)
+      .style("opacity", d => !f ? 0.55 : (f.type === "country" ? (d.name === f.key ? 1 : 0.05)
+                                                        : (d.continent === f.key ? 0.9 : 0.05)))
+      .attr("stroke-width", d => (f && f.type === "country" && d.name === f.key) ? 2.8 : 1.3);
+    gLabels.selectAll("g.el").transition().duration(160)
+      .style("opacity", d => !f ? 1 : (f.type === "country" ? (d.name === f.key ? 1 : 0.1)
+                                                            : (d.continent === f.key ? 0.9 : 0.1)));
+    chipSel.classed("on", r => f && f.type === "continent" && r === f.key);
+  }
+
+  function showTip(e, d){
+    const [mx] = d3.pointer(e, svg.node());
+    const yr = Math.max(1950, Math.min(latestYear, Math.round(x.invert(mx))));
+    const pts = d.pts;
+    const i = d3.bisectCenter(pts.map(p => p.year), yr);
+    const p = pts[i];
+    const first = pts[0];
+    tip.style("display", "block")
+      .style("left", (e.pageX + 14) + "px").style("top", (e.pageY - 10) + "px")
+      .html(`<b>${d.name}</b> · ${d.continent}<br>${p.year}: <b>${p.value.toFixed(1)} yrs</b>` +
+            `<br>+${(p.value - first.value).toFixed(1)} yrs since ${first.year}`);
+  }
+
+  /* ---------- 3. Draw ---------- */
   function draw(){
-    const regs = REGIONS.filter(r => !hidden.has(r));
-    const maxV = d3.max(data, d => d.value);
-    y.domain([0, maxV]);
-    yL.domain([1, maxV]);
+    const disp = displayed();
+    const allPts = disp.flatMap(c => c.pts);
+    y.domain([Math.max(0, d3.min(allPts, p => p.value) - 3), d3.max(allPts, p => p.value) + 2]).nice();
+    gY.transition().duration(400).call(d3.axisLeft(y).ticks(6));
 
-    const panels = chart.selectAll("svg.panel").data(regs, d => d);
-    panels.exit().remove();
+    /* world reference (dashed) */
+    gWorld.selectAll("path").data(worldPts.length ? [worldPts] : []).join("path")
+      .attr("d", line).attr("fill", "none").attr("stroke", "#e2e8f0")
+      .attr("stroke-dasharray", "5,4").attr("opacity", .55).attr("stroke-width", 1.4);
 
-    const enter = panels.enter().append("svg")
-      .attr("class","panel").attr("width",panelW).attr("height",panelH);
-    enter.append("text").attr("class","panel-title").attr("x",padL).attr("y",13);
-    enter.append("g").attr("class","axis x").attr("transform",`translate(${padL},${panelH-padB})`);
-    enter.append("g").attr("class","axis y").attr("transform",`translate(${padL},${padT})`);
-    enter.append("path").attr("class","line").attr("transform",`translate(${padL},${padT})`)
-      .attr("stroke", d => color(d));
-    enter.append("rect").attr("class","hover").attr("x",padL).attr("y",padT)
-      .attr("width",panelW-padL-8).attr("height",panelH-padT-padB)
-      .attr("fill","none").attr("pointer-events","all");
+    /* visible lines */
+    const vis = gLines.selectAll("path.cline").data(disp, d => d.name).join("path")
+      .attr("class", "cline")
+      .attr("stroke", d => CONT_COLORS[d.continent] || "#999")
+      .attr("d", d => line(d.pts));
+    /* invisible fat hit-lines */
+    gLines.selectAll("path.hitline").data(disp, d => d.name).join("path")
+      .attr("class", "hitline")
+      .attr("d", d => line(d.pts))
+      .on("mousemove", (e, d) => showTip(e, d))
+      .on("mouseenter", (e, d) => { focus = { type: "country", key: d.name }; applyFocus(); })
+      .on("mouseleave", () => { tip.style("display", "none"); focus = null; applyFocus(); })
+      .on("click", (e, d) => { pinned = (pinned && pinned.key === d.name) ? null : { type: "country", key: d.name }; applyFocus(); });
 
-    const all = enter.merge(panels);
-    all.select(".panel-title").text(d => d);
-    all.select(".axis.x").call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(4));
-    all.select(".axis.y").call(yScaleType === "log"
-      ? d3.axisLeft(yL).ticks(4,"~s") : d3.axisLeft(y).ticks(4,"~s"));
-    all.select(".line").transition().duration(400).attr("d", d => line(byRegion.get(d)));
-
-    /* ---------- 3. Tooltip ---------- */
-    const tip = d3.select("#tooltip");
-    all.select(".hover")
-      .on("mousemove", function(event, region){
-        const [mx] = d3.pointer(event, this);      // coords relative to this rect (x starts at padL)
-        const yr = Math.round(x.invert(mx));
-        const rows = byRegion.get(region);
-        const c = rows.reduce((a,b) => Math.abs(b.year-yr) < Math.abs(a.year-yr) ? b : a);
-        tip.style("display","block").style("left",(event.pageX+12)+"px").style("top",(event.pageY-10)+"px")
-           .html(`<b>${region}</b><br>${c.year}: ${d3.format(",.3s")(c.value)} t`);
-      })
-      .on("mouseleave", () => tip.style("display","none"));
+    /* end labels (only when few enough to be readable) */
+    const els = gLabels.selectAll("g.el").data(disp.length <= 25 ? disp : [], d => d.name).join("g")
+      .attr("class", "el")
+      .attr("transform", d => `translate(${x(latestYear) + 8},${y(latestOf(d) > 0 ? latestOf(d) : d.pts[d.pts.length-1].value)})`);
+    els.each(function(d){
+      const g = d3.select(this);
+      if (!g.select("text").size())
+        g.append("text").attr("font-size", 10).attr("fill", CONT_COLORS[d.continent] || "#999");
+      const last = d.pts[d.pts.length - 1];
+      g.select("text").text(`${d.name} ${last.value.toFixed(1)}`);
+    });
+    applyFocus();
   }
 
   /* ---------- 4. Controls ---------- */
   const controls = d3.select("#controls");
-  const chips = controls.selectAll("span.chip").data(REGIONS).enter().append("span")
-    .attr("class","chip").text(d => d).style("border-color", d => color(d))
-    .on("click", (e,d) => {
-      hidden.has(d) ? hidden.delete(d) : hidden.add(d);
-      chips.classed("off", r => hidden.has(r));
+  controls.append("b").text("Show: ");
+  const topSel = controls.selectAll("span.topchip").data([10, 20, 50, "all"]).enter().append("span")
+    .attr("class", "chip").text(d => d === "all" ? "All" : "Top " + d)
+    .classed("on", d => d === topN)
+    .on("click", (e, d) => { topN = d; topSel.classed("on", v => v === d); draw(); });
+
+  controls.append("b").text("   Continent: ");
+  const chipSel = controls.selectAll("span.cchip").data(CONTINENTS).enter().append("span")
+    .attr("class", "chip").text(d => d).style("border-color", d => CONT_COLORS[d])
+    .on("mouseenter", (e, d) => { focus = { type: "continent", key: d }; applyFocus(); })
+    .on("mouseleave", () => { focus = null; applyFocus(); })
+    .on("click", (e, d) => {
+      pinned = (pinned && pinned.key === d) ? null : { type: "continent", key: d };
+      contFilter = pinned ? pinned.key : null;
       draw();
     });
-  controls.append("span").text("  Y-axis: ");
-  const bLin = controls.append("span").attr("class","chip").text("Linear");
-  const bLog = controls.append("span").attr("class","chip").text("Log");
-  function setScale(t){ yScaleType = t; bLin.classed("off", t!=="linear"); bLog.classed("off", t!=="log"); draw(); }
-  bLin.on("click", () => setScale("linear"));
-  bLog.on("click", () => setScale("log"));
+
+  controls.append("b").text("   Find: ");
+  const input = controls.append("input").attr("placeholder", "country name…");
+  input.on("change", function(){
+    const q = this.value.trim().toLowerCase();
+    const hit = list.find(c => c.name.toLowerCase().includes(q));
+    if (hit) { pinned = { type: "country", key: hit.name }; applyFocus(); }
+  });
 
   draw();
 }
