@@ -7,15 +7,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+
   <style>
-    /* ---- Lab 9 additions (scoped) ---- */
     .map-wrap { display:flex; justify-content:center; }
     .map-note { font-size:0.8rem; color:var(--text-dim); margin-top:14px; text-align:center; }
     .map-legend { display:flex; justify-content:center; margin-top:6px; }
     .map-legend svg text { fill: var(--text-dim); font-size: 11px; font-family:'SF Mono', monospace; }
     .country, #cartogram-container path { transition: stroke-width 0.15s ease; }
     #cartogram-container { width:100%; max-width:960px; margin:0 auto; }
-    #cartogram-container svg { display:block; margin:0 auto; }
+    #cartogram-container svg { display:block; margin:0 auto; width:100% !important; height:auto !important; }
     .compare-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin:18px 0; }
     .compare-cell { background:rgba(0,0,0,0.2); border:1px solid var(--border-glass); border-radius:12px; padding:18px; }
     .compare-cell h3 { font-size:0.95rem; color:var(--accent); margin-bottom:8px; }
@@ -178,13 +178,12 @@
   <script>
     /* ================= Lab 9 — Geospatial Visualization with D3 ================= */
 
-    // Natural Earth country boundaries (properties include ISO_A3 / ADM0_A3)
     const GEOJSON_URLS = [
       'https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@master/geojson/ne_110m_admin_0_countries.geojson',
       'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
     ];
 
-    const NO_DATA_FILL = '#3a3a4d';   // neutral, distinct from the GDP ramp
+    const NO_DATA_FILL = '#3a3a4d'; 
     const HIGHLIGHT    = '#f472b6';
     const BASE_STROKE  = '#0f0f1a';
 
@@ -275,7 +274,6 @@
           setHighlight(null);
         });
 
-      // zoom / pan
       svg.call(d3.zoom().scaleExtent([1, 8]).on('zoom', ev =>
         mapGroup.attr('transform', ev.transform)));
 
@@ -328,7 +326,6 @@
       }
 
       // Pure-D3 NON-CONTIGUOUS cartogram: scale each country about its own
-      // centroid so its rendered area is proportional to its GDP. Always works.
       function renderFallbackCartogram() {
         const cproj = d3.geoNaturalEarth1().fitSize([W, H], geoData);
         const cpath = d3.geoPath().projection(cproj);
@@ -359,7 +356,7 @@
           .width(W).height(H)
           .topoJson(topology)
           .topoObjectName('countries')
-          .projection(d3.geoNaturalEarth1())
+          .projection(d3.geoNaturalEarth1().fitSize([W, H], geoData))  // fit frame so the cartogram fills the SVG
           .iterations(24)
           .value(d => d.properties.gdp)               // AREA <- GDP
           .color(d => fillFor(d.properties.gdp))      // same color ramp as choropleth
@@ -367,25 +364,29 @@
           .valFormatter(n => '$' + d3.format(',.0f')(n))
           .units('B USD')
           .tooltipContent(d => 'Rank: #' + rankByIso.get(d.properties.iso3) + ' of 50 — area ∝ GDP');
-        if (!cartoContainer.querySelector('svg,canvas'))
-          throw new Error('library constructed but produced no output');
+        const out = cartoContainer.querySelector('svg');
+        if (!out || !out.querySelectorAll('path').length)
+          throw new Error('library produced an empty map');
         linkCartogramPaths();
       }
 
-      // Always draw SOMETHING first (fallback), then try to upgrade to the library.
+      let fallbackHTML = '';
       try {
         renderFallbackCartogram();
+        fallbackHTML = cartoContainer.innerHTML;
       } catch (e) {
         console.error('Fallback cartogram failed:', e);
         status('Cartogram error: ' + e.message);
       }
       try {
-        const previous = cartoContainer.innerHTML;
-        renderLibraryCartogram();
+        cartoContainer.innerHTML = '';                 // remove fallback before upgrading
+        renderLibraryCartogram();                      // throws if lib missing or draws nothing
         status('Contiguous cartogram (Gastner–Newman diffusion, cartogram-chart library). Area = GDP.');
         console.log('Lab 9: cartogram rendered with cartogram-chart library.');
       } catch (e) {
-        console.warn('Lab 9: cartogram-chart unavailable, keeping built-in non-contiguous cartogram. Reason:', e.message);
+        console.warn('Lab 9: cartogram-chart unavailable, using built-in non-contiguous cartogram. Reason:', e.message);
+        cartoContainer.innerHTML = fallbackHTML;       // restore the guaranteed map
+        linkCartogramPaths();
         status('Non-contiguous cartogram (pure D3): each country scaled about its centroid so area ∝ GDP. Area = GDP.');
       }
 
