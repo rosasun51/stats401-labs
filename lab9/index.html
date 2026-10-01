@@ -3,209 +3,376 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 9 — Geospatial Visualization</title>
+  <title>Lab 9: Geospatial Visualization — Ruisheng Sun</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .maps-row { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .map-box { flex: 1 1 460px; max-width: 540px; }
-    .map-box h3 { text-align: center; font-size: 1rem; color: var(--text); margin-bottom: 10px; }
-    .map-box svg { border-radius: 10px; border: 1px solid var(--border); background: rgba(0,0,0,.15); display: block; margin: 0 auto; }
-    .legend-wrap { display: flex; justify-content: center; margin-top: 10px; }
-    .detail-panel { min-height: 80px; padding: 18px 20px; margin-top: 16px; }
-    .analysis { line-height: 1.8; color: var(--dim); font-size: .95rem; }
-    .analysis strong { color: var(--text); }
+    /* ---- Lab 9 additions (scoped) ---- */
+    .map-wrap { display:flex; justify-content:center; }
+    .map-note { font-size:0.8rem; color:var(--text-dim); margin-top:14px; text-align:center; }
+    .map-legend { display:flex; justify-content:center; margin-top:6px; }
+    .map-legend svg text { fill: var(--text-dim); font-size: 11px; font-family:'SF Mono', monospace; }
+    .country, #cartogram-container path { transition: stroke-width 0.15s ease; }
+    #cartogram-container { width:100%; max-width:960px; margin:0 auto; }
+    #cartogram-container svg { display:block; margin:0 auto; }
+    .compare-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin:18px 0; }
+    .compare-cell { background:rgba(0,0,0,0.2); border:1px solid var(--border-glass); border-radius:12px; padding:18px; }
+    .compare-cell h3 { font-size:0.95rem; color:var(--accent); margin-bottom:8px; }
+    .compare-cell p { font-size:0.88rem; margin-bottom:0; }
+    @media (max-width: 640px){ .compare-grid{ grid-template-columns:1fr; } }
   </style>
+<base target="_blank">
 </head>
 <body>
   <div class="bg-gradient"></div>
   <canvas id="bg-canvas"></canvas>
 
   <div class="lab-container">
-    <a href="../index.html" class="back-link">&larr; Back to Home</a>
-
+    <a href="../index.html" class="back-link">&larr; Back to Lab Portfolio</a>
     <div class="lab-header">
-      <h1>Lab 9: Geospatial Visualization</h1>
-      <p class="subtitle">Choropleth vs. Cartogram — 2025 GDP of the world's top 50 economies</p>
+      <h1>Lab 9: Geospatial Visualization with D3</h1>
+      <p class="subtitle">2025 Nominal GDP &mdash; Choropleth vs. Cartogram</p>
     </div>
 
-    <nav class="lab-nav">
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="../lab2/index.html">Lab 2</a>
-      <a href="../lab3/index.html">Lab 3</a>
-      <a href="../lab4/index.html">Lab 4</a>
-      <a href="../lab5/index.html">Lab 5</a>
-      <a href="../lab6/index.html">Lab 6</a>
-      <a href="../lab7/index.html">Lab 7</a>
-      <a href="../lab8/index.html">Lab 8</a>
-      <a href="index.html" class="active">Lab 9</a>
-      <a href="../lab10/index.html">Lab 10</a>
-    </nav>
+    <main>
+      <!-- ================= 1. Dataset Description ================= -->
+      <section class="glass">
+        <h2><span class="icon">📁</span> 1. Dataset Description</h2>
+        <p>
+          This lab visualizes the <strong>50 largest economies by nominal GDP in 2025</strong>
+          (<code>data/lab9_gdp_2025_top50.csv</code>). The figures are billions of U.S. dollars at
+          current prices, based on the <strong>IMF World Economic Outlook, October 2025</strong> nominal-GDP
+          series (IMF WEO observations may include staff estimates and can later be revised).
+        </p>
+        <p>
+          <strong>Variables:</strong>
+          <code>iso3</code> (ISO-3 geographic identifier) &bull;
+          <code>country</code> (economy name) &bull;
+          <code>gdp_2025_billion_usd</code> (2025 nominal GDP) &bull;
+          <code>rank</code> (rank among the included economies).
+        </p>
+        <p>
+          <strong>Method:</strong> the GDP table is joined to a world-country GeoJSON using the shared
+          <strong>ISO-3 identifier</strong>. Countries outside the top-50 file are shown in a distinct neutral
+          dark gray as <em>no data</em> &mdash; not as zero GDP.
+        </p>
+      </section>
 
-    <!-- Dataset -->
-    <section class="glass">
-      <h2><span class="icon">🌍</span> Dataset: 2025 Nominal GDP (Top 50)</h2>
-      <p>
-        This dataset contains the <strong>50 largest economies by nominal GDP in 2025</strong>,
-        based on IMF World Economic Outlook estimates. Values are in billions of current U.S. dollars.
-        Countries outside the top 50 are shown as missing data (dark background), not zero.
-        The data are joined with a world country boundary map (Natural Earth 110m) using ISO-3 codes.
-      </p>
-    </section>
+      <!-- ================= 2. Choropleth ================= -->
+      <section class="glass chart-card">
+        <h2 class="chart-title" style="font-size:1.3rem;">🗺️ 2. 2025 GDP Choropleth &mdash; Color = GDP</h2>
+        <p style="max-width:760px;margin:0 auto 18px;">
+          Each country keeps its true geographic boundary; <strong>color encodes 2025 nominal GDP</strong>.
+          Because GDP is extremely right-skewed (the U.S. &asymp; $30,500B vs. Qatar &asymp; $240B, a &gt;100&times; gap),
+          a <strong>log-transformed color scale</strong> is used: a linear scale would paint all but the top handful of
+          economies in nearly identical pale shades, while the log scale preserves rank-order and spreads the
+          mid-sized and small economies across the full color range.
+        </p>
+        <div class="map-wrap"><svg id="choropleth"></svg></div>
+        <div class="map-legend" id="legend"></div>
+        <p class="map-note">Darker/bluer &rarr; larger GDP (log scale) &bull; dark gray = no data (outside top 50).
+        Scroll to zoom, drag to pan. Hover a country to highlight it in both maps.</p>
+      </section>
 
-    <!-- Maps -->
-    <section class="glass">
-      <h2><span class="icon">🗺️</span> Choropleth and Cartogram</h2>
-      <p style="font-size:.85rem;color:var(--dim);">Click any country to highlight it in both maps. Scroll to zoom. Drag to pan. Hover for GDP details.</p>
+      <!-- ================= 3. Cartogram ================= -->
+      <section class="glass chart-card">
+        <h2 class="chart-title" style="font-size:1.3rem;">🌐 3. 2025 GDP Cartogram &mdash; Area = GDP</h2>
+        <p style="max-width:760px;margin:0 auto 18px;">
+          A cartogram deliberately re-distorts geography: <strong>each country's area is made proportional to its
+          2025 GDP</strong>, not its land area. Large economies (U.S., China) swell; large-but-poorer economies
+          (Russia, Canada, Australia) shrink. Shapes and positions become approximate &mdash; hover to identify
+          countries and see them highlighted in the choropleth too.
+        </p>
+        <div id="cartogram-container"></div>
+        <p class="map-note" id="cartogram-note">Contiguous cartogram computed with the Gastner&ndash;Newman diffusion
+        algorithm (vasturiano/cartogram-chart, as suggested in the lab instructions). Only the 50 economies with data are shown.</p>
+      </section>
 
-      <div class="maps-row">
-        <div class="map-box">
-          <h3>Choropleth — Color = GDP</h3>
-          <div id="chart-choropleth"></div>
+      <!-- ================= 4. Design and Comparison ================= -->
+      <section class="glass">
+        <h2><span class="icon">⚖️</span> 4. Design and Comparison</h2>
+        <div class="compare-grid">
+          <div class="compare-cell">
+            <h3>Choropleth encoding</h3>
+            <p>Position &rarr; geographic location &bull; Shape &rarr; original boundary &bull; Color &rarr; GDP.
+            Emphasizes <em>where</em> economic output is.</p>
+          </div>
+          <div class="compare-cell">
+            <h3>Cartogram encoding</h3>
+            <p>Position &rarr; approximate geography &bull; Shape &rarr; distorted &bull; Area &rarr; GDP.
+            Emphasizes <em>how much</em> each economy is.</p>
+          </div>
         </div>
-        <div class="map-box">
-          <h3>Cartogram — Area ≈ GDP</h3>
-          <div id="chart-cartogram"></div>
-        </div>
-      </div>
+        <p>
+          In the choropleth, the most prominent countries are large dark ones &mdash; the United States, China, and
+          the big European economies &mdash; because color intensity acts within true boundaries. In the cartogram,
+          prominence shifts almost entirely to the United States and China, which balloon to dominate the map, while
+          Canada, Russia, Australia, and Brazil collapse to a fraction of their land area; mid-weight economies such
+          as Germany, India, and Japan expand markedly.
+        </p>
+        <p>
+          The choropleth preserves accurate geography: relative position, shape, adjacency, and land area all stay
+          intact, so viewers can locate an economy and reason about regional context. The cartogram sacrifices all
+          of these &mdash; positions drift, borders bend, and area no longer means land. Accordingly, the choropleth
+          best supports spatial questions (&ldquo;How is GDP distributed across Europe?&rdquo;, &ldquo;Which neighbors
+          are large economies?&rdquo;), while the cartogram best supports magnitude questions (&ldquo;How big is
+          country X relative to Y?&rdquo;, &ldquo;What share of the top-50 total does each hold?&rdquo;).
+        </p>
+        <p>
+          Moving the GDP variable from color to area changes perception substantially. Color is easy to rank but
+          hard to quantify, so the choropleth understates how dominant the U.S. and China really are; area is a far
+          stronger quantitative channel, and the cartogram makes that duopoly &mdash; and the long tail of small
+          economies &mdash; immediately visceral, at the cost of the geographic intuition the choropleth provides.
+          Neither map is universally better: the right choice depends on whether the task is geographic pattern
+          finding or quantitative comparison.
+        </p>
+      </section>
+    </main>
 
-      <div class="legend-wrap" id="legend-choropleth"></div>
-      <div id="tooltip" class="tooltip"></div>
-
-      <div class="detail-panel glass" id="detail-panel">
-        <p style="color:var(--dim);font-style:italic;">Click a country on either map to see details.</p>
-      </div>
-    </section>
-
-    <!-- Analysis -->
-    <section class="glass">
-      <h2><span class="icon">📊</span> Design Comparison</h2>
-      <div class="analysis">
-        <p>
-          <strong>1. Most visually prominent countries:</strong>
-          In the <strong>choropleth</strong>, the United States and China stand out through deep blue color saturation.
-          Russia, Canada, and Australia also draw attention due to their large geographic area, despite moderate GDP.
-          In the <strong>cartogram</strong>, the U.S. and China dominate through sheer size — they occupy dramatically more space than other nations.
-          Small but wealthy countries like Switzerland, Singapore, and the UAE become visibly larger, while large-but-poorer countries shrink.
-        </p>
-        <p>
-          <strong>2. Countries that change size dramatically:</strong>
-          <strong>India</strong> grows substantially in the cartogram, reflecting its #5 GDP rank.
-          <strong>Russia, Canada, and Australia</strong> shrink significantly because their geographic area far exceeds their economic output.
-          <strong>Germany</strong> and <strong>Japan</strong> remain relatively similar in both views.
-          <strong>Qatar, Singapore, and UAE</strong> expand from tiny specks to clearly visible shapes.
-        </p>
-        <p>
-          <strong>3–4. Geographic information preserved vs. distorted:</strong>
-          The <strong>choropleth preserves</strong> accurate geographic shapes, relative positions, and area proportions.
-          This makes it easy to identify where countries are and compare regional patterns (e.g., Europe's density of high-GDP nations).
-          The <strong>cartogram distorts</strong> shape, area, and relative position. Neighboring countries may no longer touch;
-          familiar outlines become unrecognizable. What is gained is a direct visual comparison of economic magnitude.
-        </p>
-        <p>
-          <strong>5–6. Tasks each map supports:</strong>
-          The <strong>choropleth</strong> is better for questions like "Which region has the highest GDP?" or "What is the geographic distribution of wealth?"
-          The <strong>cartogram</strong> is better for "How large is China's economy compared to Germany's?" or "Which top-10 economy is smallest geographically?"
-        </p>
-        <p>
-          <strong>7. Perception shift:</strong>
-          Switching from color to area encoding fundamentally changes how we perceive economic size.
-          In the choropleth, Russia looks economically significant because it is dark and huge.
-          In the cartogram, Russia's shrinkage reveals that its economy is modest relative to its territory.
-          Conversely, small rich nations that were barely visible in the choropleth become impossible to ignore in the cartogram.
-          Area encoding feels more "honest" for magnitude comparison, while color encoding feels more familiar for geographic pattern recognition.
-        </p>
-      </div>
-    </section>
-
-    <!-- Comments -->
-    <section class="glass comments-section" style="margin-top:28px;">
-      <h2><span class="icon">💬</span> Comments</h2>
-      <div class="comment-form">
-        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
-        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
-        <button class="btn" onclick="addComment()">Post Comment</button>
-      </div>
-      <div class="comment-list" id="comment-list">
-        <div class="comment-empty">No comments yet.</div>
-      </div>
-    </section>
+    <footer>
+      <p><strong>Ruisheng (Rosa) Sun</strong> &bull; rs689@duke.edu</p>
+      <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Lab 9 &bull; Data: IMF WEO October 2025 (top-50 nominal GDP)</p>
+    </footer>
   </div>
 
-  <footer>
-    <p><strong>Ruisheng (Rosa) Sun</strong> &bull; rs689@duke.edu</p>
-    <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
-  </footer>
+  <div id="tooltip" class="tooltip"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-  <script src="https://unpkg.com/topojson-client@3"></script>
-  <script src="lab9.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/topojson-server@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cartogram-chart"></script>
+  <script src="../js/main.js"></script>
   <script>
-    /* ===== Particle Background ===== */
+    /* ================= Particle background (consistent with portfolio) ================= */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
-    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+    function resizeCanvas(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+    resizeCanvas(); addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() {
-        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
-        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
-        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
-      }
-      update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
-      draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
+      constructor(){ this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-.5)*.3; this.vy = (Math.random()-.5)*.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*.5+.2; }
+      update(){ this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1; }
+      draw(){ ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(56,189,248,' + this.alpha + ')'; ctx.fill(); }
     }
-    for(let i=0;i<60;i++) particles.push(new Particle());
-    function animateParticles() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      particles.forEach(p=>{p.update();p.draw();});
-      for(let i=0;i<particles.length;i++){
-        for(let j=i+1;j<particles.length;j++){
-          const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<150){ ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(56,189,248,${0.1*(1-dist/150)})`; ctx.lineWidth=0.5; ctx.stroke(); }
-        }
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+    (function animate(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      for (let i = 0; i < particles.length; i++) for (let j = i+1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 150) { ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = 'rgba(56,189,248,' + (0.1*(1-dist/150)) + ')';
+          ctx.lineWidth = 0.5; ctx.stroke(); }
       }
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
+      requestAnimationFrame(animate);
+    })();
+  </script>
 
-    /* ===== Comments ===== */
-    const COMMENT_KEY = 'stats401-lab9-comments';
-    function loadComments() {
-      const list = document.getElementById('comment-list');
-      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
-      if (comments.length === 0) {
-        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
-        return;
+  <script>
+    /* ================= Lab 9 — Geospatial Visualization with D3 ================= */
+
+    // Natural Earth country boundaries (properties include ISO_A3 / ADM0_A3)
+    const GEOJSON_URLS = [
+      'https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@master/geojson/ne_110m_admin_0_countries.geojson',
+      'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
+    ];
+
+    const NO_DATA_FILL = '#3a3a4d';   // neutral, distinct from the GDP ramp
+    const HIGHLIGHT    = '#f472b6';
+    const BASE_STROKE  = '#0f0f1a';
+
+    function isoOf(f) {
+      const p = f.properties || {};
+      return (p.ISO_A3 && p.ISO_A3 !== '-99') ? p.ISO_A3 : (p.ADM0_A3 || null);
+    }
+
+    async function loadGeoJson() {
+      for (const url of GEOJSON_URLS) {
+        try { return await d3.json(url); }
+        catch (e) { console.warn('GeoJSON load failed, trying fallback:', url, e); }
       }
-      list.innerHTML = comments.map(c => `
-        <div class="comment-item">
-          <div class="comment-header">
-            <span class="comment-author">${escapeHtml(c.name)}</span>
-            <span class="comment-meta">${c.time}</span>
-          </div>
-          <div class="comment-body">${escapeHtml(c.body)}</div>
-        </div>
-      `).join('');
+      throw new Error('Could not load world GeoJSON from any source.');
     }
-    function addComment() {
-      const name = document.getElementById('comment-name').value.trim();
-      const body = document.getElementById('comment-body').value.trim();
-      if (!name || !body) { alert('Please fill in both fields.'); return; }
-      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
-      comments.unshift({ name, body, time: new Date().toLocaleString() });
-      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
-      document.getElementById('comment-name').value = '';
-      document.getElementById('comment-body').value = '';
-      loadComments();
-    }
-    function escapeHtml(text) {
-      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
-    }
-    loadComments();
+
+    const fmtGDP = v => '$' + d3.format(',.0f')(v) + 'B';
+    const tooltip = d3.select('#tooltip');
+
+    Promise.all([
+      loadGeoJson(),
+      d3.csv('../data/lab9_gdp_2025_top50.csv', d => ({
+        iso3: d.iso3.trim(),
+        country: d.country,
+        gdp: +d.gdp_2025_billion_usd,
+        rank: +d.rank
+      }))
+    ]).then(([geoData, stats]) => {
+
+      /* ---------- lookup tables keyed by the shared ISO-3 identifier ---------- */
+      const gdpByIso  = new Map(stats.map(d => [d.iso3, d.gdp]));
+      const nameByIso = new Map(stats.map(d => [d.iso3, d.country]));
+      const rankByIso = new Map(stats.map(d => [d.iso3, d.rank]));
+
+      /* ---------- Part A: join GDP + GeoJSON on ISO-3 ---------- */
+      geoData.features.forEach(f => {
+        const iso = isoOf(f);
+        f.properties.iso3 = iso;
+        f.properties.gdp = gdpByIso.get(iso) ?? null;   // null = no data, NOT zero
+      });
+      const withData = geoData.features.filter(f => f.properties.gdp != null);
+      console.log('Lab 9 join: matched ' + withData.length + ' of ' + stats.length + ' GDP rows via ISO-3.');
+
+      /* ---------- shared color scale (skewed GDP -> sequential LOG scale) ---------- */
+      const gdpVals = stats.map(d => d.gdp);
+      const gdpMin = d3.min(gdpVals), gdpMax = d3.max(gdpVals);
+      const ramp = t => d3.interpolateRgbBasis(['#1b2a4a', '#155e8a', '#38bdf8', '#f472b6'])(t);
+      const colorScale = d3.scaleSequentialLog(ramp).domain([gdpMin, gdpMax]);
+      const fillFor = v => (v == null ? NO_DATA_FILL : colorScale(v));
+
+      /* ================= Part B: CHOROPLETH ================= */
+      const W = 960, H = 540;
+      const svg = d3.select('#choropleth')
+        .attr('viewBox', '0 0 ' + W + ' ' + H)
+        .attr('width', '100%')
+        .style('max-width', W + 'px');
+
+      const projection = d3.geoNaturalEarth1().fitSize([W, H], geoData);
+      const path = d3.geoPath().projection(projection);
+      const mapGroup = svg.append('g').attr('id', 'map-group');
+
+      const countries = mapGroup.selectAll('.country')
+        .data(geoData.features)
+        .join('path')
+        .attr('class', 'country')
+        .attr('d', path)
+        .attr('fill', d => fillFor(d.properties.gdp))
+        .attr('stroke', BASE_STROKE)
+        .attr('stroke-width', 0.6)
+        .style('cursor', 'pointer');
+
+      countries
+        .on('mouseover', function (event, d) {
+          const iso = d.properties.iso3, v = d.properties.gdp;
+          tooltip.style('opacity', 1).html(
+            '<strong>' + (nameByIso.get(iso) || d.properties.NAME || iso) + '</strong>' +
+            (v == null ? '2025 GDP: no data (outside top 50)'
+                       : '2025 GDP: ' + fmtGDP(v) + '<br>Rank: #' + rankByIso.get(iso))
+          );
+          setHighlight(iso);
+        })
+        .on('mousemove', function (event) {
+          tooltip.style('left', (event.pageX + 12) + 'px')
+                 .style('top',  (event.pageY + 12) + 'px');
+        })
+        .on('mouseout', function () {
+          tooltip.style('opacity', 0);
+          setHighlight(null);
+        });
+
+      // zoom / pan
+      svg.call(d3.zoom().scaleExtent([1, 8]).on('zoom', ev =>
+        mapGroup.attr('transform', ev.transform)));
+
+      /* ---------- quantitative (gradient) legend for the log color scale ---------- */
+      (function renderLegend() {
+        const lw = 440, lh = 12, gx = 24;
+        const leg = d3.select('#legend').append('svg').attr('width', lw + 60).attr('height', 52);
+        const grad = leg.append('defs').append('linearGradient').attr('id', 'gdp-gradient');
+        for (let i = 0; i <= 24; i++)
+          grad.append('stop').attr('offset', (i / 24 * 100) + '%').attr('stop-color', ramp(i / 24));
+        leg.append('rect').attr('x', gx).attr('y', 8).attr('width', lw).attr('height', lh)
+           .attr('rx', 6).attr('fill', 'url(#gdp-gradient)');
+        const legScale = d3.scaleLog().domain([gdpMin, gdpMax]).range([gx, gx + lw]);
+        leg.append('g').attr('transform', 'translate(0,' + (8 + lh) + ')')
+           .call(d3.axisBottom(legScale)
+                   .tickValues([250, 500, 1000, 2500, 5000, 10000, 30000])
+                   .tickFormat(d => '$' + d3.format('~s')(d) + 'B'))
+           .call(g => g.select('.domain').remove());
+      })();
+
+      /* ================= Part D: LINKED HIGHLIGHTING (both views) ================= */
+      function setHighlight(iso) {
+        countries
+          .attr('stroke', d => d.properties.iso3 === iso ? HIGHLIGHT : BASE_STROKE)
+          .attr('stroke-width', d => d.properties.iso3 === iso ? 2 : 0.6);
+        d3.selectAll('#cartogram-container path').each(function (d) {
+          if (!d || !d.properties) return;
+          const match = iso !== null && d.properties.iso3 === iso;
+          d3.select(this)
+            .attr('stroke', match ? HIGHLIGHT : BASE_STROKE)
+            .attr('stroke-width', match ? 2.5 : 0.8);
+          if (match && this.parentNode) this.parentNode.appendChild(this); // bring to front
+        });
+      }
+
+      /* ================= Part C: CARTOGRAM (area = GDP) ================= */
+      const collection = { type: 'FeatureCollection', features: withData };
+
+      function linkCartogramPaths() {
+        d3.select('#cartogram-container').selectAll('path')
+          .attr('stroke', BASE_STROKE).attr('stroke-width', 0.8)
+          .style('cursor', 'pointer')
+          .on('mouseenter.lab9', function (event, d) {
+            if (!d || !d.properties) return;
+            setHighlight(d.properties.iso3);
+          })
+          .on('mouseleave.lab9', function () { setHighlight(null); });
+      }
+
+      if (typeof Cartogram === 'function' && typeof topojson === 'object') {
+        // Preferred: documented cartogram library (topogram / Gastner-Newman diffusion)
+        const topology = topojson.topology({ countries: collection });
+        new Cartogram(document.getElementById('cartogram-container'))
+          .width(W).height(H)
+          .topoJson(topology)
+          .topoObjectName('countries')
+          .projection(d3.geoNaturalEarth1())
+          .iterations(24)
+          .value(d => d.properties.gdp)               // AREA <- GDP
+          .color(d => fillFor(d.properties.gdp))      // same color ramp as choropleth
+          .label(d => nameByIso.get(d.properties.iso3) || d.properties.NAME)
+          .valFormatter(n => '$' + d3.format(',.0f')(n))
+          .units('B USD')
+          .tooltipContent(d => 'Rank: #' + rankByIso.get(d.properties.iso3) + ' of 50 — area ∝ GDP');
+        linkCartogramPaths();
+      } else {
+        // Fallback: non-contiguous area cartogram in pure D3 (scale each country
+        // about its centroid so its rendered area is proportional to its GDP)
+        console.warn('cartogram-chart CDN unavailable — using built-in non-contiguous cartogram fallback.');
+        d3.select('#cartogram-note').text('Non-contiguous cartogram: each country is scaled about its own centroid so that its area is proportional to 2025 GDP (pure-D3 fallback). Only the 50 economies with data are shown.');
+        const cproj = d3.geoNaturalEarth1().fitSize([W, H], geoData);
+        const cpath = d3.geoPath().projection(cproj);
+        const totalGDP = d3.sum(stats, d => d.gdp);
+        const packArea = W * H * 0.45;
+        collection.features.forEach(f => {
+          const a = Math.max(cpath.area(f), 1e-6);
+          f._s = Math.sqrt(((f.properties.gdp / totalGDP) * packArea) / a);
+          f._c = cpath.centroid(f);
+        });
+        d3.select('#cartogram-container').append('svg')
+          .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%')
+          .style('max-width', W + 'px')
+          .selectAll('path').data(collection.features).join('path')
+          .attr('d', cpath)
+          .attr('transform', f => 'translate(' + f._c + ') scale(' + f._s + ') translate(' + (-f._c[0]) + ',' + (-f._c[1]) + ')')
+          .attr('fill', f => fillFor(f.properties.gdp));
+        linkCartogramPaths();
+      }
+
+    }).catch(err => {
+      console.error('Lab 9 failed to load:', err);
+      d3.select('main').insert('section', ':first-child')
+        .attr('class', 'glass').attr('style', 'border-color:#f472b6')
+        .html('<h2>⚠️ Data loading error</h2><p>Could not load the world GeoJSON or the GDP CSV. ' +
+              'Make sure you are serving the site over HTTP (e.g. <code>python -m http.server</code>), not file://. ' +
+              'Details: ' + err.message + '</p>');
+    });
   </script>
 </body>
 </html>
