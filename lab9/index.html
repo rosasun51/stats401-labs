@@ -85,8 +85,8 @@
           countries and see them highlighted in the choropleth too.
         </p>
         <div id="cartogram-container"></div>
-        <p class="map-note" id="cartogram-note">Contiguous cartogram computed with the Gastner&ndash;Newman diffusion
-        algorithm (vasturiano/cartogram-chart, as suggested in the lab instructions). Only the 50 economies with data are shown.</p>
+        <p class="map-note" id="cartogram-note">Country area is proportional to 2025 nominal GDP. Only the 50 economies with data are shown.</p>
+        <p class="map-note" id="cartogram-status" style="color:var(--accent);">Rendering cartogram&hellip;</p>
       </section>
 
       <!-- ================= 4. Design and Comparison ================= -->
@@ -313,9 +313,11 @@
 
       /* ================= Part C: CARTOGRAM (area = GDP) ================= */
       const collection = { type: 'FeatureCollection', features: withData };
+      const cartoContainer = document.getElementById('cartogram-container');
+      const status = m => d3.select('#cartogram-status').text(m);
 
       function linkCartogramPaths() {
-        d3.select('#cartogram-container').selectAll('path')
+        d3.select(cartoContainer).selectAll('path')
           .attr('stroke', BASE_STROKE).attr('stroke-width', 0.8)
           .style('cursor', 'pointer')
           .on('mouseenter.lab9', function (event, d) {
@@ -325,10 +327,35 @@
           .on('mouseleave.lab9', function () { setHighlight(null); });
       }
 
-      if (typeof Cartogram === 'function' && typeof topojson === 'object') {
-        // Preferred: documented cartogram library (topogram / Gastner-Newman diffusion)
+      // Pure-D3 NON-CONTIGUOUS cartogram: scale each country about its own
+      // centroid so its rendered area is proportional to its GDP. Always works.
+      function renderFallbackCartogram() {
+        const cproj = d3.geoNaturalEarth1().fitSize([W, H], geoData);
+        const cpath = d3.geoPath().projection(cproj);
+        const totalGDP = d3.sum(stats, d => d.gdp);
+        const packArea = W * H * 0.45;
+        collection.features.forEach(f => {
+          const a = Math.max(cpath.area(f), 1e-6);
+          f._s = Math.sqrt(((f.properties.gdp / totalGDP) * packArea) / a);
+          f._c = cpath.centroid(f);
+        });
+        d3.select(cartoContainer).append('svg')
+          .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%')
+          .style('max-width', W + 'px')
+          .selectAll('path').data(collection.features).join('path')
+          .attr('d', cpath)
+          .attr('transform', f => 'translate(' + f._c + ') scale(' + f._s + ') translate(' + (-f._c[0]) + ',' + (-f._c[1]) + ')')
+          .attr('fill', f => fillFor(f.properties.gdp));
+        linkCartogramPaths();
+      }
+
+      // Preferred: documented cartogram library (topogram / Gastner-Newman diffusion)
+      function renderLibraryCartogram() {
+        const Lib = window.Cartogram || window.CartogramChart;
+        if (typeof Lib !== 'function') throw new Error('cartogram-chart global not found (tried Cartogram, CartogramChart)');
+        if (typeof topojson !== 'object' || !topojson.topology) throw new Error('topojson-server not loaded');
         const topology = topojson.topology({ countries: collection });
-        new Cartogram(document.getElementById('cartogram-container'))
+        new Lib(cartoContainer)
           .width(W).height(H)
           .topoJson(topology)
           .topoObjectName('countries')
@@ -340,29 +367,26 @@
           .valFormatter(n => '$' + d3.format(',.0f')(n))
           .units('B USD')
           .tooltipContent(d => 'Rank: #' + rankByIso.get(d.properties.iso3) + ' of 50 — area ∝ GDP');
+        if (!cartoContainer.querySelector('svg,canvas'))
+          throw new Error('library constructed but produced no output');
         linkCartogramPaths();
-      } else {
-        // Fallback: non-contiguous area cartogram in pure D3 (scale each country
-        // about its centroid so its rendered area is proportional to its GDP)
-        console.warn('cartogram-chart CDN unavailable — using built-in non-contiguous cartogram fallback.');
-        d3.select('#cartogram-note').text('Non-contiguous cartogram: each country is scaled about its own centroid so that its area is proportional to 2025 GDP (pure-D3 fallback). Only the 50 economies with data are shown.');
-        const cproj = d3.geoNaturalEarth1().fitSize([W, H], geoData);
-        const cpath = d3.geoPath().projection(cproj);
-        const totalGDP = d3.sum(stats, d => d.gdp);
-        const packArea = W * H * 0.45;
-        collection.features.forEach(f => {
-          const a = Math.max(cpath.area(f), 1e-6);
-          f._s = Math.sqrt(((f.properties.gdp / totalGDP) * packArea) / a);
-          f._c = cpath.centroid(f);
-        });
-        d3.select('#cartogram-container').append('svg')
-          .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%')
-          .style('max-width', W + 'px')
-          .selectAll('path').data(collection.features).join('path')
-          .attr('d', cpath)
-          .attr('transform', f => 'translate(' + f._c + ') scale(' + f._s + ') translate(' + (-f._c[0]) + ',' + (-f._c[1]) + ')')
-          .attr('fill', f => fillFor(f.properties.gdp));
-        linkCartogramPaths();
+      }
+
+      // Always draw SOMETHING first (fallback), then try to upgrade to the library.
+      try {
+        renderFallbackCartogram();
+      } catch (e) {
+        console.error('Fallback cartogram failed:', e);
+        status('Cartogram error: ' + e.message);
+      }
+      try {
+        const previous = cartoContainer.innerHTML;
+        renderLibraryCartogram();
+        status('Contiguous cartogram (Gastner–Newman diffusion, cartogram-chart library). Area = GDP.');
+        console.log('Lab 9: cartogram rendered with cartogram-chart library.');
+      } catch (e) {
+        console.warn('Lab 9: cartogram-chart unavailable, keeping built-in non-contiguous cartogram. Reason:', e.message);
+        status('Non-contiguous cartogram (pure D3): each country scaled about its centroid so area ∝ GDP. Area = GDP.');
       }
 
     }).catch(err => {
