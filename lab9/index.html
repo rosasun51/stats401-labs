@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 9 — Coming Soon</title>
+  <title>Lab 9 — Geospatial Visualization</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .maps-row { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .map-box { flex: 1 1 460px; max-width: 540px; }
+    .map-box h3 { text-align: center; font-size: 1rem; color: var(--text); margin-bottom: 10px; }
+    .map-box svg { border-radius: 10px; border: 1px solid var(--border); background: rgba(0,0,0,.15); display: block; margin: 0 auto; }
+    .legend-wrap { display: flex; justify-content: center; margin-top: 10px; }
+    .detail-panel { min-height: 80px; padding: 18px 20px; margin-top: 16px; }
+    .analysis { line-height: 1.8; color: var(--dim); font-size: .95rem; }
+    .analysis strong { color: var(--text); }
+  </style>
 </head>
 <body>
   <div class="bg-gradient"></div>
@@ -16,14 +26,11 @@
     <a href="../index.html" class="back-link">&larr; Back to Home</a>
 
     <div class="lab-header">
-      <h1>Lab 9: Coming Soon</h1>
-      <p class="subtitle">This lab will be added later in the semester</p>
+      <h1>Lab 9: Geospatial Visualization</h1>
+      <p class="subtitle">Choropleth vs. Cartogram — 2025 GDP of the world's top 50 economies</p>
     </div>
 
     <nav class="lab-nav">
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="index.html" class="active">Lab 9</a>
-      <a href="../lab10/index.html">Lab 10</a>
       <a href="../lab1/index.html">Lab 1</a>
       <a href="../lab2/index.html">Lab 2</a>
       <a href="../lab3/index.html">Lab 3</a>
@@ -31,18 +38,99 @@
       <a href="../lab5/index.html">Lab 5</a>
       <a href="../lab6/index.html">Lab 6</a>
       <a href="../lab7/index.html">Lab 7</a>
+      <a href="../lab8/index.html">Lab 8</a>
+      <a href="index.html" class="active">Lab 9</a>
+      <a href="../lab10/index.html">Lab 10</a>
     </nav>
 
-    <div class="chart-card glass placeholder">
-      <div class="placeholder-icon">📊</div>
-      <h2 style="margin-bottom:12px;">Lab 9 is under construction</h2>
-      <p style="max-width:400px;margin:0 auto 24px;">
-        This page is a placeholder. The visualization and content for Lab 9 
-        will be added as the course progresses.
+    <!-- Dataset -->
+    <section class="glass">
+      <h2><span class="icon">🌍</span> Dataset: 2025 Nominal GDP (Top 50)</h2>
+      <p>
+        This dataset contains the <strong>50 largest economies by nominal GDP in 2025</strong>,
+        based on IMF World Economic Outlook estimates. Values are in billions of current U.S. dollars.
+        Countries outside the top 50 are shown as missing data (dark background), not zero.
+        The data are joined with a world country boundary map (Natural Earth 110m) using ISO-3 codes.
       </p>
-      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
-      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
-    </div>
+    </section>
+
+    <!-- Maps -->
+    <section class="glass">
+      <h2><span class="icon">🗺️</span> Choropleth and Cartogram</h2>
+      <p style="font-size:.85rem;color:var(--dim);">Click any country to highlight it in both maps. Scroll to zoom. Drag to pan. Hover for GDP details.</p>
+
+      <div class="maps-row">
+        <div class="map-box">
+          <h3>Choropleth — Color = GDP</h3>
+          <div id="chart-choropleth"></div>
+        </div>
+        <div class="map-box">
+          <h3>Cartogram — Area ≈ GDP</h3>
+          <div id="chart-cartogram"></div>
+        </div>
+      </div>
+
+      <div class="legend-wrap" id="legend-choropleth"></div>
+      <div id="tooltip" class="tooltip"></div>
+
+      <div class="detail-panel glass" id="detail-panel">
+        <p style="color:var(--dim);font-style:italic;">Click a country on either map to see details.</p>
+      </div>
+    </section>
+
+    <!-- Analysis -->
+    <section class="glass">
+      <h2><span class="icon">📊</span> Design Comparison</h2>
+      <div class="analysis">
+        <p>
+          <strong>1. Most visually prominent countries:</strong>
+          In the <strong>choropleth</strong>, the United States and China stand out through deep blue color saturation.
+          Russia, Canada, and Australia also draw attention due to their large geographic area, despite moderate GDP.
+          In the <strong>cartogram</strong>, the U.S. and China dominate through sheer size — they occupy dramatically more space than other nations.
+          Small but wealthy countries like Switzerland, Singapore, and the UAE become visibly larger, while large-but-poorer countries shrink.
+        </p>
+        <p>
+          <strong>2. Countries that change size dramatically:</strong>
+          <strong>India</strong> grows substantially in the cartogram, reflecting its #5 GDP rank.
+          <strong>Russia, Canada, and Australia</strong> shrink significantly because their geographic area far exceeds their economic output.
+          <strong>Germany</strong> and <strong>Japan</strong> remain relatively similar in both views.
+          <strong>Qatar, Singapore, and UAE</strong> expand from tiny specks to clearly visible shapes.
+        </p>
+        <p>
+          <strong>3–4. Geographic information preserved vs. distorted:</strong>
+          The <strong>choropleth preserves</strong> accurate geographic shapes, relative positions, and area proportions.
+          This makes it easy to identify where countries are and compare regional patterns (e.g., Europe's density of high-GDP nations).
+          The <strong>cartogram distorts</strong> shape, area, and relative position. Neighboring countries may no longer touch;
+          familiar outlines become unrecognizable. What is gained is a direct visual comparison of economic magnitude.
+        </p>
+        <p>
+          <strong>5–6. Tasks each map supports:</strong>
+          The <strong>choropleth</strong> is better for questions like "Which region has the highest GDP?" or "What is the geographic distribution of wealth?"
+          The <strong>cartogram</strong> is better for "How large is China's economy compared to Germany's?" or "Which top-10 economy is smallest geographically?"
+        </p>
+        <p>
+          <strong>7. Perception shift:</strong>
+          Switching from color to area encoding fundamentally changes how we perceive economic size.
+          In the choropleth, Russia looks economically significant because it is dark and huge.
+          In the cartogram, Russia's shrinkage reveals that its economy is modest relative to its territory.
+          Conversely, small rich nations that were barely visible in the choropleth become impossible to ignore in the cartogram.
+          Area encoding feels more "honest" for magnitude comparison, while color encoding feels more familiar for geographic pattern recognition.
+        </p>
+      </div>
+    </section>
+
+    <!-- Comments -->
+    <section class="glass comments-section" style="margin-top:28px;">
+      <h2><span class="icon">💬</span> Comments</h2>
+      <div class="comment-form">
+        <input type="text" id="comment-name" placeholder="Your name" maxlength="30">
+        <textarea id="comment-body" placeholder="Your thoughts..." maxlength="500"></textarea>
+        <button class="btn" onclick="addComment()">Post Comment</button>
+      </div>
+      <div class="comment-list" id="comment-list">
+        <div class="comment-empty">No comments yet.</div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -50,14 +138,23 @@
     <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script src="lab9.js"></script>
+
   <script>
+    /* ===== Particle Background ===== */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resizeCanvas(); window.addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
+      constructor() {
+        this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2;
+      }
       update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
       draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
     }
@@ -74,6 +171,41 @@
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    /* ===== Comments ===== */
+    const COMMENT_KEY = 'stats401-lab9-comments';
+    function loadComments() {
+      const list = document.getElementById('comment-list');
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      if (comments.length === 0) {
+        list.innerHTML = '<div class="comment-empty">No comments yet.</div>';
+        return;
+      }
+      list.innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">${escapeHtml(c.name)}</span>
+            <span class="comment-meta">${c.time}</span>
+          </div>
+          <div class="comment-body">${escapeHtml(c.body)}</div>
+        </div>
+      `).join('');
+    }
+    function addComment() {
+      const name = document.getElementById('comment-name').value.trim();
+      const body = document.getElementById('comment-body').value.trim();
+      if (!name || !body) { alert('Please fill in both fields.'); return; }
+      const comments = JSON.parse(localStorage.getItem(COMMENT_KEY) || '[]');
+      comments.unshift({ name, body, time: new Date().toLocaleString() });
+      localStorage.setItem(COMMENT_KEY, JSON.stringify(comments.slice(0, 50)));
+      document.getElementById('comment-name').value = '';
+      document.getElementById('comment-body').value = '';
+      loadComments();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div'); div.textContent = text; return div.innerHTML;
+    }
+    loadComments();
   </script>
 </body>
 </html>
