@@ -3,77 +3,525 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 10 — Coming Soon</title>
+  <title>Lab 10: Novel Interaction — Ruisheng Sun</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <!-- LAB10 BUILD v1 (extends Lab 9) -->
+  <style>
+    /* ---- Lab 10 additions (scoped) ---- */
+    .map-wrap { display:flex; justify-content:center; }
+    .map-note { font-size:0.8rem; color:var(--text-dim); margin-top:14px; text-align:center; }
+    .map-legend { display:flex; justify-content:center; margin-top:6px; }
+    .map-legend svg text { fill: var(--text-dim); font-size: 11px; font-family:'SF Mono', monospace; }
+    .country { stroke:#0f0f1a; stroke-width:0.6; cursor:pointer; }
+    .country.hovered, #cartogram-container path.hovered { stroke:#f472b6; stroke-width:2.5; }
+    .country.selected, #cartogram-container path.selected { stroke:#f472b6; stroke-width:3; }
+    #cartogram-container { width:100%; max-width:960px; margin:0 auto; }
+    #cartogram-container svg { display:block; margin:0 auto; width:100% !important; height:auto !important; }
+    #cartogram-container path.feature { stroke:#0f0f1a; stroke-width:0.8; }
+    .voice-panel { background:rgba(0,0,0,0.2); border:1px solid var(--border-glass); border-radius:12px; padding:20px; margin-top:8px; }
+    .voice-line { font-family:'SF Mono', monospace; font-size:0.85rem; margin:4px 0; color:var(--text-dim); }
+    .voice-line b { color:var(--accent); }
+    .cmd-row { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+    .cmd-btn { padding:8px 16px; border-radius:50px; border:1px solid var(--border-glass); background:var(--bg-glass); color:var(--text); font-weight:600; font-size:0.82rem; cursor:pointer; transition:var(--transition); font-family:inherit; }
+    .cmd-btn:hover { border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
+    .voice-input-row { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
+    .voice-input-row input { flex:1; min-width:220px; background:rgba(0,0,0,0.2); border:1px solid var(--border-glass); border-radius:50px; padding:10px 18px; color:var(--text); font-family:inherit; outline:none; }
+    .voice-input-row input:focus { border-color:var(--accent); }
+    code { background:rgba(0,0,0,0.3); padding:1px 6px; border-radius:6px; font-size:0.85em; }
+  </style>
+<base target="_blank">
 </head>
 <body>
   <div class="bg-gradient"></div>
   <canvas id="bg-canvas"></canvas>
 
   <div class="lab-container">
-    <a href="../index.html" class="back-link">&larr; Back to Home</a>
-
+    <a href="../index.html" class="back-link">&larr; Back to Lab Portfolio</a>
     <div class="lab-header">
-      <h1>Lab 10: Coming Soon</h1>
-      <p class="subtitle">This lab will be added later in the semester</p>
+      <h1>Lab 10: Novel Interaction with Visualizations</h1>
+      <p class="subtitle">Voice-Controlled 2025 GDP Maps &mdash; extends Lab 9</p>
     </div>
 
-    <nav class="lab-nav">
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="index.html" class="active">Lab 10</a>
-      <a href="../lab1/index.html">Lab 1</a>
-      <a href="../lab2/index.html">Lab 2</a>
-      <a href="../lab3/index.html">Lab 3</a>
-      <a href="../lab4/index.html">Lab 4</a>
-      <a href="../lab5/index.html">Lab 5</a>
-      <a href="../lab6/index.html">Lab 6</a>
-      <a href="../lab7/index.html">Lab 7</a>
-      <a href="../lab8/index.html">Lab 8</a>
-    </nav>
+    <main>
+      <!-- ================= 1. What I Extended ================= -->
+      <section class="glass">
+        <h2><span class="icon">📁</span> 1. What I Extended</h2>
+        <p>
+          This lab reuses my <strong>Lab 9 geospatial visualization</strong>: a choropleth (color = 2025 nominal GDP,
+          true geography) and a cartogram (area = 2025 GDP) of the top-50 economies, joined to world boundaries via
+          ISO-3 identifiers. The data are the same <code>data/lab9_gdp_2025_top50.csv</code> file (IMF WEO, October 2025).
+        </p>
+        <p>
+          On top of the existing mouse interaction (hover tooltips, linked highlighting, zoom/pan), the maps below now
+          accept <strong>voice commands</strong>. Conventional controls are still provided, so the page remains fully
+          usable if speech recognition is unavailable.
+        </p>
+      </section>
 
-    <div class="chart-card glass placeholder">
-      <div class="placeholder-icon">📊</div>
-      <h2 style="margin-bottom:12px;">Lab 10 is under construction</h2>
-      <p style="max-width:400px;margin:0 auto 24px;">
-        This page is a placeholder. The visualization and content for Lab 10 
-        will be added as the course progresses.
-      </p>
-      <a href="../lab1/index.html" class="btn">Check out Lab 1</a>
-      <a href="../index.html" class="btn btn-secondary" style="margin-left:10px;">Back to Home</a>
-    </div>
+      <!-- ================= 2. Voice Control ================= -->
+      <section class="glass">
+        <h2><span class="icon">🎙️</span> 2. Voice Control</h2>
+        <p>
+          Click <strong>Start Voice Control</strong> and say a command (the microphone is only activated by this
+          explicit click, after which the browser asks for permission). The page always shows what it heard and what
+          it did. If voice is not supported (e.g. some browsers) or permission is denied, use the buttons or type a
+          command &mdash; they run the exact same functions.
+        </p>
+        <p style="font-size:0.88rem;">
+          Commands: <code>"Show Europe"</code> (also Asia, Africa, Americas, Oceania) &bull;
+          <code>"Highlight China"</code> (any top-50 country) &bull; <code>"Zoom in"</code> / <code>"Zoom out"</code> &bull;
+          <code>"Reset zoom"</code> &bull; <code>"Reset"</code> (clear filter + selection + zoom).
+        </p>
+        <div class="voice-panel">
+          <button id="voice-button" class="btn">🎤 Start Voice Control</button>
+          <p class="voice-line" id="voice-status" style="margin-top:12px;">Voice control inactive — click the button, or use the controls below.</p>
+          <p class="voice-line" id="voice-heard"></p>
+          <p class="voice-line" id="voice-feedback"></p>
+          <div class="cmd-row">
+            <button class="cmd-btn" data-cmd="show europe">Show Europe</button>
+            <button class="cmd-btn" data-cmd="show asia">Show Asia</button>
+            <button class="cmd-btn" data-cmd="show africa">Show Africa</button>
+            <button class="cmd-btn" data-cmd="show americas">Show Americas</button>
+            <button class="cmd-btn" data-cmd="show oceania">Show Oceania</button>
+            <button class="cmd-btn" data-cmd="highlight china">Highlight China</button>
+            <button class="cmd-btn" data-cmd="zoom in">Zoom In</button>
+            <button class="cmd-btn" data-cmd="zoom out">Zoom Out</button>
+            <button class="cmd-btn" data-cmd="reset">Reset</button>
+          </div>
+          <div class="voice-input-row">
+            <input type="text" id="voice-text" placeholder="…or type a command, e.g. “highlight japan”, then press Enter">
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. Choropleth ================= -->
+      <section class="glass chart-card">
+        <h2 class="chart-title" style="font-size:1.3rem;">🗺️ 3. 2025 GDP Choropleth &mdash; Color = GDP</h2>
+        <p style="max-width:760px;margin:0 auto 18px;">
+          Real geographic boundaries, color encodes 2025 nominal GDP on a log scale. Voice filters dim everything
+          outside the spoken region; a highlighted country gets a bright outline in <strong>both</strong> maps.
+        </p>
+        <div class="map-wrap"><svg id="choropleth"></svg></div>
+        <div class="map-legend" id="legend"></div>
+        <p class="map-note">Darker/bluer &rarr; larger GDP (log scale) &bull; dark gray = no data (outside top 50).
+        Scroll to zoom, drag to pan.</p>
+      </section>
+
+      <!-- ================= 4. Cartogram ================= -->
+      <section class="glass chart-card">
+        <h2 class="chart-title" style="font-size:1.3rem;">🌐 4. 2025 GDP Cartogram &mdash; Area = GDP</h2>
+        <p style="max-width:760px;margin:0 auto 18px;">
+          The same data with area distorted so each country&rsquo;s size reflects its GDP. Voice highlighting works
+          here too &mdash; useful because distortion makes countries hard to recognize.
+        </p>
+        <div id="cartogram-container"></div>
+        <p class="map-note" id="cartogram-note">Country area is proportional to 2025 nominal GDP. Only the 50 economies with data are shown.</p>
+        <p class="map-note" id="cartogram-status" style="color:var(--accent);">Rendering cartogram&hellip;</p>
+      </section>
+
+      <!-- ================= 5. Design Reflection ================= -->
+      <section class="glass">
+        <h2><span class="icon">🪞</span> 5. Design Reflection</h2>
+        <p>
+          I extended my Lab 9 geospatial visualization, the 2025 GDP choropleth and cartogram, with voice
+          interaction. Saying &ldquo;Show Europe&rdquo; filters the map by region, &ldquo;Highlight China&rdquo;
+          selects a country and reports its GDP and rank, &ldquo;Zoom in&rdquo;, &ldquo;Zoom out&rdquo; and
+          &ldquo;Reset zoom&rdquo; control the view, and &ldquo;Reset&rdquo; clears everything.
+        </p>
+        <p>
+          The task it supports is hands-free exploration: presenting the maps to someone without touching the
+          mouse, or helping users who struggle with fine cursor control. Voice fits this task because filtering
+          and naming are naturally verbal acts &mdash; saying &ldquo;highlight Japan&rdquo; is faster than hunting
+          for Japan with a cursor on a crowded map. I chose voice over gesture or gaze because the Web Speech API needs no
+          model files and runs on GitHub Pages HTTPS, while webcam libraries are heavy and gaze is too noisy for
+          precise selection.
+        </p>
+        <p>
+          Limitations: recognition works reliably only in Chrome or Edge, it needs microphone permission,
+          and country names are sometimes misheard (&ldquo;Turkiye&rdquo;, &ldquo;UAE&rdquo;). Buttons and a
+          typed-command box are the conventional fallback, so the page stays fully usable without a microphone.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Ruisheng (Rosa) Sun</strong> &bull; rs689@duke.edu</p>
+      <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Lab 10 &bull; Extends Lab 9 &bull; Data: IMF WEO October 2025 (top-50 nominal GDP)</p>
+    </footer>
   </div>
 
-  <footer>
-    <p><strong>Ruisheng (Rosa) Sun</strong> &bull; rs689@duke.edu</p>
-    <p style="margin-top:6px;opacity:0.7;">STATS 401 &bull; Data Acquisition and Visualization</p>
-  </footer>
+  <div id="tooltip" class="tooltip"></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-server@3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cartogram-chart"></script>
+  <script src="../js/main.js"></script>
   <script>
+    /* ================= Particle background (consistent with portfolio) ================= */
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
-    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+    function resizeCanvas(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+    resizeCanvas(); addEventListener('resize', resizeCanvas);
     class Particle {
-      constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3; this.radius = Math.random()*2+1; this.alpha = Math.random()*0.5+0.2; }
-      update() { this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; }
-      draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.radius,0,Math.PI*2); ctx.fillStyle=`rgba(56,189,248,${this.alpha})`; ctx.fill(); }
+      constructor(){ this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height;
+        this.vx = (Math.random()-.5)*.3; this.vy = (Math.random()-.5)*.3;
+        this.radius = Math.random()*2+1; this.alpha = Math.random()*.5+.2; }
+      update(){ this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1; }
+      draw(){ ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(56,189,248,' + this.alpha + ')'; ctx.fill(); }
     }
-    for(let i=0;i<60;i++) particles.push(new Particle());
-    function animateParticles() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      particles.forEach(p=>{p.update();p.draw();});
-      for(let i=0;i<particles.length;i++){
-        for(let j=i+1;j<particles.length;j++){
-          const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<150){ ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle=`rgba(56,189,248,${0.1*(1-dist/150)})`; ctx.lineWidth=0.5; ctx.stroke(); }
+    for (let i = 0; i < 60; i++) particles.push(new Particle());
+    (function animate(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      for (let i = 0; i < particles.length; i++) for (let j = i+1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 150) { ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = 'rgba(56,189,248,' + (0.1*(1-dist/150)) + ')';
+          ctx.lineWidth = 0.5; ctx.stroke(); }
+      }
+      requestAnimationFrame(animate);
+    })();
+  </script>
+
+  <script>
+    /* ============ Lab 10 — Lab 9 maps + NOVEL VOICE INTERACTION ============ */
+
+    const GEOJSON_URLS = [
+      'https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@master/geojson/ne_110m_admin_0_countries.geojson',
+      'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
+    ];
+    const NO_DATA_FILL = '#3a3a4d';
+    const tooltip = d3.select('#tooltip');
+
+    function isoOf(f) {
+      const p = f.properties || {};
+      return (p.ISO_A3 && p.ISO_A3 !== '-99') ? p.ISO_A3 : (p.ADM0_A3 || null);
+    }
+    async function loadGeoJson() {
+      for (const url of GEOJSON_URLS) {
+        try { return await d3.json(url); } catch (e) { console.warn('GeoJSON load failed:', url, e); }
+      }
+      throw new Error('Could not load world GeoJSON from any source.');
+    }
+    const fmtGDP = v => '$' + d3.format(',.0f')(v) + 'B';
+
+    Promise.all([
+      loadGeoJson(),
+      d3.csv('../data/lab9_gdp_2025_top50.csv', d => ({
+        iso3: d.iso3.trim(), country: d.country, gdp: +d.gdp_2025_billion_usd, rank: +d.rank
+      }))
+    ]).then(([geoData, stats]) => {
+
+      const gdpByIso  = new Map(stats.map(d => [d.iso3, d.gdp]));
+      const nameByIso = new Map(stats.map(d => [d.iso3, d.country]));
+      const rankByIso = new Map(stats.map(d => [d.iso3, d.rank]));
+
+      // join GDP + GeoJSON on ISO-3 (Lab 9, Part A)
+      geoData.features.forEach(f => {
+        const iso = isoOf(f);
+        f.properties.iso3 = iso;
+        f.properties.gdp = gdpByIso.get(iso) ?? null;   // null = no data, NOT zero
+      });
+      const withData = geoData.features.filter(f => f.properties.gdp != null);
+
+      const gdpVals = stats.map(d => d.gdp);
+      const gdpMin = d3.min(gdpVals), gdpMax = d3.max(gdpVals);
+      const ramp = t => d3.interpolateRgbBasis(['#1b2a4a', '#155e8a', '#38bdf8', '#f472b6'])(t);
+      const colorScale = d3.scaleSequentialLog(ramp).domain([gdpMin, gdpMax]);
+      const fillFor = v => (v == null ? NO_DATA_FILL : colorScale(v));
+      const regionOf = f => f.properties.REGION_UN || null;
+
+      /* ---------- interaction STATE (filter / selection) shared by input modalities ---------- */
+      let regionFilter = null;    // e.g. "Europe" or null
+      let selectedIso  = null;    // sticky voice/click selection
+
+      /* ================= Choropleth ================= */
+      const W = 960, H = 540;
+      const svg = d3.select('#choropleth')
+        .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%').style('max-width', W + 'px');
+      const projection = d3.geoNaturalEarth1().fitSize([W, H], geoData);
+      const path = d3.geoPath().projection(projection);
+      const mapGroup = svg.append('g').attr('id', 'map-group');
+
+      const countries = mapGroup.selectAll('.country')
+        .data(geoData.features).join('path')
+        .attr('class', 'country')
+        .attr('d', path)
+        .attr('fill', d => fillFor(d.properties.gdp));
+
+      const zoom = d3.zoom().scaleExtent([1, 8])
+        .on('zoom', ev => mapGroup.attr('transform', ev.transform));
+      svg.call(zoom);
+      function zoomBy(f)     { svg.transition().duration(350).call(zoom.scaleBy, f); }
+      function zoomResetFn() { svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity); }
+
+      /* ---------- linked transient hover (mouse) ---------- */
+      function setHighlight(iso) {
+        countries.classed('hovered', d => iso !== null && d.properties.iso3 === iso);
+        d3.selectAll('#cartogram-container path').each(function (d) {
+          const match = !!(d && d.properties && iso !== null && d.properties.iso3 === iso);
+          d3.select(this).classed('hovered', match);
+          if (match && this.parentNode) this.parentNode.appendChild(this);
+        });
+      }
+
+      countries
+        .on('mouseover', function (event, d) {
+          const iso = d.properties.iso3, v = d.properties.gdp;
+          tooltip.style('opacity', 1).html(
+            '<strong>' + (nameByIso.get(iso) || d.properties.NAME || iso) + '</strong>' +
+            (v == null ? '2025 GDP: no data (outside top 50)'
+                       : '2025 GDP: ' + fmtGDP(v) + '<br>Rank: #' + rankByIso.get(iso)));
+          setHighlight(iso);
+        })
+        .on('mousemove', function (event) {
+          tooltip.style('left', (event.pageX + 12) + 'px').style('top', (event.pageY + 12) + 'px');
+        })
+        .on('mouseout', function () { tooltip.style('opacity', 0); setHighlight(null); })
+        .on('click', function (event, d) {           // conventional selection fallback
+          selectedIso = (selectedIso === d.properties.iso3) ? null : d.properties.iso3;
+          applyState();
+        });
+
+      /* ---------- apply filter + selection to BOTH maps ---------- */
+      function applyState() {
+        countries
+          .classed('selected', d => d.properties.iso3 === selectedIso)
+          .attr('opacity', d => (!regionFilter || regionOf(d) === regionFilter) ? 1 : 0.12);
+        d3.selectAll('#cartogram-container path').each(function (d) {
+          if (!d || !d.properties) return;
+          d3.select(this)
+            .classed('selected', d.properties.iso3 === selectedIso)
+            .attr('opacity', (!regionFilter || regionOf(d) === regionFilter) ? 1 : 0.12);
+        });
+      }
+
+      /* ---------- quantitative legend ---------- */
+      (function renderLegend() {
+        const lw = 440, lh = 12, gx = 24;
+        const leg = d3.select('#legend').append('svg').attr('width', lw + 60).attr('height', 52);
+        const grad = leg.append('defs').append('linearGradient').attr('id', 'gdp-gradient');
+        for (let i = 0; i <= 24; i++)
+          grad.append('stop').attr('offset', (i / 24 * 100) + '%').attr('stop-color', ramp(i / 24));
+        leg.append('rect').attr('x', gx).attr('y', 8).attr('width', lw).attr('height', lh)
+           .attr('rx', 6).attr('fill', 'url(#gdp-gradient)');
+        const legScale = d3.scaleLog().domain([gdpMin, gdpMax]).range([gx, gx + lw]);
+        leg.append('g').attr('transform', 'translate(0,' + (8 + lh) + ')')
+           .call(d3.axisBottom(legScale).tickValues([250, 500, 1000, 2500, 5000, 10000, 30000])
+                   .tickFormat(d => '$' + d3.format('~s')(d) + 'B'))
+           .call(g => g.select('.domain').remove());
+      })();
+
+      /* ================= Cartogram (unchanged from Lab 9) ================= */
+      const collection = { type: 'FeatureCollection', features: withData };
+      const cartoContainer = document.getElementById('cartogram-container');
+      const status = m => d3.select('#cartogram-status').text(m);
+
+      function linkCartogramPaths() {
+        d3.select(cartoContainer).selectAll('path')
+          .style('cursor', 'pointer')
+          .on('mouseenter.lab9', function (event, d) {
+            if (!d || !d.properties) return;
+            setHighlight(d.properties.iso3);
+          })
+          .on('mouseleave.lab9', function () { setHighlight(null); })
+          .on('click.lab10', function (event, d) {   // conventional selection fallback
+            if (!d || !d.properties) return;
+            selectedIso = (selectedIso === d.properties.iso3) ? null : d.properties.iso3;
+            applyState();
+          });
+      }
+      function renderFallbackCartogram() {
+        const cproj = d3.geoNaturalEarth1().fitSize([W, H], geoData);
+        const cpath = d3.geoPath().projection(cproj);
+        const totalGDP = d3.sum(stats, d => d.gdp);
+        const packArea = W * H * 0.45;
+        collection.features.forEach(f => {
+          const a = Math.max(cpath.area(f), 1e-6);
+          f._s = Math.sqrt(((f.properties.gdp / totalGDP) * packArea) / a);
+          f._c = cpath.centroid(f);
+        });
+        d3.select(cartoContainer).append('svg')
+          .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%').style('max-width', W + 'px')
+          .selectAll('path').data(collection.features).join('path')
+          .attr('class', 'feature')
+          .attr('d', cpath)
+          .attr('transform', f => 'translate(' + f._c + ') scale(' + f._s + ') translate(' + (-f._c[0]) + ',' + (-f._c[1]) + ')')
+          .attr('fill', f => fillFor(f.properties.gdp));
+        linkCartogramPaths();
+      }
+      function renderLibraryCartogram() {
+        const Lib = window.Cartogram || window.CartogramChart;
+        if (typeof Lib !== 'function') throw new Error('cartogram-chart global not found');
+        if (typeof topojson !== 'object' || !topojson.topology) throw new Error('topojson-server not loaded');
+        const topology = topojson.topology({ countries: collection });
+        new Lib(cartoContainer)
+          .width(W).height(H)
+          .topoJson(topology)
+          .topoObjectName('countries')
+          .projection(d3.geoNaturalEarth1().fitSize([W, H], geoData))
+          .iterations(24)
+          .value(d => d.properties.gdp)
+          .color(d => fillFor(d.properties.gdp))
+          .label(d => nameByIso.get(d.properties.iso3) || d.properties.NAME)
+          .valFormatter(n => '$' + d3.format(',.0f')(n))
+          .units('B USD')
+          .tooltipContent(d => 'Rank: #' + rankByIso.get(d.properties.iso3) + ' of 50 — area ∝ GDP');
+        const out = cartoContainer.querySelector('svg');
+        if (!out || !out.querySelectorAll('path').length) throw new Error('library produced an empty map');
+        linkCartogramPaths();
+      }
+      let fallbackHTML = '';
+      try { renderFallbackCartogram(); fallbackHTML = cartoContainer.innerHTML; }
+      catch (e) { console.error('Fallback cartogram failed:', e); status('Cartogram error: ' + e.message); }
+      try {
+        cartoContainer.innerHTML = '';
+        renderLibraryCartogram();
+        status('Contiguous cartogram (Gastner–Newman diffusion, cartogram-chart library). Area = GDP.');
+      } catch (e) {
+        console.warn('Lab 10: cartogram-chart unavailable, using built-in non-contiguous cartogram.', e.message);
+        cartoContainer.innerHTML = fallbackHTML;
+        linkCartogramPaths();
+        status('Non-contiguous cartogram (pure D3): each country scaled about its centroid so area ∝ GDP. Area = GDP.');
+      }
+      applyState();   // apply initial (empty) filter/selection state
+
+      /* =====================================================
+         NOVEL INTERACTION — VOICE (plus button/typed fallback)
+         Every input path ends in the same visualization functions:
+         filterRegion(), selectCountry(), zoomBy(), zoomResetFn(), resetViz()
+         ===================================================== */
+      const say = m => d3.select('#voice-feedback').text(m);
+      const heard = m => d3.select('#voice-heard').text(m);
+
+      const REGIONS = {
+        europe: 'Europe', asia: 'Asia', africa: 'Africa',
+        americas: 'Americas', america: 'Americas',
+        oceania: 'Oceania', australia: 'Oceania'
+      };
+      const ALIASES = {
+        'usa': 'united states', 'u s': 'united states', 'america': 'united states',
+        'uk': 'united kingdom', 'u k': 'united kingdom', 'britain': 'united kingdom',
+        'uae': 'united arab emirates', 'korea': 'south korea',
+        'russia': 'russia', 'turkey': 'turkiye', 'türkiye': 'turkiye',
+        'czech republic': 'czechia', 'holland': 'netherlands', 'vietnam': 'vietnam'
+      };
+      function findCountry(spokenRaw) {
+        let s = spokenRaw.toLowerCase().trim();
+        s = ALIASES[s] || s;
+        if (!s) return null;
+        const byIso = stats.find(d => d.iso3.toLowerCase() === s);
+        if (byIso) return byIso;
+        const exact = stats.find(d => d.country.toLowerCase() === s);
+        if (exact) return exact;
+        return stats.find(d => d.country.toLowerCase().includes(s)) || null;
+      }
+      function countryAction(spoken) {
+        const hit = findCountry(spoken);
+        if (hit) {
+          selectedIso = hit.iso3;
+          applyState();
+          say('Action: Highlighting ' + hit.country + ' — ' + fmtGDP(hit.gdp) + ', rank #' + hit.rank + ' of 50 (outlined in both maps).');
+        } else {
+          say('Could not find country "' + spoken + '". Try: "Highlight Japan", "Highlight United States".');
         }
       }
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
+      function filterRegion(region) {
+        regionFilter = region;
+        applyState();
+        say('Action: Filtering to ' + region + ' — everything else dimmed in both maps. Say "Reset" to clear.');
+      }
+      function resetViz() {
+        regionFilter = null; selectedIso = null;
+        applyState(); zoomResetFn();
+        say('Action: Reset — filter, selection, and zoom cleared.');
+      }
+
+      function handleVoiceCommand(command) {
+        const t = command.toLowerCase().trim();
+        if (t.includes('reset zoom')) { zoomResetFn(); say('Action: Zoom reset.'); }
+        else if (t.includes('zoom in'))  { zoomBy(1.5); say('Action: Zooming in.'); }
+        else if (t.includes('zoom out')) { zoomBy(1 / 1.5); say('Action: Zooming out.'); }
+        else if (t.includes('reset') || t.includes('clear') || t.includes('show all') || t.includes('show everything')) { resetViz(); }
+        else if (t.startsWith('show ')) {
+          const rest = t.slice(5).trim();
+          const r = REGIONS[rest];
+          if (r) filterRegion(r);
+          else countryAction(rest);                       // "show china" -> highlight
+        }
+        else if (t.includes('highlight ')) { countryAction(t.split('highlight ')[1] || ''); }
+        else if (t.startsWith('select '))  { countryAction(t.slice(7).trim()); }
+        else {
+          say('Command not recognized. Try: "Show Europe", "Highlight China", "Zoom in", "Reset".');
+        }
+      }
+
+      /* ---------- Web Speech API wiring (explicit user action required) ---------- */
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const statusEl = d3.select('#voice-status');
+      if (!SpeechRecognition) {
+        statusEl.text('Speech recognition is not supported in this browser — use the buttons or type a command below. (Chrome/Edge recommended.)');
+        d3.select('#voice-button').property('disabled', true).style('opacity', 0.5);
+      } else {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        d3.select('#voice-button').on('click', function () {
+          try { recognition.start(); } catch (e) { /* already started */ }
+          statusEl.text('Listening… say a command, e.g. "Show Europe".');
+        });
+        recognition.onresult = function (event) {
+          const transcript = event.results[0][0].transcript.toLowerCase().trim();
+          heard('Heard: "' + transcript + '"');
+          handleVoiceCommand(transcript);
+        };
+        recognition.onend = function () {
+          statusEl.text('Voice control inactive — click "Start Voice Control" to talk.');
+        };
+        recognition.onerror = function (event) {
+          const msgs = {
+            'not-allowed': 'Microphone permission blocked. Allow mic access, or use the buttons/text below.',
+            'no-speech': 'No speech detected. Click the button and try again.',
+            'audio-capture': 'No microphone found. Use the buttons/text below.',
+            'network': 'Speech service unreachable (network). Use the buttons/text below.'
+          };
+          statusEl.text(msgs[event.error] || ('Voice error: ' + event.error + ' — use the buttons/text below.'));
+        };
+      }
+
+      /* ---------- conventional fallback controls ---------- */
+      d3.selectAll('.cmd-btn').on('click', function () {
+        const cmd = d3.select(this).attr('data-cmd');
+        heard('(button) "' + cmd + '"');
+        handleVoiceCommand(cmd);
+      });
+      d3.select('#voice-text').on('keydown', function (event) {
+        if (event.key !== 'Enter') return;
+        const v = this.value.trim();
+        if (!v) return;
+        heard('(typed) "' + v + '"');
+        handleVoiceCommand(v);
+        this.value = '';
+      });
+
+    }).catch(err => {
+      console.error('Lab 10 failed to load:', err);
+      d3.select('main').insert('section', ':first-child')
+        .attr('class', 'glass').attr('style', 'border-color:#f472b6')
+        .html('<h2>⚠️ Data loading error</h2><p>Could not load the world GeoJSON or the GDP CSV. ' +
+              'Serve the site over HTTP (e.g. <code>python -m http.server</code>), not file://. ' +
+              'Details: ' + err.message + '</p>');
+    });
   </script>
 </body>
 </html>
