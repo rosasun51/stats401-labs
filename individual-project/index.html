@@ -1,314 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Individual Project — Visualization Critique &amp; Redesign</title>
-<!-- D3 with CDN fallback chain: jsdelivr → unpkg → cdnjs -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-<script>if (typeof d3 === "undefined") document.write('<script src="https://unpkg.com/d3@7"><\/script>');</script>
-<script>if (typeof d3 === "undefined") document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"><\/script>');</script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0f0f1a; --card:rgba(255,255,255,.05); --border:rgba(255,255,255,.12);
-  --text:#e2e8f0; --muted:#94a3b8; --cyan:#38bdf8; --pink:#f472b6;
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Individual Project — Visualization Critique &amp; Redesign</title> <!-- D3 with CDN fallback chain: jsdelivr → unpkg → cdnjs --> <script src="https://cdn.jsdelivr.net/npm/d3@7"></script> <script>if (typeof d3 === "undefined") document.write('<script src="https://unpkg.com/d3@7"><\\/script>');</script> <script>if (typeof d3 === "undefined") document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"><\\/script>');</script> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"> <style> :root{   --bg:#0f0f1a; --card:rgba(255,255,255,.05); --border:rgba(255,255,255,.12);   --text:#e2e8f0; --muted:#94a3b8; --cyan:#38bdf8; --pink:#f472b6; } *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6} #bg{position:fixed;inset:0;z-index:-1} main{max-width:1100px;margin:0 auto;padding:32px 20px 60px;position:relative;z-index:1} h1{font-size:26px;margin:0 0 4px} h1 .grad{background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent} .sub{color:var(--muted);margin:0 0 24px;font-size:14px} .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;margin-bottom:22px;backdrop-filter:blur(8px)} h2{font-size:18px;margin:0 0 10px;color:var(--cyan)} h3{font-size:15px;margin:14px 0 6px;color:var(--pink)} a{color:var(--cyan)} img.orig{max-width:100%;border-radius:10px;border:1px solid var(--border);display:block;margin:10px 0;background:#fff} ul{margin:6px 0;padding-left:20px} li{margin:3px 0;font-size:14.5px} .chip{display:inline-block;padding:3px 12px;margin:2px;border-radius:14px;border:1px solid var(--border);   cursor:pointer;font-size:13px;user-select:none;background:rgba(255,255,255,.06)} .chip.off{opacity:.35;text-decoration:line-through} .chip.on{border-color:#fff;box-shadow:0 0 8px rgba(255,255,255,.35)} #controls{margin:6px 0 14px;color:var(--muted);font-size:13px} #controls b{color:var(--text)} #controls input{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:10px;   color:var(--text);padding:4px 10px;font-family:inherit;font-size:12.5px;width:150px;outline:none} #controls input:focus{border-color:var(--cyan)} .axis text{font-size:10px;fill:var(--muted)} .axis line,.axis path{stroke:rgba(255,255,255,.18)} .cline{fill:none;stroke-width:1.3} .hitline{fill:none;stroke:transparent;stroke-width:12;cursor:pointer} #tooltip{position:absolute;pointer-events:none;background:rgba(15,15,26,.95);border:1px solid var(--border);   color:var(--text);padding:7px 11px;border-radius:8px;font-size:12.5px;display:none;z-index:5;line-height:1.6} .note{font-size:12.5px;color:var(--muted)} .src{font-size:12.5px;color:var(--muted);margin-top:16px;border-top:1px solid var(--border);padding-top:10px} #err{color:var(--pink);font-size:14px;padding:10px} </style> <base target="_blank"> </head> <body> <canvas id="bg"></canvas> <main>   <h1>Visualization Critique <span class="grad">&amp;</span> Redesign</h1>   <p class="sub">STATS 401 Individual Project &middot; <b>Life expectancy, 1950&ndash;2023</b> &middot; Our World in Data (Riley 2005; HMD 2025; UN WPP 2024, CC BY 4.0) &middot; Ruisheng (Rosa) Sun</p>    <!-- ================= PART 1 : ORIGINAL + CRITIQUE ================= -->   <section class="card">     <h2>Part 1 &middot; The Original Visualization &amp; Critique</h2>     <p><b>Source:</b> <a href="https://ourworldindata.org/grapher/life-expectancy">Our World in Data — &ldquo;Life expectancy&rdquo;</a>, shown in <b>Bar</b> mode for 2023 (the grapher also offers Line/Map/Table and a 1770&ndash;2023 time slider).</p>     <p><b>Data:</b> period life expectancy at birth (years) for the World, five continents, and ~200 countries, compiled from Riley (2005), Zijdeman et&nbsp;al. (2015), the Human Mortality Database (2025) and UN World Population Prospects (2024).</p>     <img class="orig" src="original-chart.png" alt="Original bar chart: Life expectancy 2023 (World and continents)"          onerror="this.outerHTML='<p style=&quot;color:#f472b6&quot;>Screenshot not found &mdash; please copy <code>original-chart.png</code> into this folder, or <a href=&quot;https://ourworldindata.org/grapher/life-expectancy&quot;>view the original chart here</a>.</p>'">     <p class="note" style="text-align:center;margin-top:-4px">Figure 1 &middot; The original visualization: &ldquo;Life expectancy, 2023&rdquo; (Bar mode), Our World in Data.</p>      <p><b>Intended message:</b> The primary message is the comparison of regional life expectancy in 2023. The interactive time slider provides an additional way to explore how these differences changed historically. <b>Audience:</b> general public and students. <b>Tasks:</b> compare regions, read the 2023 ranking, and (if they press play) watch the evolution.</p>      <h3>Strengths</h3>     <ul>       <li>Readable bars, direct value labels (Oceania 79.1 years, Africa 63.8 years), and descending order make the 2023 ranking visible at a glance.</li>       <li>Distinct colors help separate regions, while the minimal design and clearly stated sources support readability and transparency.</li>       <li>On the source site, hovering gives exact values and the 1770&ndash;2023 slider can play the evolution year by year.</li>     </ul>     <h3>Weaknesses</h3>     <ul>       <li><b>Only regional averages are shown:</b> Asia&rsquo;s 74.6-year average hides substantial differences among countries, such as Japan and Afghanistan. Important within-region variation is therefore hidden.</li>       <li><b>The default view is a single-year snapshot:</b> historical trends require the time slider, and animation is less effective for precise comparisons between specific years because viewers must rely on memory. A static time-series view would make those comparisons easier.</li>       <li><b>Scalability:</b> the chart is optimized for a small set of regional comparisons. Comparing many countries can become difficult to interpret, especially when numerous lines and repeated colors appear. Ranking controls, search, and highlighting could make country-level exploration more manageable.</li>     </ul>     <p class="note">References for this part: <a href="https://ourworldindata.org/grapher/life-expectancy">Our World in Data grapher</a> &middot; <a href="https://ourworldindata.org/grapher/life-expectancy.csv?csvType=full">full CSV download</a> (CC BY 4.0).</p>   </section>    <!-- ================= PART 2 : D3 REDESIGN ================= -->   <section class="card">     <h2>Part 2 &middot; My Redesign — From One-Year Bars to a Focusable Country Explorer (D3.js v7)</h2>     <p>Same dataset, rebuilt for the country-level story: countries are represented as trajectories on a shared 1950&ndash;2023 axis, <b>colored by continent</b>, with ranking filters and focus interactions to manage overplotting; the legend is a row of continent chips &mdash; hovering one brightens that continent&rsquo;s countries and fades everything else, clicking pins it. <b>Hover any line</b> to keep it crisp while the other ~200 fade to ghosts, with a tooltip showing its value at that year and its gain since 1950; a dashed World line is the reference. <b>Top-10/20/50/All</b> ranking and an instant <b>search</b> box replace the flat picker. Full trajectories replace the single-year snapshot.</p>     <div id="controls"></div>     <div id="chart"></div>     <div id="tooltip"></div>     <p class="note">Note: end labels appear when &le;25 countries are shown (otherwise they collide); use hover/search for any country. Continent colors are mapped in-page from ISO country codes (OWID CSVs carry no Continent column); unrecognized economies land in gray &ldquo;Other&rdquo;.</p>     <p class="note">Data: <code>../data/life-expectancy.csv</code> (full CSV linked above), loaded with <code>d3.csv</code>.</p>   </section>    <!-- ================= PART 3 : REPORT ================= -->   <section class="card">     <h2>Part 3 &middot; Report</h2>     <p class="note">Also available as <a href="report.md">report.md</a>.</p>      <h3>Original visualization and context</h3>     <p>The original is a <b>bar chart of life expectancy in 2023</b> for six entities: Oceania (79.1 yrs), Europe (79.1), the Americas (77.3), Asia (74.6), the World (73.2), and Africa (63.8). The grapher also offers a 1770&ndash;2023 time slider that animates the same bars year by year. <b>Intended message:</b> where the world&rsquo;s regions stand on life expectancy today, and how the ranking evolved. <b>Audience:</b> the general public and students. <b>Tasks:</b> compare regions, read the 2023 ranking, and &mdash; only if the viewer presses play &mdash; watch the evolution.</p>      <h3>Critique</h3>     <p><b>Strengths.</b> (1) Readable bars, direct value labels, and descending order make the 2023 ranking visible at a glance. (2) Distinct colors help separate regions, while the minimal design and clearly stated sources support readability and transparency. (3) On the source site, hovering reports exact values, and the time slider supports exploration of historical changes.</p>     <p><b>Weaknesses.</b> (1) <i>Only continental averages are shown.</i> Each bar is a population-weighted mean: Asia&rsquo;s 74.6 merges Japan (&asymp;84) and Afghanistan (&asymp;66), and Africa&rsquo;s bar hides a 15-year spread between its countries. The most interesting stories in the data &mdash; country gaps, catch-up, outliers &mdash; are invisible. (2) <i>A single-year snapshot discards time by default.</i> Convergence, China&rsquo;s rise, and shocks such as wars or COVID-19 exist in the data but appear only while playing the slider; comparing two specific years from an animation relies on memory &mdash; and per our course material, animation supports change detection, not accurate comparison across time points. (3) <i>The chart is optimized for a small set of regional comparisons.</i> The World average sits in the same list as the continents, and the only way in is a 200+ entry picker that adds entities one at a time &mdash; at which point the clean bar view collapses into line-chart overplotting with a repeating 20-color cycle.</p>      <h3>Redesign rationale</h3>     <p>I rebuilt the visualization in D3.js (v7) from the same CSV (loaded with <code>d3.csv</code>), keeping the bar chart&rsquo;s honesty (zero-based axes, labeled values, distinct colors) while opening up the country and time dimensions.</p>     <p><b>Decision 1 &mdash; country-level lines colored by continent, with a live legend.</b> Every country becomes a line on a shared 1950&ndash;2023 axis, colored by its continent; the legend is a row of continent chips whose hover brightens that continent&rsquo;s countries and fades everything else, and whose click pins the filter. This fixes weakness 1: regional gaps (Nigeria vs. South Africa, Japan vs. Afghanistan) become visible without any picker, and color now encodes a meaningful grouping instead of recycling per-entity hues.</p>     <p><b>Decision 2 &mdash; trajectories replace the snapshot, with focus-and-fade and a quantitative tooltip.</b> Hovering a country (via a fat invisible hit-stroke so thin lines are grabbable) keeps it crisp, fades the other ~200 lines to a ghost layer, and pops up its value at the hovered year plus its change since its first data year; a dashed World line serves as the reference. This fixes weakness 2: the &ldquo;how did we get here&rdquo; story is always on screen, exact values come to the pointer, and no animation or memory is required.</p>     <p><b>Decision 3 &mdash; ranked subsets plus search instead of the flat picker.</b> A Top-10/20/50/All switch (ranked by latest value) sets a readable default, and an instant search box jumps to any country; end labels are drawn automatically when at most 25 lines are shown. This fixes weakness 3: overplotting is a choice the viewer makes, not the default, and no entity is more than a search away.</p>      <h3>Original vs. redesign</h3>     <p>The redesign keeps what the bar chart does well &mdash; honest scales, labeled values, distinct colors &mdash; while restoring the two dimensions the snapshot suppressed: the country level and full time. Any of the original&rsquo;s questions (ranking, gaps) are still answerable, plus new ones the original could not support (a country&rsquo;s whole trajectory, its gain since 1950, within-continent inequality). Trade-offs: the Top-N cutoff is a choice rather than a fact; with many lines displayed, reading still depends on focus mode; and the simplicity of six bars is intentionally traded away for depth.</p>      <h3>Figures and references</h3>     <img class="orig" src="redesign-screenshot.png" alt="Redesigned visualization: focusable country explorer" style="background:#0f0f1a"          onerror="this.outerHTML='<p style=&quot;color:#f472b6&quot;>Please copy <code>redesign-screenshot.png</code> into this folder.</p>'">     <p class="note" style="text-align:center;margin-top:-4px">Figure 2 &middot; The redesigned visualization (small-multiples-style line explorer; live version in Part 2 above).</p>     <p class="note"><b>Visualization:</b> &ldquo;Life expectancy.&rdquo; Our World in Data. <a href="https://ourworldindata.org/grapher/life-expectancy">https://ourworldindata.org/grapher/life-expectancy</a> &middot; <b>Data:</b> Riley (2005); Zijdeman et al. (2015); Human Mortality Database (2025); UN World Population Prospects (2024), via Our World in Data, CC BY 4.0.</p>   </section> </main>  <script>
+// Subtle animated background
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+let particles = [];
+function resizeCanvas(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+resizeCanvas(); addEventListener('resize', resizeCanvas);
+for(let i=0;i<42;i++) particles.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(const p of particles){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;ctx.fillStyle='rgba(56,189,248,.45)';ctx.fillRect(p.x,p.y,2,2);}
+  requestAnimationFrame(animate);
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6}
-#bg{position:fixed;inset:0;z-index:-1}
-main{max-width:1100px;margin:0 auto;padding:32px 20px 60px;position:relative;z-index:1}
-h1{font-size:26px;margin:0 0 4px}
-h1 .grad{background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:var(--muted);margin:0 0 24px;font-size:14px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;margin-bottom:22px;backdrop-filter:blur(8px)}
-h2{font-size:18px;margin:0 0 10px;color:var(--cyan)}
-h3{font-size:15px;margin:14px 0 6px;color:var(--pink)}
-a{color:var(--cyan)}
-img.orig{max-width:100%;border-radius:10px;border:1px solid var(--border);display:block;margin:10px 0;background:#fff}
-ul{margin:6px 0;padding-left:20px}
-li{margin:3px 0;font-size:14.5px}
-.chip{display:inline-block;padding:3px 12px;margin:2px;border-radius:14px;border:1px solid var(--border);
-  cursor:pointer;font-size:13px;user-select:none;background:rgba(255,255,255,.06)}
-.chip.off{opacity:.35;text-decoration:line-through}
-.chip.on{border-color:#fff;box-shadow:0 0 8px rgba(255,255,255,.35)}
-#controls{margin:6px 0 14px;color:var(--muted);font-size:13px}
-#controls b{color:var(--text)}
-#controls input{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:10px;
-  color:var(--text);padding:4px 10px;font-family:inherit;font-size:12.5px;width:150px;outline:none}
-#controls input:focus{border-color:var(--cyan)}
-.axis text{font-size:10px;fill:var(--muted)}
-.axis line,.axis path{stroke:rgba(255,255,255,.18)}
-.cline{fill:none;stroke-width:1.3}
-.hitline{fill:none;stroke:transparent;stroke-width:12;cursor:pointer}
-#tooltip{position:absolute;pointer-events:none;background:rgba(15,15,26,.95);border:1px solid var(--border);
-  color:var(--text);padding:7px 11px;border-radius:8px;font-size:12.5px;display:none;z-index:5;line-height:1.6}
-.note{font-size:12.5px;color:var(--muted)}
-.src{font-size:12.5px;color:var(--muted);margin-top:16px;border-top:1px solid var(--border);padding-top:10px}
-#err{color:var(--pink);font-size:14px;padding:10px}
-</style>
-<base target="_blank">
-</head>
-<body>
-<canvas id="bg"></canvas>
-<main>
-  <h1>Visualization Critique <span class="grad">&amp;</span> Redesign</h1>
-  <p class="sub">STATS 401 Individual Project &middot; <b>Life expectancy, 1543&ndash;2023</b> &middot; Our World in Data (UN WPP / HMD / Riley, CC BY 4.0)</p>
+animate();
 
-  <section class="card">
-    <h2>1 &middot; The Original Visualization</h2>
-    <p><b>Source:</b> <a href="https://ourworldindata.org/grapher/life-expectancy">Our World in Data — "Life expectancy"</a>, shown in <b>Bar</b> mode for 2023 (the grapher also offers Line/Map/Table and a 1770&ndash;2023 time slider; country data 1950&ndash;2023, selected long-run estimates from 1543).</p>
-    <p><b>Data:</b> period life expectancy at birth (years) for World, continents, and ~200 countries, compiled from Riley (2005), Zijdeman et&nbsp;al. (2015), Human Mortality Database (2024) and UN World Population Prospects (2024).</p>
-    <img class="orig" src="original-chart.png" alt="Original bar chart: Life expectancy 2023 (World and continents)"
-         onerror="this.outerHTML='<p style=&quot;color:#f472b6&quot;>Screenshot not found &mdash; please copy <code>original-chart.png</code> into this folder, or <a href=&quot;https://ourworldindata.org/grapher/life-expectancy&quot;>view the original chart here</a>.</p>'">
-    <p><b>Intended message:</b> where the world&rsquo;s regions stand on life expectancy today &mdash; Oceania and Europe near 79 years, Africa near 64 &mdash; and, via the play slider, how the ranking evolved since 1770. <b>Audience:</b> general public and students. <b>Tasks:</b> compare regions, read the ranking, and (if they press play) watch the evolution.</p>
-    <h3>Strengths</h3>
-    <ul>
-      <li>Honest, readable bars: zero baseline, direct value labels (Oceania 79.1 yrs, Africa 63.8 yrs), descending order — the 2023 ranking is visible at a glance.</li>
-      <li>Distinct colors per entity, clean minimal design, sources stated clearly.</li>
-      <li>On the source site, hovering gives exact values and the 1770&ndash;2023 slider can play the evolution year by year.</li>
-    </ul>
-    <h3>Weaknesses</h3>
-    <ul>
-      <li><b>Only continental averages:</b> each bar is a population-weighted mean &mdash; Asia&rsquo;s 74.6 merges Japan (&asymp;84 yrs) and Afghanistan (&asymp;66); the country-level stories the data supports are invisible.</li>
-      <li><b>A single-year snapshot discards time by default:</b> convergence, catch-up (China), and shocks (wars, COVID-19) only appear if you press play &mdash; and comparing two specific years from an animation relies on memory (animation &ne; comparison).</li>
-      <li><b>Flat entity list, no hierarchy:</b> the World average sits in the same list as continents; adding countries means searching a 200+ entry list one at a time &mdash; after which you leave the clean bar world and land in line-chart overplotting with repeating hues.</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>2 &middot; My Redesign — From One-Year Bars to a Focusable Country Explorer (D3.js v7)</h2>
-    <p>Same dataset, rebuilt for the country-level story: lines are <b>colored by continent</b>;
-    <b>hover a line</b> to keep it bright while everything else fades, with a tooltip showing its exact value and gain since 1950;
-    <b>hover/click a continent chip</b> to spotlight a whole region; <b>Top-N and search</b> manage the 200-country overplotting problem.
-    Full 1950&ndash;2023 trajectories replace the single-year snapshot; the World line stays as a dashed reference.</p>
-    <div id="controls"></div>
-    <div id="chart"></div>
-    <div id="tooltip"></div>
-    <p class="note">Note: end labels appear when &le;25 countries are shown (otherwise they collide); use hover/search for any country. Continent colors are mapped in-page from ISO country codes (OWID CSVs carry no Continent column); unrecognized economies land in gray &ldquo;Other&rdquo;.</p>
-  </section>
-
-  <section class="card">
-    <h2>3 &middot; What Improved</h2>
-    <ul>
-      <li><b>Continent color + group dimming</b> — hovering "Africa" keeps only African countries bright; regional gaps (e.g. Nigeria vs. South Africa) become visible without adding lines one by one.</li>
-      <li><b>Focus &amp; fade</b> — hovering China leaves it crisp and dims 200 lines to a ghost layer; the tooltip adds the number at the hovered year and its change since 1950.</li>
-      <li><b>Overplotting under control</b> — Top-10/20/50/All ranking plus instant search replace the flat 200-entry list.</li>
-    </ul>
-    <p class="note">Trade-offs: the Top-N cutoff is a choice, not a fact (switch to All anytime); with many lines shown, reading still relies on focus mode; continent aggregates are dropped in favor of countries plus a World reference.</p>
-  </section>
-
-  <p class="src"><b>Data &amp; references:</b> Riley (2005); Zijdeman et al. (2015); HMD (2024); UN WPP (2024), via Our World in Data, CC BY 4.0 &middot;
-  CSV: <a href="https://ourworldindata.org/grapher/life-expectancy.csv">life-expectancy.csv</a> (local copy in <code>../data/</code>) &middot;
-  Full critique: <a href="report.md">report.md</a></p>
-</main>
-
-<script>
-/* ---------- animated particle background ---------- */
-const cv = document.getElementById('bg'), cx = cv.getContext('2d');
-let W, H, P = [];
-function resize(){ W = cv.width = innerWidth; H = cv.height = innerHeight; }
-resize(); addEventListener('resize', resize);
-for (let i = 0; i < 50; i++) P.push({x:Math.random()*innerWidth, y:Math.random()*innerHeight,
-  vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4});
-(function tick(){
-  cx.clearRect(0,0,W,H);
-  for (const p of P){
-    p.x += p.vx; p.y += p.vy;
-    if (p.x<0||p.x>W) p.vx*=-1; if (p.y<0||p.y>H) p.vy*=-1;
-    cx.fillStyle='rgba(56,189,248,.5)'; cx.fillRect(p.x,p.y,1.6,1.6);
+if(typeof d3 === 'undefined'){
+  document.getElementById('chart').innerHTML='<p id="err">D3.js could not load. Check your internet connection or use a local D3 v7 file.</p>';
+}else{
+  const paths=['../data/life-expectancy.csv','life-expectancy.csv'];
+  const colors={'North America':'#1f77b4','South America':'#2ca02c','Europe':'#9467bd','Africa':'#d62728','Asia':'#ff7f0e','Oceania':'#17becf','Other':'#6b7280'};
+  const codeMap={};
+  const continentCodes={
+    'North America':'USA MEX CAN GTM HND CUB DOM HTI SLV NIC CRI PAN BLZ JAM TTO BHS BRB ATG DMA GRD LCA VCT KNA PRI BMU ABW CYM',
+    'South America':'BRA COL ARG PER VEN CHL ECU BOL PRY URY GUY SUR FLK GUF',
+    'Europe':'GBR FRA DEU ITA ESP PRT NLD BEL CHE AUT SWE NOR DNK FIN POL CZE GRC HUN UKR ROU BLR BGR SRB HRV BIH SVN SVK MKD ALB MLT EST LVA LTU ISL IRL LUX MDA RUS MNE',
+    'Africa':'NGA ETH EGY COD ZAF TZA KEN DZA UGA SDN SSD MAR AGO MOZ GHA MDG CMR CIV NER BFA MLI MWI ZMB SEN SOM TCD ZWE GIN RWA BEN BDI TUN LBY SLE LBR MRT GAB COG GNB GMB SWZ NAM BWA LSO GNQ ERI DJI CAF STP COM MUS SYC CPV TGO',
+    'Asia':'CHN JPN IND IDN PAK BGD PHL VNM THA MYS MMR KHM LAO SGP KOR PRK TWN HKG AFG NPL BTN LKA MDV ARM AZE GEO TUR IRN IRQ SAU YEM OMN ARE QAT KWT BHR ISR JOR LBN SYR PSE KAZ UZB TKM KGZ TJK MNG TLS BRN',
+    'Oceania':'AUS NZL PNG FJI SLB VUT WSM TON KIR TUV FSM MHL PLW NRU ASM COK PYF NCL GUM WLF TKL'
+  };
+  Object.entries(continentCodes).forEach(([continent,codes])=>codes.split(' ').forEach(code=>codeMap[code]=continent));
+  const chartRoot=d3.select('#chart');
+  const controls=d3.select('#controls');
+  const tooltip=d3.select('#tooltip');
+  let dataset=[];
+  function loadAt(i){
+    if(i>=paths.length){chartRoot.html('<p id="err">Could not load the CSV. Keep the full life-expectancy CSV in <code>data/life-expectancy.csv</code> and run the page through a local server, not by double-clicking the HTML file.</p>');return;}
+    d3.csv(paths[i]).then(drawApp).catch(()=>loadAt(i+1));
   }
-  for (let i=0;i<P.length;i++) for (let j=i+1;j<P.length;j++){
-    const dx=P[i].x-P[j].x, dy=P[i].y-P[j].y, d=Math.hypot(dx,dy);
-    if (d<110){ cx.strokeStyle=`rgba(244,114,182,${.14*(1-d/110)})`;
-      cx.beginPath(); cx.moveTo(P[i].x,P[i].y); cx.lineTo(P[j].x,P[j].y); cx.stroke(); }
-  }
-  requestAnimationFrame(tick);
-})();
-
-/* ---------- guard: is D3 available? ---------- */
-if (typeof d3 === "undefined") {
-  document.getElementById("chart").innerHTML =
-    "<p id='err'>D3.js failed to load from all CDNs (network blocked?). " +
-    "Save d3.v7.min.js next to this file and add &lt;script src=\"d3.v7.min.js\"&gt;&lt;/script&gt; above the other D3 script tags.</p>";
-} else {
-
-/* ---------- 1. Try CSV paths in order until one loads ---------- */
-const CSV_CANDIDATES = [
-  "../data/life-expectancy.csv",   // server run from repo root
-  "life-expectancy.csv"            // CSV copied next to this file
-];
-function showCSVError(){
-  document.getElementById("chart").innerHTML =
-    "<p id='err'>Could not load the CSV from any known path. Run <code>python -m http.server 8000</code> " +
-    "from the repo ROOT (stats401-labs), not from individual-project/, and keep the CSV in data/. " +
-    "Do not double-click index.html (file:// cannot read CSVs). The page needs the FULL data CSV (all ~200 countries), not the filtered 6-entity download.</p>";
-}
-function loadCSV(i){
-  if (i >= CSV_CANDIDATES.length) { showCSVError(); return; }
-  d3.csv(CSV_CANDIDATES[i]).then(main).catch(() => loadCSV(i + 1));
-}
-
-/* in-page ISO-3 -> continent mapping (OWID CSVs carry no Continent column) */
-const CONT = {};
-[["North America","USA MEX CAN GTM HND CUB DOM HTI SLV NIC CRI PAN BLZ JAM TTO BHS BRB ATG DMA GRD LCA VCT KNA PRI BMU ABW CYM VIR CUW SXM MAF MSR AIA GLP MTQ BES BLM GRL SPM"],
- ["South America","BRA COL ARG PER VEN CHL ECU BOL PRY URY GUY SUR FLK GUF"],
- ["Europe","GBR FRA DEU ITA ESP PRT NLD BEL CHE AUT SWE NOR DNK FIN POL CZE GRC HUN UKR ROU BLR BGR SRB HRV BIH SVN SVK MKD ALB MLT EST LVA LTU ISL IRL LUX MCO SMR AND LIE MDA RUS MNE GGY JEY IMN FRO VAT"],
- ["Africa","NGA ETH EGY DRC ZAF TZA KEN DZA UGA SDN SSD MAR AGO MOZ GHA MDG CMR CIV NER BFA MLI MWI ZMB SEN SOM TCD ZWE GIN RWA BEN BDI TUN LBY SLE LBR MRT GAB COG GNB GMB SWZ NAM BWA LSO GNQ ERI DJI CAF STP COM MUS SYC CPV TGO MYT REU ESH SHN"],
- ["Asia","CHN JPN IND IDN PAK BGD PHL VNM THA MYS MMR KHM LAO SGP KOR PRK TWN HKG AFG NPL BTN LKA MDV ARM AZE GEO TUR IRN IRQ SAU YEM OMN ARE QAT KWT BHR ISR JOR LBN SYR PSE CYP KAZ UZB TKM KGZ TJK MNG TLS BRN MAC"],
- ["Oceania","AUS NZL PNG FJI SLB VUT WSM TON KIR TUV FSM MHL PLW NRU ASM COK PYF NCL GUM WLF TKL"]]
-.forEach(([c, codes]) => codes.split(" ").forEach(cd => { if (cd) CONT[cd] = c; }));
-const CONT_COLORS = {"North America":"#1f77b4","South America":"#2ca02c","Europe":"#9467bd",
-                     "Africa":"#d62728","Asia":"#ff7f0e","Oceania":"#17becf","Other":"#6b7280"};
-const CONTINENTS = Object.keys(CONT_COLORS);
-
-function main(raw){
-  const valCol  = raw.columns[raw.columns.length - 1];  // "Life expectancy"
-
-  /* countries: entities with a real ISO-3 country code; World/continents/income groups use OWID_* or empty codes */
-  const countries = new Map();
-  raw.forEach(d => {
-    const code = (d.Code || "").trim();
-    if (!code || code.indexOf("OWID") === 0 || !d.Entity) return;
-    const cont = CONT[code] || "Other";
-    const v = +d[valCol];
-    if (!isFinite(v) || v <= 0) return;
-    if (!countries.has(d.Entity)) countries.set(d.Entity, { name: d.Entity, continent: cont, pts: [] });
-    countries.get(d.Entity).pts.push({ year: +d.Year, value: v });
-  });
-  countries.forEach(c => c.pts.sort((a, b) => a.year - b.year));
-  const list = [...countries.values()].filter(c => c.pts.length > 2);
-  const world = raw.find(d => d.Entity === "World");
-  const worldPts = [];
-  if (world) raw.filter(d => d.Entity === "World").forEach(d => worldPts.push({ year: +d.Year, value: +d[valCol] }));
-  worldPts.sort((a, b) => a.year - b.year);
-  const latestYear = d3.max(list, c => c.pts[c.pts.length - 1].year);
-
-  let topN = 10, contFilter = null, focus = null, pinned = null;
-
-  function displayed(){
-    let L = list;
-    if (contFilter) L = L.filter(c => c.continent === contFilter);
-    L = [...L].sort((a, b) => latestOf(b) - latestOf(a));
-    if (topN !== "all") L = L.slice(0, topN);
-    return L;
-  }
-  function latestOf(c){ const p = c.pts[c.pts.length - 1]; return p.year >= latestYear - 2 ? p.value : -1; }
-
-  /* ---------- 2. Scaffolding ---------- */
-  const W = 980, H = 480, M = { t: 24, r: 150, b: 38, l: 56 };
-  const svg = d3.select("#chart").append("svg")
-    .attr("width", W).attr("height", H).attr("viewBox", `0 0 ${W} ${H}`);
-  const x = d3.scaleLinear().domain([1950, latestYear]).range([M.l, W - M.r]);
-  const y = d3.scaleLinear().range([H - M.b, M.t]);
-  const line = d3.line().x(d => x(d.year)).y(d => y(d.value));
-
-  svg.append("g").attr("class", "axis x")
-    .attr("transform", `translate(0,${H - M.b})`)
-    .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(8));
-  const gY = svg.append("g").attr("class", "axis y").attr("transform", `translate(${M.l},0)`);
-  const gLines = svg.append("g");
-  const gWorld = svg.append("g");
-  const gLabels = svg.append("g");
-  const tip = d3.select("#tooltip");
-
-  function applyFocus(){
-    const f = pinned || focus;
-    gLines.selectAll("path.cline").transition().duration(160)
-      .style("opacity", d => !f ? 0.55 : (f.type === "country" ? (d.name === f.key ? 1 : 0.05)
-                                                        : (d.continent === f.key ? 0.9 : 0.05)))
-      .attr("stroke-width", d => (f && f.type === "country" && d.name === f.key) ? 2.8 : 1.3);
-    gLabels.selectAll("g.el").transition().duration(160)
-      .style("opacity", d => !f ? 1 : (f.type === "country" ? (d.name === f.key ? 1 : 0.1)
-                                                            : (d.continent === f.key ? 0.9 : 0.1)));
-    chipSel.classed("on", r => f && f.type === "continent" && r === f.key);
-  }
-
-  function showTip(e, d){
-    const [mx] = d3.pointer(e, svg.node());
-    const yr = Math.max(1950, Math.min(latestYear, Math.round(x.invert(mx))));
-    const pts = d.pts;
-    const i = d3.bisectCenter(pts.map(p => p.year), yr);
-    const p = pts[i];
-    const first = pts[0];
-    tip.style("display", "block")
-      .style("left", (e.pageX + 14) + "px").style("top", (e.pageY - 10) + "px")
-      .html(`<b>${d.name}</b> · ${d.continent}<br>${p.year}: <b>${p.value.toFixed(1)} yrs</b>` +
-            `<br>+${(p.value - first.value).toFixed(1)} yrs since ${first.year}`);
-  }
-
-  /* ---------- 3. Draw ---------- */
-  function draw(){
-    const disp = displayed();
-    const allPts = disp.flatMap(c => c.pts);
-    y.domain([Math.max(0, d3.min(allPts, p => p.value) - 3), d3.max(allPts, p => p.value) + 2]).nice();
-    gY.transition().duration(400).call(d3.axisLeft(y).ticks(6));
-
-    /* world reference (dashed) */
-    gWorld.selectAll("path").data(worldPts.length ? [worldPts] : []).join("path")
-      .attr("d", line).attr("fill", "none").attr("stroke", "#e2e8f0")
-      .attr("stroke-dasharray", "5,4").attr("opacity", .55).attr("stroke-width", 1.4);
-
-    /* visible lines */
-    const vis = gLines.selectAll("path.cline").data(disp, d => d.name).join("path")
-      .attr("class", "cline")
-      .attr("stroke", d => CONT_COLORS[d.continent] || "#999")
-      .attr("d", d => line(d.pts));
-    /* invisible fat hit-lines */
-    gLines.selectAll("path.hitline").data(disp, d => d.name).join("path")
-      .attr("class", "hitline")
-      .attr("d", d => line(d.pts))
-      .on("mousemove", (e, d) => showTip(e, d))
-      .on("mouseenter", (e, d) => { focus = { type: "country", key: d.name }; applyFocus(); })
-      .on("mouseleave", () => { tip.style("display", "none"); focus = null; applyFocus(); })
-      .on("click", (e, d) => { pinned = (pinned && pinned.key === d.name) ? null : { type: "country", key: d.name }; applyFocus(); });
-
-    /* end labels (only when few enough to be readable) */
-    const els = gLabels.selectAll("g.el").data(disp.length <= 25 ? disp : [], d => d.name).join("g")
-      .attr("class", "el")
-      .attr("transform", d => `translate(${x(latestYear) + 8},${y(latestOf(d) > 0 ? latestOf(d) : d.pts[d.pts.length-1].value)})`);
-    els.each(function(d){
-      const g = d3.select(this);
-      if (!g.select("text").size())
-        g.append("text").attr("font-size", 10).attr("fill", CONT_COLORS[d.continent] || "#999");
-      const last = d.pts[d.pts.length - 1];
-      g.select("text").text(`${d.name} ${last.value.toFixed(1)}`);
+  function drawApp(rows){
+    const valueKey=rows.columns.find(c=>/life expectancy/i.test(c))||rows.columns[rows.columns.length-1];
+    const grouped=new Map();
+    rows.forEach(r=>{
+      const code=(r.Code||'').trim(), name=r.Entity, year=+r.Year, value=+r[valueKey];
+      if(!code||code.startsWith('OWID')||!name||!Number.isFinite(year)||!Number.isFinite(value)||value<=0)return;
+      if(!grouped.has(name))grouped.set(name,{name,continent:codeMap[code]||'Other',points:[]});
+      grouped.get(name).points.push({year,value});
     });
-    applyFocus();
+    dataset=[...grouped.values()].filter(d=>d.points.length>2).map(d=>({...d,points:d.points.sort((a,b)=>a.year-b.year)}));
+    const worldRows=rows.filter(r=>r.Entity==='World').map(r=>({year:+r.Year,value:+r[valueKey]})).filter(d=>Number.isFinite(d.year)&&Number.isFinite(d.value)).sort((a,b)=>a.year-b.year);
+    const latestYear=d3.max(dataset,d=>d.points[d.points.length-1].year)||2023;
+    let topN=10, continent=null, selected=null;
+    controls.html('');
+    controls.append('b').text('Show: ');
+    const topButtons=controls.selectAll('span.topchip').data([10,20,50,'all']).enter().append('span').attr('class','chip').classed('on',d=>d===topN).text(d=>d==='all'?'All':'Top '+d).on('click',(event,d)=>{topN=d;topButtons.classed('on',v=>v===d);render();});
+    controls.append('b').text('  Continent: ');
+    const continentButtons=controls.selectAll('span.cchip').data(Object.keys(colors)).enter().append('span').attr('class','chip').style('border-color',d=>colors[d]).text(d=>d).on('click',(event,d)=>{continent=continent===d?null:d;continentButtons.classed('on',v=>v===continent);render();});
+    controls.append('b').text('  Find: ');
+    const search=controls.append('input').attr('placeholder','country name…').on('input',function(){selected=this.value.trim().toLowerCase();render();});
+    const width=980,height=480,margin={top:24,right:155,bottom:42,left:58};
+    const svg=chartRoot.append('svg').attr('viewBox',`0 0 ${width} ${height}`).attr('width','100%').attr('role','img').attr('aria-label','Life expectancy trajectories by country from 1950 onward');
+    const gx=svg.append('g').attr('transform',`translate(0,${height-margin.bottom})`),gy=svg.append('g').attr('transform',`translate(${margin.left},0)`),gWorld=svg.append('g'),gLines=svg.append('g'),gHits=svg.append('g'),gLabels=svg.append('g');
+    const x=d3.scaleLinear().domain([1950,latestYear]).range([margin.left,width-margin.right]);
+    const y=d3.scaleLinear().range([height-margin.bottom,margin.top]);
+    const line=d3.line().defined(p=>p.year>=1950).x(p=>x(p.year)).y(p=>y(p.value));
+    gx.call(d3.axisBottom(x).ticks(8).tickFormat(d3.format('d')));
+    function render(){
+      let shown=dataset.filter(d=>!continent||d.continent===continent).sort((a,b)=>(b.points[b.points.length-1].value||0)-(a.points[a.points.length-1].value||0));
+      if(topN!=='all')shown=shown.slice(0,topN);
+      const all=shown.flatMap(d=>d.points.filter(p=>p.year>=1950));
+      if(!all.length){gLines.selectAll('*').remove();gHits.selectAll('*').remove();gLabels.selectAll('*').remove();return;}
+      y.domain([Math.max(0,d3.min(all,d=>d.value)-3),d3.max(all,d=>d.value)+2]).nice();
+      gy.transition().duration(250).call(d3.axisLeft(y).ticks(6));
+      gWorld.selectAll('path').data(worldRows.length?[worldRows]:[]).join('path').attr('d',line).attr('fill','none').attr('stroke','#e2e8f0').attr('stroke-dasharray','5,4').attr('opacity',.7).attr('stroke-width',1.6);
+      gLines.selectAll('path').data(shown,d=>d.name).join('path').attr('d',d=>line(d.points)).attr('fill','none').attr('stroke',d=>colors[d.continent]||colors.Other).attr('stroke-width',d=>selected&&d.name.toLowerCase().includes(selected)?2.8:1.3).attr('opacity',d=>!selected||d.name.toLowerCase().includes(selected)?0.8:0.12);
+      gHits.selectAll('path').data(shown,d=>d.name).join('path').attr('d',d=>line(d.points)).attr('fill','none').attr('stroke','transparent').attr('stroke-width',12).style('cursor','pointer').on('mousemove',(event,d)=>{const [mx]=d3.pointer(event,svg.node());const year=Math.max(1950,Math.min(latestYear,Math.round(x.invert(mx))));const pts=d.points;let p=pts.reduce((best,item)=>Math.abs(item.year-year)<Math.abs(best.year-year)?item:best,pts[0]);tooltip.style('display','block').style('left',(event.pageX+12)+'px').style('top',(event.pageY-12)+'px').html(`<b>${d.name}</b> · ${d.continent}<br>${p.year}: <b>${p.value.toFixed(1)} years</b><br>Change since ${pts[0].year}: ${(p.value-pts[0].value>=0?'+':'')+(p.value-pts[0].value).toFixed(1)} years`);}).on('mouseleave',()=>tooltip.style('display','none')).on('click',(event,d)=>{search.property('value',d.name);selected=d.name.toLowerCase();render();});
+      gLabels.selectAll('text').data(shown.length<=20?shown:[],d=>d.name).join('text').attr('x',x(latestYear)+7).attr('y',d=>y(d.points[d.points.length-1].value)).attr('font-size',10).attr('fill',d=>colors[d.continent]||colors.Other).text(d=>`${d.name} ${d.points[d.points.length-1].value.toFixed(1)}`);
+    }
+    render();
   }
-
-  /* ---------- 4. Controls ---------- */
-  const controls = d3.select("#controls");
-  controls.append("b").text("Show: ");
-  const topSel = controls.selectAll("span.topchip").data([10, 20, 50, "all"]).enter().append("span")
-    .attr("class", "chip").text(d => d === "all" ? "All" : "Top " + d)
-    .classed("on", d => d === topN)
-    .on("click", (e, d) => { topN = d; topSel.classed("on", v => v === d); draw(); });
-
-  controls.append("b").text("   Continent: ");
-  const chipSel = controls.selectAll("span.cchip").data(CONTINENTS).enter().append("span")
-    .attr("class", "chip").text(d => d).style("border-color", d => CONT_COLORS[d])
-    .on("mouseenter", (e, d) => { focus = { type: "continent", key: d }; applyFocus(); })
-    .on("mouseleave", () => { focus = null; applyFocus(); })
-    .on("click", (e, d) => {
-      pinned = (pinned && pinned.key === d) ? null : { type: "continent", key: d };
-      contFilter = pinned ? pinned.key : null;
-      draw();
-    });
-
-  controls.append("b").text("   Find: ");
-  const input = controls.append("input").attr("placeholder", "country name…");
-  input.on("change", function(){
-    const q = this.value.trim().toLowerCase();
-    const hit = list.find(c => c.name.toLowerCase().includes(q));
-    if (hit) { pinned = { type: "country", key: hit.name }; applyFocus(); }
-  });
-
-  draw();
+  loadAt(0);
 }
-
-loadCSV(0);
-}
-</script>
-</body>
-</html>
+</script> </body> </html> &#x20;

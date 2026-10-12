@@ -1,33 +1,37 @@
-# Visualization Critique and Redesign Report
+# Visualization Critique and Redesign: Life Expectancy
 
-**Original visualization:** "Life expectancy", Our World in Data — https://ourworldindata.org/grapher/life-expectancy
-**Data:** Riley (2005); Zijdeman et al. (2015); Human Mortality Database (2024); UN World Population Prospects (2024) — period life expectancy at birth, World/continents/~200 countries, CC BY 4.0 (CSV: `data/life-expectancy.csv`)
-**Live redesign:** https://rosasun51.github.io/stats401-labs/individual-project/
+## Original visualization and context
 
-## 1. Original visualization and context
+The original visualization is Our World in Data’s “Life expectancy” bar chart, showing period life expectancy at birth for six entities in 2023: Oceania (79.1 years), Europe (79.1), the Americas (77.3), Asia (74.6), the World (73.2), and Africa (63.8). Its primary purpose is to let a general audience compare life expectancy across world regions. The interactive time slider provides an additional way to explore how these differences changed historically. The main tasks are to compare regional values, identify the highest and lowest regions, and explore historical changes. The data are available through Our World in Data’s life-expectancy grapher.
 
-The original is a **line chart** of period life expectancy at birth. Its default view shows six lines — World plus five continents — over 1543–2023, built from country-level data for roughly 200 countries. **Intended message:** life expectancy has roughly doubled since 1900, with persistent gaps between world regions. **Audience:** the general public and students. **Tasks:** compare places over time, see trends and convergence, and locate outliers.
+## Critique
 
-## 2. Critique
+**Strengths.** First, bars, direct value labels, and descending order make the 2023 ranking easy to read. Second, the design is relatively uncluttered, and the title and source information support clarity and transparency. Third, the interactive time slider and alternative Line, Map, and Table views give users additional ways to explore the data.
 
-**Strengths.** (1) The data are exceptional: long-run estimates back to 1543 on honest, zero-based axes — rare depth for a public chart. (2) The default view is clean and readable: six well-chosen lines, distinct colors, direct end labels — the headline story lands immediately. (3) On the source site, hovering pops up exact values for any point.
+**Weaknesses.** First, the default chart shows only regional averages, hiding substantial variation among countries in the same region. For example, Asia’s average does not show the differences between countries such as Japan and Afghanistan. A country-level view would reveal this variation.
 
-**Weaknesses.** (1) *The default view aggregates away the country level*, where the real stories live: the "Asia" line averages Japan (≈84 years) and Afghanistan (≈62); the "Africa" line hides a 20-year spread between countries. Viewers see convergence of continental averages, not the inequality and catch-up stories inside them. (2) *The path from the clean default to countries is broken.* Countries must be added from a 200+ entry flat list, one at a time; past a handful of lines, overplotting begins, and the 20-color categorical cycle repeats hues, so added lines become untrackable. (3) *No focus or grouping aids exist.* Every entity has identical visual weight; there are no end labels once countries are added; and quantitative deltas ("how many years did China gain since 1950?") must be estimated by eye against a distant baseline.
+Second, the default view is a snapshot of 2023. Although the time slider can animate historical changes, animation is less effective for precise comparisons between two specific years because viewers must rely on memory. A static time-series view makes long-term trends easier to compare directly.
 
-## 3. Redesign rationale
+Third, the chart is optimized for a small set of regional comparisons. Comparing many countries can become difficult to interpret when users select numerous entities or view many lines. Ranking controls, search, and highlighting could make country-level exploration more manageable.
 
-I kept the chart type and the data, and rebuilt it as an interactive, focusable country explorer in D3.js (v7), loading the same CSV with `d3.csv`.
+## Redesign rationale
 
-*Decision 1 — color encodes continent, and the legend is a live filter.* Every country line is colored by its continent, and the legend is a row of continent chips: hovering a chip brightens that continent's countries and fades everything else; clicking pins that view. This fixes weaknesses 1 and 2 together: regional gaps (Nigeria vs. South Africa, Japan vs. Afghanistan) become visible *without* the flat hunting-list, and hue repetition stops mattering because color now carries continent, not identity.
+I redesigned the visualization as a D3.js country-level line explorer using the Our World in Data life-expectancy dataset. Countries are represented as trajectories on a shared time axis from 1950 to the latest available year, colored by continent. A dashed World line provides a reference. The design includes Top 10, Top 20, Top 50, and All options, continent controls, country search, and hover highlighting with a tooltip.
 
-*Decision 2 — hover to focus, with a quantitative tooltip.* Hovering a line (through a fat invisible hit-stroke so thin lines are easy to grab) keeps that country crisp, fades the other 200 lines to a ghost layer, and pops up a box with its value at the hovered year and its change since its first data year. This fixes weakness 3: exact numbers and deltas appear at the pointer, and comparison against the dashed World reference line is immediate.
+**Decision 1: Show country-level trajectories and group them by continent.** Country-level lines reveal variation within regions and allow users to compare individual countries. Continent colors provide a meaningful grouping. The trade-off is that lines are less immediately readable than six bars, especially when many countries are displayed.
 
-*Decision 3 — ranked subsets plus search instead of overplotting.* A Top-10/20/50/All switch (ranked by latest value) sets a readable default, and an instant search box jumps to any country. End labels are drawn automatically when at most 25 countries are shown. This manages the 200-series problem honestly: the full dataset is one click away, but nobody is shown spaghetti by default or by accident.
+**Decision 2: Show historical trajectories directly.** The line chart presents changes over time in one view rather than requiring users to play an animation. The tooltip reports the value at the selected year and the change since the country’s first available year. Countries may have different starting years, so this change does not necessarily represent change since 1950 for every country.
 
-## 4. Original vs. redesign
+**Decision 3: Add ranking, search, and focus controls.** Top-N options reduce the number of visible lines, continent controls help users focus on a region, and search makes a country easier to locate. Hover highlighting fades other lines to reduce visual competition. Showing all countries can still produce clutter, and Top-N rankings depend on the latest available values.
 
-The redesign preserves what the original does well — long-run data, honest scales, exact values on hover — while making the country level reachable: continental gaps appear on a continent hover, single-country stories through focus-and-fade, and any country by search. Trade-offs: the Top-N cutoff is a choice rather than a fact; with many lines displayed, reading still depends on focus mode; and the continent aggregates were dropped in favor of countries plus a World reference line, since aggregates were the original's main weakness.
+## Original versus redesign
 
-**Figures.** Figure 1 — original chart (screenshot from the OWID page linked above). Figure 2 — the redesigned explorer (live on the course GitHub Pages site).
+The original chart is more effective for a quick comparison of six regional values in 2023. The redesign is more effective for exploring country-level differences and historical trajectories. The two views serve different purposes: the original prioritizes a concise overview, while the redesign prioritizes detailed exploration. Remaining limitations include possible overplotting, dependence on accurate continent-code mapping, and differences in country data coverage over time.
 
-**References.** "Life expectancy." Our World in Data. https://ourworldindata.org/grapher/life-expectancy (data: Riley 2005; Zijdeman et al. 2015; HMD 2024; UN WPP 2024; CC BY 4.0).
+## Figures and references
+
+**Figure 1.** Original visualization: “Life expectancy,” Our World in Data, Bar view for 2023. https://ourworldindata.org/grapher/life-expectancy
+
+**Figure 2.** Redesigned D3.js country-level line explorer. Insert a screenshot of the working redesign.
+
+**Data source.** Our World in Data, “Life expectancy” grapher and downloadable dataset: https://ourworldindata.org/grapher/life-expectancy. The source page lists underlying sources and attribution; check its current metadata for the exact dataset version used in the final submission.
