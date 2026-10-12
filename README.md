@@ -3,7 +3,7 @@
 Welcome to my **STATS 401: Data Acquisition and Visualization** portfolio. 
 ---
 
-## 🚀 What's Inside?
+## 🚀 What's Inside!
 
 10 labs. 1 website. Infinite particle backgrounds.
 
