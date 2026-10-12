@@ -1,6 +1,6 @@
 # 🌌 STATS 401 Labs — A Data Visualization Odyssey
 
-Welcome to my **STATS 401: Data Acquisition and Visualization** portfolio. This is not just a collection of homework assignments. It is a journey from "what is HTML?" to "let me animate a temporal network." 
+Welcome to my **STATS 401: Data Acquisition and Visualization** portfolio. 
 ---
 
 ## 🚀 What's Inside?
@@ -34,8 +34,8 @@ stats401-labs/
 | **Lab 6** | Hierarchical Data | ✅ Complete | Two treemaps (Squarify vs Binary), GDP hierarchy |
 | **Lab 7** | Temporal Visualization | ✅ Complete | Weather line chart + animated temporal network |
 | **Lab 8** | Web Text Data and Visualization | ✅ Complete | Topic × Bulletin Section matrix, interactive semantic embedding map with D3 |
-| **Lab 9** | *Coming soon* | 🚧 Placeholder | TBD |
-| **Lab 10** | *Coming soon* | 🚧 Placeholder | TBD |
+| **Lab 9** | Geospatial Visualization with D3 | 🚧 Placeholder | ✅ Complete |
+| **Lab 10** | Novel Interaction with Visualizations | 🚧 Placeholder | ✅ Complete |
 
 ---
 
